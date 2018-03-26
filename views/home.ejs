@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-      h1 {
-        color: red;
-      }
-    </style>
-  </head>
-  <body background="./public/images/oldyoung.jpg">
-    <div class="container">
-      <h1>Bunji</h1>
-    </div>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    <body>
+        <div class="no-padding" id="landing-page">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
-  </body>
+            <div class="landing-page centered">
+                <h1 class="fade-in">Bunji</h1>
+                <h3 class="fade-in">It's never too old to learn.</h3>
+
+                <!-- Countdown -->
+                <div class="fade-in" id="countdown">
+                    <div>
+                        <span class="days"></span>
+                        <div class="caption">Days</div>
+                    </div>
+                    <div>
+                        <span class="hours"></span>
+                        <div class="caption">Hours</div>
+                    </div>
+                    <div>
+                        <span class="minutes"></span>
+                        <div class="caption">Minutes</div>
+                    </div>
+                    <div>
+                        <span class="seconds"></span>
+                        <div class="caption">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
 </html>
