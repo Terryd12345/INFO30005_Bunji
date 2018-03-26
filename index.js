@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
+const router = require('./routes/routes');
 
-app.get('/', (req, res) => {
-  res.render("home.ejs");
-});
+app.set('view engine', 'ejs');
+app.use(router);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
