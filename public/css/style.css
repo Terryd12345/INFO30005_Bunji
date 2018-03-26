@@ -55,13 +55,15 @@
 }
 
 #landing-page h1 {
-    font-family: sans-serif;
+    color: #cccccc;
+    font-family: 'Abril Fatface', cursive;
     font-size: 8rem;
     margin-bottom: 20px;
 }
 
 #landing-page h3 {
-    font-family: sans-serif;
+    color: #cccccc;
+    font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
     margin-bottom: 20px;
 }
