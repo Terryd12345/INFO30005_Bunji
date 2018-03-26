@@ -5,7 +5,7 @@ const passport = require('passport');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send("<h1>Welcome to Bunji</h1>");
+  res.render("home.ejs");
 });
 
 const PORT = process.env.PORT || 5000;
