@@ -70,9 +70,10 @@
 
 #team {
     bottom: 0;
-    font-family: sans-serif;
-    font-size: 1rem;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 0.7rem;
     padding-right: 15px;
     position: absolute;
     right: 0;
+    opacity: 0.35;
 }
