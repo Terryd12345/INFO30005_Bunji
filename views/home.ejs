@@ -2,11 +2,16 @@
 <html lang="en">
     <head><% include partials/template/head.ejs %></head>
     <body>
-        <div class="no-padding" id="landing-page">
+        <div id="landing-page">
 
-            <div class="landing-page centered">
+            <div class="overlay centered">
                 <h1 class="fade-in">Bunji</h1>
                 <h3 class="fade-in">It's never too late to learn.</h3>
+
+                <!-- Description -->
+                <div class="fade-in" id="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
 
                 <!-- Countdown -->
                 <div class="fade-in" id="countdown">
@@ -18,6 +23,7 @@
                         <span class="hours"></span>
                         <div class="caption">Hours</div>
                     </div>
+                    <br class="break">
                     <div>
                         <span class="minutes"></span>
                         <div class="caption">Minutes</div>
@@ -30,8 +36,8 @@
             </div>
 
             <!-- Team -->
-            <div id="team">
-                <p>Made by: Omja Das, Terence Denning, Brigita Tunru</p>
+            <div class="fade-in" id="team">
+                <p>Made by Omja Das, Terence Denning, Brigita Tunru</p>
             </div>
 
         </div>
