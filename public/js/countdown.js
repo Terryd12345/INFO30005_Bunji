@@ -29,9 +29,9 @@ function startCountdown(id, endTime) {
         var t = getTimeLeft(endTime);
         
         days.innerHTML = t.days;
-        hours.innerHTML = ("" + t.hours);
-        minutes.innerHTML = ("" + t.minutes);
-        seconds.innerHTML = ("" + t.seconds);
+        hours.innerHTML = ("0" + t.hours).slice(-2);
+        minutes.innerHTML = ("0" + t.minutes).slice(-2);
+        seconds.innerHTML = ("0" + t.seconds).slice(-2);
         
         if (t.total <= 0) {
             clearInterval(interval);
