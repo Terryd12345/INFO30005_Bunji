@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head><%= include partials/template/head.ejs %></head>
+    <head><% include partials/template/head.ejs %></head>
     <body>
         <div id="landing-page">
 
@@ -9,16 +9,12 @@
                 <h1 class="fade-in">Bunji</h1>
                 <h3 class="fade-in">It's never too late to learn.</h3>
 
-<<<<<<< HEAD
-
-=======
                 <!-- Description -->
                 <div class="fade-in" id="description">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
 
                 <!-- Countdown -->
->>>>>>> ac162cd6f7632bd6ad60e55ea26941d4b9596306
                 <div class="fade-in" id="countdown">
                     <div>
                         <span class="days"></span>
@@ -40,21 +36,15 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-
-            <div id="team">
-                <p>Made by: Omja Das, Terence Denning, Brigita Tunru</p>
-=======
             <!-- Team -->
             <div class="fade-in" id="team">
                 <p>Made by Omja Das, Terence Denning, Brigita Tunru</p>
->>>>>>> ac162cd6f7632bd6ad60e55ea26941d4b9596306
             </div>
 
         </div>
 
-        <footer><%= include partials/template/footer.ejs %></footer>
+        <footer><% include partials/template/footer.ejs %></footer>
 
-        <%= include partials/template/jsdefaults.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
     </body>
 </html>
