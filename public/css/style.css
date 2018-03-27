@@ -51,6 +51,9 @@
     font-size: 1rem;
     padding: 0 150px 0 150px;
     margin-bottom: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #landing-page {
@@ -99,24 +102,24 @@
     #countdown > div span {
         font-size: 1.3em;
     }
-    
+
     #countdown > div div {
         font-size: 0.7rem;
     }
-    
+
     #description {
         font-size: 0.9rem;
         padding: 0 40px 0 40px;
     }
-    
+
     #landing-page h1 {
         font-size: 5.3rem;
     }
-    
+
     #landing-page h3 {
         font-size: 1.3rem;
     }
-    
+
     #team {
         font-size: 0.7rem;
     }
@@ -126,7 +129,7 @@
     #description {
         font-size: 0.8rem;
     }
-    
+
     #landing-page h1 {
         font-size: 4rem;
     }
