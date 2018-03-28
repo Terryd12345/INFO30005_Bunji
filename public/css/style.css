@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
-@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Lato:300i,400);
 
 .centered {
     display: flex;
@@ -49,11 +49,12 @@
     color: #ccc;
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
-    padding: 0 150px 0 150px;
+    font-style: italic;
+    font-weight: 300;
     margin-bottom: 5px;
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
+    width: 25%;
 }
 
 #landing-page {
@@ -93,9 +94,9 @@
     opacity: 0.35;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
     #description {
-        padding: 0 60px 0 60px;
+        width: 50%;
     }
 }
 
@@ -110,7 +111,7 @@
 
     #description {
         font-size: 0.9rem;
-        padding: 0 40px 0 40px;
+        width: 75%;
     }
 
     #landing-page h1 {
