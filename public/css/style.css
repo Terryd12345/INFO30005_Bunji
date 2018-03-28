@@ -58,6 +58,7 @@
 
 #landing-page {
     background: url("images/background.jpg");
+    background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
