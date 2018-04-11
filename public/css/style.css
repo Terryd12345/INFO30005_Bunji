@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Lato:300i,400);
+
+.centered {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.overlay {
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.5);
+    height: 100%;
+}
+
+#countdown {
+    color: #fff;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+}
+
+#countdown > div {
+    /* background-color: #00bf96; */
+    background-color: rgb(31, 153, 164);
+    border-radius: 3px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+}
+
+#countdown > div span {
+    /* background-color: #00816a; */
+    background-color: rgb(12, 95, 105);
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 2rem;
+    padding: 15px;
+    width: 70px;
+}
+
+#countdown > div div {
+    font-size: 1rem;
+    padding-top: 5px;
+}
+
+#description {
+    color: #ccc;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+#landing-page {
+    background: url("images/background.jpg");
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    padding: 0 0 0 0;
+    width: 100vw;
+}
+
+#landing-page h1 {
+    color: #ccc;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 8rem;
+    margin-bottom: 10px;
+}
+
+#landing-page h3 {
+    color: #ccc;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#team {
+    bottom: 0;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 0.8rem;
+    padding-right: 15px;
+    position: absolute;
+    right: 0;
+    opacity: 0.35;
+}
+
+@media (max-width: 1000px) {
+    #description {
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    #countdown > div span {
+        font-size: 1.3em;
+    }
+
+    #countdown > div div {
+        font-size: 0.7rem;
+    }
+
+    #description {
+        font-size: 0.9rem;
+        width: 75%;
+    }
+
+    #landing-page h1 {
+        font-size: 5.3rem;
+    }
+
+    #landing-page h3 {
+        font-size: 1.3rem;
+    }
+
+    #team {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 350px) {
+    #description {
+        font-size: 0.8rem;
+    }
+
+    #landing-page h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 501px) {
+    .break {
+        display: none;
+    }
+}
