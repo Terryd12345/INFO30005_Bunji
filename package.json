@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run start\" \"npm run client\""
+    "dev": "concurrently \"nodemon\" \"npm run client\""
   },
   "author": "Bunji",
   "license": "ISC",

@@ -4,19 +4,56 @@
     <meta charset="utf-8">
     <title>Bunji</title>
     <style media="screen">
-      body {
+      .grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: minmax(250px, auto);
+        grid-gap: 30px;
+        margin-top: 150px;
       }
+      .grid div {
+        box-shadow: 10px 10px 5px #aaaaaa;
+        width: 75%;
+      }
+
+      .title {
+        text-align: center;
+      }
+      .fb {
+        background-color: #00008B;
+      }
+      .twitter {
+        background-color: #00FFFF;
+      }
+      .instagram {
+        background-color: #8B008B;
+      }
+      .linkedin {
+        background-color: #00CED1;
+      }
+      .tablet {
+        background-color: #228B22;
+      }
+      .iphone {
+        background-color: 	#FFD700;
+      }
+      .option:hover {
+        background-color: #708090;
+      }
+
     </style>
   </head>
   <body>
-    <div>FaceBook</div>
-    <div>Twitter</div>
-    <div>Instagram</div>
-    <div>LinkedIn</div>
-    <div>Tablet</div>
-    <div>iPhone</div>
+    <h1>HEADER</h1>
+    <h1 class="title">Pick what you want to learn:</h1>
+    <hr>
+    <div class="grid">
+      <div class='option fb'>FaceBook</div>
+      <div class='option twitter'>Twitter</div>
+      <div class='option instagram'>Instagram</div>
+      <div class='option linkedin'>LinkedIn</div>
+      <div class='option tablet'>Tablet</div>
+      <div class='option iphone'>iPhone</div>
+    </div>
   </body>
 </html>
