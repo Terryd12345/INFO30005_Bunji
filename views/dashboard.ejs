@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <style media="screen">
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(200px, auto);
+      }
+      .grid div{
+        border: 1px solid black;
+      }
+      .profile {
+        grid-column: 1/3;
+        grid-row: 1/3;
+      }
+      .skills {
+        grid-column: 3/4;
+        grid-row: 1/3;
+      }
+      .relationships {
+        grid-column: 1/4;
+        grid-row: 3/5;
+      }
+      .recommendations {
+        grid-column: 1/4;
+        grid-row: 5/7;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><a href="/">Home(logo)</a></h1>
+    <div class='grid'>
+      <div class='profile'>Profile</div>
+      <div class='skills'>Skills</div>
+      <div class='relationships'>Relationships</div>
+      <div class='recommendations'>Recommended</div>
+    </div>
+  </body>
+</html>
