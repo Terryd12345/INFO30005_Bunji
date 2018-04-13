@@ -11,6 +11,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+p {
+    line-height: 25px;
+}
+
 .centered {
     display: flex;
     height: 100%;
@@ -105,11 +109,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #59BAA3;
 }
 
-#select-skills {
+#select-skills-btn {
     margin: 50px auto 24px auto;
 }
 
-#find-mentor {
+#find-mentor-btn,
+#profile-btn {
     margin: 0 auto 20px auto;
 }
 
@@ -180,7 +185,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ============================================= findMentor.ejs ============================================= */
 .mentor-content {
-    margin: 0 auto;
     padding: 8px;
 }
 
@@ -294,3 +298,96 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================= profile.ejs ============================================= */
+.profile-content {
+    padding: 8px;
+}
+
+.profile-panel {
+    padding: 20px 40px 40px 40px;
+    background-color: #ccc;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+    grid-template-areas: "button"
+                         "picture"
+                         "bio"
+                         "description";
+}
+
+.profile-button {
+    text-align: right;
+    grid-area: button;
+}
+
+.profile-pic img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+    grid-area: picture;
+}
+
+.profile-bio {
+    text-align: center;
+    grid-area: bio;
+}
+
+.profile-bio h1 {
+    font-size: 2rem;
+}
+
+.profile-bio h3 {
+    font-size: 1.5rem;
+}
+
+.profile-bio h5 {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.profile-desc {
+    text-align: center;
+    grid-area: description;
+}
+
+.profile-desc p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#profile {
+    width: 50vw;
+}
+
+@media (max-width: 800px) {
+    .profile-panel {
+        padding: 20px 40px 40px 40px;
+        background-color: #ccc;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        grid-template-areas: "picture"
+                             "bio"
+                             "button"
+                             "description";
+    }
+    
+    .profile-button {
+        text-align: center;
+    }
+    
+    .profile-bio h1 {
+        font-size: 1.5rem;
+    }
+    
+    .profile-bio h3 {
+        font-size: 1.3rem;
+    }
+    
+    #profile {
+        width: 85vw;
+    }
+    
+    #profile-btn {
+        margin: 0 auto;
+    }
+}
