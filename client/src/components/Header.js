@@ -4,7 +4,12 @@ export default class Header extends Component {
 
   render() {
     return (
-      <h1>Header</h1>
+      <div className="header">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/skills">Skills</a>
+        <a href="/mentors">Mentors</a>
+      </div>
     );
   }
 }
