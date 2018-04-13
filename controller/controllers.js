@@ -2,7 +2,7 @@ module.exports.getHome = (req, res) => {
   res.render("home");
 };
 
-module.exports.getSkills = (req, res) => {
+module.exports.getSelectSkills = (req, res) => {
   res.render("selectSkills");
 };
 
