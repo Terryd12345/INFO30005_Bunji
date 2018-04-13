@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/template/head.ejs %>
+    </head>
+    <body>
+        <% include partials/template/header.ejs %>
+
+        <div class="wrapper">
+            <header class="header">We found 3 mentors for you!</header>
+
+            <article class="mentor-content">
+                <div class="mentor-panel">
+                    <div class="mentor-pic" id="mp1">
+                        <img src="images/user.png">
+                    </div>
+                    <div class="mentor-desc" id="md1">
+                        <h1>John Doe</h1>
+                        <h3>20 / Male / Melbourne</h3>
+                        <h5>Skills: Facebook, Twitter</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mentor-panel">
+                    <div class="mentor-pic" id="mp2">
+                        <img src="images/user.png">
+                    </div>
+                    <div class="mentor-desc" id="md2">
+                        <h1>Jane Doe</h1>
+                        <h3>21 / Female / Melbourne</h3>
+                        <h5>Skills: Facebook, Instagram</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mentor-panel">
+                    <div class="mentor-pic" id="mp3">
+                        <img src="images/user.png">
+                    </div>
+                    <div class="mentor-desc" id="md3">
+                        <h1>Jon Doe</h1>
+                        <h3>18 / Male / Melbourne</h3>
+                        <h5>Skills: Facebook, LinkedIn</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <a href="#"><button class="button" id="find-mentor">Confirm</button></a>
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

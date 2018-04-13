@@ -6,8 +6,8 @@ module.exports.getSelectSkills = (req, res) => {
   res.render("selectSkills");
 };
 
-module.exports.getFindMentors = (req, res) => {
-  res.render("findMentors");
+module.exports.getFindMentor = (req, res) => {
+  res.render("findMentor");
 };
 
 module.exports.getDashboard = (req, res) => {

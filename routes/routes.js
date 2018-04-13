@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', controllers.getHome);
 router.get('/select-skills', controllers.getSelectSkills);
-router.get('/find-mentors', controllers.getFindMentors);
+router.get('/find-mentor', controllers.getFindMentor);
 router.get('/dashboard', controllers.getDashboard);
 router.get('/profile', controllers.getProfile);
 
