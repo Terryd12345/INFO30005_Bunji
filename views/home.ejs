@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include partials/template/head.ejs %>
+        <style media="screen">
+            .homeBtn {
+                display: inline-block;
+                width: 130px;
+                height: 50px;
+                margin: 0 auto;
+                padding: auto;
+                background-color: #59BAA3;
+                border-color: #59BAA3;
+                border-radius: 8px;
+                color: #fff;
+                font-family: 'Lato', sans-serif;
+                font-size: 1.1rem;
+                font-weight: 300;
+                text-align: center;
+                text-decoration: none;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+
+            .homeBtn:hover {
+                background-color: #fff;
+                color: #59BAA3;
+            }
+
+            #countdown {
+                margin-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="landing-page">
+
+            <div class="overlay centered">
+                <h1 class="fade-in">Bunji</h1>
+                <h3 class="fade-in">It's never too late to learn.</h3>
+
+                <!-- Description -->
+                <div class="fade-in" id="description">
+                    <p>Bunji is a social platform that connects older adults with talented younger adults who have plenty of skills to share.</p>
+                </div>
+
+                <a href="skills"><button class="homeBtn">Get Started!</button></a>
+
+                <!-- Countdown
+                <div class="fade-in" id="countdown">
+                    <div>
+                        <span class="days"></span>
+                        <div class="caption">Days</div>
+                    </div>
+                    <div>
+                        <span class="hours"></span>
+                        <div class="caption">Hours</div>
+                    </div>
+                    <br class="break">
+                    <div>
+                        <span class="minutes"></span>
+                        <div class="caption">Minutes</div>
+                    </div>
+                    <div>
+                        <span class="seconds"></span>
+                        <div class="caption">Seconds</div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+
+
+            <!-- Team -->
+            <div class="fade-in" id="team">
+                <p>Made by Omja Das, Terence Denning, Brigita Tunru</p>
+            </div>
+
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Find Mentors</title>
+    <style media="screen">
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap: 15px;
+            grid-row-gap: 50px;
+            margin-top: 50px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .mentorData {
+            grid-column: 2/10;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap: 15px;
+            grid-row-gap: 50px;
+
+            background-color: #ccc;
+            padding: 20px 0;
+        }
+
+        .mentorData1 {
+            grid-row: 1/3;
+        }
+
+        .mentorData2 {
+            grid-row: 3/5;
+        }
+
+        .mentorData3 {
+            grid-row: 5/7;
+        }
+
+        .mentorPic {
+            grid-column: 2/5;
+        }
+
+        .mentorPic img {
+            width: 225px;
+            height: 225px;
+            border-radius: 50%;
+        }
+
+        .mentorDesc {
+            grid-column: 5/12;
+            margin-left: 25px;
+        }
+
+        .confirmBtn {
+            margin-top: 150px;
+            margin-bottom: 150px;
+            text-align: center;
+        }
+
+        button {
+            width: 400px;
+            height: 75px;
+            font-size: 20px;
+        }
+
+        h1, h4 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h1><a href="/">Home(logo)</a></h1>
+<h1 class="title">Select mentors:</h1>
+<hr>
+<div class="grid">
+    <div class="mentorData mentorData1">
+        <div class="mentorPic">
+            <img src="images/male.png">
+        </div>
+
+        <div class="mentorDesc">
+            <h1>John Doe</h1>
+            <h4>20 / Male / Melbourne</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+
+    <div class="mentorData mentorData2">
+        <div class="mentorPic">
+            <img src="images/female.png">
+        </div>
+
+        <div class="mentorDesc">
+            <h1>Jane Doe</h1>
+            <h4>20 / Male / Melbourne</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+
+    <div class="mentorData mentorData3">
+        <div class="mentorPic">
+            <img src="images/male.png">
+        </div>
+
+        <div class="mentorDesc">
+            <h1>Jon Doe</h1>
+            <h4>21 / Female / Melbourne</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+</div>
+<div class='confirmBtn'>
+    <a href="#"><button type="button" name="button">Confirm</button></a>
+</div>
+</body>
+</html>
