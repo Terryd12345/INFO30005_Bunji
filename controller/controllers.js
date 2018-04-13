@@ -11,5 +11,9 @@ module.exports.getFindMentors = (req, res) => {
 };
 
 module.exports.getDashboard = (req, res) => {
-  res.render('dashboard');
+  res.render("dashboard");
+};
+
+module.exports.getProfile = (req, res) => {
+  res.render("profile");
 };
