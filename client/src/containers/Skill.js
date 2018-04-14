@@ -19,7 +19,9 @@ class Skill extends Component {
   render() {
     return (
       <div className="skill">
-        <h4>Skill Here</h4>
+      <div className="skills-panel centered">
+          Facebook
+      </div>
       </div>
     );
   }
