@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Skill extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = { isSelected: false };
     }
 
-    onSelected(event){
-        if(this.state.isSelected === false){
-          this.setState({ isSelected: true });
+    onSelected(event) {
+        if(this.state.isSelected === false) {
+            this.setState({ isSelected: true });
         } else {
-          this.setState({ isSelected: false });
+            this.setState({ isSelected: false });
         }
-    }  
-
-  render() {
-    return (
-      <div className="skill">
-      <div className="skills-panel centered">
-          Facebook
-      </div>
-      </div>
-    );
-  }
+    }
+    
+    render() {
+        return (
+            <div className="skills-panel centered">
+                Skill
+            </div>
+        );
+    }
 }
 
 export default Skill;
