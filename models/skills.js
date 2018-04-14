@@ -1,5 +1,5 @@
 
-module.exports.skills = {
+module.exports.skills = [
   {
     name: "facebook"
   },
@@ -12,4 +12,4 @@ module.exports.skills = {
   {
     name: "programming"
   }
-};
+];
