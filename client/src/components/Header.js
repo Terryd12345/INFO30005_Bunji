@@ -6,6 +6,7 @@ export default class Header extends Component {
             <div className="navbar">
                 <ul>
                     <li id="logo"><a href="/">Bunji</a></li>
+                    <li><a href="/relationships">Relationships</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/find-mentor">Find Mentor</a></li>

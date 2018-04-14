@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import UserSelection from "./UserSelection";
 import Dashboard from "./Dashboard";
 import Profile from "./Profile";
+import Relationships from "./Relationships";
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
                         <Header />
                         <div className="content">
                             <Route exact path="/" component={ Home } />
+                            <Route exact path="/relationships" component={ Relationships } />
                             <Route exact path="/select-skills" component={ Skills } />
                             <Route exact path="/find-mentor" component={ UserSelection } />
                             <Route exact path="/dashboard" component={ Dashboard } />
