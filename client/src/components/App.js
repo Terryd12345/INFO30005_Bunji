@@ -7,7 +7,6 @@ import UserSelection from './UserSelection';
 import Home from './Home';
 
 const Skills = () => <h2>Skills</h2>
-const Landing = () => <h2>Home</h2>
 
 class App extends Component {
   render() {
