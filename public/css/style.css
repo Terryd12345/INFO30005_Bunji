@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
-@import url(https://fonts.googleapis.com/css?family=Lato:300,300i,400);
-
 .centered {
     display: flex;
     height: 100%;
@@ -21,7 +18,7 @@
     text-align: center;
 }
 
-#countdown > div {
+#countdown  div {
     /* background-color: #00bf96; */
     background-color: rgb(31, 153, 164);
     border-radius: 3px;
@@ -30,7 +27,7 @@
     padding: 10px;
 }
 
-#countdown > div span {
+#countdown div span {
     /* background-color: #00816a; */
     background-color: rgb(12, 95, 105);
     border-radius: 3px;
@@ -40,7 +37,7 @@
     width: 70px;
 }
 
-#countdown > div div {
+#countdown div div {
     font-size: 1rem;
     padding-top: 5px;
 }

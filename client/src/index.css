@@ -27,3 +27,21 @@ body {
     float: none;
   }
 }
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+}
+
+.profile {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  background-color: lightgreen;
+}
+
+.awards {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  background-color: lightblue; 
+}
