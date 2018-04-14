@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Relationships</title>
-</head>
-<body>
-    <h1>Relationships</h1>
-    
-</body>
+    <head>
+        <% include partials/template/head.ejs %>
+        <script src="/js/relationships.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <% include partials/template/header.ejs %>
+        <div id="relationships">
+            <div id="chat">
+                <div id="connections">
+                    
+                </div>
+                <div id="messages">
+
+                </div>
+                <div id="messageBox">
+                    <textarea id="message"></textarea>
+                    <button id="send" onclick="readMessage()">Send</button>
+                </div>
+            </div>
+            <div id="calendar">
+                
+            </div>
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
 </html>

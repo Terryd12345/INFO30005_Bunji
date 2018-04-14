@@ -1,25 +1,33 @@
 module.exports.chats = [
     {
-        user: "john doe",
+        user: "John Doe",
+        chatID: 0,
         messages: [
             {
-                date: date(13),
-                sender: "",
+                date: new Date(2018, 3, 1),
+                sender: "Omja",
                 message: "hey"
             },
             {
-                date: date(),
-                message: ""
+                date: new Date(2018, 3, 2),
+                sender: "John",
+                message: "how are you?"
+            },
+            {
+                date: new Date(2018, 3, 3),
+                sender: "Omja",
+                message: "good"
             }
         ]
     },
     {
-        user: "jane doe",
+        user: "Jane Doe",
+        chatID: 1,
         messages: [
             {
-                date: date(),
-                sender: "",
-                message: ""
+                date: new Date(2018, 3, 1),
+                sender: "Jane",
+                message: "Would you like to schedule a meeting?"
             }
         ]
     }
