@@ -5,8 +5,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import UserSelection from './UserSelection';
 import Home from './Home';
-
-const Skills = () => <h2>Skills</h2>
+import Skills from './Skills';
 
 class App extends Component {
   render() {
