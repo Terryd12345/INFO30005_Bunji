@@ -10,29 +10,11 @@
             <header class="header">Pick what you want to learn:</header>
 
             <article class="skills-content">
-                <div class="skills-panel centered">
-                    Facebook
-                </div>
-
-                <div class="skills-panel centered">
-                    Twitter
-                </div>
-
-                <div class="skills-panel centered">
-                    Instagram
-                </div>
-
-                <div class="skills-panel centered">
-                    LinkedIn
-                </div>
-
-                <div class="skills-panel centered">
-                    Tablet
-                </div>
-
-                <div class="skills-panel centered">
-                    iPhone
-                </div>
+                <% skills.forEach(function(skill) { %>
+                    <div class="skills-panel centered">
+                        <%= skill.name %>
+                    </div>
+                <%  }); %>
             </article>
 
             <a href="find-mentor"><button class="button" id= "select-skills-btn">Find a Mentor</button></a>
