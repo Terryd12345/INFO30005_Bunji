@@ -1,5 +1,5 @@
-const chats = require("../models/chats")
-const connections = require("../models/connections")
+const chats = require("../models/chats.js")
+const connections = require("../models/connections.js")
 const skills = require("../models/skills.js");
 const mentors = require("../models/mentors.js");
 
