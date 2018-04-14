@@ -5,8 +5,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import UserSelection from './UserSelection';
 import Home from './Home';
-
-const Skills = () => <h2>Skills</h2>
+import Skills from './Skills';
 
 class App extends Component {
   render() {
@@ -18,8 +17,8 @@ class App extends Component {
             <div className="content">
               <Route exact path='/' component={Home} />
               <Route exact path='/dashboard' component={Dashboard} />
-              <Route exact path='/skills' component={Skills} />
-              <Route exact path='/mentors' component={UserSelection} />
+              <Route exact path='/select-skills' component={Skills} />
+              <Route exact path='/find-mentor' component={UserSelection} />
             </div>
           </div>
         </BrowserRouter>

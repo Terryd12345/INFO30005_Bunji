@@ -1,15 +1,22 @@
+const skills = [
+    {
+        name: "Facebook"
+    },
+    {
+        name: "Twitter"
+    },
+    {
+        name: "Instagram"
+    },
+    {
+        name: "LinkedIn"
+    },
+    {
+        name: "Tablet"
+    },
+    {
+        name: "iPhone"
+    }
+];
 
-module.exports.skills = {
-  {
-    name: "facebook"
-  },
-  {
-    name: "twitter"
-  },
-  {
-    name: "instagram"
-  },
-  {
-    name: "programming"
-  }
-};
+module.exports = skills;

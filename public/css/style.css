@@ -104,6 +104,7 @@ p {
 .button:hover {
     background-color: #fff;
     color: #59BAA3;
+    cursor: pointer;
 }
 
 #select-skills-btn {
@@ -178,6 +179,7 @@ p {
 
 .skills-panel:hover {
     background-color: #708090;
+    cursor: pointer;
 }
 
 /* ============================================= findMentor.ejs ============================================= */
@@ -198,6 +200,7 @@ p {
 
 .mentor-panel:hover {
     background-color: #708090;
+    cursor: pointer;
 }
 
 .mentor-pic img {
@@ -238,16 +241,16 @@ p {
         grid-template-areas: "picture"
                              "description";
     }
-    
+
     .mentor-desc {
         padding-right: 0;
         text-align: center;
     }
-    
+
     .mentor-desc h1 {
         font-size: 1.5rem;
     }
-    
+
     .mentor-desc h3 {
         font-size: 1.3rem;
     }
@@ -367,23 +370,23 @@ p {
                              "button"
                              "description";
     }
-    
+
     .profile-button {
         text-align: center;
     }
-    
+
     .profile-bio h1 {
         font-size: 1.5rem;
     }
-    
+
     .profile-bio h3 {
         font-size: 1.3rem;
     }
-    
+
     #profile {
         width: 85vw;
     }
-    
+
     #profile-btn {
         margin: 0 auto;
     }

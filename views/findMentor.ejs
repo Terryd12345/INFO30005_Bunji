@@ -10,47 +10,19 @@
             <header class="header">We found 3 mentors for you!</header>
 
             <article class="mentor-content">
-                <div class="mentor-panel">
-                    <div class="mentor-pic">
-                        <img src="images/user.png">
+                <% mentors.forEach(function(mentor) { %>
+                    <div class="mentor-panel">
+                        <div class="mentor-pic">
+                            <img src="images/user.png">
+                        </div>
+                        <div class="mentor-desc">
+                            <h1><%= mentor.name %></h1>
+                            <h3><%= mentor.age %> / <%= mentor.gender %> / <%= mentor.location %></h3>
+                            <h5>Skills: <%= mentor.skills.join(", ") %></h5>
+                            <p><%= mentor.description %></p>
+                        </div>
                     </div>
-                    <div class="mentor-desc">
-                        <h1>John Doe</h1>
-                        <h3>20 / Male / Melbourne</h3>
-                        <h5>Skills: Facebook, Twitter</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mentor-panel">
-                    <div class="mentor-pic">
-                        <img src="images/user.png">
-                    </div>
-                    <div class="mentor-desc">
-                        <h1>Jane Doe</h1>
-                        <h3>21 / Female / Melbourne</h3>
-                        <h5>Skills: Facebook, Instagram</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mentor-panel">
-                    <div class="mentor-pic">
-                        <img src="images/user.png">
-                    </div>
-                    <div class="mentor-desc">
-                        <h1>Jon Doe</h1>
-                        <h3>18 / Male / Melbourne</h3>
-                        <h5>Skills: Facebook, LinkedIn</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                </div>
+                <%  }); %>
             </article>
 
             <a href="#"><button class="button" id="find-mentor-btn">Confirm</button></a>
