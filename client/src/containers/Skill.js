@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Skill extends Component {
-    
-
   render() {
     return (
       <div className="skill"  onClick='alert("hi")'>
