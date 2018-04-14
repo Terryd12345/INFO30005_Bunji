@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
+/* navbar */
 .navbar {
     width: 100%;
     font-family: 'Lato', sans-serif;
@@ -38,6 +39,7 @@ body {
     float: left;
 }
 
+/* end navbar */
 
 .header a{
   text-decoration: none;
@@ -102,7 +104,7 @@ body {
     font-size: 1.8rem;
 }
 
-/* ============================================= dashboard.ejs ============================================= */
+/* dashboard */
 .dashboard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -142,3 +144,4 @@ body {
     grid-row: 5/7;
     background-color: #00FF7F;
 }
+/* end dashboard */ 
