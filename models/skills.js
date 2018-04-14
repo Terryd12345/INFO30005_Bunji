@@ -18,3 +18,5 @@ const skills = [
         name: "iPhone"
     }
 ];
+
+module.exports = mentees;
