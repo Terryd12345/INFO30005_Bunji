@@ -6,6 +6,7 @@ router.get('/profile', controllers.getProfile);
 router.get('/dashboard', controllers.getDashboard);
 router.get('/findMentors', controllers.getFindMentors);
 router.get('/skills', controllers.getSkills);
+router.get('/relationships', controllers.getRelationsips);
 router.get('/', controllers.getHome);
 
 

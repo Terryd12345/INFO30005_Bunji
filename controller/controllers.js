@@ -17,3 +17,7 @@ module.exports.getDashboard = (req, res) => {
 module.exports.getProfile = (req, res) => {
   res.render("profile");
 };
+
+module.exports.getRelationsips = (req, res) => {
+  res.render("relationships");
+}
