@@ -3,9 +3,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
 import Dashboard from './Dashboard';
+import UserSelection from './UserSelection';
+import Home from './Home';
 
 const Skills = () => <h2>Skills</h2>
-const Landing = () => <h2>Home</h2>
 
 class App extends Component {
   render() {
@@ -15,9 +16,10 @@ class App extends Component {
           <div>
             <Header />
             <div className="content">
-              <Route exact path='/' component={Landing} />
+              <Route exact path='/' component={Home} />
               <Route exact path='/dashboard' component={Dashboard} />
               <Route exact path='/skills' component={Skills} />
+              <Route exact path='/mentors' component={UserSelection} />
             </div>
           </div>
         </BrowserRouter>
