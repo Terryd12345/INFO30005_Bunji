@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 import UserSelection from './UserSelection';
 import Home from './Home';
 import Skills from './Skills';
+import Profile from '../containers/Profile';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
               <Route exact path='/dashboard' component={Dashboard} />
               <Route exact path='/select-skills' component={Skills} />
               <Route exact path='/find-mentor' component={UserSelection} />
+              <Route exact path='/profile' component={Profile} />
             </div>
           </div>
         </BrowserRouter>

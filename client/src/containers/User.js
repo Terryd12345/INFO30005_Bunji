@@ -9,7 +9,7 @@ export default class User extends Component {
 
     onSelected(event) {
         if(this.state.isSelected === false){
-          this.setState({ isSelected: true, color:'lightblue' });
+          this.setState({ isSelected: true, color:'lightgreen' });
         } else {
           this.setState({ isSelected: false, color:'#ccc' });
         }
