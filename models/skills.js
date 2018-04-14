@@ -19,4 +19,4 @@ const skills = [
     }
 ];
 
-module.exports = mentees;
+module.exports = skills;
