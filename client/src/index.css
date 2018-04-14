@@ -64,3 +64,30 @@ body {
   grid-row: 5/7;
   background-color: green;
 }
+/* end dashboard components */
+
+
+.userSelection {
+  grid-column: 1/4;
+  display: grid;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+.user {
+  grid-column: 2/3;
+
+}
+
+
+.home {
+  background: url("./images/background.jpg");
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  height: 100vh;
+  padding: 0 0 0 0;
+  width: 100vw;
+}
