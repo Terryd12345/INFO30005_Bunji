@@ -331,6 +331,7 @@ p {
 .mentor-panel:hover  {
     background-color: #708090 !important;
     cursor: pointer !important;
+}
 
 .profile-button {
     text-align: right;
