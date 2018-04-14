@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
+import Dashboard from './Dashboard';
 
-const Dashboard = () => <h2>Dashboard</h2>
 const Skills = () => <h2>Skills</h2>
 const Landing = () => <h2>Home</h2>
 

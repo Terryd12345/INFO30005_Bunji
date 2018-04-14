@@ -31,9 +31,16 @@ body {
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+
 }
 
+.dashboard {
+  grid-column: 1/4;
+  display: grid;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+/* components embedded within dashboard */
 .profile {
   grid-column: 1/3;
   grid-row: 1/3;
@@ -43,5 +50,17 @@ body {
 .awards {
   grid-column: 3/4;
   grid-row: 1/3;
-  background-color: lightblue; 
+  background-color: lightblue;
+}
+
+.relationships {
+  grid-column: 1/4;
+  grid-row: 3/5;
+  background-color: red;
+}
+
+.recommendations {
+  grid-column: 1/4;
+  grid-row: 5/7;
+  background-color: green;
 }
