@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>Find Mentors</title>
-    <style media="screen">
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            grid-auto-rows: minmax(100px, auto);
-            grid-gap: 15px;
-            grid-row-gap: 50px;
-            margin-top: 50px;
-        }
+    <head>
+        <% include partials/template/head.ejs %>
+    </head>
+    <body>
+        <% include partials/template/header.ejs %>
 
-        .title {
-            text-align: center;
-        }
+        <div class="wrapper" id="profile">
+            <article class="profile-content">
+                <div class="profile-panel">
+                    <div class="profile-button">
+                        <a href="#"><button class="button" id="profile-btn">Contact John</button></a>
+                    </div>
 
-        .confirmBtn {
-            margin-top: 150px;
-            margin-bottom: 150px;
-            text-align: center;
-        }
+                    <div class="profile-pic">
+                        <img src="images/user.png">
+                    </div>
 
-        button {
-            width: 400px;
-            height: 75px;
-            font-size: 20px;
-        }
-    </style>
-</head>
-<body>
-<h1><a href="/">Home(logo)</a></h1>
-<h1 class="title">Title</h1>
-<hr>
-<div class="grid">
-    Hello World!
-</div>
-<div class='confirmBtn'>
-    <a href="#"><button type="button" name="button">Confirm</button></a>
-</div>
-</body>
+                    <div class="profile-bio">
+                        <h1>John Doe</h1>
+                        <h3>20 / Male / Melbourne</h3>
+                        <h5>Skills: Facebook, Twitter</h5>
+                    </div>
+
+                    <div class="profile-desc">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
 </html>
