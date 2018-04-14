@@ -1,32 +1,32 @@
 module.exports.chats = [
     {
-        user: "John Doe",
+        connection: "John Doe",
         chatID: 0,
         messages: [
             {
                 date: new Date(2018, 3, 1),
-                sender: "Omja",
+                sender: "Omja Das",
                 message: "hey"
             },
             {
                 date: new Date(2018, 3, 2),
-                sender: "John",
+                sender: "John Doe",
                 message: "how are you?"
             },
             {
                 date: new Date(2018, 3, 3),
-                sender: "Omja",
+                sender: "Omja Das",
                 message: "good"
             }
         ]
     },
     {
-        user: "Jane Doe",
+        connection: "Jane Doe",
         chatID: 1,
         messages: [
             {
                 date: new Date(2018, 3, 1),
-                sender: "Jane",
+                sender: "Jane Doe",
                 message: "Would you like to schedule a meeting?"
             }
         ]

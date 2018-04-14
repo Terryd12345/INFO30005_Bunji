@@ -1,3 +1,6 @@
+var chats = require("../models/chats")
+var connections = require("../models/connections")
+
 module.exports.getHome = (req, res) => {
   res.render("home");
 };
@@ -19,5 +22,5 @@ module.exports.getProfile = (req, res) => {
 };
 
 module.exports.getRelationsips = (req, res) => {
-  res.render("relationships");
+  res.render("relationships", {chats: chats, connections: connections});
 }

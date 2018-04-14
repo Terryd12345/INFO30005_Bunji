@@ -1,10 +1,14 @@
-export const connections = [
+module.exports.connections = [
     {
-        firstName: "John",
-        lastName: "Doe"
+        name: "Omja Das",
+        self: true
     },
     {
-        firstName: "Jane",
-        lastName: "Doe"
+        name: "John Doe",
+        self: false
+    },
+    {
+        name: "Jane Doe",
+        self: false
     }
 ];

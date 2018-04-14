@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <% include partials/template/head.ejs %>
+        <script>
+            var chats = <%- JSON.stringify(chats) %>.chats;
+            var connections = <%- JSON.stringify(connections) %>.connections;
+        </script>
         <script src="/js/relationships.js" defer></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <% include partials/template/header.ejs %>
@@ -12,13 +15,16 @@
                 <div id="connections">
                     
                 </div>
-                <div id="messages">
+                <div id="chatBox">
+                    <div id="messages">
 
+                    </div>
+                    <div id="messageBox">
+                        <textarea id="message"></textarea>
+                        <button id="send" onclick="readMessage()">Send</button>
+                    </div>
                 </div>
-                <div id="messageBox">
-                    <textarea id="message"></textarea>
-                    <button id="send" onclick="readMessage()">Send</button>
-                </div>
+
             </div>
             <div id="calendar">
                 
