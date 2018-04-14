@@ -109,7 +109,6 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(200px, auto);
-    grid-gap: 10px;
 }
 
 .dashboard div{
@@ -162,9 +161,9 @@ body {
     grid-template-areas: "picture description"
 }
 
-.mentor-panel:hover {
-    background-color: #708090;
-    cursor: pointer;
+.mentor-panel:hover  {
+    background-color: #708090 !important;
+    cursor: pointer !important;
 }
 
 .mentor-pic img {
