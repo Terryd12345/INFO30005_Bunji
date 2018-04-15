@@ -4,7 +4,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <div className="profile">Profile</div>
+                <div className="personal_profile">Profile</div>
                 <div className="awards">
                     <div className="award"></div>
                     <div className="award"></div>
