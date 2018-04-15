@@ -412,6 +412,19 @@ p {
     overflow-y: scroll;
 }
 
+#connections .connection:nth-child(odd) {
+    background: #eee;
+}
+
+.connection {
+    padding: 10px;
+    cursor: default;
+}
+
+.connection:hover, #connections .connection:nth-child(odd):hover {
+    background: #ccc;
+}
+
 #chatBox {
     grid-area: chatBox;
 }
