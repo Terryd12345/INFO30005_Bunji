@@ -5,10 +5,24 @@ export default class Dashboard extends Component {
         return (
             <div className="dashboard">
                 <div className="profile">Profile</div>
-                <div className="awards">Awards</div>
-                <div className="contact">contact</div>
-                <div className="events">events</div>
-                <div className="recommendations">Recommended</div>
+                <div className="awards">
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                    <div className="award"></div>
+                </div>
+                <div className="contact">Contact</div>
+                <div className="events">Events</div>
+                <div className="recommendations">
+                    <div className="recommendation"></div>
+                    <div className="recommendation"></div>
+                    <div className="recommendation"></div>
+                </div>
             </div>
         );
     }
