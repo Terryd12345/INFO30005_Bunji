@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Skill from "../containers/Skill";
 
-export default class Skills extends Component {
+class Skills extends Component {
     render() {
         return (
             <div className="wrapper">
@@ -23,3 +23,5 @@ export default class Skills extends Component {
         );
     }
 }
+
+export default Skills;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Relationships extends Component {
+class Relationships extends Component {
     render() {
         return (
             <div id="relationships">
@@ -26,3 +26,5 @@ export default class Relationships extends Component {
         );
     }
 }
+
+export default Relationships;

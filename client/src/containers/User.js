@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 
-export default class User extends Component {
-
+class User extends Component {
     constructor(props){
         super(props);
-        this.state = { isSelected: false, color:'#ccc' };
+        this.state = { isSelected: false, color: "#ccc" };
         this.onSelected = this.onSelected.bind(this);
     }
 
     onSelected(event) {
         if(this.state.isSelected === false){
-          this.setState({ isSelected: true, color:'lightgreen' });
+            this.setState({ isSelected: true, color: "lightgreen" });
         } else {
-          this.setState({ isSelected: false, color:'#ccc' });
+            this.setState({ isSelected: false, color: "#ccc" });
         }
     }
 
@@ -34,3 +33,5 @@ export default class User extends Component {
         );
     }
 }
+
+export default User;

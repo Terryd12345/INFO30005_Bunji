@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import User from "../containers/User";
 
-export default class UserSelection extends Component {
+class UserSelection extends Component {
     render() {
         return (
             <div className="wrapper">
@@ -21,3 +21,5 @@ export default class UserSelection extends Component {
         );
     }
 }
+
+export default UserSelection;

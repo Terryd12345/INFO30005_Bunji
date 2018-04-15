@@ -198,8 +198,8 @@ p {
 }
 
 .skills-panel:hover {
-    background-color: #708090;
-    cursor: pointer;
+    /*background-color: #708090;*/
+    cursor: pointer !important;
 }
 
 /* ========================================== UserSelection.js / User.js =========================================== */
@@ -219,8 +219,8 @@ p {
 }
 
 .mentor-panel:hover {
-    background-color: #708090;
-    cursor: pointer;
+    /*background-color: #708090;*/
+    cursor: pointer !important;
 }
 
 .mentor-pic img {
@@ -259,7 +259,7 @@ p {
         grid-template-columns: 1fr;
         grid-gap: 15px;
         grid-template-areas: "picture"
-        "description";
+                             "description";
     }
     
     .mentor-desc {
@@ -366,11 +366,6 @@ p {
                          "picture"
                          "bio"
                          "description";
-}
-
-.mentor-panel:hover  {
-    background-color: #708090 !important;
-    cursor: pointer !important;
 }
 
 .profile-button {
