@@ -418,7 +418,7 @@ p {
 
 .connection {
     padding: 10px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .connection:hover, #connections .connection:nth-child(odd):hover {
