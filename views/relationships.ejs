@@ -19,10 +19,10 @@
                     <div id="messages">
 
                     </div>
-                    <div id="messageBox">
-                        <textarea id="message"></textarea>
-                        <button id="send" onclick="readMessage()">Send</button>
-                    </div>
+                    <form id="messageBox" action="">
+                        <input id="message" autocomplete="off" type="text" placeholder="Message..." aria-label="Message...">
+                        <button id="send" onclick="readMessage()" type="button">Send</button>
+                    </form>
                 </div>
 
             </div>
