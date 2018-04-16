@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/template/head.ejs %>
+    </head>
+    <body>
+        <% include partials/template/header.ejs %>
+
+        <div class="wrapper">
+            <header class="header">We found 3 mentors for you!</header>
+
+            <article class="mentor-content">
+                <% mentors.forEach(function(mentor) { %>
+                    <div class="mentor-panel">
+                        <div class="mentor-pic">
+                            <img src="images/user.png">
+                        </div>
+                        <div class="mentor-desc">
+                            <h1><%= mentor.name %></h1>
+                            <h3><%= mentor.age %> / <%= mentor.gender %> / <%= mentor.location %></h3>
+                            <h5>Skills: <%= mentor.skills.join(", ") %></h5>
+                            <p><%= mentor.description %></p>
+                        </div>
+                    </div>
+                <%  }); %>
+            </article>
+
+            <a href="#"><button class="button" id="find-mentor-btn">Confirm</button></a>
+        </div>
+
+        <footer><% include partials/template/footer.ejs %></footer>
+
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

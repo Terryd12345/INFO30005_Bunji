@@ -1,0 +1,26 @@
+{
+  "name": "bunji",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"nodemon\" \"npm run client\""
+  },
+  "author": "Bunji",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.11",
+    "nodemon": "^1.17.2",
+    "passport": "^0.4.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.4",
+    "socket.io": "^2.1.0"
+  }
+}
