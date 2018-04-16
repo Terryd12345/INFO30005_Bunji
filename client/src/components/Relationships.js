@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import ChatWindow from '../containers/ChatWindow';
+import Connections from '../containers/Connections';
+import Calendar from '../containers/Calendar';
 
 class Relationships extends Component {
     render() {
         return (
             <div id="relationships">
                 <div id="chat">
-                    <div id="connections">
-
-                    </div>
+                    <Connections />
                     <ChatWindow />
-
                 </div>
-                <div id="calendar">
-
-                </div>
+                <Calendar />
             </div>
         );
     }
