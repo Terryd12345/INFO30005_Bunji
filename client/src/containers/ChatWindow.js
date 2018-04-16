@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import MessageBox from './MessageBox';
 
 class ChatWindow extends Component {
+
+    function loadMessages(){
+
+    };
+
     render() {
         return (
             <div className="chatWindow">
