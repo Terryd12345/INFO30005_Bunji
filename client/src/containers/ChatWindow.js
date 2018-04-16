@@ -3,9 +3,9 @@ import MessageBox from './MessageBox';
 
 class ChatWindow extends Component {
 
-    function loadMessages(){
-
-    };
+    // function loadMessages(){
+    //
+    // };
 
     render() {
         return (

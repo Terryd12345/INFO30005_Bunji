@@ -6,7 +6,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import UserSelection from './UserSelection';
 import Home from './Home';
-import Skills from './Skills';
+import Skills from './SkillSelection';
 import Profile from './Profile';
 import Relationships from './Relationships';
 
@@ -16,7 +16,7 @@ class App extends Component {
             <div className="container">
                 <BrowserRouter>
                     <div>
-                        <Header />
+                        <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
                         <div className="content">
                             <Route exact path='/' component={Home} />
                             <Route exact path='/select-skills' component={Skills} />

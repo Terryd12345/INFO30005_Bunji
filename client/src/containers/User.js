@@ -17,12 +17,12 @@ class User extends Component {
 
     render() {
         return (
-            <div className="user" onClick={this.onSelected}>
-                <div className="mentor-panel" style={{backgroundColor:this.state.color}}>
-                    <div className="mentor-pic">
+            <div onClick={this.onSelected}>
+                <div className="user-panel" style={{backgroundColor:this.state.color}}>
+                    <div className="user-pic">
                         <img src={require("../images/user.png")} alt="Profile" />
                     </div>
-                    <div className="mentor-desc">
+                    <div className="user-desc">
                         <h1>{this.props.name}</h1>
                         <h3>{this.props.age} / {this.props.gender} / {this.props.location}</h3>
                         <h5>Skills: {this.props.skills.map(x => x)}</h5>

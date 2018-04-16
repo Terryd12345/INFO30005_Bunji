@@ -8,7 +8,7 @@ class Skills extends Component {
                 <header className="header">Pick what you want to learn:</header>
 
                 <article className="skills-content">
-                    <Skill title="FaceBook" />
+                    <Skill title="Facebook" />
                     <Skill title="Twitter" />
                     <Skill title="Instagram" />
                     <Skill title="LinkedIn" />

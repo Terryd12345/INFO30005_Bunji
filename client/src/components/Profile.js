@@ -4,7 +4,7 @@ class Profile extends Component {
     render() {
         return (
             <div className="wrapper" id="profile">
-                <article className="profile-content">
+                <article className="profile">
                     <div className="profile-panel">
                         <div className="profile-button">
                             <a href="/">
