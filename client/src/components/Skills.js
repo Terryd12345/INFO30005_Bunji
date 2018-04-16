@@ -6,16 +6,16 @@ class Skills extends Component {
         return (
             <div className="wrapper">
                 <header className="header">Pick what you want to learn:</header>
-        
+
                 <article className="skills-content">
-                    <Skill />
-                    <Skill />
-                    <Skill />
-                    <Skill />
-                    <Skill />
-                    <Skill />
+                    <Skill title="FaceBook" />
+                    <Skill title="Twitter" />
+                    <Skill title="Instagram" />
+                    <Skill title="LinkedIn" />
+                    <Skill title="iPad" />
+                    <Skill title="iPhone" />
                 </article>
-        
+
                 <a href="find-mentor">
                     <button className="button" id="select-skills-btn">Find a Mentor</button>
                 </a>

@@ -28,7 +28,7 @@ class Skill extends Component {
             <div className="skill"  onClick={this.onSelected}>
                 <div className="skills-panel centered"
                 style={styles}>
-                    Facebook
+                    {this.props.title}
                 </div>
             </div>
         );
