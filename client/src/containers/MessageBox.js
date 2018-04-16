@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 class MessageBox extends Component {
+
+
+    function readMessage(){
+
+    };
+
+    function addMessage() {
+
+    };
+
     render() {
         return (
             <div className="messageBox">
