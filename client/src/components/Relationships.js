@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ChatWindow from '../containers/ChatWindow';
 
 class Relationships extends Component {
     render() {
@@ -6,21 +7,13 @@ class Relationships extends Component {
             <div id="relationships">
                 <div id="chat">
                     <div id="connections">
-            
+
                     </div>
-                    <div id="chatBox">
-                        <div id="messages">
-                
-                        </div>
-                        <div id="messageBox">
-                            <textarea id="message"></textarea>
-                            <button id="send" onClick="readMessage()">Send</button>
-                        </div>
-                    </div>
-        
+                    <ChatWindow />
+
                 </div>
                 <div id="calendar">
-        
+
                 </div>
             </div>
         );
