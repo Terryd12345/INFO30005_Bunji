@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class MessageBox extends Component {
 
 
-    function readMessage(){
+    readMessage(){
 
     };
 
-    function addMessage() {
+    addMessage() {
 
     };
 
