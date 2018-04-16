@@ -3,7 +3,7 @@ import MessageBox from './MessageBox';
 
 class ChatWindow extends Component {
 
-    function loadMessages(){
+    loadMessages(){
 
     };
 
