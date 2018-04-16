@@ -1,4 +1,4 @@
-var currChat
+var currChat;
 
 function addMessage(message, self) {
     var messages = document.querySelector("#messages");

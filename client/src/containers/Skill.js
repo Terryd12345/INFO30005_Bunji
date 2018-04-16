@@ -5,7 +5,7 @@ class Skill extends Component {
         super(props);
         this.state = {
             isSelected: false,
-            color: "#ccc",
+            color: "#ccc"
         };
         this.onSelected = this.onSelected.bind(this);
     }
