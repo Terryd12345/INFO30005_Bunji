@@ -619,6 +619,19 @@ p {
     overflow-y: scroll;
 }
 
+#connections .connection:nth-child(odd) {
+    background: #eee;
+}
+
+.connection {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.connection:hover, #connections .connection:nth-child(odd):hover {
+    background: #ccc;
+}
+
 #chatBox {
     grid-area: chatBox;
 }
@@ -629,8 +642,8 @@ p {
     overflow-x: hidden;
     overflow-y: scroll;
     height: calc(100vh - 101px);
-}
-
+  }
+  
 .message {
     display:inline-block;
     clear: both;
@@ -654,6 +667,47 @@ p {
 
 #messageBox {
     height: 50px;
+}
+
+#messageBox {
+    display: flex;
+    width: 100%
+}
+
+#message {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+#send {
+    font-weight: 400;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+    margin-left: -1px;
+}
+
+#send:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d
 }
 
 #calendar {
