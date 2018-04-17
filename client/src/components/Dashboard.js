@@ -26,9 +26,6 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="section" id="awards">
-                    <div className="section-title">
-                        <h1>Awards</h1>
-                    </div>
                     <Awards />
                 </div>
 

@@ -346,7 +346,7 @@ p {
 
 .contact-panel:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: #59baa3;
 }
 
 .contacts > a {
@@ -356,17 +356,17 @@ p {
 
 .event-panel:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: #59baa3;
 }
 
 .award:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: #59baa3;
 }
 
 .skills-panel:hover {
     cursor: pointer !important;
-    background-color: lightgreen !important;
+    background-color: #59baa3 !important;
 }
 
 #upcoming-events:hover {
@@ -710,7 +710,7 @@ p {
     overflow-y: scroll;
     height: calc(100vh - 101px);
   }
-  
+
 .message {
     display:inline-block;
     clear: both;
