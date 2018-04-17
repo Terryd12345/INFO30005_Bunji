@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Award from '../containers/Award';
-import Contact from '../containers/Contact';
+import Contacts from '../containers/Contacts';
 import Event from '../containers/Event';
 import Skill from '../containers/Skill';
+import Events from '../containers/Events';
+import Awards from './Awards';
+import Recommendations from '../containers/Recommendations';
 
 class Dashboard extends Component {
     render() {
@@ -27,59 +30,25 @@ class Dashboard extends Component {
                     <div className="section-title">
                         <h1>Awards</h1>
                     </div>
-                    <div className="awards">
-                        <Award title="Welcome!"/>
-                        <Award title="First Skill"/>
-                        <Award title="Contact a Mentor"/>
-                        <Award title="3 Days In"/>
-                        <Award title="5 Out Of 5"/>
-                        <Award title="Logged In 10 Days" />
-                        <Award title="Learn 3 New Skills"/>
-                        <Award title="Super Learner"/>
-                        <Award title="Anniversary"/>
-                    </div>
+                    <Awards />
                 </div>
 
                 <div className="section" id="contacts">
-                    <div className="section-title">
-                        <h1>Contacts</h1>
-                    </div>
-                    <div className="contacts">
-                        <a href="/profile"><Contact name="John Doe" /></a>
-                        <a href="/profile"><Contact name="Jane Doe" /></a>
-                        <a href="/profile"><Contact name="Johnathon Doe" /></a>
-                    </div>
+                    <Contacts />
                 </div>
 
                 <div className="section" id="events">
                     <div className="section-title">
                         <h1>Events</h1>
                     </div>
-                    <div className="events">
-                        <div className="events-sidebar">
-                            <h3 id="upcoming-events">Upcoming Events</h3>
-                            <h3 id="this-week">This Week</h3>
-                            <h3 id="this-month">This Month</h3>
-                            <hr />
-                            <h3 id="past-events">Past Events</h3>
-                        </div>
-                        <div className="events-window">
-                            <Event title="Meeting 1" />
-                            <Event title="Meeting 2" />
-                            <Event title="Meeting 3" />
-                        </div>
-                    </div>
+                    <Events />
                 </div>
 
                 <div className="section" id="recommendations">
                     <div className="section-title">
                         <h1>Recommended for You</h1>
                     </div>
-                    <div className="recommendations">
-                        <Skill title="Facebook" />
-                        <Skill title="Instagram" />
-                        <Skill title="Mobile Apps" />
-                    </div>
+                    <Recommendations />
                 </div>
             </div>
         );
