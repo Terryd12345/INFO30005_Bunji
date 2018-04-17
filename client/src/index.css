@@ -317,6 +317,11 @@ p {
     background-color: lightgreen;
 }
 
+.contacts > a {
+    text-decoration: none;
+    color: black;
+}
+
 .event-panel:hover {
     cursor: pointer;
     background-color: lightgreen;
@@ -332,17 +337,21 @@ p {
     background-color: lightgreen !important;
 }
 
-#upcoming-events {
+#upcoming-events:hover {
     cursor: pointer;
+    color: black;
 }
-#this-week {
+#this-week:hover {
     cursor: pointer;
+    color: black;
 }
-#this-month {
+#this-month:hover {
     cursor: pointer;
+    color: black;
 }
-#past-events {
+#past-events:hover {
     cursor: pointer;
+    color: black;
 }
 
 
