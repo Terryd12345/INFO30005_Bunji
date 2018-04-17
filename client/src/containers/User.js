@@ -9,7 +9,7 @@ class User extends Component {
 
     onSelected(event) {
         if(this.state.isSelected === false){
-            this.setState({ isSelected: true, color: "lightgreen" });
+            this.setState({ isSelected: true, color: "#59baa3" });
         } else {
             this.setState({ isSelected: false, color: "#ccc" });
         }
