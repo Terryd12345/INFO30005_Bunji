@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Award from '../containers/Award';
+import Notifications from '../containers/Notifications';
+import Awards from '../containers/Awards';
 import Contacts from '../containers/Contacts';
-import Event from '../containers/Event';
-import Skill from '../containers/Skill';
 import Events from '../containers/Events';
-import Awards from './Awards';
 import Recommendations from '../containers/Recommendations';
 
 class Dashboard extends Component {
@@ -21,9 +19,10 @@ class Dashboard extends Component {
                             <button className="button" id="personal-profile-btn-2">Edit Info</button>
                         </a>
                     </div>
-                    <div className="personal-desc">
+                    <div className="section-title">
                         <h1>Good afternoon, John!</h1>
                     </div>
+                    <Notifications />
                 </div>
 
                 <div className="section" id="awards">

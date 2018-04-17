@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Award from '../containers/Award';
+import Award from './Award';
 
 class Awards extends Component {
 

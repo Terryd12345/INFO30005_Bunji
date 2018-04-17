@@ -7,7 +7,7 @@ class Profile extends Component {
                 <article className="profile">
                     <div className="profile-panel">
                         <div className="profile-button">
-                            <a href="/">
+                            <a href="/relationships">
                                 <button className="button" id="profile-btn">Contact John</button>
                             </a>
                         </div>
