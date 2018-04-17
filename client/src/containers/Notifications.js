@@ -11,7 +11,7 @@ class Events extends Component {
             <div className="notifications">
                     <Notification title="John sent you a message." time="Just Now" />
                     <Notification title="Jane sent you a message." time="1hr ago" />
-                    <Notification title="Jon sent you a message." time="2d ago" />
+                    <Notification title="Fred sent you a message." time="2d ago" />
             </div>
         );
     }
