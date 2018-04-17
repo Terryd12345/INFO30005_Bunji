@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
     render() {
         return (
             <div>
@@ -9,7 +13,7 @@ class Event extends Component {
                         <img src={require("../images/user.png")} alt="Profile" />
                     </div>
                     <div className="event-desc">
-                        <h3>Meeting #1</h3>
+                        <h3>{this.props.title}</h3>
                     </div>
                 </div>
             </div>
