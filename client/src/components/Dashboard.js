@@ -45,9 +45,9 @@ class Dashboard extends Component {
                         <h1>Contacts</h1>
                     </div>
                     <div className="contacts">
-                        <Contact name="John Doe" />
-                        <Contact name="Jane Doe" />
-                        <Contact name="Johnathon Doe" />
+                        <a href="/profile"><Contact name="John Doe" /></a>
+                        <a href="/profile"><Contact name="Jane Doe" /></a>
+                        <a href="/profile"><Contact name="Johnathon Doe" /></a>
                     </div>
                 </div>
 
