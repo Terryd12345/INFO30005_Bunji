@@ -6,6 +6,9 @@ class Awards extends Component {
     render() {
         return (
             <div className="awards">
+                <div className="section-title">
+                    <h1>Awards</h1>
+                </div>
                 <Award title="Welcome!"/>
                 <Award title="First Skill"/>
                 <Award title="Contact a Mentor"/>

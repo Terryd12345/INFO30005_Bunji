@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Award from '../containers/Award';
 import Contacts from '../containers/Contacts';
-import Event from '../containers/Event';
-import Skill from '../containers/Skill';
 import Events from '../containers/Events';
 import Awards from './Awards';
 import Recommendations from '../containers/Recommendations';
@@ -27,9 +24,6 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="section" id="awards">
-                    <div className="section-title">
-                        <h1>Awards</h1>
-                    </div>
                     <Awards />
                 </div>
 
