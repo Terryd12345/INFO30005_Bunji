@@ -190,16 +190,16 @@ p {
     #home h1 {
         font-size: 6rem;
     }
-    
+
     #home h3 {
         font-size: 1.8rem;
     }
-    
+
     #intro {
         width: 60%;
         font-size: 1.1rem;
     }
-    
+
     #team {
         font-size: 0.8rem;
     }
@@ -386,6 +386,10 @@ p {
     color: black;
 }
 
+.notification-panel:hover {
+    background-color: #59baa3;
+    cursor: pointer;
+}
 
 /* =================== Personal Profile =================== */
 .personal-profile {
