@@ -332,6 +332,19 @@ p {
     background-color: lightgreen !important;
 }
 
+#upcoming-events {
+    cursor: pointer;
+}
+#this-week {
+    cursor: pointer;
+}
+#this-month {
+    cursor: pointer;
+}
+#past-events {
+    cursor: pointer;
+}
+
 
 /* =================== Personal Profile =================== */
 .personal-profile {

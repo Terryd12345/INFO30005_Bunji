@@ -10,8 +10,8 @@ class UserSelection extends Component {
 
                 <article className="user-selection">
                     <User name="John Doe" age="61" gender="Male" location="Melbourne" skills={['Facebook', 'Twitter']} />
-                    <User name="John Doe" age="61" gender="Male" location="Melbourne" skills={['Facebook', 'Twitter']} />
-                    <User name="John Doe" age="61" gender="Male" location="Melbourne" skills={['Facebook', 'Twitter']} />
+                    <User name="Jane Doe" age="45" gender="Female" location="Adelaide" skills={['Instagram', 'iPhone']} />
+                    <User name="Fred Doe" age="34" gender="Male" location="Gold Coast" skills={['MacBook', 'Computers']} />
                 </article>
 
                 <a href="/dashboard">
