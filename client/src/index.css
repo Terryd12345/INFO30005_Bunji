@@ -312,6 +312,27 @@ p {
     grid-area: recommendations;
 }
 
+.contact-panel:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.event-panel:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.award:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.skills-panel:hover {
+    cursor: pointer !important;
+    background-color: lightgreen !important;
+}
+
+
 /* =================== Personal Profile =================== */
 .personal-profile {
     padding: 10px;
