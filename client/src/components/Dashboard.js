@@ -57,11 +57,11 @@ class Dashboard extends Component {
                     </div>
                     <div className="events">
                         <div className="events-sidebar">
-                            <h3>Upcoming Events</h3>
-                            <h3>This Week</h3>
-                            <h3>This Month</h3>
+                            <h3 id="upcoming-events">Upcoming Events</h3>
+                            <h3 id="this-week">This Week</h3>
+                            <h3 id="this-month">This Month</h3>
                             <hr />
-                            <h3>Past Events</h3>
+                            <h3 id="past-events">Past Events</h3>
                         </div>
                         <div className="events-window">
                             <Event title="Meeting 1" />
