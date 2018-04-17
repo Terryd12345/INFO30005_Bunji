@@ -22,7 +22,7 @@ class Dashboard extends Component {
                         <h1>Good afternoon, John!</h1>
                     </div>
                 </div>
-                
+
                 <div className="section" id="awards">
                     <div className="section-title">
                         <h1>Awards</h1>
@@ -39,18 +39,18 @@ class Dashboard extends Component {
                         <Award title="Anniversary"/>
                     </div>
                 </div>
-                
+
                 <div className="section" id="contacts">
                     <div className="section-title">
                         <h1>Contacts</h1>
                     </div>
                     <div className="contacts">
-                        <Contact />
-                        <Contact />
-                        <Contact />
+                        <Contact name="John Doe" />
+                        <Contact name="Jane Doe" />
+                        <Contact name="Johnathon Doe" />
                     </div>
                 </div>
-                
+
                 <div className="section" id="events">
                     <div className="section-title">
                         <h1>Events</h1>
@@ -64,13 +64,13 @@ class Dashboard extends Component {
                             <h3>Past Events</h3>
                         </div>
                         <div className="events-window">
-                            <Event />
-                            <Event />
-                            <Event />
+                            <Event title="Meeting 1" />
+                            <Event title="Meeting 2" />
+                            <Event title="Meeting 3" />
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="section" id="recommendations">
                     <div className="section-title">
                         <h1>Recommended for You</h1>
