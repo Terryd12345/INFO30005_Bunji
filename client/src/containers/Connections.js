@@ -8,7 +8,6 @@ class Connections extends Component {
     render() {
         return (
             <div className="connections">
-                Connections
             </div>
         );
     }
