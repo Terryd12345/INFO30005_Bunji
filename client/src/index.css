@@ -429,7 +429,7 @@ p {
     grid-area: profile;
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-auto-rows: 60px 200px minmax(80px, auto);
+    grid-auto-rows: 60px 190px minmax(80px, auto);
     grid-template-areas: "picture title"
                          "picture stats"
                          "picture awards";
@@ -449,8 +449,6 @@ p {
 
 .stats {
     margin: 10px;
-    padding: 10px;
-    border: 5px solid #dbdbdb;
     border-radius: 8px;
     grid-area: stats;
     display: grid;
@@ -464,7 +462,7 @@ p {
 }
 
 .awards {
-    margin: 10px;
+    margin: 0 10px;
     padding: 10px;
     border: 5px solid #dbdbdb;
     border-radius: 8px;
@@ -488,8 +486,6 @@ p {
 /* ==================== Notifications ===================== */
 .notifications {
     margin: 10px;
-    padding: 10px;
-    border: 5px solid #dbdbdb;
     border-radius: 8px;
 }
 
