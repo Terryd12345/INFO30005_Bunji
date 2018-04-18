@@ -6,9 +6,9 @@ class Recommendations extends Component {
     render() {
         return (
             <div className="recommendations">
-                <Skill title="Facebook" />
-                <Skill title="Instagram" />
-                <Skill title="Mobile Apps" />
+                <Skill title="Facebook" picName="facebook" />
+                <Skill title="Instagram" picName="twitter" />
+                <Skill title="Mobile Apps" picName="apple" />
             </div>
         );
     }

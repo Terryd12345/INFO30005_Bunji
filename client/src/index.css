@@ -60,7 +60,7 @@ p {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #dbdbdb;
+    background-color: #f3f3f3;
 }
 
 .navbar li {
@@ -70,7 +70,7 @@ p {
 .navbar li a {
     display: block;
     padding: 14px 16px 10px 16px;
-    border-bottom: 5px solid #dbdbdb;
+    border-bottom: 5px solid #f3f3f3;
     color: #000;
     font-family: "Lato", sans-serif;
     font-size: 1rem;
@@ -162,7 +162,7 @@ p {
     border-radius: 8px;
     color: #fafcee;
     font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 300;
     text-align: center;
     text-decoration: none;
@@ -509,6 +509,7 @@ p {
 }
 
 .stat {
+    padding: 10px;
     background-color: #dbdbdb;
 }
 
@@ -705,6 +706,18 @@ p {
     .recommendations {
         grid-auto-rows: minmax(200px, auto);
         grid-gap: 20px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1130px) {
+    .notification-panel {
+        padding: 5px;
+        grid-template-columns: 70% 30%;
+        grid-template-areas: "description time"
+    }
+    
+    .notification-pic {
+        display: none;
     }
 }
 
