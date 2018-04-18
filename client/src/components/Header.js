@@ -6,7 +6,17 @@ class Header extends Component {
             <div className="navbar">
                 <ul>
                     <li id="logo"><a href="/">Bunji</a></li>
-                    <li><a id="menu" href="/"><img src={require("../images/user.png")} alt="Profile" /></a></li>
+                    <li id="dropdown">
+                        &#9776;
+                        <div id="dropdown-content">
+                            <a href="/select-skills">Select Skills</a>
+                            <a href="/find-mentor">Find Mentor</a>
+                            <a href="/dashboard">Dashboard</a>
+                            <a href="/profile">Profile</a>
+                            <a href="/relationships">Relationships</a>
+                        </div>
+                    </li>
+                    <li><a href="/" id="account"><img src={require("../images/male.png")} alt="Profile" /></a></li>
                     <li><a href="/relationships">Relationships</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>

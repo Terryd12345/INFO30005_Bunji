@@ -4,7 +4,6 @@ class Home extends Component {
     render() {
         return (
             <div id="home">
-
                 <div className="overlay centered">
                     <h1 className="fade-in">Bunji</h1>
                     <h3 className="fade-in">It's never too late to learn!</h3>
@@ -20,10 +19,9 @@ class Home extends Component {
 
                 </div>
 
-                <div id="team">
-                    <p>Website by Omja Das, Terence Denning, Brigita Tunru</p>
-                </div>
-
+                {/*<div id="team">*/}
+                    {/*<p>Website by Omja Das, Terence Denning, Brigita Tunru</p>*/}
+                {/*</div>*/}
             </div>
         );
     };
