@@ -224,16 +224,16 @@ p {
     #home h1 {
         font-size: 6rem;
     }
-    
+
     #home h3 {
         font-size: 1.8rem;
     }
-    
+
     #intro {
         width: 60%;
         font-size: 1.1rem;
     }
-    
+
     #team {
         font-size: 0.8rem;
     }
@@ -446,6 +446,11 @@ p {
     grid-template-areas: "picture description time"
 }
 
+.notification-panel:hover {
+    background-color: #59baa3;
+    cursor: pointer;
+}
+
 .notification-pic {
     text-align: center;
 }
@@ -485,8 +490,8 @@ p {
 }
 
 .award:hover {
-    cursor: pointer;
     background-color: #59baa3;
+    cursor: pointer;
 }
 
 /* ======================= Contacts ======================= */
@@ -509,8 +514,8 @@ p {
 }
 
 .contact-panel:hover {
-    cursor: pointer;
     background-color: #59baa3;
+    cursor: pointer;
 }
 
 .contact-pic img {
@@ -564,8 +569,8 @@ p {
 }
 
 .event-panel:hover {
-    cursor: pointer;
     background-color: #59baa3;
+    cursor: pointer;
 }
 
 .event-pic img {
@@ -581,21 +586,12 @@ p {
     grid-area: description;
 }
 
-#upcoming-events:hover {
-    cursor: pointer;
-    color: #000;
-}
-#this-week:hover {
-    cursor: pointer;
-    color: #000;
-}
-#this-month:hover {
-    cursor: pointer;
-    color: #000;
-}
+#upcoming-events:hover,
+#this-week:hover,
+#this-month:hover,
 #past-events:hover {
-    cursor: pointer;
     color: #000;
+    cursor: pointer;
 }
 
 /* =================== Recommendations ==================== */
@@ -761,7 +757,8 @@ p {
     cursor: pointer;
 }
 
-.connection:hover, #connections .connection:nth-child(odd):hover {
+.connection:hover,
+#connections .connection:nth-child(odd):hover {
     background: #ccc;
 }
 
@@ -838,9 +835,9 @@ p {
 }
 
 #send:hover {
-    color: #fff;
     background-color: #6c757d;
     border-color: #6c757d
+    color: #fff;
 }
 
 #calendar {
