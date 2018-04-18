@@ -8,7 +8,7 @@ import UserSelection from './UserSelection';
 import Home from './Home';
 import Skills from './SkillSelection';
 import Profile from './Profile';
-import Relationships from './Relationships';
+import Connections from './Connections';
 
 class App extends Component {
     render() {
@@ -23,7 +23,7 @@ class App extends Component {
                             <Route exact path='/find-mentor' component={UserSelection} />
                             <Route exact path='/profile' component={Profile} />
                             <Route exact path='/dashboard' component={Dashboard} />
-                            <Route exact path='/relationships' component={Relationships} />
+                            <Route exact path='/connections' component={Connections} />
                         </div>
                     </div>
                 </BrowserRouter>

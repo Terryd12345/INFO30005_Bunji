@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Notifications from '../containers/Notifications';
-import Awards from '../containers/Awards';
-import Stats from '../containers/Stats';
-import Contacts from '../containers/Contacts';
-import Events from '../containers/Events';
-import Recommendations from '../containers/Recommendations';
+import Notifications from '../containers/Dashboard/Notifications/Notifications';
+import Awards from '../containers/Dashboard/Awards/Awards';
+import Stats from '../containers/Dashboard/Stats';
+import Contacts from '../containers/Dashboard/Contacts/Contacts';
+import Events from '../containers/Dashboard/Events/Events';
+import Recommendations from '../containers/Dashboard/Recommendations';
 
 class Dashboard extends Component {
     render() {
