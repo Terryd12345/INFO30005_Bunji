@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Notifications from '../containers/Notifications';
 import Awards from '../containers/Awards';
+import Stats from '../containers/Stats';
 import Contacts from '../containers/Contacts';
 import Events from '../containers/Events';
 import Recommendations from '../containers/Recommendations';
@@ -11,7 +12,7 @@ class Dashboard extends Component {
             <div className="dashboard">
                 <div className="personal-profile">
                     <div className="personal-pic">
-                        <img src={require("../images/user.png")} alt="Profile" />
+                        <img src={require("../images/male.png")} alt="Profile" />
                         <a className="button"  id="personal-btn-1" href="/dashboard">
                             Change Picture
                         </a>
@@ -22,14 +23,15 @@ class Dashboard extends Component {
                     <div className="section-title">
                         <h1>Good afternoon, John!</h1>
                     </div>
-                    <Notifications />
+                    <Stats />
+                    <Awards />
                 </div>
 
-                <div className="section" id="awards">
+                <div className="section" id="notifications">
                     <div className="section-title">
-                        <h1>Awards</h1>
+                        <h1>Notifications</h1>
                     </div>
-                    <Awards />
+                    <Notifications />
                 </div>
 
                 <div className="section" id="contacts">

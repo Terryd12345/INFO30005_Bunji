@@ -11,10 +11,12 @@ class Contact extends Component {
             <div>
                 <div className="contact-panel">
                     <div className="contact-pic">
-                        <img src={require("../images/user.png")} alt="Profile" />
+                        <img src={require("../images/male.png")} alt="Profile" />
                     </div>
                     <div className="contact-desc">
                         <h3>{this.props.name}</h3>
+                        <a className="button" id="contact-btn" href="/profile">Profile</a>
+                        <a class="button" id="contact-btn-2" href="/relationships">Relationship</a>
                     </div>
                 </div>
             </div>

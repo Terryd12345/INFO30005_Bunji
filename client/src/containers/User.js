@@ -5,29 +5,29 @@ class User extends Component {
         super(props);
         this.state = {
             isSelected: false,
-            border: "10px solid transparent"
+            borderColor: "transparent"
         };
         this.onSelected = this.onSelected.bind(this);
     }
-
+    
     onSelected(event) {
         if (this.state.isSelected === false) {
-            this.setState({ isSelected: true, color: "10px solid #fafcee" });
+            this.setState({ isSelected: true, borderColor: "#fafcee" });
         } else {
-            this.setState({ isSelected: false, color: "10px solid transparent" });
+            this.setState({ isSelected: false, borderColor: "transparent" });
         }
     }
-
+    
     render() {
         const styles = {
-            border: this.state.color,
+            borderColor: this.state.borderColor,
         }
         
         return (
             <div onClick={this.onSelected}>
                 <div className="user-panel" style={styles}>
                     <div className="user-pic">
-                        <img src={require("../images/user.png")} alt="Profile" />
+                        <img src={require("../images/male.png")} alt="Profile" />
                     </div>
                     <div className="user-desc">
                         <h1>{this.props.name}</h1>

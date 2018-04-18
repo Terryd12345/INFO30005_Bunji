@@ -14,7 +14,10 @@ class Awards extends Component {
                 <Award title="Logged In 10 Days" />
                 <Award title="Learn 3 New Skills"/>
                 <Award title="Super Learner"/>
-                <Award title="Anniversary"/>
+                <Award title="First Birthday"/>
+                <Award title="Second Birthday"/>
+                <Award title="Third Birthday"/>
+                <Award title="Fourth Birthday"/>
             </div>
         );
     }
