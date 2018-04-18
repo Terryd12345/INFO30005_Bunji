@@ -3,7 +3,7 @@ import ChatWindow from '../containers/Connections/ChatWindow';
 import Connections from '../containers/Connections/Connections';
 import Calendar from '../containers/Connections/Calendar';
 
-class Connections extends Component {
+class Relationships extends Component {
     render() {
         return (
             <div id="relationships">
@@ -17,4 +17,4 @@ class Connections extends Component {
     }
 }
 
-export default Connections;
+export default Relationships;

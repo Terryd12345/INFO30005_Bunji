@@ -10,7 +10,7 @@ class Event extends Component {
             <div>
                 <div className="event-panel">
                     <div className="event-pic">
-                        <img src={require("../images/male.png")} alt="Profile" />
+                        <img src={require("../../../images/male.png")} alt="Profile" />
                     </div>
                     <div className="event-desc">
                         <h3>{this.props.title}</h3>

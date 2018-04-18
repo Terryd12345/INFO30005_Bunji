@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Contact from '../containers/Contact';
+import Contact from './Contact';
 
 class Contacts extends Component {
     constructor(props){
