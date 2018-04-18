@@ -9,9 +9,9 @@ class Skills extends Component {
 
                 <article className="skills-content">
                     <Skill title="Facebook" picName="facebook" />
-                    <Skill title="Twitter" picName="facebook" />
-                    <Skill title="Instagram" picName="facebook" />
-                    <Skill title="LinkedIn" picName="facebook" />
+                    <Skill title="Twitter" picName="twitter" />
+                    <Skill title="Instagram" picName="instagram" />
+                    <Skill title="LinkedIn" picName="linkedin" />
                     <Skill title="iPad" picName="facebook" />
                     <Skill title="iPhone" picName="facebook" />
                 </article>

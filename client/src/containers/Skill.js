@@ -23,12 +23,10 @@ class Skill extends Component {
             borderColor: this.state.borderColor,
         }
 
-        const imageSource = "../images/facebook.png";
-
         return (
             <div className="skill"  onClick={this.onSelected}>
                 <div className="skills-panel centered" style={styles}>
-                    <img src={require("../images/facebook.png")} alt="Profile" />
+                    <img src={require(`../images/${this.props.picName}.png`)} alt="Profile" />
                     {this.props.title}
                 </div>
             </div>
