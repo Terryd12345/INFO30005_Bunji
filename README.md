@@ -1,6 +1,7 @@
 # Bunji - Mentorship application connection young adults with old adults
 
 ## instructions:
+
   * run yarn install in root folder
   * run yarn install in client folder
   * from root folder run 'yarn start'
