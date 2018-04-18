@@ -35,6 +35,9 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="section" id="contacts">
+                    <div className="section-title">
+                        <h1>Contacts</h1>
+                    </div>
                     <Contacts />
                 </div>
 
