@@ -16,8 +16,8 @@ class Skills extends Component {
                     <Skill title="iPhone" />
                 </article>
 
-                <a href="find-mentor">
-                    <button className="button" id="select-skills-btn">Find a Mentor</button>
+                <a className="button" id="select-skills-btn" href="find-mentor">
+                    Find Mentor
                 </a>
             </div>
         );

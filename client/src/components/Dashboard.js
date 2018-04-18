@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Notifications from '../containers/Notifications';
 import Awards from '../containers/Awards';
+import Stats from '../containers/Stats';
 import Contacts from '../containers/Contacts';
 import Events from '../containers/Events';
 import Recommendations from '../containers/Recommendations';
@@ -11,25 +12,26 @@ class Dashboard extends Component {
             <div className="dashboard">
                 <div className="personal-profile">
                     <div className="personal-pic">
-                        <img src={require("../images/user.png")} alt="Profile" />
-                        <a href="/dashboard">
-                            <button className="button"  id="personal-profile-btn-1">Change Picture</button>
+                        <img src={require("../images/male.png")} alt="Profile" />
+                        <a className="button"  id="personal-btn-1" href="/dashboard">
+                            Change Picture
                         </a>
-                        <a href="/dashboard">
-                            <button className="button" id="personal-profile-btn-2">Edit Info</button>
+                        <a className="button"  id="personal-btn-2" href="/dashboard">
+                            Edit Info
                         </a>
                     </div>
                     <div className="section-title">
                         <h1>Good afternoon, John!</h1>
                     </div>
-                    <Notifications />
+                    <Stats />
+                    <Awards />
                 </div>
 
-                <div className="section" id="awards">
+                <div className="section" id="notifications">
                     <div className="section-title">
-                        <h1>Awards</h1>
+                        <h1>Notifications</h1>
                     </div>
-                    <Awards />
+                    <Notifications />
                 </div>
 
                 <div className="section" id="contacts">
@@ -48,6 +50,9 @@ class Dashboard extends Component {
                         <h1>Recommended for You</h1>
                     </div>
                     <Recommendations />
+                    <a className="button" id="recommendations-btn" href="find-mentor">
+                        Find Mentor
+                    </a>
                 </div>
             </div>
         );

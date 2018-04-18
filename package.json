@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
-    "node":"8.11.1"  
+  "engines": {
+    "node": "8.11.1"
   },
   "scripts": {
     "install": "(cd client && yarn) && (cd server && yarn)",
@@ -17,7 +17,8 @@
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "yarn": "^1.6.0"
   },
   "repository": "https://github.com/Terryd12345/INFO30005_Bunji"
 }

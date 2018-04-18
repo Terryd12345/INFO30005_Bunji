@@ -13,7 +13,7 @@ class Profile extends Component {
                         </div>
                 
                         <div className="profile-pic">
-                            <img src={require("../images/user.png")} alt="Profile" />
+                            <img src={require("../images/male.png")} alt="Profile" />
                         </div>
                 
                         <div className="profile-bio">
