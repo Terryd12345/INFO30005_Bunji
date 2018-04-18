@@ -12,8 +12,8 @@ class Skills extends Component {
                     <Skill title="Twitter" picName="twitter" />
                     <Skill title="Instagram" picName="instagram" />
                     <Skill title="LinkedIn" picName="linkedin" />
-                    <Skill title="iPad" picName="facebook" />
-                    <Skill title="iPhone" picName="facebook" />
+                    <Skill title="iPad" picName="apple" />
+                    <Skill title="iPhone" picName="apple" />
                 </article>
 
                 <a className="button" id="select-skills-btn" href="find-mentor">
