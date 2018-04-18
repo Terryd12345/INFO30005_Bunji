@@ -9,7 +9,7 @@ class Skill extends Component {
         };
         this.onSelected = this.onSelected.bind(this);
     }
-    
+
     onSelected(event) {
         if (this.state.isSelected === false) {
             this.setState({ isSelected: true, borderColor: "#fafcee" });
@@ -17,7 +17,7 @@ class Skill extends Component {
             this.setState({ isSelected: false, borderColor: "transparent" });
         }
     }
-    
+
     render() {
         const styles = {
             borderColor: this.state.borderColor,
@@ -26,7 +26,7 @@ class Skill extends Component {
         return (
             <div className="skill"  onClick={this.onSelected}>
                 <div className="skills-panel centered" style={styles}>
-                    <img src={require("../images/Facebook.png")} alt={this.props.title} />
+                    <img src={require(`../images/${this.props.picName}.png`)} alt="{this.props.title}" />
                     {this.props.title}
                 </div>
             </div>

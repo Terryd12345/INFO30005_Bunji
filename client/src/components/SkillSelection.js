@@ -8,12 +8,12 @@ class Skills extends Component {
                 <header className="header">Pick what you want to learn:</header>
 
                 <article className="skills-content">
-                    <Skill title="Facebook" />
-                    <Skill title="Twitter" />
-                    <Skill title="Instagram" />
-                    <Skill title="LinkedIn" />
-                    <Skill title="iPad" />
-                    <Skill title="iPhone" />
+                    <Skill title="Facebook" picName="facebook" />
+                    <Skill title="Twitter" picName="twitter" />
+                    <Skill title="Instagram" picName="instagram" />
+                    <Skill title="LinkedIn" picName="linkedin" />
+                    <Skill title="iPad" picName="apple" />
+                    <Skill title="iPhone" picName="apple" />
                 </article>
 
                 <a className="button" id="select-skills-btn" href="find-mentor">
