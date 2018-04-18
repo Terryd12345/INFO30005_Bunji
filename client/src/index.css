@@ -2,7 +2,9 @@
 body {
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right, #42ccc8, #5469a4);
     font-family: "Lato", sans-serif;
+    color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23,6 +25,7 @@ p {
 
 .header {
     padding: 30px;
+    color: #fafcee;
     font-size: 2rem;
     text-align: center;
 }
@@ -38,7 +41,7 @@ p {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #000;
 }
 
 .navbar li {
@@ -47,19 +50,27 @@ p {
 
 .navbar li a {
     display: block;
-    padding: 16px 16px;
-    color: #fff;
+    padding: 16px;
+    border-bottom: 5px solid #000;
+    color: #fafcee;
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
     text-align: center;
     text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
-.navbar li a:hover:not(.active) {
-    background-color: #111;
+.navbar li:nth-child(n+3) a:hover {
+    border-bottom: 5px solid #40c9c2;
 }
 
 .overlay {
-    background-color: rgb(60, 60, 60);
-    background-color: rgba(60, 60, 60, 0.5);
+    background: linear-gradient(to bottom right, #42ccc8, #5469a4);
+    background: linear-gradient(to bottom right, rgba(60, 60, 60, 0.5), rgba(66, 204, 200, 0.7));
     height: 100%;
 }
 
@@ -73,6 +84,16 @@ p {
     float: left;
 }
 
+#menu {
+    padding: 12px 16px 0 16px;
+}
+
+#menu img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
 @media (max-width: 700px) {
     .wrapper {
         width: 85vw;
@@ -82,16 +103,15 @@ p {
 /* ==================================================== Buttons ==================================================== */
 .button {
     display: inline-block;
-    width: 130px;
-    height: 50px;
+    outline: none;
     margin: 20px auto;
-    padding: auto;
-    background-color: #59baa3;
-    border-color: #59baa3;
+    padding: 10px 15px;
+    background-color: #40c9c2;
+    border: 3px solid #40c9c2;
     border-radius: 8px;
-    color: #fff;
+    color: #fafcee;
     font-family: "Lato", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 300;
     text-align: center;
     text-decoration: none;
@@ -103,13 +123,18 @@ p {
 }
 
 .button:hover {
-    background-color: #fff;
-    color: #59baa3;
-    cursor: pointer;
+    background-color: #fafcee;
+    color: #40c9c2;
+    cursor: pointer !important;
+}
+
+#home-btn:hover {
+    background-color: #40c9c2;
+    color: #fafcee;
+    transform: scale(1.1) !important;
 }
 
 #select-skills-btn {
-    width: 140px;
     margin: 50px auto 24px auto;
 }
 
@@ -118,14 +143,23 @@ p {
     margin: 0 auto 20px auto;
 }
 
-#personal-profile-btn-1 {
-    width: 160px;
+#personal-btn-1 {
+    width: 120px;
     margin: 15px auto 10px auto;
+    padding: 5px;
+    font-size: 1rem;
 }
 
-#personal-profile-btn-2 {
-    width: 160px;
+#personal-btn-2 {
+    width: 120px;
     margin: 0 auto;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+#recommendations-btn {
+    margin: 0 auto 10px auto;
+    grid-area: button;
 }
 
 /* ==================================================== Home.js ==================================================== */
@@ -140,17 +174,18 @@ p {
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
-    color: #ccc;
+    color: #fafcee;
 }
 
 #home h1 {
-    font-family: "Abril Fatface", cursive;
+    font-family: "Abril Fatface", serif;
     font-size: 8rem;
 }
 
 #home h3 {
-    font-family: "Abril Fatface", cursive;
-    font-size: 2rem;
+    margin-bottom: 5px;
+    font-family: "Courgette", cursive;
+    font-size: 2.1rem;
 }
 
 #intro {
@@ -158,7 +193,6 @@ p {
     margin: 0 auto;
     font-family: "Lato", sans-serif;
     font-size: 1.1rem;
-    font-style: italic;
     font-weight: 300;
     line-height: 25px;
 }
@@ -216,9 +250,17 @@ p {
 }
 
 .skills-panel {
-    background-color: #ccc;
-    box-shadow: 10px 10px 5px #aaa;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
+    border: 10px solid transparent;
+    border-radius: 8px;
+    color: #fafcee;
     font-size: 1.8rem;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 .skills-panel:hover {
@@ -234,12 +276,20 @@ p {
 .user-panel {
     margin-bottom: 30px;
     padding: 40px 10px;
-    background-color: #ccc;
-    box-shadow: 10px 10px 5px #aaa;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
+    border: 10px solid transparent;
+    border-radius: 8px;
+    color: #fafcee;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-gap: 15px;
-    grid-template-areas: "picture description"
+    grid-template-areas: "picture description";
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 .user-panel:hover {
@@ -302,17 +352,23 @@ p {
 
 /* ================================================= Dashboard.js ================================================== */
 .dashboard {
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
-    grid-gap: 10px;
+    grid-gap: 20px;
     grid-template-areas: "profile profile awards"
                          "contacts events events"
                          "recommendations recommendations recommendations";
 }
 
+.dashboard div {
+    border-radius: 8px;
+}
+
 .dashboard > div {
-    border: 5px solid lightblue;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
 }
 
 .section {
@@ -325,6 +381,7 @@ p {
 
 .section-title {
     padding: 10px;
+    color: #fafcee;
     grid-area: title;
 }
 
@@ -342,50 +399,11 @@ p {
 
 #recommendations {
     grid-area: recommendations;
+    grid-auto-rows: 60px minmax(60px, auto) 60px;
+    grid-template-areas: "title"
+                         "content"
+                         "button";
 }
-
-.contact-panel:hover {
-    cursor: pointer;
-    background-color: #59baa3;
-}
-
-.contacts > a {
-    text-decoration: none;
-    color: black;
-}
-
-.event-panel:hover {
-    cursor: pointer;
-    background-color: #59baa3;
-}
-
-.award:hover {
-    cursor: pointer;
-    background-color: #59baa3;
-}
-
-.skills-panel:hover {
-    cursor: pointer !important;
-    background-color: #59baa3 !important;
-}
-
-#upcoming-events:hover {
-    cursor: pointer;
-    color: black;
-}
-#this-week:hover {
-    cursor: pointer;
-    color: black;
-}
-#this-month:hover {
-    cursor: pointer;
-    color: black;
-}
-#past-events:hover {
-    cursor: pointer;
-    color: black;
-}
-
 
 /* =================== Personal Profile =================== */
 .personal-profile {
@@ -411,7 +429,10 @@ p {
 }
 
 .notifications {
+    margin: 10px;
     padding: 10px;
+    border: 5px solid #fafcee;
+    border-radius: 8px;
     grid-area: notifications;
 }
 
@@ -463,9 +484,19 @@ p {
     background-color: #ccc;
 }
 
+.award:hover {
+    cursor: pointer;
+    background-color: #59baa3;
+}
+
 /* ======================= Contacts ======================= */
 .contacts {
     padding: 10px;
+}
+
+.contacts > a {
+    color: #000;
+    text-decoration: none;
 }
 
 .contact-panel {
@@ -475,6 +506,11 @@ p {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-areas: "picture description"
+}
+
+.contact-panel:hover {
+    cursor: pointer;
+    background-color: #59baa3;
 }
 
 .contact-pic img {
@@ -500,7 +536,8 @@ p {
 
 .events-sidebar {
     padding: 20px;
-    background-color: #59baa3;
+    background-color: #40c9c2;
+    border-radius: 0 !important;
     color: #fff;
     grid-area: sidebar;
 }
@@ -512,7 +549,8 @@ p {
 
 .events-window {
     padding: 20px;
-    border: 5px solid #59baa3;
+    background-color: #fafcee;
+    border-radius: 0 !important;
     grid-area: window;
 }
 
@@ -523,6 +561,11 @@ p {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-areas: "picture description"
+}
+
+.event-panel:hover {
+    cursor: pointer;
+    background-color: #59baa3;
 }
 
 .event-pic img {
@@ -538,9 +581,28 @@ p {
     grid-area: description;
 }
 
+#upcoming-events:hover {
+    cursor: pointer;
+    color: #000;
+}
+#this-week:hover {
+    cursor: pointer;
+    color: #000;
+}
+#this-month:hover {
+    cursor: pointer;
+    color: #000;
+}
+#past-events:hover {
+    cursor: pointer;
+    color: #000;
+}
+
 /* =================== Recommendations ==================== */
 .recommendations {
+    margin-bottom: 18px;
     padding: 30px;
+    grid-area: content;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(300px, auto);
@@ -577,7 +639,10 @@ p {
 
 .profile-panel {
     padding: 20px 40px 40px 40px;
-    background-color: #ccc;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
+    border-radius: 8px;
+    color: #fafcee;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
@@ -632,13 +697,14 @@ p {
     width: 50vw;
 }
 
+@media (min-width: 801px) and (max-width: 1000px) {
+    #profile {
+        width: 65vw;
+    }
+}
+
 @media (max-width: 800px) {
     .profile-panel {
-        padding: 20px 40px 40px 40px;
-        background-color: #ccc;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 15px;
         grid-template-areas: "picture"
                              "bio"
                              "button"

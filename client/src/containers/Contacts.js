@@ -16,7 +16,7 @@ class Contacts extends Component {
                 <div className="contacts">
                     <a href="/profile"><Contact name="John Doe" /></a>
                     <a href="/profile"><Contact name="Jane Doe" /></a>
-                    <a href="/profile"><Contact name="Johnathon Doe" /></a>
+                    <a href="/profile"><Contact name="Fred Doe" /></a>
                 </div>
             </div>
         );

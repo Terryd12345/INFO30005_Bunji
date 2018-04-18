@@ -12,11 +12,11 @@ class Dashboard extends Component {
                 <div className="personal-profile">
                     <div className="personal-pic">
                         <img src={require("../images/user.png")} alt="Profile" />
-                        <a href="/dashboard">
-                            <button className="button"  id="personal-profile-btn-1">Change Picture</button>
+                        <a className="button"  id="personal-btn-1" href="/dashboard">
+                            Change Picture
                         </a>
-                        <a href="/dashboard">
-                            <button className="button" id="personal-profile-btn-2">Edit Info</button>
+                        <a className="button"  id="personal-btn-2" href="/dashboard">
+                            Edit Info
                         </a>
                     </div>
                     <div className="section-title">
@@ -48,6 +48,9 @@ class Dashboard extends Component {
                         <h1>Recommended for You</h1>
                     </div>
                     <Recommendations />
+                    <a className="button" id="recommendations-btn" href="find-mentor">
+                        Find Mentor
+                    </a>
                 </div>
             </div>
         );

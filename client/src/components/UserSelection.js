@@ -11,11 +11,11 @@ class UserSelection extends Component {
                 <article className="user-selection">
                     <User name="John Doe" age="21" gender="Male" location="Melbourne" skills={['Facebook', 'Twitter']} />
                     <User name="Jane Doe" age="19" gender="Female" location="Adelaide" skills={['Instagram', 'iPhone']} />
-                    <User name="Fred Doe" age="24" gender="Male" location="Gold Coast" skills={['MacBook', 'Computers']} />
+                    <User name="Fred Doe" age="24" gender="Male" location="Gold Coast" skills={['MacBook', 'Computer']} />
                 </article>
 
-                <a href="/dashboard">
-                    <button className="button" id="user-selection-btn">Confirm</button>
+                <a className="button" id="user-selection-btn" href="/dashboard">
+                    Confirm
                 </a>
             </div>
         );

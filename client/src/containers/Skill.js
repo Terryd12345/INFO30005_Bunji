@@ -5,29 +5,28 @@ class Skill extends Component {
         super(props);
         this.state = {
             isSelected: false,
-            color: "#ccc"
+            border: "10px solid transparent"
         };
         this.onSelected = this.onSelected.bind(this);
     }
 
     onSelected(event) {
-        if(this.state.isSelected === false){
-            this.setState({ isSelected: true, color: "#59baa3" });
+        if (this.state.isSelected === false) {
+            this.setState({ isSelected: true, color: "10px solid #fafcee" });
         } else {
-            this.setState({ isSelected: false, color: "#ccc" });
+            this.setState({ isSelected: false, color: "10px solid transparent" });
         }
     }
 
 
     render() {
         const styles = {
-            backgroundColor: this.state.color,
+            border: this.state.color,
         }
 
         return (
             <div className="skill"  onClick={this.onSelected}>
-                <div className="skills-panel centered"
-                style={styles}>
+                <div className="skills-panel centered" style={styles}>
                     {this.props.title}
                 </div>
             </div>
