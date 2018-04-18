@@ -9,7 +9,7 @@ class Skill extends Component {
         };
         this.onSelected = this.onSelected.bind(this);
     }
-    
+
     onSelected(event) {
         if (this.state.isSelected === false) {
             this.setState({ isSelected: true, borderColor: "#fafcee" });
@@ -17,11 +17,13 @@ class Skill extends Component {
             this.setState({ isSelected: false, borderColor: "transparent" });
         }
     }
-    
+
     render() {
         const styles = {
             borderColor: this.state.borderColor,
         }
+
+        const imageSource = "../images/facebook.png";
 
         return (
             <div className="skill"  onClick={this.onSelected}>
