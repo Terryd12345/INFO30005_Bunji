@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ChatWindow from '../containers/ChatWindow';
-import Connections from '../containers/Connections';
-import Calendar from '../containers/Calendar';
+import ChatWindow from '../containers/Connections/ChatWindow';
+import Connections from '../containers/Connections/Connections';
+import Calendar from '../containers/Connections/Calendar';
 
 class Relationships extends Component {
     render() {

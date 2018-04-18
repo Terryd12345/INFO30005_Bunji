@@ -13,11 +13,11 @@ class Header extends Component {
                             <a href="/find-mentor">Find Mentor</a>
                             <a href="/dashboard">Dashboard</a>
                             <a href="/profile">Profile</a>
-                            <a href="/relationships">Relationships</a>
+                            <a href="/connections">Connections</a>
                         </div>
                     </li>
                     <li><a href="/" id="account"><img src={require("../images/male.png")} alt="Profile" /></a></li>
-                    <li><a href="/relationships">Relationships</a></li>
+                    <li><a href="/connections">Connections</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/find-mentor">Find Mentor</a></li>

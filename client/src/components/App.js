@@ -23,7 +23,7 @@ class App extends Component {
                             <Route exact path='/find-mentor' component={UserSelection} />
                             <Route exact path='/profile' component={Profile} />
                             <Route exact path='/dashboard' component={Dashboard} />
-                            <Route exact path='/relationships' component={Relationships} />
+                            <Route exact path='/connections' component={Relationships} />
                         </div>
                     </div>
                 </BrowserRouter>
