@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import MessageBox from './MessageBox';
+import Messages from './Messages';
 
 class ChatWindow extends Component {
     constructor(props){
         super(props);
         this.state = {};
     }
-    
-    loadMessages() {
-
-    };
 
     render() {
         return (
             <div className="chatWindow">
             <div id="chatBox">
-                <div id="messages">
-
-                </div>
+                <Messages chat={this.props.chat}/>
                 <MessageBox />
             </div>
             </div>
