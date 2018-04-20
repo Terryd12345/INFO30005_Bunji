@@ -16,7 +16,7 @@ class Header extends Component {
                             <a href="/connections">Connections</a>
                         </div>
                     </li>
-                    <li><a href="/" id="account"><img src={require("../images/male.png")} alt="Profile" /></a></li>
+                    <li id="account"><img src={require("../images/male.png")} alt="Profile" /></li>
                     <li><a href="/connections">Connections</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
