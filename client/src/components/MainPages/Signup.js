@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import { GoogleLogin } from 'react-google-login';
-import Keys from '../../keys';
+import Keys from '../../keys.js';
 
 class SignUp extends Component {
-
-    constructor(props) {
-        super(props);
-        
-    }
-
     render() {
         const responseGoogle = (response) => {
             console.log(response);
