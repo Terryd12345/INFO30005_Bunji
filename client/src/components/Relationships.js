@@ -10,7 +10,7 @@ class Relationships extends Component {
             chats: [
                 {
                     user1: "Omja Das",
-                    connection: "John Doe",
+                    user2: "John Doe",
                     chatID: 0,
                     messages: [
                         {
@@ -32,7 +32,7 @@ class Relationships extends Component {
                 },
                 {
                     user1: "Omja Das",
-                    connection: "Jane Doe",
+                    user2: "Jane Doe",
                     chatID: 1,
                     messages: [
                         {
@@ -55,8 +55,11 @@ class Relationships extends Component {
         this.setState({ chatID: newChatID });
     }
 
-    messageHandler(e, message) {
-
+    messageHandler(e, newMessage) {
+        e.preventDefault();
+        let c = this.state.chats.slice();
+        c[this.state.chatID].messages.push({ date: new Date(), sender: c[this.state.chatID].user1, message: newMessage });
+        this.setState({ chats: c });
     }
 
     render() {
@@ -64,7 +67,7 @@ class Relationships extends Component {
             <div id="relationships">
                 <div id="chat">
                     <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
-                    <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler  } />
+                    <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
                 </div>
                 <Calendar />
             </div>

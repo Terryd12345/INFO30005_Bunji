@@ -10,11 +10,10 @@ class Messages extends Component {
         return (
             <div id="messages">
                 {this.props.chat.messages.map(message => {
-                    const connection = this.props.chat.connection;
-                    if (connection === message.sender) {
-                        return <div className="message other">{message.message}</div>;
-                    } else {
+                    if (message.sender === this.props.chat.user1) {
                         return <div className="message own">{message.message}</div>;
+                    } else {
+                        return <div className="message other">{message.message}</div>;
                     }
                 })}
             </div>
