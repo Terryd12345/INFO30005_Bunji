@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ChatWindow from '../Connections/ChatWindow';
 import Connections from '../Connections/Connections';
-import Calendar from '../Connections/Calendar';
 import Events from '../Dashboard/Events/Events'
+
 class Relationships extends Component {
     constructor(props) {
         super(props);

@@ -9,6 +9,7 @@ class Header extends Component {
                     <li id="dropdown">
                         &#9776;
                         <div id="dropdown-content">
+                            <a href="/signup">Sign Up</a>
                             <a href="/select-skills">Select Skills</a>
                             <a href="/find-mentor">Find Mentor</a>
                             <a href="/dashboard">Dashboard</a>
@@ -16,7 +17,7 @@ class Header extends Component {
                             <a href="/connections">Connections</a>
                         </div>
                     </li>
-                    <li><a href="/" id="account"><img src={require("../images/male.png")} alt="Profile" /></a></li>
+                    <li id="account"><img src={require("../images/male.png")} alt="Profile" /></li>
                     <li><a href="/connections">Connections</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
