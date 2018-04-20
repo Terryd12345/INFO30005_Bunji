@@ -1,4 +1,5 @@
 
 var Keys = module.exports = {
-    ClientID: "820164325496-e082jen2k1t4c28n98716nlmjkddp6og.apps.googleusercontent.com"
+    ClientID: "820164325496-e082jen2k1t4c28n98716nlmjkddp6og.apps.googleusercontent.com",
+    ClientSecret: "34PcJs9WfM819LWjLPTBYTeh"
 }
