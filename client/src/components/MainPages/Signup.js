@@ -29,7 +29,7 @@ class SignUp extends Component {
                     autoLoad
                     callback={responseFacebook}
                     render={renderProps => (
-                        <button id="facebook" onClick={renderProps.onClick}>This is my custom FB button</button>
+                        <button id="facebook" onClick={renderProps.onClick}>Facebook</button>
                     )}
                 />
 
