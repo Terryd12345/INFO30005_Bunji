@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Skill extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             isSelected: false,
@@ -24,7 +24,7 @@ class Skill extends Component {
         }
 
         return (
-            <div className="skill"  onClick={this.onSelected}>
+            <div className="skill" onClick={this.onSelected}>
                 <div className="skills-panel centered" style={styles}>
                     <img src={require(`../../images/${this.props.picName}.png`)} alt="{this.props.title}" />
                     {this.props.title}

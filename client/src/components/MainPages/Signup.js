@@ -17,7 +17,7 @@ class SignUp extends Component {
             <div id="signup">
                 <GoogleLogin
                     clientId={Keys.ClientID}
-                    buttonText="Login"
+                    buttonText="Login with Google"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                 />

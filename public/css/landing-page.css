@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-#countdown > div {
+#countdown>div {
     /* background-color: #00bf96; */
     background-color: rgb(31, 153, 164);
     border-radius: 3px;
@@ -13,7 +13,7 @@
     padding: 10px;
 }
 
-#countdown > div span {
+#countdown>div span {
     /* background-color: #00816a; */
     background-color: rgb(12, 95, 105);
     border-radius: 3px;
@@ -23,7 +23,7 @@
     width: 70px;
 }
 
-#countdown > div div {
+#countdown>div div {
     font-size: 1rem;
     padding-top: 5px;
 }
@@ -35,27 +35,22 @@
 }
 
 @media (max-width: 500px) {
-    #countdown > div span {
+    #countdown>div span {
         font-size: 1.3em;
     }
-    
-    #countdown > div div {
+    #countdown>div div {
         font-size: 0.7rem;
     }
-    
     #intro {
         font-size: 0.9rem;
         width: 75%;
     }
-    
     #home h1 {
         font-size: 5.3rem;
     }
-    
     #home h3 {
         font-size: 1.3rem;
     }
-    
     #team {
         font-size: 0.7rem;
     }
@@ -65,7 +60,6 @@
     #intro {
         font-size: 0.8rem;
     }
-    
     #home h1 {
         font-size: 4rem;
     }
