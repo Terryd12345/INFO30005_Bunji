@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import User from "../containers/User";
+import User from "./User";
 
 class UserSelection extends Component {
     render() {

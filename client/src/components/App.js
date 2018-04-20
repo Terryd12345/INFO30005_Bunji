@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import Header from './Header';
-import Dashboard from './Dashboard';
-import UserSelection from './UserSelection';
-import Home from './Home';
-import Skills from './SkillSelection';
-import Profile from './Profile';
-import Relationships from './Relationships';
+import Dashboard from './MainPages/Dashboard';
+import UserSelection from './Users/UserSelection';
+import Home from './MainPages/Home';
+import Skills from './Skills/SkillSelection';
+import Profile from './MainPages/Profile';
+import Relationships from './MainPages/Relationships';
+import SignUp from './MainPages/Signup';
+import NotFound from './NotFound';
 
 class App extends Component {
     render() {
@@ -17,14 +19,16 @@ class App extends Component {
                 <BrowserRouter>
                     <div>
                         <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                        <div className="content">
+                        <Switch>
                             <Route exact path='/' component={Home} />
                             <Route exact path='/select-skills' component={Skills} />
                             <Route exact path='/find-mentor' component={UserSelection} />
                             <Route exact path='/profile' component={Profile} />
                             <Route exact path='/dashboard' component={Dashboard} />
                             <Route exact path='/connections' component={Relationships} />
-                        </div>
+                            <Route exact path='/signup' component={SignUp} />
+                            <Route path='*' component={NotFound} />
+                        </Switch>
                     </div>
                 </BrowserRouter>
             </div>

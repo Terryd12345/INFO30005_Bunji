@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ChatWindow from '../containers/Connections/ChatWindow';
-import Connections from '../containers/Connections/Connections';
-import Calendar from '../containers/Connections/Calendar';
+import ChatWindow from '../Connections/ChatWindow';
+import Connections from '../Connections/Connections';
+import Events from '../Dashboard/Events/Events'
 
 class Relationships extends Component {
     constructor(props) {
@@ -69,7 +69,7 @@ class Relationships extends Component {
                     <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
                     <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
                 </div>
-                <Calendar />
+                <Events />
             </div>
         );
     }
