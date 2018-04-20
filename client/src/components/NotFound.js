@@ -3,7 +3,10 @@ import React, { Component } from "react";
 class NotFound extends Component {
     render() {
         return (
-            <p>404 Not Found</p>
+            <div id="notFound">
+                <p>404</p>
+                <p>Page Not Found</p>
+            </div>
         )
     }
 }
