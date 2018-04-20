@@ -7,7 +7,7 @@ class Connections extends Component {
     }
     render() {
         return (
-            <div className="connections">
+            <div id="connections">
                 {this.props.chats.map(chat => {
                     return <div className="connection" onClick={(e) => this.props.chatHandler(e, chat.chatID)}>{chat.user2}</div>;
                 })}

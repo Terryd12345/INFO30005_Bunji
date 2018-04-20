@@ -31,7 +31,6 @@ p {
 }
 
 .overlay {
-    background-color: rgb(60, 60, 60);
     background-color: rgba(60, 60, 60, 0.5);
     height: 100%;
 }
@@ -839,6 +838,7 @@ p {
     grid-area: connections;
     overflow-x: hidden;
     overflow-y: scroll;
+    /* background: white; */
 }
 
 #connections .connection:nth-child(odd) {
@@ -848,6 +848,7 @@ p {
 .connection {
     padding: 10px;
     cursor: pointer;
+    background: #fff;
 }
 
 .connection:hover,
@@ -890,11 +891,8 @@ p {
 
 #messageBox {
     height: 50px;
-}
-
-#messageBox {
+    width: 100%;
     display: flex;
-    width: 100%
 }
 
 #message {
@@ -921,10 +919,11 @@ p {
     border-radius: .25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     color: #6c757d;
-    background-color: transparent;
+    background-color: #eee;
     background-image: none;
     border-color: #6c757d;
     margin-left: -1px;
+    cursor: pointer;
 }
 
 #send:hover {
