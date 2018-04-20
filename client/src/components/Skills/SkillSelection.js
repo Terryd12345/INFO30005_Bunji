@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Skill from "../containers/Skill";
+import Skill from "./Skill";
 
 class Skills extends Component {
     render() {
