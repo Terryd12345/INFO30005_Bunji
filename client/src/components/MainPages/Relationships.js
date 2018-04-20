@@ -69,7 +69,10 @@ class Relationships extends Component {
                     <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
                     <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
                 </div>
-                <Events />
+                <div id="calendar">
+                    <h1>Events</h1>
+                    <Events />
+                </div>
             </div>
         );
     }

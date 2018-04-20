@@ -15,24 +15,30 @@ class SignUp extends Component {
         }
         
         return (
-            <div id="signup">
+            <div className="wrapper" id="login">
+                <div id="signup">
+                    
+                    <h1>Login</h1>
+                    <GoogleLogin
+                        clientId={Keys.GoogleClientID}
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle} >
+                        <span id="google">LOGIN WITH G+</span>
+                    </GoogleLogin>
+                    
+                    <br />
+                    <br />
+    
+                    <FacebookLogin
+                        appId={Keys.FacebookID}
+                        autoLoad
+                        callback={responseFacebook}
+                        render={renderProps => (
+                            <button id="facebook" onClick={renderProps.onClick}>This is my custom FB button</button>
+                        )}
+                    />
 
-                <GoogleLogin
-                    clientId={Keys.GoogleClientID}
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle} >
-                    <span id="google">Google Login</span>
-                </GoogleLogin>
-
-                <FacebookLogin
-                    appId={Keys.FacebookID}
-                    autoLoad
-                    callback={responseFacebook}
-                    render={renderProps => (
-                        <button id="facebook" onClick={renderProps.onClick}>Facebook</button>
-                    )}
-                />
-
+                </div>
             </div>
         );
     };

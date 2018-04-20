@@ -9,7 +9,7 @@ class Header extends Component {
                     <li id="dropdown">
                         &#9776;
                         <div id="dropdown-content">
-                            <a href="/signup">Sign Up</a>
+                            <a href="/signup">Login</a>
                             <a href="/select-skills">Select Skills</a>
                             <a href="/find-mentor">Find Mentor</a>
                             <a href="/dashboard">Dashboard</a>
@@ -23,7 +23,7 @@ class Header extends Component {
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/find-mentor">Find Mentor</a></li>
                     <li><a href="/select-skills">Select Skills</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/signup">Login</a></li>
                 </ul>
             </div>
         );
