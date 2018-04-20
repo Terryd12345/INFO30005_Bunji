@@ -9,12 +9,25 @@ class Events extends Component {
     render() {
         return (
             <div className="events">
+                <div className="events-sidebar-small">
+                    <div className="sidebar-box">
+                        <select>
+                            <option value="#" selected>Upcoming Events</option>
+                            <option value="#">This Week</option>
+                            <option value="#">This Month</option>
+                            <option value="#">Past Events</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="events-sidebar-medium">
+                    <h3><a href="#">Upcoming Events</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Past Events</a></h3>
+                </div>
                 <div className="events-sidebar">
-                    <h3 id="upcoming-events">Upcoming Events</h3>
-                    <h3 id="this-week">This Week</h3>
-                    <h3 id="this-month">This Month</h3>
+                    <h3><a href="#">Upcoming Events</a></h3>
+                    <h3><a href="#">This Week</a></h3>
+                    <h3><a href="#">This Month</a></h3>
                     <hr />
-                    <h3 id="past-events">Past Events</h3>
+                    <h3><a href="#">Past Events</a></h3>
                 </div>
                 <div className="events-window">
                     <Event title="Meeting 1" />

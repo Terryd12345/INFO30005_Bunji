@@ -29,7 +29,7 @@ class User extends Component {
                     <div className="user-pic">
                         <img src={require("../../images/male.png")} alt="Profile" />
                     </div>
-                    <div className="user-desc">
+                    <div className="user-desc centered">
                         <h1>{this.props.name}</h1>
                         <h3>{this.props.age} / {this.props.gender} / {this.props.location}</h3>
                         <h5>Skills: {this.props.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h5>
