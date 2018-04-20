@@ -13,7 +13,7 @@ class ChatWindow extends Component {
             <div className="chatWindow">
                 <div id="chatBox">
                     <Messages chat={this.props.chat} />
-                    <MessageBox messageHandler={this.props.messageHandler}/>
+                    <MessageBox messageHandler={this.props.messageHandler} />
                 </div>
             </div>
         );

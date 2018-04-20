@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Contact from './Contact';
 
 class Contacts extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {};
     }

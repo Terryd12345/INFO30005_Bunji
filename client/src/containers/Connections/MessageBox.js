@@ -15,7 +15,7 @@ class MessageBox extends Component {
 
     handleSubmit(e) {
         this.props.messageHandler(e, this.state.value);
-        this.setState({value: ''});
+        this.setState({ value: '' });
     }
 
     render() {
