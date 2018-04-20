@@ -58,6 +58,18 @@ p {
     }
 }
 
+#notFound {
+    text-align: center;
+    font-size: 15rem;
+    overflow-wrap: break-word;
+    font-weight: bold;
+}
+
+#notFound p:not(:first-child) {
+    font-size: 5rem;
+    font-weight: normal;
+}
+
 /* ================================================ Navigation Bar ================================================= */
 
 .navbar {
