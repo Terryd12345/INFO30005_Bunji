@@ -14,12 +14,13 @@ class MessageBox extends Component {
     }
 
     handleSubmit(e) {
-        
+        this.props.messageHandler(e, this.state.value);
+        this.setState({value: ''});
     }
 
     render() {
         return (
-            <form id="messageBox" action="">
+            <form id="messageBox" onSubmit={this.handleSubmit}>
                 <input id="message" autocomplete="off" type="text" placeholder="Message..." aria-label="Message..." value={this.state.value} onChange={this.handleChange} />
                 <button id="send">Send</button>
             </form>

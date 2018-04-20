@@ -9,7 +9,7 @@ class Connections extends Component {
         return (
             <div className="connections">
                 {this.props.chats.map(chat => {
-                    return <div className="connection" onClick={(e) => this.props.chatHandler(e, chat.chatID)}>{chat.connection}</div>;
+                    return <div className="connection" onClick={(e) => this.props.chatHandler(e, chat.chatID)}>{chat.user2}</div>;
                 })}
             </div>
         );
