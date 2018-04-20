@@ -963,7 +963,8 @@ p {
     grid-area: connections;
     overflow-x: hidden;
     overflow-y: scroll;
-    background: #f9f9f9;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
 }
 
 #connections .connection:nth-child(odd) {
@@ -1059,12 +1060,14 @@ p {
 
 #calendar {
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60, 0.2);
     grid-area: calendar;
 }
 
 #calendar h1 {
     padding: 10px 10px 0 10px;
+    color: #fafcee;
 }
 
 @media (max-width: 1100px) {
