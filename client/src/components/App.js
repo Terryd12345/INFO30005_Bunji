@@ -10,6 +10,7 @@ import Skills from './Skills/SkillSelection';
 import Profile from './MainPages/Profile';
 import Relationships from './MainPages/Relationships';
 import SignUp from './MainPages/Signup';
+import NotFound from './NotFound';
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                             <Route exact path='/dashboard' component={Dashboard} />
                             <Route exact path='/connections' component={Relationships} />
                             <Route exact path='/signup' component={SignUp} />
+                            <Route path='*' component={NotFound} />
                         </div>
                     </div>
                 </BrowserRouter>
