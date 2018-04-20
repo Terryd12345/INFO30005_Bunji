@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-import Keys from '../../keys';
+import Keys from '../../keys.js';
 
 class SignUp extends Component {
 
@@ -16,21 +16,23 @@ class SignUp extends Component {
         
         return (
             <div id="signup">
+
                 <GoogleLogin
                     clientId={Keys.GoogleClientID}
-                    buttonText="Login with Google"
                     onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                />
+                    onFailure={responseGoogle} >
+                    <span id="google">Google Login</span>
+                </GoogleLogin>
+
                 <FacebookLogin
                     appId={Keys.FacebookID}
                     autoLoad
                     callback={responseFacebook}
                     render={renderProps => (
-                        <button onClick={renderProps.onClick}>This is my custom FB button</button>
+                        <button id="facebook" onClick={renderProps.onClick}>This is my custom FB button</button>
                     )}
                 />
-                
+
             </div>
         );
     };
