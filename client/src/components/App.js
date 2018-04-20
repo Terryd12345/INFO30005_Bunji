@@ -3,12 +3,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 
 import Header from './Header';
-import Dashboard from './Dashboard';
-import UserSelection from './UserSelection';
-import Home from './Home';
-import Skills from './SkillSelection';
-import Profile from './Profile';
-import Relationships from './Relationships';
+import Dashboard from './MainPages/Dashboard';
+import UserSelection from './Users/UserSelection';
+import Home from './MainPages/Home';
+import Skills from './Skills/SkillSelection';
+import Profile from './MainPages/Profile';
+import Relationships from './MainPages/Relationships';
 
 class App extends Component {
     render() {

@@ -9,7 +9,7 @@ class User extends Component {
         };
         this.onSelected = this.onSelected.bind(this);
     }
-    
+
     onSelected(event) {
         if (this.state.isSelected === false) {
             this.setState({ isSelected: true, borderColor: "#fafcee" });
@@ -17,17 +17,17 @@ class User extends Component {
             this.setState({ isSelected: false, borderColor: "transparent" });
         }
     }
-    
+
     render() {
         const styles = {
             borderColor: this.state.borderColor,
         }
-        
+
         return (
             <div onClick={this.onSelected}>
                 <div className="user-panel" style={styles}>
                     <div className="user-pic">
-                        <img src={require("../images/male.png")} alt="Profile" />
+                        <img src={require("../../images/male.png")} alt="Profile" />
                     </div>
                     <div className="user-desc">
                         <h1>{this.props.name}</h1>

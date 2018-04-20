@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Notifications from '../containers/Dashboard/Notifications/Notifications';
-import Awards from '../containers/Dashboard/Awards/Awards';
-import Stats from '../containers/Dashboard/Stats';
-import Contacts from '../containers/Dashboard/Contacts/Contacts';
-import Events from '../containers/Dashboard/Events/Events';
-import Recommendations from '../containers/Dashboard/Recommendations';
+import Notifications from '../Dashboard/Notifications/Notifications';
+import Awards from '../Dashboard/Awards/Awards';
+import Stats from '../Dashboard/Stats';
+import Contacts from '../Dashboard/Contacts/Contacts';
+import Events from '../Dashboard/Events/Events';
+import Recommendations from '../Dashboard/Recommendations';
 
 class Dashboard extends Component {
     render() {
@@ -12,7 +12,7 @@ class Dashboard extends Component {
             <div className="dashboard">
                 <div className="personal-profile">
                     <div className="personal-pic">
-                        <img src={require("../images/male.png")} alt="Profile" />
+                        <img src={require("../../images/male.png")} alt="Profile" />
                         <a className="button"  id="personal-btn-1" href="/dashboard">
                             Change Picture
                         </a>
