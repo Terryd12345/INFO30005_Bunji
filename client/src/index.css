@@ -1,9 +1,14 @@
 /* ==================================================== General ==================================================== */
 
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #42ccc8, #5469a4);
+    background: linear-gradient(to bottom right, #42ccc8, #5469a4) no-repeat fixed;
     font-family: "Lato", sans-serif;
     color: #000;
 }
@@ -198,26 +203,26 @@ p {
 
 #personal-btn-1 {
     width: 120px;
-    margin: 15px auto 10px auto;
+    margin: 15px auto 10px 0;
     padding: 5px;
     font-size: 0.9rem;
 }
 
 #personal-btn-2 {
     width: 120px;
-    margin: 0 auto;
+    margin: 0 auto 0 0;
     padding: 5px;
     font-size: 0.9rem;
 }
 
-#contact-btn {
-    margin: 10px auto;
+#contact-btn-1 {
+    margin: 10px auto 10px 0;
     padding: 5px 10px;
     font-size: 0.85rem;
 }
 
 #contact-btn-2 {
-    margin: 10px auto 10px 8px;
+    margin: 0 auto 0 0;
     padding: 5px 10px;
     font-size: 0.85rem;
 }
@@ -475,7 +480,7 @@ p {
     grid-area: profile;
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-auto-rows: 60px 190px minmax(80px, auto);
+    grid-auto-rows: 60px minmax(200px, auto) minmax(60px, auto);
     grid-template-areas: "picture title" "picture stats" "picture awards";
 }
 
@@ -577,7 +582,7 @@ p {
     padding: 10px;
 }
 
-.contacts>a {
+.contacts > a {
     color: #000;
     text-decoration: none;
 }
@@ -689,12 +694,57 @@ p {
 
 /* ======================================================== */
 
-@media (max-width: 900px) {
-    .dashboard {
+@media (max-width: 750px) {
+    .section-title h1,
+    .stat h1,
+    .skills-panel {
+        font-size: 1.8rem;
+    }
+    .personal-profile {
         grid-template-columns: 1fr;
-        grid-auto-rows: minmax(150px, auto);
-        grid-gap: 20px;
-        grid-template-areas: "profile" "notifications" "contacts" "events" "recommendations";
+        grid-auto-rows: 60px minmax(60px, auto) minmax(350px, auto) minmax(60px, auto);
+        grid-template-areas: "title" "picture" "stats" "awards";
+    }
+    .stats {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 80px;
+    }
+    .notification-desc h5,
+    .notification-time h5,
+    .event-desc h5 {
+        font-size: 0.8rem;
+    }
+    .contact-desc h3,
+    .events-sidebar h3 {
+        font-size: 1.1rem;
+    }
+    .events {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sidebar" "window";
+    }
+    .event-panel {
+        grid-template-columns: 20% 80%;
+    }
+    .event-desc h3 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+    .recommendations {
+        padding: 0 10px 30px 20px;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap: 40px;
+    }
+    #personal-btn-2 {
+        margin: 0 auto 10px 0;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 950px) {
+    .personal-profile {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 60px minmax(60px, auto) minmax(200px, auto) minmax(60px, auto);
+        grid-template-areas: "title" "picture" "stats" "awards";
     }
     .recommendations {
         grid-auto-rows: minmax(200px, auto);
@@ -702,7 +752,19 @@ p {
     }
 }
 
-@media (min-width: 901px) and (max-width: 1130px) {
+@media (max-width: 951px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(150px, auto);
+        grid-gap: 20px;
+        grid-template-areas: "profile" "notifications" "contacts" "events" "recommendations";
+    }
+    .personal-pic img {
+        max-width: 40%;
+    }
+}
+
+@media (min-width: 951px) and (max-width: 1250px) {
     .notification-panel {
         padding: 5px;
         grid-template-columns: 70% 30%;
