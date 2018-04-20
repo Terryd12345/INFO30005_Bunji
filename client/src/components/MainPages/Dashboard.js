@@ -14,7 +14,7 @@ class Dashboard extends Component {
                     <div className="personal-pic">
                         <img src={require("../../images/male.png")} alt="Profile" />
                         <br />
-                        <a className="button"  id="personal-btn-1" href="#">
+                        <a className="button" id="personal-btn-1" href="#">
                             Change Picture
                         </a>
                         <br />
