@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import Header from './Header';
@@ -19,7 +19,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div>
                         <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                        <div className="content">
+                        <Switch>
                             <Route exact path='/' component={Home} />
                             <Route exact path='/select-skills' component={Skills} />
                             <Route exact path='/find-mentor' component={UserSelection} />
@@ -28,7 +28,7 @@ class App extends Component {
                             <Route exact path='/connections' component={Relationships} />
                             <Route exact path='/signup' component={SignUp} />
                             <Route path='*' component={NotFound} />
-                        </div>
+                        </Switch>
                     </div>
                 </BrowserRouter>
             </div>
