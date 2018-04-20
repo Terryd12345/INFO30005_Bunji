@@ -1,4 +1,5 @@
 /* ==================================================== General ==================================================== */
+
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +8,12 @@ body {
     color: #000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -48,6 +54,7 @@ p {
 }
 
 /* ================================================ Navigation Bar ================================================= */
+
 .navbar {
     width: 100%;
     font-family: "Lato", sans-serif;
@@ -127,30 +134,26 @@ p {
     .navbar li:nth-child(n+4) {
         display: none;
     }
-    
     .navbar li:nth-child(2) {
         float: right;
         display: block;
     }
-    
     #account {
         padding-right: 12px;
     }
-    
     #dropdown {
         display: inline-block;
     }
-    
     #dropdown:hover #dropdown-content {
         display: block;
     }
-    
     #dropdown-content a:hover {
         background-color: #40c9c2;
     }
 }
 
 /* ==================================================== Buttons ==================================================== */
+
 .button {
     display: inline-block;
     outline: none;
@@ -225,6 +228,7 @@ p {
 }
 
 /* ==================================================== Home.js ==================================================== */
+
 #home {
     width: 100vw;
     height: 100vh;
@@ -286,22 +290,20 @@ p {
     #home h1 {
         font-size: 6rem;
     }
-
     #home h3 {
         font-size: 1.8rem;
     }
-
     #intro {
         width: 60%;
         font-size: 1.1rem;
     }
-
     #team {
         font-size: 0.8rem;
     }
 }
 
 /* ============================================= Skills.js / Skill.js ============================================== */
+
 .skills-content {
     margin: 0 auto;
     padding: 8px;
@@ -337,6 +339,7 @@ p {
 }
 
 /* ========================================== UserSelection.js / User.js =========================================== */
+
 .user-selection {
     padding: 8px;
 }
@@ -400,41 +403,36 @@ p {
         padding: 40px 30px;
         grid-template-columns: 1fr;
         grid-gap: 15px;
-        grid-template-areas: "picture"
-                             "description";
+        grid-template-areas: "picture" "description";
     }
-
     .user-desc {
         padding-right: 0;
         text-align: center;
     }
-
     .user-desc h1 {
         font-size: 1.5rem;
     }
-
     .user-desc h3 {
         font-size: 1.3rem;
     }
 }
 
 /* ================================================= Dashboard.js ================================================== */
+
 .dashboard {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
-    grid-template-areas: "profile profile notifications"
-                         "contacts events events"
-                         "recommendations recommendations recommendations";
+    grid-template-areas: "profile profile notifications" "contacts events events" "recommendations recommendations recommendations";
 }
 
 .dashboard div {
     border-radius: 8px;
 }
 
-.dashboard > div {
+.dashboard>div {
     background-color: rgb(60, 60, 60);
     background-color: rgba(60, 60, 60, 0.2);
 }
@@ -443,8 +441,7 @@ p {
     padding: 10px;
     display: grid;
     grid-auto-rows: 60px minmax(60px, auto);
-    grid-template-areas: "title"
-                         "content";
+    grid-template-areas: "title" "content";
 }
 
 .section-title {
@@ -468,21 +465,18 @@ p {
 #recommendations {
     grid-area: recommendations;
     grid-auto-rows: 60px minmax(60px, auto) 60px;
-    grid-template-areas: "title"
-                         "content"
-                         "button";
+    grid-template-areas: "title" "content" "button";
 }
 
 /* =================== Personal Profile =================== */
+
 .personal-profile {
     padding: 10px;
     grid-area: profile;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-auto-rows: 60px 190px minmax(80px, auto);
-    grid-template-areas: "picture title"
-                         "picture stats"
-                         "picture awards";
+    grid-template-areas: "picture title" "picture stats" "picture awards";
 }
 
 .personal-pic {
@@ -535,6 +529,7 @@ p {
 }
 
 /* ==================== Notifications ===================== */
+
 .notifications {
     margin: 10px;
     border-radius: 8px;
@@ -577,11 +572,12 @@ p {
 }
 
 /* ======================= Contacts ======================= */
+
 .contacts {
     padding: 10px;
 }
 
-.contacts > a {
+.contacts>a {
     color: #000;
     text-decoration: none;
 }
@@ -610,6 +606,7 @@ p {
 }
 
 /* ======================== Events ======================== */
+
 .events {
     padding: 10px;
     display: grid;
@@ -679,6 +676,7 @@ p {
 }
 
 /* =================== Recommendations ==================== */
+
 .recommendations {
     margin-bottom: 18px;
     padding: 30px;
@@ -690,18 +688,14 @@ p {
 }
 
 /* ======================================================== */
+
 @media (max-width: 900px) {
     .dashboard {
         grid-template-columns: 1fr;
         grid-auto-rows: minmax(150px, auto);
         grid-gap: 20px;
-        grid-template-areas: "profile"
-                             "notifications"
-                             "contacts"
-                             "events"
-                             "recommendations";
+        grid-template-areas: "profile" "notifications" "contacts" "events" "recommendations";
     }
-
     .recommendations {
         grid-auto-rows: minmax(200px, auto);
         grid-gap: 20px;
@@ -714,13 +708,13 @@ p {
         grid-template-columns: 70% 30%;
         grid-template-areas: "description time"
     }
-    
     .notification-pic {
         display: none;
     }
 }
 
 /* ================================================== Profile.js =================================================== */
+
 .profile {
     padding: 8px;
 }
@@ -734,16 +728,12 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
-    grid-template-areas: "button"
-                         "picture"
-                         "bio"
-                         "description";
+    grid-template-areas: "button" "picture" "bio" "description";
 }
 
 .profile-button {
     text-align: right;
     grid-area: button;
-
 }
 
 .profile-pic img {
@@ -793,34 +783,27 @@ p {
 
 @media (max-width: 800px) {
     .profile-panel {
-        grid-template-areas: "picture"
-                             "bio"
-                             "button"
-                             "description";
+        grid-template-areas: "picture" "bio" "button" "description";
     }
-
     .profile-button {
         text-align: center;
     }
-
     .profile-bio h1 {
         font-size: 1.5rem;
     }
-
     .profile-bio h3 {
         font-size: 1.3rem;
     }
-
     #profile {
         width: 85vw;
     }
-
     #profile-btn {
         margin: 0 auto;
     }
 }
 
 /* =============================================== Relationships.js ================================================ */
+
 #relationships {
     display: grid;
     width: 100%;
@@ -866,10 +849,10 @@ p {
     overflow-x: hidden;
     overflow-y: scroll;
     height: calc(100vh - 101px);
-  }
+}
 
 .message {
-    display:inline-block;
+    display: inline-block;
     clear: both;
     padding: 20px;
     border-radius: 30px;
