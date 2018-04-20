@@ -27,7 +27,7 @@ class User extends Component {
             <div onClick={this.onSelected}>
                 <div className="user-panel" style={styles}>
                     <div className="user-pic">
-                        <img src={require("../images/male.png")} alt="Profile" />
+                        <img src={require("../../images/male.png")} alt="Profile" />
                     </div>
                     <div className="user-desc">
                         <h1>{this.props.name}</h1>
