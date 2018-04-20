@@ -5,6 +5,7 @@ import Keys from '../../keys';
 
 class SignUp extends Component {
 
+
     render() {
         const responseGoogle = (response) => {
             console.log(response);
