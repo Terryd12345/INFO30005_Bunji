@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 
 class MessageBox extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {};
-        this.readMessage = this.readMessage.bind(this);
-        this.addMessage = this.addMessage.bind(this);
+        this.state = { value: '' };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({ value: e.target.value });
+    }
+
+    handleSubmit(e) {
+        
     }
 
     render() {
         return (
-            <div id="messageBox" action="">
-                <input id="message" autocomplete="off" type="text" placeholder="Message..." aria-label="Message..." onkeydown="if (event.keyCode == 13)document.getElementById('send').click()" />
-                <button id="send" onClick={this.readMessage}>Send</button>
-            </div>
+            <form id="messageBox" action="">
+                <input id="message" autocomplete="off" type="text" placeholder="Message..." aria-label="Message..." value={this.state.value} onChange={this.handleChange} />
+                <button id="send">Send</button>
+            </form>
         );
     }
 }

@@ -9,6 +9,7 @@ class Relationships extends Component {
         this.state = {
             chats: [
                 {
+                    user1: "Omja Das",
                     connection: "John Doe",
                     chatID: 0,
                     messages: [
@@ -30,6 +31,7 @@ class Relationships extends Component {
                     ]
                 },
                 {
+                    user1: "Omja Das",
                     connection: "Jane Doe",
                     chatID: 1,
                     messages: [
@@ -53,7 +55,7 @@ class Relationships extends Component {
         this.setState({ chatID: newChatID });
     }
 
-    messageHandler(e) {
+    messageHandler(e, message) {
 
     }
 
@@ -61,8 +63,8 @@ class Relationships extends Component {
         return (
             <div id="relationships">
                 <div id="chat">
-                    <Connections chats={this.state.chats} chatHandler={this.chatHandler}/>
-                    <ChatWindow chat={this.state.chats[this.state.chatID]} />
+                    <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
+                    <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler  } />
                 </div>
                 <Calendar />
             </div>

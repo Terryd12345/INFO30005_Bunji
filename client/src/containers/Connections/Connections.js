@@ -13,7 +13,7 @@ class Connections extends Component {
                 })}
             </div>
         );
-    }
+    }   
 }
 
 export default Connections;
