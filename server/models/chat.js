@@ -1,4 +1,5 @@
-var mongoose = require("mongoose");
+import mongoose from 'mongoose';
+
 var chatSchema = mongoose.Schema({
     user1: String,
     user2: String,
@@ -8,3 +9,5 @@ var chatSchema = mongoose.Schema({
         message: String
     }]
 })
+
+export default chatSchema;

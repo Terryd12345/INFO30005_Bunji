@@ -1,4 +1,5 @@
-var mongoose = require("mongoose");
+import mongoose from 'mongoose';
+
 var userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -6,3 +7,5 @@ var userSchema = mongoose.Schema({
     description: String,
     skills: [{ skill: String }]
 })
+
+export default userSchema;
