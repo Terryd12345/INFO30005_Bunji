@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 var userSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    type: String,
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    type: { type: String, required: true },
     description: String,
     skills: [{ skill: String }]
 })
