@@ -1,16 +1,54 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Loadable from "react-loadable";
 
 
-import Header from './Header';
-import Dashboard from './MainPages/Dashboard';
-import UserSelection from './Users/UserSelection';
-import Home from './MainPages/Home';
-import Skills from './Skills/SkillSelection';
-import Profile from './MainPages/Profile';
-import Relationships from './MainPages/Relationships';
-import SignUp from './MainPages/Signup';
-import NotFound from './NotFound';
+const Loading = () => <div>Loading...</div>;
+
+const Header = Loadable({
+    loader: () => import('./Header'),
+    loading: Loading,
+})
+
+const Dashboard = Loadable({
+    loader: () => import('./MainPages/Dashboard'),
+    loading: Loading,
+})
+
+const UserSelection = Loadable({
+    loader: () => import('./Users/UserSelection'),
+    loading: Loading,
+})
+
+const Home = Loadable({
+    loader: () => import('./MainPages/Home'),
+    loading: Loading,
+})
+
+const Skills = Loadable({
+    loader: () => import('./Skills/SkillSelection'),
+    loading: Loading,
+})
+
+const Profile = Loadable({
+    loader: () => import('./MainPages/Profile'),
+    loading: Loading,
+})
+
+const Relationships = Loadable({
+    loader: () => import('./MainPages/Relationships'),
+    loading: Loading,
+})
+
+const SignUp = Loadable({
+    loader: () => import('./MainPages/Signup'),
+    loading: Loading,
+})
+
+const NotFound = Loadable({
+    loader: () => import('./NotFound'),
+    loading: Loading,
+})
 
 class App extends Component {
     render() {
