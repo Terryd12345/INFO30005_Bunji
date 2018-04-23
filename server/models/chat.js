@@ -10,4 +10,4 @@ var chatSchema = mongoose.Schema({
     }]
 })
 
-export default chatSchema;
+mongoose.model('chats', chatSchema);

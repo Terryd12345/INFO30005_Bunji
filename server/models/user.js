@@ -8,4 +8,4 @@ var userSchema = mongoose.Schema({
     skills: [{ skill: String }]
 })
 
-export default userSchema;
+mongoose.model('users', userSchema);

@@ -7,4 +7,4 @@ var eventSchema = mongoose.Schema({
     user2: String
 })
 
-export default eventSchema;
+mongoose.model('events', eventSchema);
