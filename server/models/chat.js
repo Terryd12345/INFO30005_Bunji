@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 var chatSchema = mongoose.Schema({
     user1: { type: String, required: true },
@@ -10,4 +10,4 @@ var chatSchema = mongoose.Schema({
     }]
 })
 
-export default mongoose.model('chats', chatSchema);
+export default mongoose.model("chats", chatSchema);

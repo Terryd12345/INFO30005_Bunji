@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 var eventSchema = mongoose.Schema({
     title: { type: String, required: true },
@@ -7,4 +7,4 @@ var eventSchema = mongoose.Schema({
     user2: String
 })
 
-export default mongoose.model('events', eventSchema);
+export default mongoose.model("events", eventSchema);
