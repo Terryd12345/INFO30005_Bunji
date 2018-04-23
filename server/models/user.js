@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema({
     lastName: { type: String, required: true },
     type: { type: String, required: true },
     description: String,
-    skills: [skill]
+    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'skill' }],
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'userSchema' }]
 })
 
-export default mongoose.model("users", userSchema);
+export default mongoose.model("user", userSchema);
