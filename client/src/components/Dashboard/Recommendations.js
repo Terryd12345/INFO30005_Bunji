@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Skill from '../Skills/Skill';
+import React, { Component } from "react";
+import Skill from "../Skills/Skill";
 
 class Recommendations extends Component {
 
