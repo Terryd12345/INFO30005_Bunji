@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import MessageBox from './MessageBox';
-import Messages from './Messages';
+import React, { Component } from "react";
+import MessageBox from "./MessageBox";
+import Messages from "./Messages";
 
 class ChatWindow extends Component {
     constructor(props) {

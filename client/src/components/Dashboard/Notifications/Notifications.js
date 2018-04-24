@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Notification from './Notification';
+import React, { Component } from "react";
+import Notification from "./Notification";
 
 class Events extends Component {
     constructor(props) {

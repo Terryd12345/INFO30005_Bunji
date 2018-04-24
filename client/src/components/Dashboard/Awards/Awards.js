@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Award from './Award';
+import React, { Component } from "react";
+import Award from "./Award";
 
 class Awards extends Component {
 

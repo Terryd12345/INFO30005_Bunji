@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class MessageBox extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
+        this.state = { value: "" };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,7 +15,7 @@ class MessageBox extends Component {
 
     handleSubmit(e) {
         this.props.messageHandler(e, this.state.value);
-        this.setState({ value: '' });
+        this.setState({ value: "" });
     }
 
     render() {
