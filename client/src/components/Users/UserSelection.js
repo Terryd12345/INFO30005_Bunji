@@ -6,7 +6,10 @@ class UserSelection extends Component {
     render() {
         return (
             <div className="wrapper">
-                <header className="header">We found 3 mentors for you!</header>
+                <header id="header">
+                    <h1>We found 3 mentors for you!</h1>
+                    <h5>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h5>
+                </header>
 
                 <article className="user-selection">
                     <User name="John Doe" age="21" gender="Male" location="Melbourne" skills={["Facebook", "Twitter"]} />

@@ -5,16 +5,16 @@ class User extends Component {
         super(props);
         this.state = {
             isSelected: false,
-            borderColor: "transparent"
+            borderColor: ""
         };
         this.onSelected = this.onSelected.bind(this);
     }
 
     onSelected(event) {
         if (this.state.isSelected === false) {
-            this.setState({ isSelected: true, borderColor: "#fafcee" });
+            this.setState({ isSelected: true, borderColor: "#e95387" });
         } else {
-            this.setState({ isSelected: false, borderColor: "transparent" });
+            this.setState({ isSelected: false, borderColor: "" });
         }
     }
 

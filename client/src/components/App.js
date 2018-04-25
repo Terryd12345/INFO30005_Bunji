@@ -4,6 +4,7 @@ import Loadable from "react-loadable";
 import { MoonLoader } from "react-spinners";
 
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Loading = () => <div id="loading"><MoonLoader loading={true} /></div>;
 
@@ -55,23 +56,25 @@ const NotFound = Loadable({
 class App extends Component {
     render() {
         return (
-            <div className="container">
-                <BrowserRouter>
-                    <div>
-                        <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/select-skills" component={Skills} />
-                            <Route exact path="/find-mentor" component={UserSelection} />
-                            <Route exact path="/profile" component={Profile} />
-                            <Route exact path="/dashboard" component={Dashboard} />
-                            <Route exact path="/connections" component={Relationships} />
-                            <Route exact path="/signup" component={SignUp} />
-                            <Route path="*" component={NotFound} />
-                        </Switch>
-                    </div>
-                </BrowserRouter>
-            </div>
+            <BrowserRouter>
+                <div className="container">
+                    <Route path="/" render={(props) => (props.location.pathname !== "/")
+                                                    // && (props.location.pathname !== "/select-skills")
+                                                    // && (props.location.pathname !== "/find-mentor")
+                                                    && <Header />} />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/select-skills" component={Skills} />
+                        <Route exact path="/find-mentor" component={UserSelection} />
+                        <Route exact path="/profile" component={Profile} />
+                        <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/connections" component={Relationships} />
+                        <Route exact path="/signup" component={SignUp} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
+                    <Footer />
+                </div>
+            </BrowserRouter>
         );
     };
 };
