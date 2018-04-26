@@ -27,6 +27,10 @@ router.get("/cities", (req, res) => {
     res.json(cities)
 })
 
+router.get("/api/login", (req, res) => {
+    
+});
+
 router.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/build/index.html'), function(err) {
         if (err) {
