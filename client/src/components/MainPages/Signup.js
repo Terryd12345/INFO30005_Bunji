@@ -21,7 +21,7 @@ class SignUp extends Component {
     render() {
 
         function postToken(token){
-            return axios.post("localhost:5000/api/login", { token: token });
+            return axios.post("/api/login", { token: token });
         }
 
         const responseGoogle = (response) => {

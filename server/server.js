@@ -3,7 +3,6 @@ import express from "express"
 import path from "path";
 
 const app = express()
-const cors = require('cors');
 
 
 
@@ -24,7 +23,7 @@ router.get("/cities", (req, res) => {
     res.json(cities)
 })
 
-router.get("/api/login", (req, res) => {
+router.post("/api/login", (req, res) => {
     res.send('hello');
 });
 
