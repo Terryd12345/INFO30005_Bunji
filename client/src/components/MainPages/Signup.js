@@ -3,7 +3,7 @@ import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import Keys from "../../keys.js";
 import { getCityData } from '../../utils/getCityData';
-import axios from 'axios';
+import axios from "axios";
 
 class SignUp extends Component {
 
@@ -21,7 +21,7 @@ class SignUp extends Component {
     render() {
         const responseGoogle = (response) => {
             console.log(response.tokenObj.id_token);
-            axios.post('localhost:5000/api/login');
+            axios.post("/api/login",{token: response.tokenObj.id_token}).then(res=> {console.log(res.data)});
 
         }
         const responseFacebook = (response) => {

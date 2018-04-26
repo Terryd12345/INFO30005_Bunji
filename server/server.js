@@ -3,12 +3,6 @@ import express from "express"
 import path from "path";
 
 const app = express()
-const cors = require('cors');
-
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -27,8 +21,9 @@ router.get("/cities", (req, res) => {
     res.json(cities)
 })
 
-router.get("/api/login", (req, res) => {
-    
+router.post("/api/login", (req, res) => {
+    console.log(req.body.token);
+    res.send({data: "success"});
 });
 
 router.get("/*", (req, res) => {
