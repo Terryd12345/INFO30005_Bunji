@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Notifications from "../Dashboard/Notifications/Notifications";
-import Awards from "../Dashboard/Awards/Awards";
-import Stats from "../Dashboard/Stats";
-import Contacts from "../Dashboard/Contacts/Contacts";
-import Events from "../Dashboard/Events/Events";
-import Recommendations from "../Dashboard/Recommendations";
+import Notifications from '../Dashboard/Notifications/Notifications';
+import Awards from '../Dashboard/Awards/Awards';
+import Stats from '../Dashboard/Stats';
+import Contacts from '../Dashboard/Contacts/Contacts';
+import Events from '../Dashboard/Events/Events';
+import Recommendations from '../Dashboard/Recommendations';
 
 class Dashboard extends Component {
     render() {
@@ -13,12 +13,10 @@ class Dashboard extends Component {
                 <div className="personal-profile">
                     <div className="personal-pic">
                         <img src={require("../../images/male.png")} alt="Profile" />
-                        <br />
-                        <a className="button" id="personal-btn-1" href="#">
+                        <a className="button"  id="personal-btn-1" href="/dashboard">
                             Change Picture
                         </a>
-                        <br />
-                        <a className="button" id="personal-btn-2" href="#">
+                        <a className="button"  id="personal-btn-2" href="/dashboard">
                             Edit Info
                         </a>
                     </div>

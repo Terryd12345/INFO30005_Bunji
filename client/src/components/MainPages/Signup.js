@@ -12,14 +12,10 @@ class SignUp extends Component {
         this.retrieveCityData = this.retrieveCityData.bind(this);
     };
 
-    retrieveCityData() {
+    componentDidMount(){
         getCityData().then((cityData) => {
             this.setState({ cityData} );
         });
-    }
-
-    componentDidMount(){
-        this.retrieveCityData();
     }
 
     render() {
