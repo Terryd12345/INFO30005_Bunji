@@ -10,10 +10,10 @@ class Home extends Component {
                     </video>
                     
                     <div className="overlay centered">
-                        <h5 className="menu fade-in"><a>Register</a><a>Login</a></h5>
+                        <h5 className="menu fade-in"><a href="signup">Register</a><a href="signup">Login</a></h5>
                         <h1 className="fade-in">Bunji</h1>
                         <h3 className="fade-in">It's never too late to learn!</h3>
-                        <a className="button fade-in" id="welcome-btn" href="select-skills">
+                        <a className="button fade-in" id="welcome-btn" href="get-started">
                             Get Started!
                         </a>
                         <a className="arrow" href="#about">
@@ -55,7 +55,7 @@ class Home extends Component {
                             </div>
                         </article>
     
-                        <a className="button fade-in" id="about-btn" href="select-skills">
+                        <a className="button fade-in" id="about-btn" href="signup">
                             Register
                         </a>
                     </div>

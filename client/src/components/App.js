@@ -53,6 +53,11 @@ const NotFound = Loadable({
     loading: Loading,
 })
 
+const GetStarted = Loadable({
+    loader: () => import("./MainPages/GetStarted"),
+    loading: Loading,
+})
+
 class App extends Component {
     render() {
         return (
@@ -64,6 +69,7 @@ class App extends Component {
                                                     && <Header />} />
                     <Switch>
                         <Route exact path="/" component={Home} />
+                        <Route exact path="/get-started" component={GetStarted} />
                         <Route exact path="/select-skills" component={Skills} />
                         <Route exact path="/find-mentor" component={UserSelection} />
                         <Route exact path="/profile" component={Profile} />

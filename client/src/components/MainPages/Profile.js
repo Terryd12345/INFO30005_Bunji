@@ -8,12 +8,12 @@ class Profile extends Component {
                     <div className="profile-panel">
                         <div className="profile-button">
                             <a href="/connections">
-                                <button className="button" id="profile-btn">Contact John</button>
+                                <button className="button button-pink" id="profile-btn">Contact John</button>
                             </a>
                         </div>
 
                         <div className="profile-pic">
-                            <img src={require("../../images/male.png")} alt="Profile" />
+                            <img src={require("../../images/user.png")} alt="Profile" />
                         </div>
 
                         <div className="profile-bio">

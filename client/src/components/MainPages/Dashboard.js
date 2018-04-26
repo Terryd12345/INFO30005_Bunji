@@ -12,13 +12,13 @@ class Dashboard extends Component {
             <div className="dashboard">
                 <div className="personal-profile">
                     <div className="personal-pic">
-                        <img src={require("../../images/male.png")} alt="Profile" />
+                        <img src={require("../../images/user.png")} alt="Profile" />
                         <br />
-                        <a className="button" id="personal-btn-1" href="#">
+                        <a className="button button-pink" id="personal-btn-1" href="#">
                             Change Picture
                         </a>
                         <br />
-                        <a className="button" id="personal-btn-2" href="#">
+                        <a className="button button-pink" id="personal-btn-2" href="#">
                             Edit Info
                         </a>
                     </div>
@@ -55,7 +55,7 @@ class Dashboard extends Component {
                         <h1>Recommended for You</h1>
                     </div>
                     <Recommendations />
-                    <a className="button" id="recommendations-btn" href="find-mentor">
+                    <a className="button" id="recommendations-btn" href="#">
                         Find Mentor
                     </a>
                 </div>

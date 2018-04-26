@@ -5,8 +5,8 @@ import User from "./User";
 class UserSelection extends Component {
     render() {
         return (
-            <div className="wrapper">
-                <header id="header">
+            <div className="wrapper" id="get-started">
+                <header className="header">
                     <h1>We found 3 mentors for you!</h1>
                     <h5>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h5>
                 </header>
@@ -17,7 +17,7 @@ class UserSelection extends Component {
                     <User name="Fred Doe" age="24" gender="Male" location="Gold Coast" skills={["MacBook", "Computer"]} />
                 </article>
 
-                <a className="button" id="user-selection-btn" href="/dashboard">
+                <a className="button" id="user-selection-btn" href="#section-3">
                     Confirm
                 </a>
             </div>

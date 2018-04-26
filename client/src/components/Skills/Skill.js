@@ -12,7 +12,7 @@ class Skill extends Component {
 
     onSelected(event) {
         if (this.state.isSelected === false) {
-            this.setState({ isSelected: true, borderColor: "#e95387" });
+            this.setState({ isSelected: true, borderColor: "#8b55a4" });
         } else {
             this.setState({ isSelected: false, borderColor: "" });
         }

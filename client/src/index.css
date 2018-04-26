@@ -5,8 +5,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    /*background: linear-gradient(to bottom right, #baf3f1, #5469a4) no-repeat fixed;*/
-    background: url("images/pattern.png");
+    background: url("images/pattern.png") fixed center;
     font-family: "Source Sans Pro", sans-serif;
     color: #000;
 }
@@ -27,12 +26,6 @@ p {
     line-height: 25px;
 }
 
-.wrapper {
-    width: 80vw;
-    margin: 0 auto;
-    text-align: center;
-}
-
 .centered {
     display: flex;
     height: 100%;
@@ -44,23 +37,6 @@ p {
 .overlay {
     background-color: rgba(60, 60, 60, 0.5);
     height: 100%;
-}
-
-#header {
-    padding: 30px 70px;
-    color: #000;
-    font-family: "Lato", sans-serif;
-    text-align: center;
-}
-
-#header h1 {
-    margin-bottom: 15px;
-    font-size: 2.5rem;
-}
-
-#header h5 {
-    font-size: 1.1rem;
-    line-height: 30px;
 }
 
 #copyright {
@@ -102,110 +78,19 @@ p {
     }
 }
 
-/* ================================================ Navigation Bar ================================================= */
-
-.navbar {
-    width: 100%;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-.navbar li {
-    float: right;
-}
-
-.navbar li a {
-    display: block;
-    padding: 14px 16px 10px 16px;
-    border-bottom: 5px solid #fff;
-    color: #000;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1rem;
+/* ==================================================== Wrapper ==================================================== */
+.wrapper {
+    width: 80vw;
+    margin: 0 auto;
     text-align: center;
-    text-decoration: none;
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
 }
 
-.navbar li:nth-child(n+4) a:hover {
-    border-bottom: 5px solid #578bca;
+#get-started {
+    width: 70vw;
 }
 
-#logo {
-    float: left;
-}
-
-#logo a {
-    padding: 12px 16px 0 12px;
-}
-
-#logo a img {
-    width: 25px;
-    height: 25px;
-}
-
-#account {
-    padding: 8px 16px 0 12px;
-}
-
-#account img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-#dropdown {
-    display: none;
-    padding: 11px 8px 0 0;
-}
-
-#dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    min-width: 180px;
-}
-
-#dropdown-content a {
-    display: block;
-    padding: 12px 16px;
-    background-color: #eee;
-    border-bottom: none;
-    color: black;
-    text-align: left;
-    text-decoration: none;
-}
-
-@media (max-width: 780px) {
-    .navbar li:nth-child(n+4) {
-        display: none;
-    }
-    .navbar li:nth-child(2) {
-        float: right;
-        display: block;
-    }
-    #account {
-        padding-right: 12px;
-    }
-    #dropdown {
-        display: inline-block;
-    }
-    #dropdown:hover #dropdown-content {
-        display: block;
-    }
-    #dropdown-content a:hover {
-        background-color: #40c9c2;
-    }
+#profile {
+    width: 50vw;
 }
 
 /* ==================================================== Buttons ==================================================== */
@@ -259,6 +144,19 @@ p {
     cursor: pointer !important;
 }
 
+.button-pink,
+.button-pink:active,
+.button-pink:focus {
+    background-color: #e95387;
+    border: 2px solid #e95387;
+    color: #fff;
+}
+
+.button-pink:hover {
+    background-color: #fff;
+    color: #e95387;
+}
+
 #welcome-btn:hover {
     background-color: #578bca;
     color: #fff;
@@ -280,13 +178,17 @@ p {
     transform: scale(1.1) !important;
 }
 
-#select-skills-btn {
+#skill-selection-btn {
     margin: 50px auto 24px auto;
 }
 
 #user-selection-btn,
 #profile-btn {
-    margin: 0 auto 20px auto;
+    margin: 0 auto 24px auto;
+}
+
+#get-started-btn {
+    margin: 0 auto 50px auto;
 }
 
 #personal-btn-1 {
@@ -318,6 +220,109 @@ p {
 #recommendations-btn {
     margin: 0 auto 10px auto;
     grid-area: button;
+}
+
+/* ================================================ Navigation Bar ================================================= */
+
+.navbar {
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.navbar li {
+    float: right;
+}
+
+.navbar li a {
+    display: block;
+    padding: 14px 16px 10px 16px;
+    border-bottom: 5px solid #fff;
+    color: #000;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.navbar li:nth-child(n+2) a:hover {
+    border-bottom: 5px solid #578bca;
+}
+
+#logo {
+    float: left;
+}
+
+#logo a {
+    padding: 12px 16px 0 12px;
+}
+
+#logo a img {
+    width: 25px;
+    height: 25px;
+}
+
+#account {
+    padding: 8px 16px 0 12px;
+}
+
+#account img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#dropdown {
+    display: none;
+    padding: 11px 8px 0 0;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    min-width: 180px;
+}
+
+#dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    background-color: #eee;
+    border-bottom: none;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+}
+
+@media (max-width: 780px) {
+    .navbar li:nth-child(2) {
+        float: right;
+        display: block;
+    }
+    #account {
+        padding-right: 12px;
+    }
+    #dropdown {
+        display: inline-block;
+    }
+    #dropdown:hover #dropdown-content {
+        display: block;
+    }
+    #dropdown-content a:hover {
+        background-color: #40c9c2;
+    }
 }
 
 /* ==================================================== Home.js ==================================================== */
@@ -372,14 +377,14 @@ p {
 }
 
 #welcome h1 {
-    color: #fafcee;
+    color: #fff;
     font-family: "Abril Fatface", serif;
     font-size: 8rem;
 }
 
 #welcome h3 {
     margin-bottom: 5px;
-    color: #fafcee;
+    color: #fff;
     font-family: "Courgette", cursive;
     font-size: 1.8rem;
 }
@@ -515,7 +520,59 @@ p {
     }
 }
 
-/* ============================================= Skills.js / Skill.js ============================================== */
+/* ================================================= GetStarted.js ================================================= */
+.header {
+    padding: 30px 70px;
+    color: #000;
+    font-family: "Lato", sans-serif;
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 15px;
+    color: #e95387;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 2.5rem;
+}
+
+.header h5 {
+    font-size: 1.1rem;
+    line-height: 30px;
+}
+
+.section-header {
+    margin: 10px 10px 0 10px;
+    padding: 8px 30px 15px 30px;
+    background-color: #8b55a4;
+    border: 5px solid #8b55a4;
+}
+
+.section-header h1 {
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.section-header h1 span {
+    position: relative;
+    top: 7px;
+    left: 16px;
+}
+
+.section-header h1 span img {
+    width: 40px;
+    height: 40px;
+}
+
+.disabled {
+    background-color: #eee;
+    border: 5px solid #bbb;
+}
+
+.disabled h1 {
+    color: #bbb;
+}
+
+/* ========================================= SkillSelection.js / Skill.js =========================================- */
 
 .skills-content {
     margin: 0 auto;
@@ -544,7 +601,7 @@ p {
 
 .skills-panel:hover {
     cursor: pointer !important;
-    background-color: rgb(200, 200, 200);
+    background-color: #a1dbf3;
 }
 
 .skills-panel img {
@@ -605,7 +662,7 @@ p {
 
 .user-panel:hover {
     cursor: pointer !important;
-    background-color: rgb(200, 200, 200);
+    background-color: #a1dbf3;
 }
 
 .user-pic img {
@@ -672,14 +729,13 @@ p {
     border-radius: 8px;
 }
 
-.dashboard>div {
-    /*background-color: rgb(60, 60, 60);*/
-    /*background-color: rgba(60, 60, 60, 0.2);*/
-    border: 4px solid #44bbeb;
+.dashboard > div {
+    border: 4px solid #578bca;
 }
 
 .section {
     padding: 10px;
+    background-color: #fff;
     display: grid;
     grid-auto-rows: 60px minmax(60px, auto);
     grid-template-areas: "title" "content";
@@ -687,7 +743,7 @@ p {
 
 .section-title {
     padding: 10px;
-    color: #000;
+    color: #e95387;
     grid-area: title;
 }
 
@@ -713,11 +769,17 @@ p {
 
 .personal-profile {
     padding: 10px;
+    background-color: #578bca;
+    border: 4px solid #578bca !important;
     grid-area: profile;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-auto-rows: 60px minmax(200px, auto) minmax(60px, auto);
     grid-template-areas: "picture title" "picture stats" "picture awards";
+}
+
+.personal-profile .section-title h1 {
+    color: #fff;
 }
 
 .personal-pic {
@@ -744,13 +806,13 @@ p {
 
 .stat {
     padding: 10px;
-    background-color: #dbdbdb;
+    background-color: #fff;
 }
 
 .awards {
     margin: 0 10px;
     padding: 10px;
-    border: 5px solid #dbdbdb;
+    background-color: #fff;
     border-radius: 8px;
     grid-area: awards;
     display: grid;
@@ -760,12 +822,13 @@ p {
 }
 
 .award {
-    background-color: #dbdbdb;
+    background-color: #f0f0f0;
     font-size: 0.8rem;
 }
 
 .award:hover {
-    background-color: #59baa3;
+    background-color: #e95387;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -780,7 +843,8 @@ p {
     height: 40px;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #dbdbdb;
+    background-color: #fff;
+    border: 1px solid #578bca;
     text-align: center;
     display: grid;
     grid-template-columns: 15% 60% 25%;
@@ -788,7 +852,8 @@ p {
 }
 
 .notification-panel:hover {
-    background-color: #59baa3;
+    background-color: #578bca;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -826,7 +891,8 @@ p {
 .contact-panel {
     margin-bottom: 15px;
     padding: 20px 10px;
-    background-color: #dbdbdb;
+    background-color: #fff;
+    border: 1px solid #578bca;
     text-align: center;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -887,13 +953,13 @@ p {
     padding: 20px;
     background-color: #578bca;
     border-radius: 0 !important;
-    color: #fafcee;
+    color: #fff;
     grid-area: sidebar;
 }
 
 .events-sidebar-medium a,
 .events-sidebar a {
-    color: #fafcee;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -924,7 +990,7 @@ p {
 
 .events-window {
     padding: 20px;
-    background-color: #eee;
+    background-color: #fff;
     border-radius: 0 !important;
     grid-area: window;
 }
@@ -932,7 +998,8 @@ p {
 .event-panel {
     margin-bottom: 30px;
     padding: 20px 10px;
-    background-color: #dbdbdb;
+    background-color: #f0f0f0;
+    border-radius: 8px;
     text-align: center;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -966,12 +1033,12 @@ p {
 
 .recommendations {
     margin-bottom: 18px;
-    padding: 30px;
+    padding: 30px 50px;
     grid-area: content;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    grid-gap: 100px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 30px;
 }
 
 /* ======================================================== */
@@ -1087,10 +1154,9 @@ p {
 
 .profile-panel {
     padding: 20px 40px 40px 40px;
-    background-color: rgb(60, 60, 60);
-    background-color: rgba(60, 60, 60, 0.2);
+    background-color: #578bca;
     border-radius: 8px;
-    color: #000;
+    color: #fff;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
@@ -1135,10 +1201,6 @@ p {
 .profile-desc p {
     margin: 0;
     font-size: 1rem;
-}
-
-#profile {
-    width: 50vw;
 }
 
 @media (min-width: 801px) and (max-width: 1000px) {
@@ -1284,14 +1346,12 @@ p {
 
 #calendar {
     padding: 10px;
-    background-color: rgb(60, 60, 60);
-    background-color: rgba(60, 60, 60, 0.2);
     grid-area: calendar;
 }
 
 #calendar h1 {
     padding: 10px 10px 0 10px;
-    color: #000;
+    color: #e95387;
 }
 
 @media (max-width: 1100px) {
@@ -1316,7 +1376,7 @@ p {
 
 #signup h1 {
     margin-bottom: 20px;
-    color: #fafcee;
+    color: #fff;
 }
 
 #google,
