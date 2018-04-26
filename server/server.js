@@ -28,7 +28,8 @@ router.get("/cities", (req, res) => {
 })
 
 router.get("/api/login", (req, res) => {
-    
+    const id = []
+    res.json(id);
 });
 
 router.get("/*", (req, res) => {

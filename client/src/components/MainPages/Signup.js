@@ -21,7 +21,10 @@ class SignUp extends Component {
     render() {
         const responseGoogle = (response) => {
             console.log(response.tokenObj.id_token);
-            axios.post('localhost:5000/api/login');
+
+            axios.post('localhost:5000/api/login', {
+                id: response.tokenObj.id_token
+            }).then(response => console.log(response));
 
         }
         const responseFacebook = (response) => {
