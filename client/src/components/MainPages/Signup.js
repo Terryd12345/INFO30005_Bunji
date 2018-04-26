@@ -9,7 +9,6 @@ class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = { cityData: [] };
-        this.retrieveCityData = this.retrieveCityData.bind(this);
     };
 
     componentDidMount(){
