@@ -5,10 +5,7 @@ import path from "path";
 const app = express()
 const cors = require('cors');
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -28,8 +25,7 @@ router.get("/cities", (req, res) => {
 })
 
 router.get("/api/login", (req, res) => {
-    const id = []
-    res.json(id);
+    res.send('hello');
 });
 
 router.get("/*", (req, res) => {
