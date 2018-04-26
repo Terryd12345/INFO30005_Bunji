@@ -57,6 +57,7 @@ class SignUp extends Component {
                 </div>
                 <div className="city-data">
                     { console.log(this.state.cityData) }
+                    <p>{this.state.cityData.map(city => city.name)}</p>
                 </div>
             </div>
         );

@@ -3,6 +3,12 @@ import express from "express"
 import path from "path";
 
 const app = express()
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
