@@ -10,6 +10,8 @@ class GetStarted extends Component {
         this.showRegister = this.showRegister.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
+        this.handleSection1 = this.handleSection1.bind(this);
+        this.handleSection2 = this.handleSection2.bind(this);
         
         this.state = {
             loggedIn: true,
@@ -50,12 +52,20 @@ class GetStarted extends Component {
         }
     }
     
-    showSection1() {
-    
+    handleSection1() {
+        if (this.state.tickSection1 === true && this.state.showSection1 === false) {
+            this.setState({ showSection1: true });
+        } else if (this.state.tickSection1 === true && this.state.showSection1 === true) {
+            this.setState({ showSection1: false });
+        }
     }
     
-    showSection2() {
-    
+    handleSection2() {
+        if (this.state.tickSection2 === true && this.state.showSection2 === false) {
+            this.setState({ showSection2: true });
+        } else if (this.state.tickSection2 === true && this.state.showSection2 === true) {
+            this.setState({ showSection2: false });
+        }
     }
     
     render() {
@@ -68,7 +78,7 @@ class GetStarted extends Component {
         return (
             <div className="get-started">
                 <div id="section-1">
-                    <div className="section-header" style={this.state.showSection1 ? null : disabled}>
+                    <div onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
                         <h1>
                             1. Select Skills
                             {
@@ -93,8 +103,8 @@ class GetStarted extends Component {
                     }
                 </div>
                 
-                <div id="section-2">
-                    <div className="section-header" style={this.state.showSection2 ? null : disabled}>
+                <div onClick={this.handleSection2} id="section-2">
+                    <div className="section-header" style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
                         <h1>2. Find Mentor
                         {
                             this.state.tickSection2 ? (
