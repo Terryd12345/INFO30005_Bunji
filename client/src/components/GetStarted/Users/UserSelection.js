@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import User from "./User";
 
 class UserSelection extends Component {
@@ -16,10 +15,6 @@ class UserSelection extends Component {
                     <User name="Jane Doe" age="19" gender="Female" location="Adelaide" skills={["Instagram", "iPhone"]} />
                     <User name="Fred Doe" age="24" gender="Male" location="Gold Coast" skills={["MacBook", "Computer"]} />
                 </article>
-
-                <a className="button" id="user-selection-btn" href="#section-3">
-                    Confirm
-                </a>
             </div>
         );
     }

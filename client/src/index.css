@@ -556,11 +556,12 @@ a:hover {
     margin: 10px 10px 0 10px;
     padding: 8px 30px 15px 30px;
     background-color: #8b55a4;
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
     border: 5px solid #8b55a4;
 }
 
 .section-header h1 {
-    color: #fff;
     font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -575,13 +576,8 @@ a:hover {
     height: 40px;
 }
 
-.disabled {
-    background-color: #eee;
-    border: 5px solid #bbb;
-}
-
-.disabled h1 {
-    color: #bbb;
+.section-content {
+    text-align: center;
 }
 
 /* ========================================= SkillSelection.js / Skill.js =========================================- */

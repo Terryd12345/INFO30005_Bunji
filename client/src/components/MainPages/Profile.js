@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
 
 class Profile extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);

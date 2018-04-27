@@ -24,10 +24,6 @@ class SkillSelection extends Component {
                     <Skill title="iPad" picName="apple" />
                     <Skill title="iPhone" picName="apple" />
                 </article>
-
-                <a className="button" id="skill-selection-btn" href="#section-2">
-                    Find Mentor
-                </a>
             </div>
         );
     }

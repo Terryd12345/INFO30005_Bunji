@@ -23,11 +23,6 @@ const Home = Loadable({
     loading: Loading,
 })
 
-const Profile = Loadable({
-    loader: () => import("./MainPages/Profile"),
-    loading: Loading,
-})
-
 const Relationships = Loadable({
     loader: () => import("./MainPages/Relationships"),
     loading: Loading,

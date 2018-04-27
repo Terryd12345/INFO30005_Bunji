@@ -1,45 +1,143 @@
 import React, { Component } from "react";
 import SkillSelection from "../GetStarted/Skills/SkillSelection";
 import UserSelection from "../GetStarted/Users/UserSelection";
+import SignUp from "../SignUp/SignUp";
 
 class GetStarted extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.showRegister = this.showRegister.bind(this);
+        this.toSection2 = this.toSection2.bind(this);
+        this.toSection3 = this.toSection3.bind(this);
+        
+        this.state = {
+            loggedIn: true,
+            
+            showSection1: true,
+            doneSection1: true,
+            tickSection1: false,
+            
+            showSection2: false,
+            doneSection2: true,
+            tickSection2: false,
+            
+            showSection3: false
+        };
+    }
+    
+    showRegister = () => {
+        this.signup.showRegister();
+    }
+    
+    toSection2() {
+        if (this.state.doneSection1 === false) {
+            this.setState({ showSection2: false });
+        } else {
+            this.setState({ showSection2: true, showSection1: false, tickSection1: true });
+        }
+    }
+    
+    toSection3() {
+        if (this.state.doneSection2 === false) {
+            this.setState({ showSection3: false });
+        } else {
+            if (this.state.loggedIn === false) {
+                this.showRegister();
+            } else {
+                this.setState({showSection3: true, showSection2: false, tickSection2: true});
+            }
+        }
+    }
+    
+    showSection1() {
+    
+    }
+    
+    showSection2() {
+    
+    }
+    
     render() {
+        const disabled = {
+            backgroundColor: "#eee",
+            borderColor: "#bbb",
+            color: "#bbb"
+        }
+        
         return (
             <div className="get-started">
                 <div id="section-1">
-                    <div className="section-header">
+                    <div className="section-header" style={this.state.showSection1 ? null : disabled}>
                         <h1>
                             1. Select Skills
-                            <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
+                            {
+                                this.state.tickSection1 ? (
+                                    <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
+                                ) : (null)
+                            }
                         </h1>
                     </div>
                     
-                    <SkillSelection />
+                    {
+                        this.state.showSection1 ? (
+                            <div className="section-content">
+                                <SkillSelection />
+                                
+                                <a onClick={this.toSection2} className="button" id="skill-selection-btn"
+                                   href={this.state.doneSection1 ? "#section-2" : null}>
+                                    Find Mentor
+                                </a>
+                            </div>
+                        ) : (null)
+                    }
                 </div>
                 
                 <div id="section-2">
-                    <div className="section-header disabled">
-                        <h1>2. Find Mentor</h1>
+                    <div className="section-header" style={this.state.showSection2 ? null : disabled}>
+                        <h1>2. Find Mentor
+                        {
+                            this.state.tickSection2 ? (
+                                <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
+                            ) : (null)
+                        }
+                        </h1>
                     </div>
-                    
-                    <UserSelection />
+    
+                    {
+                        this.state.showSection2 ? (
+                            <div className="section-content">
+                                <UserSelection />
+    
+                                <SignUp ref={signup => this.signup = signup} />
+                                <a onClick={this.toSection3} className="button" id="user-selection-btn"
+                                   href={this.state.doneSection2 ? "#section-3" : null}>
+                                    Confirm
+                                </a>
+                            </div>
+                        ) : (null)
+                    }
                 </div>
                 
                 <div id="section-3">
-                    <div className="section-header disabled">
+                    <div className="section-header" style={this.state.showSection3 ? null : disabled}>
                         <h1>3. Learn Skills</h1>
                     </div>
     
-                    <div className="wrapper" id="get-started">
-                        <header className="header">
-                            <h1>All good!</h1>
-                            <h5>Once a mentor confirms your request, you can start learning your skills.</h5>
-                        </header>
-    
-                        <a className="button" id="get-started-btn" href="/dashboard">
-                            View Dashboard
-                        </a>
-                    </div>
+                    {
+                        this.state.showSection3 ? (
+                            <div className="wrapper" id="get-started">
+                                <header className="header">
+                                    <h1>All good!</h1>
+                                    <h5>Once a mentor confirms your request, you can start learning your skills.</h5>
+                                </header>
+                
+                                <a className="button" id="get-started-btn" href="/dashboard">
+                                    View Dashboard
+                                </a>
+                            </div>
+                        ) : (null)
+                    }
                 </div>
             </div>
         );

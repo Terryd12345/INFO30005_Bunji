@@ -7,8 +7,8 @@ import Register from "./Register";
 import Login from "./Login";
 
 class SignUp extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         
         this.closeAll = this.closeAll.bind(this);
         this.showRegister = this.showRegister.bind(this);

@@ -3,14 +3,16 @@ import React, { Component } from "react";
 class User extends Component {
     constructor(props) {
         super(props);
+    
+        this.onSelected = this.onSelected.bind(this);
+        
         this.state = {
             isSelected: false,
             borderColor: ""
         };
-        this.onSelected = this.onSelected.bind(this);
     }
 
-    onSelected(event) {
+    onSelected() {
         if (this.state.isSelected === false) {
             this.setState({ isSelected: true, borderColor: "#8b55a4" });
         } else {
@@ -20,7 +22,7 @@ class User extends Component {
 
     render() {
         const styles = {
-            borderColor: this.state.borderColor,
+            borderColor: this.state.borderColor
         }
 
         return (
