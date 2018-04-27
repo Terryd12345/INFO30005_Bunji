@@ -1,6 +1,7 @@
-import bodyParser from "body-parser"
-import express from "express"
+import bodyParser from "body-parser";
+import express from "express";
 import path from "path";
+<<<<<<< HEAD
 import keys from './keys.js';
 
 const app = express()
@@ -9,23 +10,29 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 app.use(cors());
+=======
+import api from "../routes/api";
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+const app = express();
+>>>>>>> 03dae7c44b8101f018b91b8300bf81694cef5afe
 
-const router = express.Router()
-const staticFiles = express.static(path.join(__dirname, "../../client/build"))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(staticFiles)
+const router = express.Router();
+const staticFiles = express.static(path.join(__dirname, "../../client/build"));
+
+app.use(staticFiles);
+app.use("/api", api);
 
 router.get("/cities", (req, res) => {
     const cities = [
         {name: "New York City", population: 8175133},
         {name: "Los Angeles",   population: 3792621},
         {name: "Chicago",       population: 2695598}
-    ]
-    res.json(cities)
-})
+    ];
+    res.json(cities);
+});
 
 router.post("/api/login", (req, res) => {
 
@@ -67,8 +74,8 @@ router.get("/*", (req, res) => {
     });
 })
 
-app.use(router)
-app.set("port", (process.env.PORT || 5000))
+app.use(router);
+app.set("port", (process.env.PORT || 5000));
 app.listen(app.get("port"), () => {
-    console.log(`Listening on ${app.get("port")}`)
+    console.log(`Listening on ${app.get("port")}`);
 })
