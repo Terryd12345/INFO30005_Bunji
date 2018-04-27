@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
-import Keys from "../../keys.js";
 
 class SignUp extends Component {
 
