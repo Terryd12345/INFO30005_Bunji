@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import Profile from "../../MainPages/Profile";
 
 class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+    }
+    
+    handleShow = () => {
+        this.profile.handleShow();
     }
 
     render() {
@@ -15,10 +20,13 @@ class Contact extends Component {
                     </div>
                     <div className="contact-desc centered">
                         <h3>{this.props.name}</h3>
-                        <a className="button" id="contact-btn-1" href="/profile">
+                
+                        <Profile ref={profile => this.profile = profile} />
+                        <a onClick={this.handleShow} className="button" id="contact-btn-1">
                             Profile
                         </a>
-                        <a className="button" id="contact-btn-2" href="/connections">
+                
+                        <a href="/connections" className="button" id="contact-btn-2">
                             Connection
                         </a>
                     </div>

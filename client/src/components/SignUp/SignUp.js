@@ -84,7 +84,7 @@ class SignUp extends Component {
                     </Modal.Body>
             
                     <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
+                        <Button onClick={this.closeAll}>Close</Button>
                     </Modal.Footer>
             
                 </Modal>

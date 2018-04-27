@@ -55,7 +55,6 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/get-started" component={GetStarted} />
-                        <Route exact path="/profile" component={Profile} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/connections" component={Relationships} />
                         <Route path="*" component={NotFound} />

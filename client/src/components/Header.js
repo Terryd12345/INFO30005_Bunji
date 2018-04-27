@@ -9,7 +9,7 @@ class Header extends Component {
         this.showLogin = this.showLogin.bind(this);
         
         this.state = {
-            loggedIn: false
+            loggedIn: true
         };
     }
     
@@ -29,6 +29,7 @@ class Header extends Component {
                 {
                     this.state.loggedIn ? (
                         <ul>
+                            <li id="logo"><a href="/"><img src={require("../images/logo.jpg")} alt="Logo" /></a></li>
                             <li id="dropdown">
                                 &#9776;
                                 <div id="dropdown-content">

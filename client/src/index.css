@@ -104,10 +104,6 @@ a:hover {
     width: 70vw;
 }
 
-#profile {
-    width: 50vw;
-}
-
 /* ==================================================== Buttons ==================================================== */
 
 .arrow,
@@ -1164,15 +1160,11 @@ a:hover {
 
 /* ================================================== Profile.js =================================================== */
 
-.profile {
-    padding: 8px;
-}
-
 .profile-panel {
     padding: 20px 40px 40px 40px;
     background-color: #578bca;
-    border-radius: 8px;
     color: #fff;
+    text-align: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
@@ -1192,7 +1184,6 @@ a:hover {
 }
 
 .profile-bio {
-    text-align: center;
     grid-area: bio;
 }
 
@@ -1210,7 +1201,6 @@ a:hover {
 }
 
 .profile-desc {
-    text-align: center;
     grid-area: description;
 }
 
@@ -1363,11 +1353,6 @@ a:hover {
 #calendar {
     padding: 10px;
     grid-area: calendar;
-}
-
-#calendar h1 {
-    padding: 10px 10px 0 10px;
-    color: #e95387;
 }
 
 @media (max-width: 1100px) {

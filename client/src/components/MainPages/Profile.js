@@ -1,14 +1,34 @@
 import React, { Component } from "react";
+import { Button, Modal } from "react-bootstrap";
 
 class Profile extends Component {
+    constructor(props, context) {
+        super(props, context);
+        
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        
+        this.state = {
+            show: false
+        };
+    }
+    
+    handleClose() {
+        this.setState({ show: false });
+    }
+    
+    handleShow() {
+        this.setState({ show: true })
+    }
+    
     render() {
         return (
-            <div className="wrapper" id="profile">
-                <article className="profile">
+            <div>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                     <div className="profile-panel">
                         <div className="profile-button">
                             <a href="/connections">
-                                <button className="button button-pink" id="profile-btn">Contact John</button>
+                                <a className="button button-pink" id="profile-btn">Contact John</a>
                             </a>
                         </div>
 
@@ -26,7 +46,11 @@ class Profile extends Component {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </div>
-                </article>
+    
+                    <Modal.Footer>
+                        <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }
