@@ -8,8 +8,6 @@ const app = express()
 const cors = require('cors');
 
 import "./models/db";
-
-import "./models/db";
 import api from "./routes/api";
 
 app.use(cors());
@@ -17,23 +15,14 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-const router = express.Router()
-const staticFiles = express.static(path.join(__dirname, "../../client/build"))
-require('./routes/authRoutes')(router);
-require('./routes/api')(router);
 
+const staticFiles = express.static(path.join(__dirname, "../../client/build"))
 app.use(staticFiles)
 
-router.get("/cities", (req, res) => {
-    const cities = [
-        {name: "New York City", population: 8175133},
-        {name: "Los Angeles",   population: 3792621},
-        {name: "Chicago",       population: 2695598}
-    ]
-    res.json(cities)
-})
+import auth from "./routes/authRoutes";
+app.use("/auth", auth);
 
-router.get("/*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/build/index.html'), function(err) {
         if (err) {
             res.status(500).send(err);
@@ -41,7 +30,6 @@ router.get("/*", (req, res) => {
     });
 })
 
-app.use(router)
 app.set("port", (process.env.PORT || 5000))
 app.listen(app.get("port"), () => {
     console.log(`Listening on ${app.get("port")}`)
