@@ -1,30 +1,25 @@
 import bodyParser from "body-parser"
 import express from "express"
 import path from "path";
-
-require('./services/passport');
+import cors from "cors";
 
 const app = express()
-const cors = require('cors');
-
-import "./models/db";
-import api from "./routes/api";
-app.use("/api", api);
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors());
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-
-
+import "./models/db";
+import "./services/passport";
+import api from "./routes/api";
+import auth from "./routes/authRoutes";
 const staticFiles = express.static(path.join(__dirname, "../../client/build"))
+
+app.use("/api", api);
+app.use("/auth", auth);
 app.use(staticFiles)
 
-import auth from "./routes/authRoutes";
-app.use("/auth", auth);
-
 app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/build/index.html'), function(err) {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"), function (err) {
         if (err) {
             res.status(500).send(err);
         };

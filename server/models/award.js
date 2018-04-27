@@ -5,4 +5,4 @@ var awardSchema = mongoose.Schema({
     imagePath: String
 })
 
-export default mongoose.model('award', awardSchema);
+export default mongoose.model("award", awardSchema);
