@@ -23,6 +23,43 @@ export function createUser(req, res) {
 };
 
 export function editUser(req, res) {
+    User.update()
+};
+
+export function addSkill(req, res) {
+    var userID = req.params.id;
+    Chat.findById(userID, (err, user) => {
+        if (!err) {
+            user.skills.push(req.body.skillID);
+            user.save(done);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
+export function addAward(req, res) {
+    var userID = req.params.id;
+    Chat.findById(userID, (err, user) => {
+        if (!err) {
+            user.awards.push(req.body.awardID);
+            user.save(done);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
+export function addConnection(req, res) {
+    var userID = req.params.id;
+    Chat.findById(userID, (err, user) => {
+        if (!err) {
+            user.connections.push(req.body.connectionID);
+            user.save(done);
+        } else {
+            res.sendStatus(404);
+        }
+    });
 };
 
 export function getChat(req, res) {
