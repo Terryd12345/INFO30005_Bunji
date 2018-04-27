@@ -8,7 +8,6 @@ const app = express()
 const cors = require('cors');
 
 import "./models/db";
-import api from "./routes/api";
 
 import "./models/db";
 import api from "./routes/api";
@@ -21,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 const router = express.Router()
 const staticFiles = express.static(path.join(__dirname, "../../client/build"))
 require('./routes/authRoutes')(router);
+require('./routes/api')(router);
 
 app.use(staticFiles)
 
