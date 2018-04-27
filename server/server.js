@@ -1,7 +1,9 @@
 import bodyParser from "body-parser";
 import express from "express";
 import path from "path";
+import "./models/db";
 import api from "../routes/api";
+
 
 const app = express();
 
