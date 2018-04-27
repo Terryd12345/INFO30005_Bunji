@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
-var User = mongoose.model("user");
+
+var Award = mongoose.model("award");
 var Chat = mongoose.model("chat");
+var Event = mongoose.model("event");
+var Skill = mongoose.model("skill");
+var User = mongoose.model("user");
 
 export default {
     getUser: function (req, res) {
