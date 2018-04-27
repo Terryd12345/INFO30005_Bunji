@@ -1,10 +1,14 @@
 import bodyParser from "body-parser"
 import express from "express"
 import path from "path";
+
 require('./services/passport');
 
 const app = express()
 const cors = require('cors');
+
+import "./models/db";
+import api from "./routes/api";
 
 import "./models/db";
 import api from "./routes/api";
