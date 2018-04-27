@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-import config from "../config";
+import { db } from "../config";
 import "./award";
 import "./chat";
 import "./event";
 import "./skill";
 import "./user";
 
-mongoose.connect(config.mlab, function (err) {
+mongoose.connect(db.mlab, function (err) {
     if (!err) {
         console.log("Connected to mongo ");
     } else {
