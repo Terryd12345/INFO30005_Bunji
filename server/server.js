@@ -7,9 +7,7 @@ const app = express()
 const cors = require('cors');
 
 import "./models/db";
-import api from "../routes/api";
-
-
+import api from "./routes/api";
 
 app.use(cors());
 

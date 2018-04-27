@@ -9,7 +9,7 @@ module.exports = router => {
     );
 
     router.get(
-        '/auth/google/callback',
+        '/auth/google',
         passport.authenticate('google')
     );
 }
