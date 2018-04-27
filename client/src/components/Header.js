@@ -1,9 +1,20 @@
 import React, { Component } from "react";
+import SignUp from "./SignUp/SignUp";
 
 class Header extends Component {
+    showRegister = () => {
+        this.signup.showRegister();
+    }
+    
+    showLogin = () => {
+        this.signup.showLogin();
+    }
+    
     render() {
         return (
             <div className="navbar">
+                <SignUp ref={signup => this.signup = signup} />
+                
                 <ul>
                     <li id="logo"><a href="/"><img src={require("../images/logo.jpg")} alt="Logo" /></a></li>
                     <li id="dropdown">
@@ -15,9 +26,8 @@ class Header extends Component {
                             <a href="/">Log Out</a>
                         </div>
                     </li>
-                    {/*<li id="account"><img src={require("../images/male.png")} alt="Profile" /></li>*/}
-                    <li><a href="/signup">Login</a></li>
-                    <li><a href="/signup">Register</a></li>
+                    <li><a onClick={this.showLogin.bind(this)}>Log In</a></li>
+                    <li><a onClick={this.showRegister.bind(this)}>Register</a></li>
                 </ul>
             </div>
         );

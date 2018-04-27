@@ -18,18 +18,8 @@ const Dashboard = Loadable({
     loading: Loading,
 })
 
-const UserSelection = Loadable({
-    loader: () => import("./Users/UserSelection"),
-    loading: Loading,
-})
-
 const Home = Loadable({
     loader: () => import("./MainPages/Home"),
-    loading: Loading,
-})
-
-const Skills = Loadable({
-    loader: () => import("./Skills/SkillSelection"),
     loading: Loading,
 })
 
@@ -40,11 +30,6 @@ const Profile = Loadable({
 
 const Relationships = Loadable({
     loader: () => import("./MainPages/Relationships"),
-    loading: Loading,
-})
-
-const SignUp = Loadable({
-    loader: () => import("./MainPages/Signup"),
     loading: Loading,
 })
 
@@ -62,7 +47,7 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <div className="container">
+                <div>
                     <Route path="/" render={(props) => (props.location.pathname !== "/")
                                                     // && (props.location.pathname !== "/select-skills")
                                                     // && (props.location.pathname !== "/find-mentor")
@@ -70,12 +55,9 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/get-started" component={GetStarted} />
-                        <Route exact path="/select-skills" component={Skills} />
-                        <Route exact path="/find-mentor" component={UserSelection} />
                         <Route exact path="/profile" component={Profile} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/connections" component={Relationships} />
-                        <Route exact path="/signup" component={SignUp} />
                         <Route path="*" component={NotFound} />
                     </Switch>
                     <Footer />

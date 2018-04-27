@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SkillSelection from "../Skills/SkillSelection";
-import UserSelection from "../Users/UserSelection";
+import SkillSelection from "../GetStarted/Skills/SkillSelection";
+import UserSelection from "../GetStarted/Users/UserSelection";
 
 class GetStarted extends Component {
     render() {

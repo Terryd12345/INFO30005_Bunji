@@ -1,5 +1,10 @@
 /* ==================================================== General ==================================================== */
 
+html {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -7,7 +12,9 @@ body {
     padding: 0;
     background: url("images/pattern.png") fixed center;
     font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
     color: #000;
+    line-height: normal;
 }
 
 h1,
@@ -19,11 +26,19 @@ h6 {
     margin: 0;
     font-family: "Lato", sans-serif;
     font-weight: normal;
+    line-height: normal;
 }
 
 p {
     font-family: "Source Sans Pro", sans-serif;
     line-height: 25px;
+}
+
+a,
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none;
 }
 
 .centered {
@@ -380,6 +395,7 @@ p {
     color: #fff;
     font-family: "Abril Fatface", serif;
     font-size: 8rem;
+    margin-bottom: 5px;
 }
 
 #welcome h3 {
@@ -417,7 +433,7 @@ p {
 
 #about-desc h1 {
     font-size: 3.3rem;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 
 #about-desc p {
@@ -554,7 +570,7 @@ p {
 
 .section-header h1 span {
     position: relative;
-    top: 7px;
+    top: -2px;
     left: 16px;
 }
 
@@ -858,8 +874,8 @@ p {
 }
 
 .notification-pic img {
-    max-height: 100%;
-    width: auto;
+    max-width: 70%;
+    height: auto;
     border-radius: 50%;
     grid-area: picture;
 }
@@ -1363,21 +1379,70 @@ p {
 
 /* =============================================== Signup.js ================================================ */
 
-#login {
-    margin-top: 50px;
-}
-
-#signup {
-    padding: 20px 40px 40px 40px;
-    background-color: rgb(60, 60, 60);
-    background-color: rgba(60, 60, 60, 0.2);
+.modal-header {
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "register login";
 }
 
-#signup h1 {
-    margin-bottom: 20px;
-    color: #fff;
+#register-title {
+    grid-area: register;
 }
+
+#login-title {
+    grid-area: login;
+}
+
+/* ========================= Form ========================= */
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ===================== Social Media ===================== */
 
 #google,
 #facebook {

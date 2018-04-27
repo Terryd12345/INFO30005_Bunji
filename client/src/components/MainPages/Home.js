@@ -1,6 +1,16 @@
 import React, { Component } from "react";
+import Scroll from "react-scroll-to-element";
+import SignUp from "../SignUp/SignUp";
 
 class Home extends Component {
+    showRegister = () => {
+        this.signup.showRegister();
+    }
+    
+    showLogin = () => {
+        this.signup.showLogin();
+    }
+    
     render() {
         return (
             <div id="home">
@@ -10,15 +20,19 @@ class Home extends Component {
                     </video>
                     
                     <div className="overlay centered">
-                        <h5 className="menu fade-in"><a href="signup">Register</a><a href="signup">Login</a></h5>
+                        <SignUp ref={signup => this.signup = signup} />
+                        <h5 className="menu fade-in"><a onClick={this.showRegister.bind(this)}>Register</a><a onClick={this.showLogin.bind(this)}>Log In</a></h5>
+                        
                         <h1 className="fade-in">Bunji</h1>
                         <h3 className="fade-in">It's never too late to learn!</h3>
                         <a className="button fade-in" id="welcome-btn" href="get-started">
                             Get Started!
                         </a>
-                        <a className="arrow" href="#about">
-                            <img src={require(`../../images/arrow.png`)} alt="Icon" width="30px" />
-                        </a>
+                        <Scroll type="id" element="about">
+                            <span className="arrow">
+                                <img src={require(`../../images/arrow.png`)} alt="Icon" width="30px" />
+                            </span>
+                        </Scroll>
                     </div>
                 </div>
         
@@ -55,7 +69,7 @@ class Home extends Component {
                             </div>
                         </article>
     
-                        <a className="button fade-in" id="about-btn" href="signup">
+                        <a onClick={this.showRegister.bind(this)} className="button fade-in" id="about-btn">
                             Register
                         </a>
                     </div>

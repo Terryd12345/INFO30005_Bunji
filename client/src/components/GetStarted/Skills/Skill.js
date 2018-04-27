@@ -26,7 +26,7 @@ class Skill extends Component {
         return (
             <div onClick={this.onSelected}>
                 <div className="skills-panel centered" style={styles}>
-                    <img src={require(`../../images/${this.props.picName}.png`)} alt="{this.props.title}" />
+                    <img src={require(`../../../images/${this.props.picName}.png`)} alt="{this.props.title}" />
                     {this.props.title}
                 </div>
             </div>
