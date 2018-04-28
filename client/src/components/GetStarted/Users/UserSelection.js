@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import User from "./User";
 
 class UserSelection extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            fromDashboard: false
+        };
+    }
+    
     render() {
         return (
             <div className="wrapper" id="get-started">
@@ -15,6 +23,14 @@ class UserSelection extends Component {
                     <User name="Jane Doe" age="19" gender="Female" location="Adelaide" skills={["Instagram", "iPhone"]} />
                     <User name="Fred Doe" age="24" gender="Male" location="Gold Coast" skills={["MacBook", "Computer"]} />
                 </article>
+                
+                {
+                    this.state.fromDashboard ? (
+                        <a className="button" id="user-selection-btn" href="/dashboard">
+                            Confirm
+                        </a>
+                    ) : (null)
+                }
             </div>
         );
     }

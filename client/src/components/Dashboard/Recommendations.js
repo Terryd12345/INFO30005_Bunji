@@ -19,7 +19,7 @@ class Recommendations extends Component {
                 </div>
     
                 <a className="button" id="recommendations-btn" href="#">
-                    Find Mentor
+                    Add to Selected Skills
                 </a>
             </div>
         );

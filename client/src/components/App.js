@@ -13,13 +13,23 @@ const Loading = () => <div id="loading"><MoonLoader loading={true} /></div>;
 //     loading: Loading,
 // })
 
+const Home = Loadable({
+    loader: () => import("./MainPages/Home"),
+    loading: Loading,
+})
+
+const GetStarted = Loadable({
+    loader: () => import("./MainPages/GetStarted"),
+    loading: Loading,
+})
+
 const Dashboard = Loadable({
     loader: () => import("./MainPages/Dashboard"),
     loading: Loading,
 })
 
-const Home = Loadable({
-    loader: () => import("./MainPages/Home"),
+const UserSelection = Loadable({
+    loader: () => import("./GetStarted/Users/UserSelection"),
     loading: Loading,
 })
 
@@ -30,11 +40,6 @@ const Relationships = Loadable({
 
 const NotFound = Loadable({
     loader: () => import("./NotFound"),
-    loading: Loading,
-})
-
-const GetStarted = Loadable({
-    loader: () => import("./MainPages/GetStarted"),
     loading: Loading,
 })
 
@@ -52,6 +57,7 @@ class App extends Component {
                         <Route exact path="/get-started" component={GetStarted} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/connections" component={Relationships} />
+                        <Route exact path="/find-mentor" component={UserSelection} />
                         <Route path="*" component={NotFound} />
                     </Switch>
                     <Footer />

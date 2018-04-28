@@ -731,7 +731,7 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
-    grid-template-areas: "profile profile notifications" "contacts events events" "recommendations recommendations recommendations";
+    grid-template-areas: "profile profile badges" "profile profile notifications" "contacts events events" "recommendations recommendations recommendations";
 }
 
 .dashboard div {
@@ -739,7 +739,7 @@ a:hover {
 }
 
 .dashboard > div {
-    border: 4px solid #578bca;
+    border: 3px solid #44bbeb;
 }
 
 .section {
@@ -756,6 +756,10 @@ a:hover {
     grid-area: title;
 }
 
+#badges {
+    border: none;
+}
+
 #notifications {
     grid-area: notifications;
 }
@@ -769,6 +773,7 @@ a:hover {
 }
 
 #recommendations {
+    border-color: #8b55a4;
     grid-area: recommendations;
     grid-auto-rows: 60px minmax(60px, auto) 60px;
     grid-template-areas: "title" "content" "button";
@@ -841,9 +846,42 @@ a:hover {
     cursor: pointer;
 }
 
+/* ======================== Badges ======================== */
+
+.badges {
+    border-radius: 8px;
+    grid-area: badges;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 150px;
+    grid-gap: 10px;
+}
+
+.badge {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.badge h3 {
+    font-size: 1.2rem;
+}
+
+#badge-1 {
+    background-color: #8b55a4;
+}
+
+#badge-2 {
+    background-color: #e95387;
+}
+
+#badge-3 {
+    background-color: #578bca;
+}
+
 /* ==================== Notifications ===================== */
 
 .notifications {
+    overflow: auto;
     margin: 10px;
     border-radius: 8px;
 }
@@ -889,6 +927,7 @@ a:hover {
 /* ======================= Contacts ======================= */
 
 .contacts {
+    overflow: auto;
     padding: 10px;
 }
 
