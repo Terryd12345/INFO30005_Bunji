@@ -12,7 +12,7 @@ class UserSelection extends Component {
     
     render() {
         return (
-            <div className="wrapper" id="get-started">
+            <div className="wrapper">
                 <header className="header">
                     <h2>We found 3 mentors for you!</h2>
                     <h6>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h6>
