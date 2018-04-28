@@ -18,8 +18,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "concurrently": "^3.5.1",
-    "react-bootstrap": "^0.32.1",
-    "react-scroll-to-element": "^0.2.0",
+    "passport": "^0.4.0",
     "yarn": "^1.6.0"
   },
   "repository": "https://github.com/Terryd12345/INFO30005_Bunji"
