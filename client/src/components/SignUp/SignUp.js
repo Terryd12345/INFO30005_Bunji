@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { GoogleLogin } from "react-google-login";
-import FacebookLogin from "react-facebook-login";
+// import { GoogleLogin } from "react-google-login";
+// import FacebookLogin from "react-facebook-login";
 import Keys from "../../keys";
 import Register from "./Register";
 import Login from "./Login";
@@ -59,26 +59,26 @@ class SignUp extends Component {
                                 this.state.register ? <Register /> : <Login />
                             }
                             
-                            <hr />
+                            {/*<hr />*/}
                         
-                            <GoogleLogin
-                                clientId={Keys.GoogleClientID}
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle} >
-                                <span id="google">LOGIN WITH G+</span>
-                            </GoogleLogin>
-                        
-                            <br />
-                            <br />
-                        
-                            <FacebookLogin
-                                appId={Keys.FacebookID}
-                                autoLoad
-                                callback={responseFacebook}
-                                render={renderProps => (
-                                    <button id="facebook" onClick={renderProps.onClick}>This is my custom FB button</button>
-                                )}
-                            />
+                            {/*<GoogleLogin*/}
+                                {/*clientId={Keys.GoogleClientID}*/}
+                                {/*onSuccess={responseGoogle}*/}
+                                {/*onFailure={responseGoogle} >*/}
+                                {/*<span id="google">LOGIN WITH G+</span>*/}
+                            {/*</GoogleLogin>*/}
+                            
+                            {/*<br />*/}
+                            {/*<br />*/}
+                            
+                            {/*<FacebookLogin*/}
+                                {/*appId={Keys.FacebookID}*/}
+                                {/*autoLoad*/}
+                                {/*callback={responseFacebook}*/}
+                                {/*render={renderProps => (*/}
+                                    {/*<button id="facebook" onClick={renderProps.onClick}>This is my custom FB button</button>*/}
+                                {/*)}*/}
+                            {/*/>*/}
                     
                         </div>
                     </Modal.Body>
