@@ -79,14 +79,14 @@ class GetStarted extends Component {
             <div className="get-started">
                 <div id="section-1">
                     <div onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
-                        <h1>
+                        <h2>
                             1. Select Skills
                             {
                                 this.state.tickSection1 ? (
                                     <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
                                 ) : (null)
                             }
-                        </h1>
+                        </h2>
                     </div>
                     
                     {
@@ -105,13 +105,13 @@ class GetStarted extends Component {
                 
                 <div onClick={this.handleSection2} id="section-2">
                     <div className="section-header" style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
-                        <h1>2. Find Mentor
+                        <h2>2. Find Mentor
                         {
                             this.state.tickSection2 ? (
                                 <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
                             ) : (null)
                         }
-                        </h1>
+                        </h2>
                     </div>
     
                     {
@@ -131,15 +131,15 @@ class GetStarted extends Component {
                 
                 <div id="section-3">
                     <div className="section-header" style={this.state.showSection3 ? null : disabled}>
-                        <h1>3. Learn Skills</h1>
+                        <h2>3. Learn Skills</h2>
                     </div>
     
                     {
                         this.state.showSection3 ? (
                             <div className="wrapper" id="get-started">
                                 <header className="header">
-                                    <h1>All good!</h1>
-                                    <h5>Once a mentor confirms your request, you can start learning your skills.</h5>
+                                    <h2>All good!</h2>
+                                    <h6>Once a mentor confirms your request, you can start learning your skills.</h6>
                                 </header>
                 
                                 <a className="button" id="get-started-btn" href="/dashboard">

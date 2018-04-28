@@ -19,7 +19,7 @@ class Contact extends Component {
                         <img src={require("../../../images/user.png")} alt="Profile" />
                     </div>
                     <div className="contact-desc centered">
-                        <h3>{this.props.name}</h3>
+                        <h5>{this.props.name}</h5>
                 
                         <Profile ref={profile => this.profile = profile} />
                         <a onClick={this.handleShow} className="button" id="contact-btn-1">

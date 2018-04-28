@@ -19,7 +19,7 @@ class PersonalProfile extends Component {
                 </div>
                 
                 <div className="section-title">
-                    <h1>Good afternoon, John!</h1>
+                    <h3>Good afternoon, John!</h3>
                 </div>
                 
                 <Stats />

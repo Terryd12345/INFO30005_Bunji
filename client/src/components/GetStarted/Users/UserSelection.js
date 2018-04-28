@@ -14,8 +14,8 @@ class UserSelection extends Component {
         return (
             <div className="wrapper" id="get-started">
                 <header className="header">
-                    <h1>We found 3 mentors for you!</h1>
-                    <h5>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h5>
+                    <h2>We found 3 mentors for you!</h2>
+                    <h6>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h6>
                 </header>
 
                 <article className="user-selection">

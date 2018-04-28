@@ -13,10 +13,10 @@ class Event extends Component {
                         <img src={require("../../../images/user.png")} alt="Profile" />
                     </div>
                     <div className="event-desc centered">
-                        <h3>{this.props.title}</h3>
-                        <h5>Date: 1 January 2019</h5>
-                        <h5>Time: 12 - 2 PM</h5>
-                        <h5>Location: Melbourne Central</h5>
+                        <h4>{this.props.title}</h4>
+                        <h6>Date: 1 January 2019</h6>
+                        <h6>Time: 12 - 2 PM</h6>
+                        <h6>Location: Melbourne Central</h6>
                     </div>
                 </div>
             </div>

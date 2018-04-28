@@ -37,9 +37,9 @@ class Profile extends Component {
                         </div>
 
                         <div className="profile-bio">
-                            <h1>John Doe</h1>
-                            <h3>21 / Male / Melbourne</h3>
-                            <h5>Skills: Facebook, Twitter</h5>
+                            <h3>John Doe</h3>
+                            <h4>21 / Male / Melbourne</h4>
+                            <h6>Skills: Facebook, Twitter</h6>
                         </div>
 
                         <div className="profile-desc">

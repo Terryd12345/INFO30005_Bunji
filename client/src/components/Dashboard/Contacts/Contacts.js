@@ -11,7 +11,7 @@ class Contacts extends Component {
         return (
             <div className="section" id="contacts">
                 <div className="section-title">
-                    <h1>Contacts</h1>
+                    <h3>Contacts</h3>
                 </div>
                 
                 <div className="contacts">

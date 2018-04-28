@@ -19,16 +19,16 @@ class Badges extends Component {
                 
                 <div className="badges">
                     <div onClick={this.showAvailable.bind(this)} className="badge centered" id="badge-1">
-                        <h3>Add Skills</h3>
+                        <h5>Add Skills</h5>
                     </div>
             
                     <div onClick={this.showSelected.bind(this)} className="badge centered" id="badge-2">
-                        <h3>Complete Skills</h3>
+                        <h5>Complete Skills</h5>
                     </div>
                     
                     <a href="/find-mentor">
                         <div className="badge centered" id="badge-3">
-                            <h3>Find Mentor</h3>
+                            <h5>Find Mentor</h5>
                         </div>
                     </a>
                 </div>

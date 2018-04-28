@@ -10,7 +10,7 @@ class Events extends Component {
         return (
             <div className="section" id="events">
                 <div className="section-title">
-                    <h1>Events</h1>
+                    <h3>Events</h3>
                 </div>
                 
                 <div className="events">
@@ -26,15 +26,15 @@ class Events extends Component {
                     </div>
                     
                     <div className="events-sidebar-medium">
-                        <h3><a href="#">Upcoming Events</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Past Events</a></h3>
+                        <h6><a href="#">Upcoming Events</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Past Events</a></h6>
                     </div>
                     
                     <div className="events-sidebar">
-                        <h3><a href="#">Upcoming Events</a></h3>
-                        <h3><a href="#">This Week</a></h3>
-                        <h3><a href="#">This Month</a></h3>
+                        <h5><a href="#">Upcoming Events</a></h5>
+                        <h5><a href="#">This Week</a></h5>
+                        <h5><a href="#">This Month</a></h5>
                         <hr />
-                        <h3><a href="#">Past Events</a></h3>
+                        <h5><a href="#">Past Events</a></h5>
                     </div>
                     
                     <div className="events-window">

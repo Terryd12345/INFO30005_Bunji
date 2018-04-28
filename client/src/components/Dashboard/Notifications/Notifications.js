@@ -10,7 +10,7 @@ class Notifications extends Component {
         return (
             <div className="section" id="notifications">
                 <div className="section-title">
-                    <h1>Notifications</h1>
+                    <h3>Notifications</h3>
                 </div>
                 
                 <div className="notifications">

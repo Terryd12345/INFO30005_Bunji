@@ -13,7 +13,7 @@ class Home extends Component {
     
     render() {
         return (
-            <div id="home">
+            <div>
                 <div id="welcome">
                     <video id="welcome-video" autoPlay muted loop>
                         <source src={require(`../../images/home.mp4`)} type="video/mp4" />
@@ -21,10 +21,10 @@ class Home extends Component {
                     
                     <div className="overlay centered">
                         <SignUp ref={signup => this.signup = signup} />
-                        <h5 className="menu fade-in"><a onClick={this.showRegister.bind(this)}>Register</a><a onClick={this.showLogin.bind(this)}>Log In</a></h5>
+                        <h5 className="fade-in" id="menu"><a onClick={this.showRegister.bind(this)}>Register</a><a onClick={this.showLogin.bind(this)}>Log In</a></h5>
                         
                         <h1 className="fade-in">Bunji</h1>
-                        <h3 className="fade-in">It's never too late to learn!</h3>
+                        <h4 className="fade-in">It's never too late to learn!</h4>
                         <a className="button fade-in" id="welcome-btn" href="get-started">
                             Get Started!
                         </a>

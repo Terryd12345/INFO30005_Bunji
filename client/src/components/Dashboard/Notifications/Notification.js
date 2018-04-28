@@ -13,10 +13,10 @@ class Notification extends Component {
                         <img src={require("../../../images/user.png")} alt="Profile" />
                     </div>
                     <div className="notification-desc">
-                        <h5>{this.props.title}</h5>
+                        <h6>{this.props.title}</h6>
                     </div>
                     <div className="notification-time">
-                        <h5>{this.props.time}</h5>
+                        <h6>{this.props.time}</h6>
                     </div>
                 </div>
             </div>

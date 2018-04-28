@@ -7,7 +7,7 @@ class Recommendations extends Component {
         return (
             <div className="section" id="recommendations">
                 <div className="section-title">
-                    <h1>Recommended for You</h1>
+                    <h3>Recommended for You</h3>
                 </div>
                 
                 <div className="recommendations">
