@@ -517,7 +517,8 @@ a:hover {
     }
     
     #about-desc {
-        padding: 20px 40px;
+        padding: 40px;
+        text-align: center;
     }
 }
 
