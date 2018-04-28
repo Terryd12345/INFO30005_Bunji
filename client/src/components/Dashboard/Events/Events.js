@@ -9,9 +9,9 @@ class Events extends Component {
     render() {
         return (
             <div className="section" id="events">
-                <div className="section-title">
+                <header className="section-title">
                     <h3>Events</h3>
-                </div>
+                </header>
                 
                 <div className="events">
                     <div className="events-sidebar-small">

@@ -6,9 +6,9 @@ class Recommendations extends Component {
     render() {
         return (
             <div className="section" id="recommendations">
-                <div className="section-title">
+                <header className="section-title">
                     <h3>Recommended for You</h3>
-                </div>
+                </header>
                 
                 <div className="recommendations">
                     <Skill title="Facebook" picName="facebook" />

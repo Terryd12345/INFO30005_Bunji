@@ -18,9 +18,9 @@ class PersonalProfile extends Component {
                     </a>
                 </div>
                 
-                <div className="section-title">
+                <header className="section-title">
                     <h3>Good afternoon, John!</h3>
-                </div>
+                </header>
                 
                 <Stats />
                 <Awards />

@@ -10,9 +10,9 @@ class Contacts extends Component {
     render() {
         return (
             <div className="section" id="contacts">
-                <div className="section-title">
+                <header className="section-title">
                     <h3>Contacts</h3>
-                </div>
+                </header>
                 
                 <div className="contacts">
                     <Contact name="John Doe" />

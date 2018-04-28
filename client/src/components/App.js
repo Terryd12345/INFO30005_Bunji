@@ -52,14 +52,18 @@ class App extends Component {
                                                     // && (props.location.pathname !== "/select-skills")
                                                     // && (props.location.pathname !== "/find-mentor")
                                                     && <Header />} />
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/get-started" component={GetStarted} />
-                        <Route exact path="/dashboard" component={Dashboard} />
-                        <Route exact path="/connections" component={Relationships} />
-                        <Route exact path="/find-mentor" component={UserSelection} />
-                        <Route path="*" component={NotFound} />
-                    </Switch>
+                    
+                    <div class="page-wrap">
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/get-started" component={GetStarted} />
+                            <Route exact path="/dashboard" component={Dashboard} />
+                            <Route exact path="/connections" component={Relationships} />
+                            <Route exact path="/find-mentor" component={UserSelection} />
+                            <Route path="*" component={NotFound} />
+                        </Switch>
+                    </div>
+                    
                     <Footer />
                 </div>
             </BrowserRouter>

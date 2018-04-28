@@ -9,9 +9,9 @@ class Notifications extends Component {
     render() {
         return (
             <div className="section" id="notifications">
-                <div className="section-title">
+                <header className="section-title">
                     <h3>Notifications</h3>
-                </div>
+                </header>
                 
                 <div className="notifications">
                     <Notification title="John sent you a message." time="Just Now" />

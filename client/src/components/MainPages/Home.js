@@ -46,9 +46,9 @@ class Home extends Component {
                 </div>
                 
                 <div id="steps">
-                    <div id="steps-title">
+                    <header id="steps-title">
                         <h1>How Bunji Works</h1>
-                    </div>
+                    </header>
                     
                     <div id="steps-content">
                         <div className="step" id="step-1">
