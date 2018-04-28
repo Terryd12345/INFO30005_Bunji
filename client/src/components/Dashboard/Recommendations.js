@@ -18,9 +18,11 @@ class Recommendations extends Component {
                     <Skill title="iPad" picName="apple" />
                 </div>
     
-                <a className="button" id="recommendations-btn" href="#">
-                    Add to Selected Skills
-                </a>
+                <div className="section-button">
+                    <a className="button" id="recommendations-btn" href="#">
+                        Add to Selected Skills
+                    </a>
+                </div>
             </div>
         );
     }

@@ -3,6 +3,7 @@
 html {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
+    line-height: normal;
 }
 
 body {
@@ -11,9 +12,8 @@ body {
     margin: 0;
     padding: 0;
     background: url("images/pattern.png") fixed center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 16px;
     color: #000;
+    font-family: "Source Sans Pro", sans-serif;
     line-height: normal;
 }
 
@@ -51,12 +51,13 @@ h5 {
 
 h6 {
     font-size: 1.1rem;
+    line-height: 165%;
 }
 
 p {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1rem;
-    line-height: 25px;
+    line-height: 200%;
 }
 
 a,
@@ -110,6 +111,18 @@ a:hover {
     margin: auto;
     width: 100px;
     height: 100px;
+}
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1801px) {
+    html {
+        font-size: 25px;
+    }
 }
 
 /* ==================================================== Wrapper ==================================================== */
@@ -254,8 +267,26 @@ a:hover {
 }
 
 #recommendations-btn {
-    margin: 0 auto 10px auto;
-    grid-area: button;
+    margin: 0 0 10px 0;
+}
+
+@media (min-width: 1801px) {
+    .button,
+    .button:active,
+    .button:focus {
+        padding: 20px 30px;
+    }
+    
+    #personal-btn-1,
+    #personal-btn-2 {
+        width: 180px;
+        padding: 8px 15px;
+    }
+    
+    #contact-btn-1,
+    #contact-btn-2 {
+        padding: 8px 15px;
+    }
 }
 
 /* ================================================ Navigation Bar ================================================= */
@@ -425,6 +456,12 @@ a:hover {
     border-bottom: 2px solid #fff;
 }
 
+@media (min-width: 1801px) {
+    #welcome-video {
+        height: 250vh;
+    }
+}
+
 /* ======================== About ========================= */
 
 #about {
@@ -457,7 +494,6 @@ a:hover {
 
 #about-desc p {
     font-size: 1.3rem;
-    line-height: 38px;
 }
 
 /* ======================== Steps ========================= */
@@ -512,7 +548,6 @@ a:hover {
     top: -60px;
     margin: 10px 0 0 0;
     font-size: 1.3rem;
-    line-height: 40px;
 }
 
 .steps-number {
@@ -555,10 +590,6 @@ a:hover {
     margin-bottom: 15px;
     color: #e95387;
     font-family: "Source Sans Pro", sans-serif;
-}
-
-.header h6 {
-    line-height: 30px;
 }
 
 .section-header {
@@ -697,7 +728,11 @@ a:hover {
 }
 
 .user-desc h6 {
-    margin-top: 15px;
+    margin: 15px 0 12px 0;
+}
+
+.user-desc p {
+    line-height: 180%;
 }
 
 @media (max-width: 800px) {
@@ -744,6 +779,11 @@ a:hover {
     padding: 10px;
     color: #e95387;
     grid-area: title;
+}
+
+.section-button {
+    text-align: center;
+    grid-area: button;
 }
 
 #badges {
@@ -1309,7 +1349,6 @@ a:hover {
     width: 100%;
     padding: .375rem .75rem;
     font-size: 1rem;
-    line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -1324,7 +1363,6 @@ a:hover {
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
-    line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     color: #6c757d;
