@@ -443,7 +443,6 @@ a:hover {
 #menu {
     position: absolute;
     top: 20px;
-    left: auto;
     right: 20px;
 }
 
@@ -507,6 +506,17 @@ a:hover {
 }
 
 @media (max-width: 800px) {
+    #menu {
+        top: 8px;
+        right: 8px;
+    }
+    
+    #menu a,
+    #menu a:active,
+    #menu a:focus {
+        margin-right: 8px;
+    }
+    
     #about {
         grid-template-columns: 1fr;
         grid-template-areas: "description";
