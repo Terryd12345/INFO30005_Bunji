@@ -15,6 +15,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
@@ -40,6 +41,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
@@ -52,6 +54,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
@@ -64,6 +67,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
@@ -75,6 +79,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
@@ -91,6 +96,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 }
