@@ -31,6 +31,7 @@ class Events extends Component {
                     <h3><a href="">This Month</a></h3>
                     <hr />
                     <h3><a href="">Past Events</a></h3>
+
                 </div>
                 <div className="events-window">
                     <Event title="Meeting 1" />
