@@ -66,8 +66,13 @@ p {
 
 a,
 a:active,
-a:focus,
+a:focus {
+    color: #578bca;
+    text-decoration: none;
+}
+
 a:hover {
+    color: #23527c;
     text-decoration: none;
 }
 
@@ -133,6 +138,10 @@ a:hover {
     margin: auto;
     width: 100px;
     height: 100px;
+}
+
+:focus {
+    outline: none;
 }
 
 @media (max-width: 900px) {
@@ -281,6 +290,12 @@ a:hover {
     margin: 0 0 10px 0;
 }
 
+#signup-btn {
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 1.1rem;
+}
+
 @media (min-width: 1801px) {
     .button,
     .button:active,
@@ -297,6 +312,10 @@ a:hover {
     #contact-btn-1,
     #contact-btn-2 {
         padding: 8px 15px;
+    }
+    
+    #signup-btn {
+        padding: 8px 25px;
     }
 }
 
@@ -1599,10 +1618,27 @@ a:hover {
 /* =============================================== Signup.js ================================================ */
 
 .modal-header {
+    height: 50px;
+    padding: 0;
+    border-color: #fff;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "register login";
+}
+
+.modal-title {
+    cursor: pointer;
+    height: 50px;
+    padding: 10px 0 0 0;
+    color: #3e3f3d;
+    font-family: "Abril Fatface", serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.modal-body {
+    padding: 25px 40px;
 }
 
 #register-title {
@@ -1613,25 +1649,130 @@ a:hover {
     grid-area: login;
 }
 
+@media (max-width: 550px) {
+    .modal-dialog {
+        width: auto;
+        margin: 50px 10px;
+    }
+    
+    .modal-body {
+        padding: 25px 20px;
+    }
+}
+
+@media (min-width: 551px) and (max-width: 1800px) {
+    .modal-dialog {
+        width: 500px;
+        margin: 50px auto;
+    }
+}
+
+@media (min-width: 1801px) {
+    .modal-dialog {
+        width: 800px;
+        margin: 75px auto;
+    }
+    
+    .modal-header,
+    .modal-title {
+        height: 80px;
+    }
+    
+    .modal-title {
+        padding: 15px 0 0 0;
+    }
+    
+    .modal-body {
+        padding: 45px 60px;
+    }
+}
+
 /* ========================= Form ========================= */
 
-input[type=text],
-input[type=password] {
+form p {
+    margin: -2px 0 8px 0;
+    text-align: center;
+}
+
+label {
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
+    font-size: 1.05rem;
+}
+
+input,
+select {
+    border-radius: 0;
+    font-size: 1rem;
+}
+
+input[type=text],
+input[type=password],
+select {
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
     border: none;
-    background: #f1f1f1;
 }
 
 input[type=text]:focus,
 input[type=password]:focus {
     background-color: #ddd;
-    outline: none;
 }
 
-.signupbtn {
-    float: left;
-    width: 50%;
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+#first-name {
+    margin-right: 4%;
+}
+
+#first-name,
+#last-name {
+    width: 48%;
+}
+
+#birth-date {
+    width: 70%;
+    margin-right: 4%;
+}
+
+#gender {
+    width: 26%;
+}
+
+#month {
+    width: 28%;
+    margin-right: 2%;
+}
+
+#day {
+    width: 18%;
+    margin-right: 2%;
+}
+
+#year {
+    width: 20%;
+    margin-right: 4%;
+}
+
+#form-button {
+    text-align: center;
+}
+
+@media (min-width: 1801px) {
+    form p {
+        margin: -2px 0 15px 0;
+    }
+    
+    input[type=text],
+    input[type=password],
+    select {
+        margin: 8px 0 35px 0;
+    }
 }

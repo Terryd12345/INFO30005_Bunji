@@ -30,16 +30,25 @@ class SignUp extends Component {
     }
 
     render() {
+        const activeRegister = {
+            backgroundColor: "#f1f1f1",
+            borderTopLeftRadius: "6px"
+        }
+        
+        const activeLogin = {
+            backgroundColor: "#f1f1f1",
+            borderTopRightRadius: "6px"
+        }
+        
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-            
                     <Modal.Header>
-                        <Modal.Title id="register-title">
-                            <a onClick={this.showRegister}>Register</a>
+                        <Modal.Title id="register-title" onClick={this.showRegister} style={this.state.register ? null : activeRegister}>
+                            Register
                         </Modal.Title>
-                        <Modal.Title id="login-title">
-                            <a onClick={this.showLogin}>Log In</a>
+                        <Modal.Title id="login-title" onClick={this.showLogin} style={this.state.register ? activeLogin : null}>
+                            Log In
                         </Modal.Title>
                     </Modal.Header>
             
@@ -48,15 +57,8 @@ class SignUp extends Component {
                             {
                                 this.state.register ? <Register /> : <Login />
                             }
-                            
-                            {/*<hr />*/}
                         </div>
                     </Modal.Body>
-            
-                    <Modal.Footer>
-                        <Button onClick={this.closeAll}>Close</Button>
-                    </Modal.Footer>
-            
                 </Modal>
             </div>
         )
