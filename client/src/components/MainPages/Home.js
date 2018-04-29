@@ -13,7 +13,7 @@ class Home extends Component {
     
     render() {
         return (
-            <div>
+            <div id="page-wrap">
                 <div id="welcome">
                     <video id="welcome-video" autoPlay muted loop>
                         <source src={require(`../../images/home.mp4`)} type="video/mp4" />

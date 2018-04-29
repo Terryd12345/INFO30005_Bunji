@@ -48,21 +48,16 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Route path="/" render={(props) => (props.location.pathname !== "/")
-                                                    // && (props.location.pathname !== "/select-skills")
-                                                    // && (props.location.pathname !== "/find-mentor")
-                                                    && <Header />} />
+                    <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
                     
-                    <div class="page-wrap">
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/get-started" component={GetStarted} />
-                            <Route exact path="/dashboard" component={Dashboard} />
-                            <Route exact path="/connections" component={Relationships} />
-                            <Route exact path="/find-mentor" component={UserSelection} />
-                            <Route path="*" component={NotFound} />
-                        </Switch>
-                    </div>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/get-started" component={GetStarted} />
+                        <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/connections" component={Relationships} />
+                        <Route exact path="/find-mentor" component={UserSelection} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
                     
                     <Footer />
                 </div>

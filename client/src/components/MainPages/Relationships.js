@@ -64,17 +64,19 @@ class Relationships extends Component {
 
     render() {
         return (
-            <div id="relationships">
-                <div id="chat">
-                    <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
-                    <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
+            <div id="page-wrap">
+                <div id="relationships">
+                    <div id="chat">
+                        <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
+                        <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
+                    </div>
+                    
+                    {/*<div id="calendar">*/}
+                        {/*<Events />*/}
+                    {/*</div>*/}
+                    
+                    <Calendar />
                 </div>
-                
-                {/*<div id="calendar">*/}
-                    {/*<Events />*/}
-                {/*</div>*/}
-                
-                <Calendar />
             </div>
         );
     }

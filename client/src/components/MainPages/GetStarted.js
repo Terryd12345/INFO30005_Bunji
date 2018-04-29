@@ -76,7 +76,7 @@ class GetStarted extends Component {
         }
         
         return (
-            <div className="get-started">
+            <div id="page-wrap">
                 <div id="section-1">
                     <header onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
                         <h2>

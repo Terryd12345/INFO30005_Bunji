@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Profile from "../../MainPages/Profile";
+import Profile from "./Profile";
 
 class Contact extends Component {
     constructor(props) {

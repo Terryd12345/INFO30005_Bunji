@@ -9,13 +9,15 @@ import Recommendations from "../Dashboard/Recommendations";
 class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard">
-                <PersonalProfile />
-                <Badges />
-                <Notifications />
-                <Contacts />
-                <Events />
-                <Recommendations />
+            <div id="page-wrap">
+                <div id="dashboard">
+                    <PersonalProfile />
+                    <Badges />
+                    <Notifications />
+                    <Contacts />
+                    <Events />
+                    <Recommendations />
+                </div>
             </div>
         );
     }

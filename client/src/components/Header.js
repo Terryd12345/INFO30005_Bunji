@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 import SignUp from "./SignUp/SignUp";
 
 class Header extends Component {
@@ -23,34 +24,47 @@ class Header extends Component {
     
     render() {
         return (
-            <div className="navbar">
-                <SignUp ref={signup => this.signup = signup} />
+            <Navbar>
+                <SignUp ref={signup => this.signup = signup}/>
+            
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a id="logo" href="/"><img src={require("../images/logo.jpg")} alt="Logo"/></a>
+                    </Navbar.Brand>
+
+                    <Navbar.Toggle/>
+                </Navbar.Header>
+                
+                <Navbar.Collapse>
+                    {
+                        this.state.loggedIn ? (
+                            <Nav pullRight>
+                                <NavItem href="/dashboard">
+                                    Dashboard
+                                </NavItem>
     
-                {
-                    this.state.loggedIn ? (
-                        <ul>
-                            <li id="logo"><a href="/"><img src={require("../images/logo.jpg")} alt="Logo" /></a></li>
-                            <li id="dropdown">
-                                &#9776;
-                                <div id="dropdown-content">
-                                    <a href="/dashboard">Dashboard</a>
-                                    <a href="/connections">Connections</a>
-                                    <a href="/">Log Out</a>
-                                </div>
-                            </li>
-                            <li><a href="/">Log Out</a></li>
-                            <li><a href="/connections">Connections</a></li>
-                            <li><a href="/dashboard">Dashboard</a></li>
-                        </ul>
-                    ) : (
-                        <ul>
-                            <li id="logo"><a href="/"><img src={require("../images/logo.jpg")} alt="Logo" /></a></li>
-                            <li><a onClick={this.showLogin}>Log In</a></li>
-                            <li> < a onClick = {this.showRegister}>Register</a></li>
-                        </ul>
-                    )
-                }
-            </div>
+                                <NavItem href="/connections">
+                                    Connections
+                                </NavItem>
+    
+                                <NavItem href="/">
+                                    Log Out
+                                </NavItem>
+                            </Nav>
+                        ) : (
+                            <Nav pullRight>
+                                <NavItem onClick={this.showRegister}>
+                                    Register
+                                </NavItem>
+            
+                                <NavItem onClick={this.showLogin}>
+                                    Log In
+                                </NavItem>
+                            </Nav>
+                        )
+                    }
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
 }
