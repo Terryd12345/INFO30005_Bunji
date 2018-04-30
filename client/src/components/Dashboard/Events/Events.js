@@ -11,14 +11,12 @@ class Events extends Component {
                 
                 <div id="events-content">
                     <div id="events-sidebar-sm">
-                        <div id="events-sidebar-sm-box">
-                            <select>
-                                <option value="" selected>Upcoming</option>
-                                <option value="">This Week</option>
-                                <option value="">This Month</option>
-                                <option value="">Past</option>
-                            </select>
-                        </div>
+                        <select>
+                            <option value="" selected>Upcoming</option>
+                            <option value="">This Week</option>
+                            <option value="">This Month</option>
+                            <option value="">Past</option>
+                        </select>
                     </div>
                     
                     <div id="events-sidebar-md">

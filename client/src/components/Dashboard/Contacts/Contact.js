@@ -21,7 +21,9 @@ class Contact extends Component {
                             <a onClick={this.handleShow} className="button" id="contact-btn-1">
                                 Profile
                             </a>
-                    
+                            
+                            <span className="contact-br"><br /></span>
+                            
                             <a href="/connections" className="button" id="contact-btn-2">
                                 Connection
                             </a>

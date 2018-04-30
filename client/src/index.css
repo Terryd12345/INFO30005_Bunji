@@ -72,7 +72,7 @@ a:focus {
 }
 
 a:hover {
-    color: #23527c;
+    color: #3f6da5;
     text-decoration: none;
 }
 
@@ -150,7 +150,7 @@ a:hover {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     html {
         font-size: 14px;
     }
@@ -272,7 +272,7 @@ a:hover {
 }
 
 #contact-btn-2 {
-    margin: 10px 0 5px 0;
+    margin: 1px 0 5px 0;
     padding: 0 12px;
     font-size: 0.85rem;
 }
@@ -308,19 +308,37 @@ a:hover {
         padding: 20px 30px;
     }
     
+    #personal-btn-1 {
+        margin: 20px auto 8px 0;
+    }
+    
     #personal-btn-1,
     #personal-btn-2 {
         width: 180px;
         padding: 8px 15px;
     }
     
+    #contact-btn-1 {
+        margin: 10px 8px 5px 0;
+    }
+    
     #contact-btn-1,
     #contact-btn-2 {
-        padding: 8px 15px;
+        padding: 0 20px;
     }
     
     #signup-btn {
         padding: 8px 25px;
+    }
+    
+    #badges-btn {
+        margin: 25px 0 0 0;
+        padding: 8px 20px;
+    }
+    
+    #recommendations-btn {
+        margin: 5px 0 0 0;
+        padding: 12px 25px;
     }
 }
 
@@ -980,7 +998,7 @@ a:hover {
     padding: 10px;
     background: #fff;
     display: grid;
-    grid-auto-rows: 60px minmax(60px, auto);
+    grid-auto-rows: 60px minmax(0, auto);
     grid-template-areas: "title" "content";
 }
 
@@ -1017,6 +1035,7 @@ a:hover {
 }
 
 #badges {
+    grid-area: badges;
     border: none !important;
 }
 
@@ -1136,13 +1155,12 @@ a:hover {
 }
 
 .badge img {
-    width: 10%;
-    height: auto;
+    width: auto;
+    height: 2.4rem;
     margin-right: 10px;
 }
 
 #badges-content {
-    grid-area: badges;
     border-radius: 8px;
     display: grid;
     grid-template-rows: 50px 50px 50px;
@@ -1172,7 +1190,8 @@ a:hover {
     border: 1px solid #578bca;
     text-align: center;
     display: grid;
-    grid-template: "picture description time" 1fr / 15% 60% 25%;
+    grid-template: "picture description time" 1fr / 15% 58% 25%;
+    grid-gap: 1%;
 }
 
 .notification-panel {
@@ -1190,7 +1209,7 @@ a:hover {
 
 .notification-pic img {
     grid-area: picture;
-    max-width: 70%;
+    max-width: 2.1rem;
     height: auto;
     border-radius: 50%;
 }
@@ -1223,7 +1242,7 @@ a:hover {
     border: 1px solid #578bca;
     text-align: center;
     display: grid;
-    grid-template: "picture description" 1fr / 25% 80%;
+    grid-template: "picture description" 1fr / 25% 75%;
     grid-gap: 15px;
 }
 
@@ -1239,6 +1258,10 @@ a:hover {
     font-size: 1rem;
     text-align: left;
     line-height: 100%;
+}
+
+.contact-br {
+    display: none;
 }
 
 #contacts-content {
@@ -1261,11 +1284,12 @@ a:hover {
     text-align: center;
     display: grid;
     grid-template: "picture description" 1fr / 30% 70%;
-    grid-column-gap: 5px;
+    grid-gap: 5px;
 }
 
 .event-pic img {
     grid-area: picture;
+    margin-top: 5px;
     max-width: 70%;
     height: auto;
     border-radius: 50%;
@@ -1309,27 +1333,14 @@ a:hover {
 #events-sidebar-sm {
     grid-area: sidebar;
     display: none;
-    padding: 20px;
+    padding: 15px 20px;
     background: #578bca;
     border-radius: 8px 8px 0 0 !important;
 }
 
-#events-sidebar-sm-box {
-    overflow: hidden;
-    width: 240px;
-    height: 29px;
-    background: #eee url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-}
-
-#events-sidebar-sm-box select {
-    width: 268px;
-    height: 29px;
-    padding: 3px;
-    background: transparent;
-    border: none;
-    border-radius: 20px;
-    font-family: inherit;
-    font-size: 0.9rem;
+#events-sidebar-sm select {
+    margin: 0;
+    border-radius: 8px;
 }
 
 #events-sidebar-md {
@@ -1337,7 +1348,10 @@ a:hover {
     display: none;
     padding: 20px;
     background: #578bca;
-    border-radius: 8px 0 0 8px !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+#events-sidebar-md h6 {
     color: #fff;
 }
 
@@ -1405,8 +1419,8 @@ a:hover {
 
 #recommendations-nav-left span img,
 #recommendations-nav-right span img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -ms-transition-duration: 0.4s;
@@ -1444,7 +1458,23 @@ a:hover {
 
 /* ======================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 525px) {
+    .section {
+        grid-auto-rows: 45px minmax(0, auto);
+    }
+    
+    .section-title h3 {
+        font-size: 1.65rem;
+    }
+    
+    .event-pic img {
+        max-width: 70%;
+    }
+    
+    #events-content {
+        grid-template: "sidebar" "window";
+    }
+    
     #events-sidebar-md,
     #events-sidebar-lg {
         display: none;
@@ -1453,9 +1483,18 @@ a:hover {
     #events-sidebar-sm {
         display: block;
     }
+    
+    #personal-btn-1,
+    #personal-btn-2 {
+        width: 110px;
+    }
 }
 
-@media (min-width: 601px) and (max-width: 750px) {
+@media (min-width: 526px) and (max-width: 700px) {
+    #events-content {
+        grid-template: "sidebar" "window";
+    }
+    
     #events-sidebar-sm,
     #events-sidebar-lg {
         display: none;
@@ -1464,69 +1503,215 @@ a:hover {
     #events-sidebar-md {
         display: block;
     }
+    
+    #events-window {
+        border: 0 0 8px 8px !important;
+    }
 }
 
-@media (max-width: 750px) {
-    #personal-profile {
+@media (max-width: 600px) {
+    #dashboard {
         grid-template-columns: 1fr;
-        grid-auto-rows: 60px minmax(60px, auto) minmax(350px, auto) minmax(60px, auto);
-        grid-template-areas: "title" "picture" "stats" "awards";
+        grid-template-rows: 530px 170px 285px 400px 400px 285px;
+        grid-template-areas: "profile" "badges" "notifications" "contacts" "events" "recommendations";
+        grid-gap: 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 875px) {
+    .event-pic img {
+        max-width: 50%;
+    }
+    
+    #dashboard {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 530px 170px 400px 400px 285px;
+        grid-template-areas: "profile profile" "badges badges" "notifications contacts" "events events" "recommendations recommendations";
+        grid-gap: 20px;
+    }
+}
+
+@media (max-width: 875px) {
+    .event-panel {
+        grid-template-columns: 25% 75%;
+        grid-gap: 8px;
+    }
+    
+    .event-desc {
+        grid-template: "title" "content" 1fr / 1fr;
+    }
+    
+    .event-desc-detail {
+        display: none;
+    }
+    
+    #personal-profile {
+        grid-template-columns: 40% 60%;
+        grid-auto-rows: 50px 250px 150px;
+        grid-column-gap: 10px;
+        grid-template-areas: "title title" "picture stats" "awards awards";
+    }
+    
+    #personal-pic img {
+        width: auto;
+        max-height: 55%;
     }
     
     #stats {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 80px;
+        grid-template: "stat-1" "stat-2" "stat-3";
+        grid-gap: 12px;
+    }
+    
+    #awards {
+        margin: 0 10px 0 0;
+        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+        grid-auto-rows: minmax(55px, auto);
+    }
+    
+    #recommendations {
+        grid-template-rows: 60px 135px 60px;
+    }
+    
+    #recommendations-nav-left span img,
+    #recommendations-nav-right span img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #recommendations-content {
+        overflow: hidden;
+        grid-template: 100px / repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 20px;
+    }
+    
+    #recommendations-content .skills-panel img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 876px) and (max-width: 1100px) {
+    .contact-panel {
+        padding: 10px;
+    }
+    
+    .contact-br {
+        display: inline;
+    }
+    
+    .event-desc {
+        grid-template-columns: 32% 68%;
+    }
+    
+    #dashboard {
+        grid-template-rows: 165px 390px 400px 335px;
+    }
+    
+    #personal-profile {
+        grid-template-columns: 40% 60%;
+        grid-auto-rows: 50px 250px 200px;
+        grid-template-areas: "title title" "picture stats" "awards awards";
+    }
+    
+    #personal-pic img {
+        width: auto;
+        max-height: 65%;
+    }
+    
+    #stats {
+        grid-template: "stat-1" "stat-2" "stat-3";
+        grid-gap: 12px;
+    }
+    
+    #recommendations {
+        grid-template-rows: 60px 165px 60px;
+    }
+    
+    #recommendations-content {
+        grid-template: 130px / repeat(5, 1fr);
+        grid-gap: 20px;
+    }
+    
+    #recommendations-content .skills-panel img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1101px) and (max-width: 1800px) {
+    .event-pic img {
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 1801px) {
+    .section {
+        grid-auto-rows: 85px minmax(0, auto);
+    }
+    
+    .notification-panel {
+        height: 75px;
+    }
+    
+    .contact-panel {
+        padding: 20px 25px;
+        grid-gap: 5px;
+    }
+    
+    .contact-pic img {
+        max-width: 80%;
+        height: auto;
+    }
+    
+    .contact-desc {
+        line-height: 125%;
     }
     
     .event-panel {
+        padding: 20px 10px 25px 10px;
+        grid-template-columns: 25% 75%;
+        grid-gap: 0;
+    }
+    
+    .event-desc {
         grid-template-columns: 20% 80%;
     }
     
-    #events-content {
-        grid-template: "sidebar" "window";
-    }
-    
-    #recommendations-content {
-        padding: 0 10px 30px 20px;
-        grid-template-columns: 1fr;
-        grid-auto-rows: minmax(200px, auto);
-        grid-gap: 40px;
-    }
-}
-
-@media (min-width: 751px) and (max-width: 950px) {
-    #personal-profile {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 60px minmax(60px, auto) minmax(200px, auto) minmax(60px, auto);
-        grid-template-areas: "title" "picture" "stats" "awards";
-    }
-    
-    #recommendations-content {
-        grid-auto-rows: minmax(200px, auto);
-        grid-gap: 20px;
-    }
-}
-
-@media (max-width: 951px) {
     #dashboard {
-        grid-template: "profile" "badges" "notifications" "contacts" "events" "recommendations";
-        grid-auto-rows: minmax(150px, auto);
-        grid-gap: 20px;
+        grid-template-rows: 285px 315px 650px 405px;
     }
     
-    .personal-pic img {
-        max-width: 40%;
-    }
-}
-
-@media (min-width: 951px) and (max-width: 1250px) {
-    .notification-panel {
-        padding: 5px;
-        grid-template: "description time" 1fr / 70% 30%;
+    #personal-profile {
+        grid-auto-rows: 85px 190px 265px;
     }
     
-    .notification-pic {
-        display: none;
+    #awards {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-auto-rows: minmax(100px, auto);
+    }
+    
+    #badges-content {
+        grid-template-rows: 90px 90px 90px;
+    }
+    
+    #recommendations {
+        grid-template-rows: 85px 200px 90px;
+    }
+    
+    #recommendations-nav-left span img,
+    #recommendations-nav-right span img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    #recommendations-content {
+        grid-template: 165px / repeat(5, 1fr);
+    }
+    
+    #recommendations-content .skills-panel img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
     }
 }
 
@@ -1909,4 +2094,25 @@ select {
     width: 80px;
     height: 80px;
     margin: 0 auto 5px auto;
+}
+
+@media (max-width: 525px) {
+    #skills {
+        padding: 15px;
+        grid-auto-rows: 85px;
+        grid-gap: 20px;
+    }
+    
+    #skills .skills-panel,
+    #skills .skills-panel:active,
+    #skills .skills-panel:focus,
+    #skills .skills-panel:hover {
+        font-size: 1rem;
+    }
+    
+    #skills .skills-panel img {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+    }
 }
