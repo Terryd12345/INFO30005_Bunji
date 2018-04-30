@@ -26,7 +26,7 @@ class Recommendations extends Component {
                 </div>
     
                 <div className="section-button">
-                    <a className="button" id="recommendations-btn" href="#">
+                    <a className="button" id="recommendations-btn" href="">
                         Add to Selected Skills
                     </a>
                 </div>

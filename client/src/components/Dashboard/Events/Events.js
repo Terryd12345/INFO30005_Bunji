@@ -13,24 +13,29 @@ class Events extends Component {
                     <div id="events-sidebar-sm">
                         <div id="events-sidebar-sm-box">
                             <select>
-                                <option value="#" selected>Upcoming</option>
-                                <option value="#">This Week</option>
-                                <option value="#">This Month</option>
-                                <option value="#">Past</option>
+                                <option value="" selected>Upcoming</option>
+                                <option value="">This Week</option>
+                                <option value="">This Month</option>
+                                <option value="">Past</option>
                             </select>
                         </div>
                     </div>
                     
                     <div id="events-sidebar-md">
-                        <h6><a href="#">Upcoming</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Past</a></h6>
+                        <h6>
+                            <a href="">Upcoming</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                            <a href="">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                            <a href="">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                            <a href="">Past</a>
+                        </h6>
                     </div>
                     
                     <div id="events-sidebar-lg">
-                        <h5><a href="#">Upcoming</a></h5>
-                        <h5><a href="#">This Week</a></h5>
-                        <h5><a href="#">This Month</a></h5>
+                        <h5><a href="">Upcoming</a></h5>
+                        <h5><a href="">This Week</a></h5>
+                        <h5><a href="">This Month</a></h5>
                         <hr />
-                        <h5><a href="#">Past</a></h5>
+                        <h5><a href="">Past</a></h5>
                     </div>
                     
                     <div id="events-window">

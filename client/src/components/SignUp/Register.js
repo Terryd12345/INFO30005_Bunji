@@ -49,7 +49,7 @@ class Register extends Component {
                 <label htmlFor="password-confirm">Confirm Password</label>
                 <input type="password" name="password-confirm" required />
                 
-                <p>By creating an account, you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <p>By creating an account, you agree to our <a href="">Terms & Privacy</a>.</p>
                 
                 <div id="modal-button">
                     <button type="submit" className="button" id="signup-btn">Register</button>
