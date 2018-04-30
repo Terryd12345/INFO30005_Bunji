@@ -307,35 +307,28 @@ a:hover {
     .button:focus {
         padding: 20px 30px;
     }
-    
     #personal-btn-1 {
         margin: 20px auto 8px 0;
     }
-    
     #personal-btn-1,
     #personal-btn-2 {
         width: 180px;
         padding: 8px 15px;
     }
-    
     #contact-btn-1 {
         margin: 10px 8px 5px 0;
     }
-    
     #contact-btn-1,
     #contact-btn-2 {
         padding: 0 20px;
     }
-    
     #signup-btn {
         padding: 8px 25px;
     }
-    
     #badges-btn {
         margin: 25px 0 0 0;
         padding: 8px 20px;
     }
-    
     #recommendations-btn {
         margin: 5px 0 0 0;
         padding: 12px 25px;
@@ -349,7 +342,7 @@ a:hover {
     border: none;
 }
 
-.navbar > .container {
+.navbar>.container {
     width: 100%;
     margin: 0;
     padding: 0 16px;
@@ -359,15 +352,15 @@ a:hover {
     background: #fff;
 }
 
-.navbar-default .navbar-nav > li {
+.navbar-default .navbar-nav>li {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.1rem;
 }
 
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > li > a:active,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:active,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
     color: #3e3f3d;
 }
 
@@ -399,9 +392,9 @@ a:hover {
     background: #578bca;
 }
 
-.navbar-collapse > ul > li > a,
-.navbar-collapse > ul > li > a:active,
-.navbar-collapse > ul > li > a:focus {
+.navbar-collapse>ul>li>a,
+.navbar-collapse>ul>li>a:active,
+.navbar-collapse>ul>li>a:focus {
     border-bottom: 5px solid #fff;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
@@ -410,7 +403,7 @@ a:hover {
     transition-duration: 0.4s;
 }
 
-.navbar-collapse > ul > li > a:hover {
+.navbar-collapse>ul>li>a:hover {
     border-bottom: 5px solid #578bca;
 }
 
@@ -427,53 +420,42 @@ a:hover {
     .navbar-nav {
         margin: 0 -15px;
     }
-    
-    .navbar-nav > li {
+    .navbar-nav>li {
         border-bottom: 1px solid #fff;
         padding: 8px 0;
     }
-    
-    .navbar-default .navbar-nav > li {
+    .navbar-default .navbar-nav>li {
         font-size: 1.4rem;
         text-align: center;
     }
-    
-    .navbar-default .navbar-nav > li > a:hover {
+    .navbar-default .navbar-nav>li>a:hover {
         color: #e95387;
     }
-    
     .navbar-collapse {
         background: #f1f1f1;
     }
-    
-    .navbar-collapse > ul > li > a,
-    .navbar-collapse > ul > li > a:active,
-    .navbar-collapse > ul > li > a:focus,
-    .navbar-collapse > ul > li > a:hover {
+    .navbar-collapse>ul>li>a,
+    .navbar-collapse>ul>li>a:active,
+    .navbar-collapse>ul>li>a:focus,
+    .navbar-collapse>ul>li>a:hover {
         border: none;
     }
-    
     /* ============= Animated Hamburger Icon ============== */
-    
     .navbar-toggle span:nth-child(2) {
         transform: rotate(45deg);
         transform-origin: 10% 10%;
     }
-    
     .navbar-toggle span:nth-child(3) {
         opacity: 0;
     }
-    
     .navbar-toggle span:nth-child(4) {
         transform: rotate(-45deg);
         transform-origin: 10% 90%;
     }
-    
     .navbar-toggle.collapsed span:nth-child(2),
     .navbar-toggle.collapsed span:nth-child(4) {
         transform: rotate(0);
     }
-    
     .navbar-toggle.collapsed span:nth-child(3) {
         opacity: 1;
     }
@@ -585,21 +567,17 @@ a:hover {
         top: 8px;
         right: 8px;
     }
-    
     #menu a,
     #menu a:active,
     #menu a:focus {
         margin-right: 8px;
     }
-    
     #about {
         grid-template: "description" 1fr / 1fr;
     }
-    
     #about-pic {
         display: none;
     }
-    
     #about-desc {
         padding: 40px;
         text-align: center;
@@ -610,7 +588,6 @@ a:hover {
     #about {
         grid-template: 1fr / 1fr 1fr;
     }
-    
     #about-desc {
         padding: 30px 50px;
     }
@@ -714,11 +691,9 @@ a:hover {
     .step-panel {
         padding: 30px 20px;
     }
-    
     #steps-title {
         padding: 0 20px;
     }
-    
     #steps-content {
         padding: 0 50px;
     }
@@ -735,7 +710,6 @@ a:hover {
     .step-panel {
         padding: 30px 20px;
     }
-    
     #steps-content {
         padding: 0 60px;
     }
@@ -745,7 +719,6 @@ a:hover {
     .step-panel {
         padding: 30px;
     }
-    
     #steps-content {
         padding: 0 100px;
     }
@@ -757,16 +730,13 @@ a:hover {
         width: 100px;
         height: 100px;
     }
-    
     .step-caption {
         top: 67px;
         height: 83px;
     }
-    
     .step-panel p {
         margin-top: 45px;
     }
-    
     #steps-content {
         margin-bottom: 45px;
     }
@@ -821,15 +791,12 @@ a:hover {
     .header {
         padding: 30px;
     }
-    
     .section-header h2 {
         font-size: 2rem;
     }
-    
     .section-header h2 span {
         left: 14px;
     }
-    
     .section-header h2 span img {
         width: 30px;
         height: 30px;
@@ -880,14 +847,12 @@ a:hover {
         grid-auto-rows: minmax(110px, auto);
         grid-gap: 25px;
     }
-    
     .skills-panel,
     .skills-panel:active,
     .skills-panel:focus,
     .skills-panel:hover {
         font-size: 1.2rem;
     }
-    
     .skills-panel img {
         width: 55px;
         height: 55px;
@@ -900,7 +865,6 @@ a:hover {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         grid-auto-rows: minmax(160px, auto);
     }
-    
     .skills-panel img {
         width: 80px;
         height: 80px;
@@ -981,11 +945,9 @@ a:hover {
         grid-template: "picture" "description";
         grid-gap: 15px;
     }
-    
     .user-pic img {
         max-width: 50%;
     }
-    
     .user-desc {
         padding-right: 0;
         text-align: center;
@@ -1030,7 +992,7 @@ a:hover {
     border-radius: 8px;
 }
 
-#dashboard > div {
+#dashboard>div {
     border: 3px solid #a1dbf3;
 }
 
@@ -1269,7 +1231,7 @@ a:hover {
     padding: 10px;
 }
 
-#contacts-content > a {
+#contacts-content>a {
     color: #3e3f3d;
     text-decoration: none;
 }
@@ -1462,28 +1424,22 @@ a:hover {
     .section {
         grid-auto-rows: 45px minmax(0, auto);
     }
-    
     .section-title h3 {
         font-size: 1.65rem;
     }
-    
     .event-pic img {
         max-width: 70%;
     }
-    
     #events-content {
         grid-template: "sidebar" "window";
     }
-    
     #events-sidebar-md,
     #events-sidebar-lg {
         display: none;
     }
-    
     #events-sidebar-sm {
         display: block;
     }
-    
     #personal-btn-1,
     #personal-btn-2 {
         width: 110px;
@@ -1494,16 +1450,13 @@ a:hover {
     #events-content {
         grid-template: "sidebar" "window";
     }
-    
     #events-sidebar-sm,
     #events-sidebar-lg {
         display: none;
     }
-    
     #events-sidebar-md {
         display: block;
     }
-    
     #events-window {
         border: 0 0 8px 8px !important;
     }
@@ -1522,7 +1475,6 @@ a:hover {
     .event-pic img {
         max-width: 50%;
     }
-    
     #dashboard {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 530px 170px 400px 400px 285px;
@@ -1536,54 +1488,44 @@ a:hover {
         grid-template-columns: 25% 75%;
         grid-gap: 8px;
     }
-    
     .event-desc {
         grid-template: "title" "content" 1fr / 1fr;
     }
-    
     .event-desc-detail {
         display: none;
     }
-    
     #personal-profile {
         grid-template-columns: 40% 60%;
         grid-auto-rows: 50px 250px 150px;
         grid-column-gap: 10px;
         grid-template-areas: "title title" "picture stats" "awards awards";
     }
-    
     #personal-pic img {
         width: auto;
         max-height: 55%;
     }
-    
     #stats {
         grid-template: "stat-1" "stat-2" "stat-3";
         grid-gap: 12px;
     }
-    
     #awards {
         margin: 0 10px 0 0;
         grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
         grid-auto-rows: minmax(55px, auto);
     }
-    
     #recommendations {
         grid-template-rows: 60px 135px 60px;
     }
-    
     #recommendations-nav-left span img,
     #recommendations-nav-right span img {
         width: 20px;
         height: 20px;
     }
-    
     #recommendations-content {
         overflow: hidden;
         grid-template: 100px / repeat(auto-fill, minmax(100px, 1fr));
         grid-gap: 20px;
     }
-    
     #recommendations-content .skills-panel img {
         width: 60px;
         height: 60px;
@@ -1594,44 +1536,35 @@ a:hover {
     .contact-panel {
         padding: 10px;
     }
-    
     .contact-br {
         display: inline;
     }
-    
     .event-desc {
         grid-template-columns: 32% 68%;
     }
-    
     #dashboard {
         grid-template-rows: 165px 390px 400px 335px;
     }
-    
     #personal-profile {
         grid-template-columns: 40% 60%;
         grid-auto-rows: 50px 250px 200px;
         grid-template-areas: "title title" "picture stats" "awards awards";
     }
-    
     #personal-pic img {
         width: auto;
         max-height: 65%;
     }
-    
     #stats {
         grid-template: "stat-1" "stat-2" "stat-3";
         grid-gap: 12px;
     }
-    
     #recommendations {
         grid-template-rows: 60px 165px 60px;
     }
-    
     #recommendations-content {
         grid-template: 130px / repeat(5, 1fr);
         grid-gap: 20px;
     }
-    
     #recommendations-content .skills-panel img {
         width: 60px;
         height: 60px;
@@ -1648,66 +1581,52 @@ a:hover {
     .section {
         grid-auto-rows: 85px minmax(0, auto);
     }
-    
     .notification-panel {
         height: 75px;
     }
-    
     .contact-panel {
         padding: 20px 25px;
         grid-gap: 5px;
     }
-    
     .contact-pic img {
         max-width: 80%;
         height: auto;
     }
-    
     .contact-desc {
         line-height: 125%;
     }
-    
     .event-panel {
         padding: 20px 10px 25px 10px;
         grid-template-columns: 25% 75%;
         grid-gap: 0;
     }
-    
     .event-desc {
         grid-template-columns: 20% 80%;
     }
-    
     #dashboard {
         grid-template-rows: 285px 315px 650px 405px;
     }
-    
     #personal-profile {
         grid-auto-rows: 85px 190px 265px;
     }
-    
     #awards {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-auto-rows: minmax(100px, auto);
     }
-    
     #badges-content {
         grid-template-rows: 90px 90px 90px;
     }
-    
     #recommendations {
         grid-template-rows: 85px 200px 90px;
     }
-    
     #recommendations-nav-left span img,
     #recommendations-nav-right span img {
         width: 50px;
         height: 50px;
     }
-    
     #recommendations-content {
         grid-template: 165px / repeat(5, 1fr);
     }
-    
     #recommendations-content .skills-panel img {
         width: 100px;
         height: 100px;
@@ -1762,7 +1681,6 @@ a:hover {
     #profile-panel {
         grid-template: "picture" "bio" "button" "description";
     }
-    
     #profile-button {
         text-align: center;
     }
@@ -1812,7 +1730,7 @@ a:hover {
 #messages {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(100vh - 101px);
+    height: calc(100vh - 105px);
     margin: 0;
     padding: 0;
 }
@@ -1929,7 +1847,6 @@ a:hover {
         width: auto;
         margin: 50px 10px;
     }
-    
     .modal-body {
         padding: 25px 20px;
     }
@@ -1947,16 +1864,13 @@ a:hover {
         width: 800px;
         margin: 75px auto;
     }
-    
     .modal-header,
     .modal-title {
         height: 80px;
     }
-    
     .modal-title {
         padding: 15px 0 0 0;
     }
-    
     .modal-body {
         padding: 45px 60px;
     }
@@ -2041,7 +1955,6 @@ select {
     form p {
         margin: -2px 0 15px 0;
     }
-    
     input[type=text],
     input[type=password],
     select {
@@ -2102,14 +2015,12 @@ select {
         grid-auto-rows: 85px;
         grid-gap: 20px;
     }
-    
     #skills .skills-panel,
     #skills .skills-panel:active,
     #skills .skills-panel:focus,
     #skills .skills-panel:hover {
         font-size: 1rem;
     }
-    
     #skills .skills-panel img {
         width: 40px;
         height: 40px;
