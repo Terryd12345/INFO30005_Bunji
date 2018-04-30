@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { getCityData } from '../../utils/getCityData';
-
 
 class SignUp extends Component {
 
