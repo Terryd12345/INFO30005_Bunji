@@ -30,16 +30,25 @@ class CompleteSkills extends Component {
     }
     
     render() {
+        const activeSelected = {
+            backgroundColor: "#f1f1f1",
+            borderTopLeftRadius: "6px"
+        }
+    
+        const activeLearned = {
+            backgroundColor: "#f1f1f1",
+            borderTopRightRadius: "6px"
+        }
+        
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-                    
                     <Modal.Header>
-                        <Modal.Title id="register-title">
-                            <a onClick={this.showSelected}>Selected</a>
+                        <Modal.Title className="modal-title-dashboard" id="left-title" onClick={this.showSelected} style={this.state.selected ? null : activeSelected}>
+                            SELECTED
                         </Modal.Title>
-                        <Modal.Title id="login-title">
-                            <a onClick={this.showLearned}>Learned</a>
+                        <Modal.Title className="modal-title-dashboard" id="right-title" onClick={this.showLearned} style={this.state.selected ? activeLearned : null}>
+                            LEARNED
                         </Modal.Title>
                     </Modal.Header>
                     
@@ -50,11 +59,6 @@ class CompleteSkills extends Component {
                             }
                         </div>
                     </Modal.Body>
-                    
-                    <Modal.Footer>
-                        <Button onClick={this.closeAll}>Close</Button>
-                    </Modal.Footer>
-                
                 </Modal>
             </div>
         )

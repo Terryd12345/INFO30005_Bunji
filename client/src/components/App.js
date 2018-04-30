@@ -2,16 +2,10 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import { MoonLoader } from "react-spinners";
-
 import Header from "./Header";
 import Footer from "./Footer";
 
 const Loading = () => <div id="loading"><MoonLoader loading={true} /></div>;
-
-// const Header = Loadable({
-//     loader: () => import("./Header"),
-//     loading: Loading,
-// })
 
 const Home = Loadable({
     loader: () => import("./MainPages/Home"),

@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import Award from "./Award";
 
 class Awards extends Component {
-
     render() {
         return (
-            <div className="awards">
+            <div id="awards">
                 <Award title="Welcome!" />
                 <Award title="First Skill" />
                 <Award title="Contact a Mentor" />

@@ -30,7 +30,7 @@ class Home extends Component {
                         </a>
                         <Scroll type="id" element="about">
                             <span className="arrow">
-                                <img src={require(`../../images/arrow.png`)} alt="Icon" width="30px" />
+                                <img src={require(`../../images/icons/arrow-down.png`)} alt="Icon" />
                             </span>
                         </Scroll>
                     </div>

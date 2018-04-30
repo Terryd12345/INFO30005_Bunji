@@ -83,7 +83,7 @@ class GetStarted extends Component {
                             1. Select Skills
                             {
                                 this.state.tickSection1 ? (
-                                    <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
+                                    <span><img src={require(`../../images/icons/tick.png`)} alt="Completed" /></span>
                                 ) : (null)
                             }
                         </h2>
@@ -108,7 +108,7 @@ class GetStarted extends Component {
                         <h2>2. Find Mentor
                         {
                             this.state.tickSection2 ? (
-                                <span><img src={require(`../../images/tick.png`)} alt="Completed" /></span>
+                                <span><img src={require(`../../images/icons/tick.png`)} alt="Completed" /></span>
                             ) : (null)
                         }
                         </h2>

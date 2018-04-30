@@ -21,16 +21,14 @@ class Skill extends Component {
     }
 
     render() {
-        const styles = {
+        const style = {
             borderColor: this.state.borderColor
         }
 
         return (
-            <div onClick={this.onSelected}>
-                <div className="skills-panel centered" style={styles}>
-                    <img src={require(`../../../images/${this.props.picName}.png`)} alt="{this.props.title}" />
-                    {this.props.title}
-                </div>
+            <div onClick={this.onSelected} className="skills-panel centered" style={style}>
+                <img src={require(`../../../images/skills/${this.props.picName}.png`)} alt="{this.props.title}" />
+                {this.props.title}
             </div>
         );
     }

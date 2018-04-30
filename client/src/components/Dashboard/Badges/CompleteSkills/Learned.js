@@ -4,17 +4,25 @@ import Skill from "../../../GetStarted/Skills/Skill";
 class Learned extends Component {
     render() {
         return (
-            <div id="login">
-                <form action="/action_page.php">
-                    <h1>Learned</h1>
-        
-                    <hr />
+            <div>
+                <div id="skills">
+                    <Skill title="Facebook" picName="facebook" />
+                    <Skill title="Twitter" picName="twitter" />
+                    <Skill title="Instagram" picName="instagram" />
+                    <Skill title="LinkedIn" picName="linkedin" />
+                    <Skill title="iPad" picName="apple" />
                     <Skill title="iPhone" picName="apple" />
-        
-                    <div className="clearfix">
-                        <button type="submit" className="signup">Remove from Learned</button>
-                    </div>
-                </form>
+                    <Skill title="Facebook" picName="facebook" />
+                    <Skill title="Twitter" picName="twitter" />
+                    <Skill title="Instagram" picName="instagram" />
+                    <Skill title="LinkedIn" picName="linkedin" />
+                    <Skill title="iPad" picName="apple" />
+                    <Skill title="iPhone" picName="apple" />
+                </div>
+                
+                <div id="modal-button">
+                    <a className="button" id="badges-btn">Remove from Learned</a>
+                </div>
             </div>
         )
     };

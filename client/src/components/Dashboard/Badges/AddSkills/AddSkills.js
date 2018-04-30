@@ -30,16 +30,25 @@ class AddSkills extends Component {
     }
     
     render() {
+        const activeAvailable = {
+            backgroundColor: "#f1f1f1",
+            borderTopLeftRadius: "6px"
+        }
+        
+        const activeSelected = {
+            backgroundColor: "#f1f1f1",
+            borderTopRightRadius: "6px"
+        }
+        
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-                    
                     <Modal.Header>
-                        <Modal.Title id="register-title">
-                            <a onClick={this.showAvailable}>Available</a>
+                        <Modal.Title className="modal-title-dashboard" id="left-title" onClick={this.showAvailable} style={this.state.available ? null : activeAvailable}>
+                            AVAILABLE
                         </Modal.Title>
-                        <Modal.Title id="login-title">
-                            <a onClick={this.showSelected}>Selected</a>
+                        <Modal.Title className="modal-title-dashboard" id="right-title" onClick={this.showSelected} style={this.state.available ? activeSelected : null}>
+                            SELECTED
                         </Modal.Title>
                     </Modal.Header>
                     
@@ -50,11 +59,6 @@ class AddSkills extends Component {
                             }
                         </div>
                     </Modal.Body>
-                    
-                    <Modal.Footer>
-                        <Button onClick={this.closeAll}>Close</Button>
-                    </Modal.Footer>
-                
                 </Modal>
             </div>
         )

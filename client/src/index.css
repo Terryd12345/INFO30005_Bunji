@@ -8,7 +8,7 @@ html {
 
 body {
     /* background from www.subtlepatterns.com */
-    background: url("images/pattern.png") fixed center;
+    background: url("images/background.png") fixed center;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -92,7 +92,7 @@ a:hover {
 
 .overlay {
     height: 100%;
-    background-color: rgba(60, 60, 60, 0.5);
+    background: rgba(60, 60, 60, 0.5);
 }
 
 #page-wrap {
@@ -110,7 +110,7 @@ a:hover {
     width: 100%;
     height: 26px;
     padding: 5px 0;
-    background-color: #fff;
+    background: #fff;
     color: #3e3f3d;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 0.8rem;
@@ -184,6 +184,11 @@ a:hover {
     transform: scale(1.2);
 }
 
+.arrow img {
+    width: 30px;
+    height: 30px;
+}
+
 .button,
 .button:active,
 .button:focus {
@@ -191,7 +196,7 @@ a:hover {
     outline: none;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #578bca;
+    background: #578bca;
     border: 2px solid #578bca;
     border-radius: 50px;
     color: #fff;
@@ -209,25 +214,12 @@ a:hover {
 
 .button:hover {
     cursor: pointer;
-    background-color: #fff;
+    background: #fff;
     color: #578bca;
 }
 
-.button-pink,
-.button-pink:active,
-.button-pink:focus {
-    background-color: #e95387;
-    border: 2px solid #e95387;
-    color: #fff;
-}
-
-.button-pink:hover {
-    background-color: #fff;
-    color: #e95387;
-}
-
 #welcome-btn:hover {
-    background-color: #578bca;
+    background: #578bca;
     color: #fff;
     transform: scale(1.1);
 }
@@ -236,12 +228,12 @@ a:hover {
 #about-btn:active,
 #about-btn:focus {
     margin-bottom: 0;
-    background-color: #8b55a4;
+    background: #8b55a4;
     border: 2px solid #8b55a4;
 }
 
 #about-btn:hover {
-    background-color: #8b55a4;
+    background: #8b55a4;
     border: 2px solid #8b55a4;
     color: #fff;
     transform: scale(1.1);
@@ -251,8 +243,7 @@ a:hover {
     margin: 35px auto 30px auto;
 }
 
-#user-selection-btn,
-#profile-btn {
+#user-selection-btn {
     margin: 0 auto 30px auto;
 }
 
@@ -262,7 +253,7 @@ a:hover {
 
 #personal-btn-1 {
     width: 120px;
-    margin: 15px auto 10px 0;
+    margin: 15px auto 5px 0;
     padding: 5px;
     font-size: 0.9rem;
 }
@@ -275,25 +266,39 @@ a:hover {
 }
 
 #contact-btn-1 {
-    margin: 10px auto 10px 0;
-    padding: 5px 10px;
+    margin: 10px 5px 5px 0;
+    padding: 0 12px;
     font-size: 0.85rem;
 }
 
 #contact-btn-2 {
-    margin: 0 auto 0 0;
-    padding: 5px 10px;
+    margin: 10px 0 5px 0;
+    padding: 0 12px;
     font-size: 0.85rem;
 }
 
 #recommendations-btn {
-    margin: 0 0 10px 0;
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 1rem;
 }
 
 #signup-btn {
     margin: 0;
     padding: 5px 15px;
     font-size: 1.1rem;
+}
+
+#badges-btn {
+    margin: 15px 0 0 0;
+    padding: 5px 15px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+    #profile-btn {
+        margin: 0 auto;
+    }
 }
 
 @media (min-width: 1801px) {
@@ -333,7 +338,7 @@ a:hover {
 }
 
 .navbar-default {
-    background-color: #fff;
+    background: #fff;
 }
 
 .navbar-default .navbar-nav > li {
@@ -356,7 +361,7 @@ a:hover {
 .navbar-default .navbar-toggle:active,
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: transparent;
+    background: transparent;
 }
 
 .navbar-default .navbar-toggle .icon-bar,
@@ -364,7 +369,7 @@ a:hover {
 .navbar-default .navbar-toggle:focus .icon-bar {
     width: 26px;
     height: 3px;
-    background-color: #3e3f3d;
+    background: #3e3f3d;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -ms-transition-duration: 0.4s;
@@ -373,7 +378,7 @@ a:hover {
 }
 
 .navbar-default .navbar-toggle:hover .icon-bar {
-    background-color: #578bca;
+    background: #578bca;
 }
 
 .navbar-collapse > ul > li > a,
@@ -420,7 +425,7 @@ a:hover {
     }
     
     .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.1);
+        background: #f1f1f1;
     }
     
     .navbar-collapse > ul > li > a,
@@ -530,25 +535,23 @@ a:hover {
 #about {
     color: #3e3f3d;
     display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-areas: "picture description";
+    grid-template: "picture description" 1fr / 40% 60%;
 }
 
 #about-pic {
     grid-area: picture;
-    background: url("images/background.jpg");
+    background: url("images/about.png") center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-position: center;
 }
 
 #about-desc {
+    grid-area: description;
     padding: 40px 60px;
     background: #fff;
-    grid-area: description;
 }
 
 #about-desc h1 {
@@ -572,8 +575,7 @@ a:hover {
     }
     
     #about {
-        grid-template-columns: 1fr;
-        grid-template-areas: "description";
+        grid-template: "description" 1fr / 1fr;
     }
     
     #about-pic {
@@ -588,7 +590,7 @@ a:hover {
 
 @media (min-width: 801px) and (max-width: 950px) {
     #about {
-        grid-template-columns: 1fr 1fr;
+        grid-template: 1fr / 1fr 1fr;
     }
     
     #about-desc {
@@ -620,10 +622,8 @@ a:hover {
     padding: 0 150px;
     font-family: "Source Sans Pro", sans-serif;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(0, auto);
+    grid-template: "step-1 step-2 step-3" minmax(0, auto) / 1fr 1fr 1fr;
     grid-gap: 55px;
-    grid-template-areas: "step-1 step-2 step-3";
 }
 
 #step-1 {
@@ -642,50 +642,49 @@ a:hover {
 
 .step {
     display: grid;
-    grid-template-areas: "header" "panel";
+    grid-template: "header" "panel";
 }
 
 .step-header {
-    display: grid;
-    grid-template-columns: 10% 100%;
-    grid-template-areas: "number caption";
     grid-area: header;
+    display: grid;
+    grid-template: "number caption" 1fr / 10% 100%;
 }
 
 .step-number {
+    grid-area: number;
     z-index: 2;
     position: relative;
     top: 38px;
     left: -25px;
     width: 65px;
     height: 65px;
-    background-color: #8b55a4;
+    background: #8b55a4;
     border-radius: 50%;
     color: #fff;
     font-family: "Lato", sans-serif;
     font-size: 2.3rem;
-    grid-area: number;
 }
 
 .step-caption {
+    grid-area: caption;
     z-index: 1;
     position: relative;
     top: 45px;
     left: -10%;
     height: 48px;
-    background-color: #e95387;
+    background: #e95387;
     border-radius: 8px 8px 0 0;
     color: #fff;
     font-family: "Lato", sans-serif;
     font-size: 1.6rem;
-    grid-area: caption;
 }
 
 .step-panel {
+    grid-area: panel;
     padding: 30px 40px;
     border-radius: 8px;
-    background-color: #fff;
-    grid-area: panel;
+    background: #fff;
 }
 
 .step-panel p {
@@ -709,8 +708,7 @@ a:hover {
 
 @media (max-width: 900px) {
     #steps-content {
-        grid-template-columns: 1fr;
-        grid-template-areas: "step-1" "step-2" "step-3";
+        grid-template: "step-1" "step-2" "step-3";
         grid-gap: 5px;
     }
 }
@@ -772,13 +770,13 @@ a:hover {
 }
 
 .section-header {
+    cursor: pointer;
     margin: 10px 10px 0 10px;
     padding: 8px 30px 15px 30px;
-    background-color: #8b55a4;
+    background: #8b55a4;
+    border: 5px solid #8b55a4;
     color: #fff;
     font-family: "Source Sans Pro", sans-serif;
-    border: 5px solid #8b55a4;
-    cursor: pointer;
 }
 
 .section-header h2 {
@@ -835,7 +833,7 @@ a:hover {
 .skills-panel,
 .skills-panel:active,
 .skills-panel:focus {
-    background-color: #fff;
+    background: #fff;
     border: 4px solid #44bbeb;
     border-radius: 8px;
     color: #3e3f3d;
@@ -849,7 +847,7 @@ a:hover {
 
 .skills-panel:hover {
     cursor: pointer;
-    background-color: #a1dbf3;
+    background: #a1dbf3;
 }
 
 .skills-panel img {
@@ -867,7 +865,8 @@ a:hover {
     
     .skills-panel,
     .skills-panel:active,
-    .skills-panel:focus {
+    .skills-panel:focus,
+    .skills-panel:hover {
         font-size: 1.2rem;
     }
     
@@ -894,7 +893,8 @@ a:hover {
 @media (min-width: 1801px) {
     .skills-panel,
     .skills-panel:active,
-    .skills-panel:focus {
+    .skills-panel:focus,
+    .skills-panel:hover {
         font-size: 1.35rem;
     }
 }
@@ -906,15 +906,14 @@ a:hover {
 .user-panel:focus {
     margin-bottom: 25px;
     padding: 40px 10px;
-    background-color: #fff;
+    background: #fff;
     border: 4px solid #44bbeb;
     border-radius: 8px;
     font-family: "Source Sans Pro", sans-serif;
     color: #3e3f3d;
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template: "picture description" 1fr / 30% 70%;
     grid-gap: 15px;
-    grid-template-areas: "picture description";
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -ms-transition-duration: 0.4s;
@@ -924,20 +923,20 @@ a:hover {
 
 .user-panel:hover {
     cursor: pointer;
-    background-color: #a1dbf3;
+    background: #a1dbf3;
 }
 
 .user-pic img {
+    grid-area: picture;
     max-width: 70%;
     height: auto;
     border-radius: 50%;
-    grid-area: picture;
 }
 
 .user-desc {
+    grid-area: description;
     padding-right: 50px;
     text-align: left;
-    grid-area: description;
 }
 
 .user-desc h3 {
@@ -961,9 +960,8 @@ a:hover {
     .user-panel:active,
     .user-panel:focus {
         padding: 20px 20px 40px 20px;
-        grid-template-columns: 1fr;
+        grid-template: "picture" "description";
         grid-gap: 15px;
-        grid-template-areas: "picture" "description";
     }
     
     .user-pic img {
@@ -980,28 +978,32 @@ a:hover {
 
 .section {
     padding: 10px;
-    background-color: #fff;
+    background: #fff;
     display: grid;
     grid-auto-rows: 60px minmax(60px, auto);
     grid-template-areas: "title" "content";
 }
 
 .section-title {
-    padding: 10px;
-    color: #e95387;
     grid-area: title;
+    padding: 10px;
+}
+
+.section-title h3 {
+    color: #e95387;
 }
 
 .section-button {
-    text-align: center;
     grid-area: button;
+    padding: 10px 10px 20px 10px;
+    text-align: center;
 }
 
 #dashboard {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-rows: 165px 285px 400px 335px;
     grid-gap: 20px;
     grid-template-areas: "profile profile badges" "profile profile notifications" "contacts events events" "recommendations recommendations recommendations";
 }
@@ -1011,11 +1013,11 @@ a:hover {
 }
 
 #dashboard > div {
-    border: 3px solid #44bbeb;
+    border: 3px solid #a1dbf3;
 }
 
 #badges {
-    border: none;
+    border: none !important;
 }
 
 #notifications {
@@ -1031,219 +1033,295 @@ a:hover {
 }
 
 #recommendations {
-    border-color: #8b55a4;
     grid-area: recommendations;
-    grid-auto-rows: 60px minmax(60px, auto) 60px;
-    grid-template-areas: "title" "content" "button";
 }
 
 /* =================== Personal Profile =================== */
 
-.personal-profile {
-    padding: 10px;
-    background-color: #578bca;
-    border: 4px solid #578bca !important;
+#personal-profile {
     grid-area: profile;
+    padding: 10px;
+    background: #a1dbf3;
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-auto-rows: 60px minmax(200px, auto) minmax(60px, auto);
+    grid-auto-rows: 50px 140px 200px;
+    grid-row-gap: 20px;
     grid-template-areas: "picture title" "picture stats" "picture awards";
 }
 
-.personal-profile .section-title h3 {
-    color: #fff;
+#personal-profile .section-title h3 {
+    color: #3e3f3d;
 }
 
-.personal-pic {
+#personal-pic {
+    grid-area: picture;
     padding-top: 10px;
     text-align: center;
-    grid-area: picture;
 }
 
-.personal-pic img {
+#personal-pic img {
     max-width: 70%;
     height: auto;
     border-radius: 50%;
 }
 
-.stats {
-    margin: 10px;
-    border-radius: 8px;
-    grid-area: stats;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 150px;
-    grid-gap: 30px;
-}
-
 .stat {
-    padding: 10px;
-    background-color: #fff;
+    height: 100%;
+    background: #fff;
+    border: 4px solid #578bca;
 }
 
-.awards {
+.stat h5 {
+    line-height: 120%;
+}
+
+#stats {
+    grid-area: stats;
     margin: 0 10px;
-    padding: 10px;
-    background-color: #fff;
     border-radius: 8px;
-    grid-area: awards;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    grid-auto-rows: minmax(60px, auto);
-    grid-gap: 15px 20px;
+    grid-template: "stat-1 stat-2 stat-3" 1fr / 1fr 1fr 1fr;
+    grid-gap: 18px;
+}
+
+#stat-1 {
+    grid-area: stat-1;
+}
+
+#stat-2 {
+    grid-area: stat-2;
+}
+
+#stat-3 {
+    grid-area: stat-3;
 }
 
 .award {
-    background-color: #f0f0f0;
+    background: #f1f1f1;
     font-size: 0.8rem;
 }
 
 .award:hover {
-    background-color: #e95387;
-    color: #fff;
     cursor: pointer;
+    background: #e95387;
+    color: #fff;
+}
+
+#awards {
+    grid-area: awards;
+    overflow: auto;
+    margin: 0 10px;
+    padding: 20px;
+    background: #fff;
+    border: 4px solid #578bca;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-auto-rows: minmax(70px, auto);
+    grid-gap: 15px 20px;
 }
 
 /* ======================== Badges ======================== */
 
-.badges {
-    border-radius: 8px;
-    grid-area: badges;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 150px;
-    grid-gap: 10px;
+.badge {
+    cursor: pointer;
+    background: #578bca;
 }
 
-.badge {
-    padding: 10px;
-    cursor: pointer;
+.badge:hover {
+    background: #3f6da5;
+}
+
+.badge h5 {
+    color: #fff;
+}
+
+.badge img {
+    width: 10%;
+    height: auto;
+    margin-right: 10px;
+}
+
+#badges-content {
+    grid-area: badges;
+    border-radius: 8px;
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
+    grid-gap: 10px;
+    grid-template-areas: "badge-1" "badge-2" "badge-3";
 }
 
 #badge-1 {
-    background-color: #8b55a4;
+    grid-area: badge-1;
 }
 
 #badge-2 {
-    background-color: #e95387;
+    grid-area: badge-2;
 }
 
 #badge-3 {
-    background-color: #578bca;
+    grid-area: badge-3;
 }
 
 /* ==================== Notifications ===================== */
 
-.notifications {
+.notification-panel {
+    height: 55px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #578bca;
+    text-align: center;
+    display: grid;
+    grid-template: "picture description time" 1fr / 15% 60% 25%;
+}
+
+.notification-panel {
+    font-size: 0.9rem;
+}
+
+.notification-panel:hover {
+    cursor: pointer;
+    background: #578bca;
+}
+
+.notification-panel:hover {
+    color: #fff;
+}
+
+.notification-pic img {
+    grid-area: picture;
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.notification-desc {
+    grid-area: description;
+    margin: auto 0 auto 10px;
+    text-align: left;
+}
+
+.notification-time {
+    grid-area: time;
+    margin: auto 0;
+    padding-right: 10px;
+    text-align: right;
+}
+
+#notifications-content {
     overflow: auto;
     margin: 10px;
     border-radius: 8px;
 }
 
-.notification-panel {
-    height: 40px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
+/* ======================= Contacts ======================= */
+
+.contact-panel {
+    margin-bottom: 15px;
+    padding: 10px 25px;
+    background: #fff;
     border: 1px solid #578bca;
     text-align: center;
     display: grid;
-    grid-template-columns: 15% 60% 25%;
-    grid-template-areas: "picture description time"
+    grid-template: "picture description" 1fr / 25% 80%;
+    grid-gap: 15px;
 }
 
-.notification-panel h6 {
-    font-size: 0.9rem;
-}
-
-.notification-panel:hover {
-    background-color: #578bca;
-    color: #fff;
-    cursor: pointer;
-}
-
-.notification-pic img {
-    max-width: 70%;
+.contact-pic img {
+    grid-area: picture;
+    max-width: 90%;
     height: auto;
     border-radius: 50%;
-    grid-area: picture;
 }
 
-.notification-desc {
-    margin: auto 0 auto 10px;
-    text-align: left;
+.contact-desc {
     grid-area: description;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 100%;
 }
 
-.notification-time {
-    margin: auto 0;
-    padding-right: 10px;
-    text-align: right;
-    grid-area: time;
-}
-
-/* ======================= Contacts ======================= */
-
-.contacts {
+#contacts-content {
     overflow: auto;
     padding: 10px;
 }
 
-.contacts > a {
+#contacts-content > a {
     color: #3e3f3d;
     text-decoration: none;
 }
 
-.contact-panel {
-    margin-bottom: 15px;
-    padding: 20px 10px;
-    background-color: #fff;
-    border: 1px solid #578bca;
+/* ======================== Events ======================== */
+
+.event-panel {
+    margin-bottom: 25px;
+    padding: 10px 10px 15px 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
     text-align: center;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-areas: "picture description"
+    grid-template: "picture description" 1fr / 30% 70%;
+    grid-column-gap: 5px;
 }
 
-.contact-pic img {
+.event-pic img {
+    grid-area: picture;
     max-width: 70%;
     height: auto;
     border-radius: 50%;
-    grid-area: picture;
 }
 
-.contact-desc {
-    padding-left: 5px;
-    text-align: left;
+.event-desc {
     grid-area: description;
+    text-align: left;
+    display: grid;
+    grid-template: "title title" "detail content" 1fr / 25% 75%;
 }
 
-/* ======================== Events ======================== */
+.event-desc-title {
+    grid-area: title;
+}
 
-.events {
+.event-desc-title h5 {
+    margin-bottom: 3px;
+}
+
+.event-desc-detail {
+    grid-area: detail;
+}
+
+.event-desc-detail h6,
+.event-desc-content h6 {
+    font-size: 0.9rem;
+    line-height: 140%;
+}
+
+.event-desc-content {
+    grid-area: content;
+}
+
+#events-content {
     padding: 10px;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-areas: "sidebar window";
+    grid-template: "sidebar window" 1fr / 30% 70%;
 }
 
-.events-sidebar-small {
+#events-sidebar-sm {
+    grid-area: sidebar;
     display: none;
     padding: 20px;
-    background-color: #578bca;
+    background: #578bca;
     border-radius: 8px 8px 0 0 !important;
-    grid-area: sidebar;
 }
 
-.sidebar-box {
+#events-sidebar-sm-box {
     overflow: hidden;
     width: 240px;
     height: 29px;
-    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-    background-color: #eee;
+    background: #eee url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
 }
 
-.sidebar-box select {
+#events-sidebar-sm-box select {
     width: 268px;
     height: 29px;
     padding: 3px;
@@ -1254,165 +1332,188 @@ a:hover {
     font-size: 0.9rem;
 }
 
-.events-sidebar-medium {
+#events-sidebar-md {
+    grid-area: sidebar;
     display: none;
     padding: 20px;
-    background-color: #578bca;
+    background: #578bca;
     border-radius: 8px 0 0 8px !important;
     color: #fff;
-    grid-area: sidebar;
 }
 
-.events-sidebar-medium a,
-.events-sidebar a {
+#events-sidebar-md a,
+#events-sidebar-lg a {
     color: #fff;
     text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
-.events-sidebar-medium a:hover,
-.events-sidebar a:hover {
-    color: #3e3f3d;
+#events-sidebar-md a:hover,
+#events-sidebar-lg a:hover {
+    border-bottom: 2px solid #fff;
 }
 
-.events-sidebar {
-    padding: 20px;
-    background-color: #578bca;
-    border-radius: 8px 0 0 8px !important;
+#events-sidebar-lg {
     grid-area: sidebar;
+    padding: 20px;
+    background: #578bca;
+    border-radius: 8px 0 0 8px !important;
 }
 
-.events-sidebar h5 {
+#events-sidebar-lg h5 {
     margin-bottom: 15px;
 }
 
-.events-sidebar hr {
+#events-sidebar-lg hr {
     margin-bottom: 20px;
 }
 
-.events-window {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 0 8px 8px 0 !important;
+#events-window {
     grid-area: window;
-}
-
-.event-panel {
-    margin-bottom: 30px;
-    padding: 20px 10px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-areas: "picture description"
-}
-
-.event-pic img {
-    max-width: 70%;
-    height: auto;
-    border-radius: 50%;
-    grid-area: picture;
-}
-
-.event-desc {
-    padding-left: 5px;
-    text-align: left;
-    grid-area: description;
-}
-
-.event-desc h4 {
-    margin-bottom: 10px;
-}
-
-.event-desc h6 {
-    margin-bottom: 2px;
-    font-size: 0.9rem;
+    overflow: auto;
+    padding: 20px 30px;
+    background: #fff;
+    border: 1px solid #578bca;
+    border-radius: 0 8px 8px 0 !important;
 }
 
 /* =================== Recommendations ==================== */
 
-.recommendations {
-    margin-bottom: 18px;
-    padding: 30px 50px;
-    grid-area: content;
+#recommendations {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: minmax(150px, auto);
-    grid-gap: 30px;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 60px 185px 60px;
+    grid-template-areas: "title title title" "nav-left content nav-right" "button button button";
+}
+
+#recommendations-nav-left {
+    grid-area: nav-left;
+}
+
+#recommendations-nav-right {
+    grid-area: nav-right;
+}
+
+#recommendations-nav-left,
+#recommendations-nav-right {
+    text-align: center;
+}
+
+#recommendations-nav-left span img,
+#recommendations-nav-right span img {
+    width: 30px;
+    height: 30px;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+#recommendations-nav-left span img:hover,
+#recommendations-nav-right span img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#recommendations-content {
+    grid-area: content;
+    margin-bottom: 18px;
+    padding: 15px 30px 30px 30px;
+    display: grid;
+    grid-template: 150px / repeat(5, 1fr);
+    grid-gap: 35px;
+}
+
+#recommendations-content .skills-panel,
+#recommendations-content .skills-panel:active,
+#recommendations-content .skills-panel:focus,
+#recommendations-content .skills-panel:hover {
+    font-size: 1.2rem;
+}
+
+#recommendations-content .skills-panel img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 5px auto;
 }
 
 /* ======================================================== */
 
 @media (max-width: 600px) {
-    .event-sidebar,
-    .events-sidebar-medium {
+    #events-sidebar-md,
+    #events-sidebar-lg {
         display: none;
     }
-    .events-sidebar-small {
+    
+    #events-sidebar-sm {
         display: block;
     }
 }
 
 @media (min-width: 601px) and (max-width: 750px) {
-    .events-sidebar,
-    .events-sidebar-small {
+    #events-sidebar-sm,
+    #events-sidebar-lg {
         display: none;
     }
-    .events-sidebar-medium {
+    
+    #events-sidebar-md {
         display: block;
     }
 }
 
 @media (max-width: 750px) {
-    .personal-profile {
+    #personal-profile {
         grid-template-columns: 1fr;
         grid-auto-rows: 60px minmax(60px, auto) minmax(350px, auto) minmax(60px, auto);
         grid-template-areas: "title" "picture" "stats" "awards";
     }
-    .stats {
+    
+    #stats {
         grid-template-columns: 1fr;
         grid-auto-rows: 80px;
     }
-    .events {
-        grid-template-columns: 1fr;
-        grid-template-areas: "sidebar" "window";
-    }
-    .events-sidebar {
-        display: none;
-    }
+    
     .event-panel {
         grid-template-columns: 20% 80%;
     }
-    .recommendations {
+    
+    #events-content {
+        grid-template: "sidebar" "window";
+    }
+    
+    #recommendations-content {
         padding: 0 10px 30px 20px;
         grid-template-columns: 1fr;
         grid-auto-rows: minmax(200px, auto);
         grid-gap: 40px;
     }
-    #personal-btn-2 {
-        margin: 0 auto 10px 0;
-    }
 }
 
 @media (min-width: 751px) and (max-width: 950px) {
-    .personal-profile {
+    #personal-profile {
         grid-template-columns: 1fr;
         grid-auto-rows: 60px minmax(60px, auto) minmax(200px, auto) minmax(60px, auto);
         grid-template-areas: "title" "picture" "stats" "awards";
     }
-    .recommendations {
+    
+    #recommendations-content {
         grid-auto-rows: minmax(200px, auto);
         grid-gap: 20px;
     }
 }
 
 @media (max-width: 951px) {
-    .dashboard {
-        grid-template-columns: 1fr;
+    #dashboard {
+        grid-template: "profile" "badges" "notifications" "contacts" "events" "recommendations";
         grid-auto-rows: minmax(150px, auto);
         grid-gap: 20px;
-        grid-template-areas: "profile" "notifications" "contacts" "events" "recommendations";
     }
+    
     .personal-pic img {
         max-width: 40%;
     }
@@ -1421,9 +1522,9 @@ a:hover {
 @media (min-width: 951px) and (max-width: 1250px) {
     .notification-panel {
         padding: 5px;
-        grid-template-columns: 70% 30%;
-        grid-template-areas: "description time"
+        grid-template: "description time" 1fr / 70% 30%;
     }
+    
     .notification-pic {
         display: none;
     }
@@ -1431,78 +1532,69 @@ a:hover {
 
 /* ================================================== Profile.js =================================================== */
 
-.profile-panel {
-    padding: 20px 40px 40px 40px;
-    background-color: #578bca;
-    color: #fff;
+#profile-panel {
+    padding: 15px 40px 40px 40px;
+    background: #a1dbf3;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template: "button" "picture" "bio" "description";
     grid-gap: 15px;
-    grid-template-areas: "button" "picture" "bio" "description";
 }
 
-.profile-button {
-    text-align: right;
+#profile-button {
     grid-area: button;
+    text-align: right;
 }
 
-.profile-pic img {
+#profile-pic img {
+    grid-area: picture;
     max-width: 70%;
     height: auto;
     border-radius: 50%;
-    grid-area: picture;
 }
 
-.profile-bio {
+#profile-bio {
     grid-area: bio;
 }
 
-.profile-bio h6 {
+#profile-bio h3 {
+    margin-bottom: 5px;
+}
+
+#profile-bio h6 {
     margin-top: 15px;
 }
 
-.profile-desc {
+#profile-desc {
     grid-area: description;
 }
 
-.profile-desc p {
+#profile-desc p {
     margin: 0;
 }
 
-@media (min-width: 801px) and (max-width: 1000px) {
-    #profile {
-        width: 65vw;
-    }
-}
-
 @media (max-width: 800px) {
-    .profile-panel {
-        grid-template-areas: "picture" "bio" "button" "description";
+    #profile-panel {
+        grid-template: "picture" "bio" "button" "description";
     }
-    .profile-button {
+    
+    #profile-button {
         text-align: center;
-    }
-    #profile {
-        width: 85vw;
-    }
-    #profile-btn {
-        margin: 0 auto;
     }
 }
 
 /* =============================================== Relationships.js ================================================ */
 
 #relationships {
-    display: grid;
     width: 100%;
+    display: grid;
     grid-template: "chat calendar" 1fr / 1fr 1fr;
 }
 
 #chat {
     grid-area: chat;
-    display: grid;
     width: 100%;
+    display: grid;
     grid-template: "connections chatBox" 1fr / 1fr 3fr;
 }
 
@@ -1510,8 +1602,7 @@ a:hover {
     grid-area: connections;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-color: rgb(60, 60, 60);
-    background-color: rgba(60, 60, 60, 0.2);
+    background: rgba(60, 60, 60, 0.2);
 }
 
 #connections .connection:nth-child(odd) {
@@ -1519,8 +1610,8 @@ a:hover {
 }
 
 .connection {
-    padding: 10px;
     cursor: pointer;
+    padding: 10px;
     background: #fff;
 }
 
@@ -1534,26 +1625,25 @@ a:hover {
 }
 
 #messages {
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     overflow-y: scroll;
     height: calc(100vh - 101px);
+    margin: 0;
+    padding: 0;
 }
 
 .message {
     display: inline-block;
     clear: both;
+    margin-bottom: 2px;
     padding: 20px;
     border-radius: 30px;
-    margin-bottom: 2px;
     font-family: Helvetica, Arial, sans-serif;
-    border-bottom-right-radius: 30px;
 }
 
 .message.other {
-    background: #eee;
     float: left;
+    background: #eee;
 }
 
 .message.own {
@@ -1563,59 +1653,56 @@ a:hover {
 }
 
 #messageBox {
-    height: 50px;
-    width: 100%;
     display: flex;
+    width: 100%;
+    height: 50px;
 }
 
 #message {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
-    font-size: 1rem;
-    color: #495057;
-    background-color: #fff;
+    background: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
+    color: #495057;
+    font-size: 1rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
 #send {
-    font-weight: 400;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    color: #6c757d;
-    background-color: #eee;
-    background-image: none;
-    border-color: #6c757d;
-    margin-left: -1px;
     cursor: pointer;
+    user-select: none;
+    margin-left: -1px;
+    padding: .375rem .75rem;
+    background: #eee none;
+    border: 1px solid #6c757d;
+    border-radius: .25rem;
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 #send:hover {
-    background-color: #6c757d;
+    background: #6c757d;
     border-color: #6c757d;
     color: #fff;
 }
 
 #calendar {
-    padding: 10px;
     grid-area: calendar;
+    padding: 10px;
 }
 
 @media (max-width: 1100px) {
     #relationships {
-        grid-template-columns: 1fr;
-        grid-template-areas: "chat" "calendar";
+        grid-template: "chat" "calendar";
     }
 }
 
-/* =============================================== Signup.js ================================================ */
+/* ================================================= Modal Window ================================================== */
 
 .modal-header {
     height: 50px;
@@ -1623,8 +1710,7 @@ a:hover {
     border-color: #fff;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "register login";
+    grid-template: "left right" 1fr / 1fr 1fr;
 }
 
 .modal-title {
@@ -1641,12 +1727,16 @@ a:hover {
     padding: 25px 40px;
 }
 
-#register-title {
-    grid-area: register;
+#modal-button {
+    text-align: center;
 }
 
-#login-title {
-    grid-area: login;
+#left-title {
+    grid-area: left;
+}
+
+#right-title {
+    grid-area: right;
 }
 
 @media (max-width: 550px) {
@@ -1687,7 +1777,7 @@ a:hover {
     }
 }
 
-/* ========================= Form ========================= */
+/* ====================== SignUp.js ======================= */
 
 form p {
     margin: -2px 0 8px 0;
@@ -1697,6 +1787,7 @@ form p {
 label {
     width: 100%;
     font-size: 1.05rem;
+    font-weight: 600;
 }
 
 input,
@@ -1711,13 +1802,13 @@ select {
     width: 100%;
     margin: 0 0 20px 0;
     padding: 10px;
-    background-color: #f1f1f1;
+    background: #f1f1f1;
     border: none;
 }
 
 input[type=text]:focus,
 input[type=password]:focus {
-    background-color: #ddd;
+    background: #ddd;
 }
 
 select {
@@ -1761,10 +1852,6 @@ select {
     margin-right: 4%;
 }
 
-#form-button {
-    text-align: center;
-}
-
 @media (min-width: 1801px) {
     form p {
         margin: -2px 0 15px 0;
@@ -1775,4 +1862,51 @@ select {
     select {
         margin: 8px 0 35px 0;
     }
+}
+
+/* ====================== Badges.js ======================= */
+
+.modal-title-dashboard {
+    padding: 12px 0 0 0;
+    font-family: "Lato", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.award {
+    background: #f1f1f1;
+    font-size: 0.8rem;
+}
+
+.award:hover {
+    cursor: pointer;
+    background: #e95387;
+    color: #fff;
+}
+
+#skills {
+    overflow: auto;
+    height: 400px;
+    margin: 0 10px;
+    padding: 20px;
+    background: #fff;
+    border: 4px solid #578bca;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 155px;
+    grid-gap: 25px;
+}
+
+#skills .skills-panel,
+#skills .skills-panel:active,
+#skills .skills-panel:focus,
+#skills .skills-panel:hover {
+    font-size: 1.2rem;
+}
+
+#skills .skills-panel img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 5px auto;
 }

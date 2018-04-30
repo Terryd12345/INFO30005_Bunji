@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 class Profile extends Component {
     constructor(props) {
@@ -25,24 +25,24 @@ class Profile extends Component {
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                    <div className="profile-panel">
-                        <div className="profile-button">
+                    <div id="profile-panel">
+                        <div id="profile-button">
                             <a href="/connections">
-                                <a className="button button-pink" id="profile-btn">Contact John</a>
+                                <a className="button" id="profile-btn">Contact John</a>
                             </a>
                         </div>
 
-                        <div className="profile-pic">
-                            <img src={require("../../../images/user.png")} alt="Profile" />
+                        <div id="profile-pic">
+                            <img src={require("../../../images/user.png")} alt="User" />
                         </div>
 
-                        <div className="profile-bio">
+                        <div id="profile-bio">
                             <h3>John Doe</h3>
                             <h4>21 / Male / Melbourne</h4>
                             <h6>Skills: Facebook, Twitter</h6>
                         </div>
 
-                        <div className="profile-desc">
+                        <div id="profile-desc">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </div>

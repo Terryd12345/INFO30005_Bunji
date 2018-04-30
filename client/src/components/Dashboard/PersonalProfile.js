@@ -5,15 +5,15 @@ import Stats from "../Dashboard/Stats";
 class PersonalProfile extends Component {
     render() {
         return (
-            <div className="personal-profile">
-                <div className="personal-pic">
+            <div id="personal-profile">
+                <div id="personal-pic">
                     <img src={require("../../images/user.png")} alt="Profile" />
                     <br />
-                    <a className="button button-pink" id="personal-btn-1" href="#">
+                    <a className="button" id="personal-btn-1" href="#">
                         Change Picture
                     </a>
                     <br />
-                    <a className="button button-pink" id="personal-btn-2" href="#">
+                    <a className="button" id="personal-btn-2" href="#">
                         Edit Info
                     </a>
                 </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import Register from "./Register";
 import Login from "./Login";
 
@@ -44,10 +44,10 @@ class SignUp extends Component {
             <div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
                     <Modal.Header>
-                        <Modal.Title id="register-title" onClick={this.showRegister} style={this.state.register ? null : activeRegister}>
+                        <Modal.Title id="left-title" onClick={this.showRegister} style={this.state.register ? null : activeRegister}>
                             Register
                         </Modal.Title>
-                        <Modal.Title id="login-title" onClick={this.showLogin} style={this.state.register ? activeLogin : null}>
+                        <Modal.Title id="right-title" onClick={this.showLogin} style={this.state.register ? activeLogin : null}>
                             Log In
                         </Modal.Title>
                     </Modal.Header>

@@ -1,22 +1,29 @@
 import React, { Component } from "react";
 
 class Event extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
     render() {
         return (
             <div>
                 <div className="event-panel">
                     <div className="event-pic">
-                        <img src={require("../../../images/user.png")} alt="Profile" />
+                        <img src={require("../../../images/user.png")} alt="User" />
                     </div>
                     <div className="event-desc centered">
-                        <h4>{this.props.title}</h4>
-                        <h6>Date: 1 January 2019</h6>
-                        <h6>Time: 12 - 2 PM</h6>
-                        <h6>Location: Melbourne Central</h6>
+                        <div className="event-desc-title">
+                            <h5>{this.props.title}</h5>
+                        </div>
+                        
+                        <div className="event-desc-detail">
+                            <h6>Date:</h6>
+                            <h6>Time:</h6>
+                            <h6>Location:</h6>
+                        </div>
+                        
+                        <div className="event-desc-content">
+                            <h6>1 January 2019</h6>
+                            <h6>12 - 2 PM</h6>
+                            <h6>Melbourne Central</h6>
+                        </div>
                     </div>
                 </div>
             </div>

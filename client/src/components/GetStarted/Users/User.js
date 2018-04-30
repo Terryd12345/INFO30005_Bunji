@@ -21,23 +21,21 @@ class User extends Component {
     }
 
     render() {
-        const styles = {
+        const style = {
             borderColor: this.state.borderColor
         }
 
         return (
-            <div onClick={this.onSelected}>
-                <div className="user-panel" style={styles}>
-                    <div className="user-pic">
-                        <img src={require("../../../images/user.png")} alt="Profile" />
-                    </div>
-                    <div className="user-desc centered">
-                        <h3>{this.props.name}</h3>
-                        <h4>{this.props.age} / {this.props.gender} / {this.props.location}</h4>
-                        <h6>Skills: {this.props.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    </div>
-
+            <div onClick={this.onSelected} className="user-panel" style={style}>
+                <div className="user-pic">
+                    <img src={require("../../../images/user.png")} alt="Profile" />
+                </div>
+                
+                <div className="user-desc centered">
+                    <h3>{this.props.name}</h3>
+                    <h4>{this.props.age} / {this.props.gender} / {this.props.location}</h4>
+                    <h6>Skills: {this.props.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                 </div>
             </div>
         );

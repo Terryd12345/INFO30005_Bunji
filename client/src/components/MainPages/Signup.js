@@ -3,13 +3,16 @@ import { getCityData } from '../../utils/getCityData';
 
 
 class SignUp extends Component {
-
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { cityData: [] };
+        
+        this.state = {
+            cityData: []
+        };
     };
 
-    componentDidMount(){
+    componentDidMount() {
+    
     }
 
     render() {
