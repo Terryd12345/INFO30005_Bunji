@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 
 class Stats extends Component {
-
     render() {
         return (
-            <div className="stats">
-                <div className="stat centered">
-                    <h1>5</h1>
-                    <h3>Skills Learned</h3>
+            <div id="stats">
+                <div className="stat centered" id="stat-1">
+                    <h3>5</h3>
+                    <h5>Skills Learned</h5>
                 </div>
-                <div className="stat centered">
-                    <h1>3</h1>
-                    <h3>Mentors Met</h3>
+                <div className="stat centered" id="stat-2">
+                    <h3>3</h3>
+                    <h5>Mentors Met</h5>
                 </div>
-                <div className="stat centered">
-                    <h1>124</h1>
-                    <h3>Hours Spent</h3>
+                <div className="stat centered" id="stat-3">
+                    <h3>124</h3>
+                    <h5>Hours Spent</h5>
                 </div>
             </div>
         );

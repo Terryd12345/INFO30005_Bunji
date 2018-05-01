@@ -1,61 +1,152 @@
 import React, { Component } from "react";
+import PersonalProfile from "../Dashboard/PersonalProfile";
+import Badges from "../Dashboard/Badges/Badges";
 import Notifications from "../Dashboard/Notifications/Notifications";
-import Awards from "../Dashboard/Awards/Awards";
-import Stats from "../Dashboard/Stats";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
 import Recommendations from "../Dashboard/Recommendations";
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            user: {
+                firstName: "John",
+                imagePath: "user"
+            },
+            
+            awards: [
+                {
+                    caption: "Welcome!"
+                },
+                {
+                    caption: "First Skill"
+                },
+                {
+                    caption: "Contact a Mentor"
+                },
+                {
+                    caption:"3 Days In"
+                },
+                {
+                    caption: "5 Out Of 5"
+                },
+                {
+                    caption: "Logged In 10 Days"
+                },
+                {
+                    caption: "Learn 3 New Skills"
+                },
+                {
+                    caption: "Super Learner"
+                },
+                {
+                    caption: "First Birthday"
+                },
+                {
+                    caption: "Second Birthday"
+                },
+                {
+                    caption: "Third Birthday"
+                },
+                {
+                    caption: "Fourth Birthday"
+                }
+            ],
+            
+            notifications: [
+                {
+                    notification: "Jon sent you a message.",
+                    time: "Just Now",
+                    imagePath: "user"
+                },
+                {
+                    notification: "Jane sent you a message.",
+                    time: "1hr ago",
+                    imagePath: "user"
+                },
+                {
+                    notification: "Fred sent you a message.",
+                    time: "2hr ago",
+                    imagePath: "user"
+                }
+            ],
+            
+            contacts: [
+                {
+                    firstName: "Jon",
+                    lastName: "Doe",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Jane",
+                    lastName: "Doe",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Fred",
+                    lastName: "Doe",
+                    imagePath: "user"
+                }
+            ],
+    
+            events: [
+                {
+                    date: "1 January 2019",
+                    time: "12 - 2 PM",
+                    location: "Melbourne Central",
+                    imagePath: "user"
+                },
+                {
+                    date: "8 January 2019",
+                    time: "1 - 3 PM",
+                    location: "Victoria Market",
+                    imagePath: "user"
+                },
+                {
+                    date: "15 January 2019",
+                    time: "12 - 2 PM",
+                    location: "Melbourne Central",
+                    imagePath: "user"
+                }
+            ],
+            
+            recommendations: [
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                }
+            ]
+        };
+    }
+    
     render() {
         return (
-            <div className="dashboard">
-                <div className="personal-profile">
-                    <div className="personal-pic">
-                        <img src={require("../../images/male.png")} alt="Profile" />
-                        <a className="button"  id="personal-btn-1" href="/dashboard">
-                            Change Picture
-                        </a>
-                        <a className="button"  id="personal-btn-2" href="/dashboard">
-                            Edit Info
-                        </a>
-                    </div>
-                    <div className="section-title">
-                        <h1>Good afternoon, John!</h1>
-                    </div>
-                    <Stats />
-                    <Awards />
-                </div>
-
-                <div className="section" id="notifications">
-                    <div className="section-title">
-                        <h1>Notifications</h1>
-                    </div>
-                    <Notifications />
-                </div>
-
-                <div className="section" id="contacts">
-                    <div className="section-title">
-                        <h1>Contacts</h1>
-                    </div>
-                    <Contacts />
-                </div>
-
-                <div className="section" id="events">
-                    <div className="section-title">
-                        <h1>Events</h1>
-                    </div>
-                    <Events />
-                </div>
-
-                <div className="section" id="recommendations">
-                    <div className="section-title">
-                        <h1>Recommended for You</h1>
-                    </div>
-                    <Recommendations />
-                    <a className="button" id="recommendations-btn" href="find-mentor">
-                        Find Mentor
-                    </a>
+            <div id="page-wrap">
+                <div id="dashboard">
+                    <PersonalProfile user={this.state.user} awards={this.state.awards} />
+                    <Badges />
+                    <Notifications notifications={this.state.notifications} />
+                    <Contacts users={this.state.contacts} />
+                    <Events events={this.state.events} />
+                    <Recommendations skills={this.state.recommendations} />
                 </div>
             </div>
         );
