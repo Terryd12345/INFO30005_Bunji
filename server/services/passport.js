@@ -6,14 +6,14 @@ const mongoose = require('mongoose');
 const User = mongoose.model('user');
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+    done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id)
-    .then(user => {
-      done(null, user);
-    });
+    User.findById(id)
+        .then(user => {
+            done(null, user);
+        });
 });
 
 passport.use(new GoogleStrategy({
@@ -22,18 +22,18 @@ passport.use(new GoogleStrategy({
     callbackURL: "/auth/google/callback"
 },
     (accessToken, refreshToken, profile, done) => {
-      User.findOne({ 'googleID': profile.id })
-        .then((existingUser) => {
-          if(existingUser){
-            // already have the profile
-            console.log(profile)
-            done(null, existingUser);
-          } else {
-            new User({ googleID: profile.id })
-              .save()
-              .then(user => done(null, user));
-          }
-        });
+        User.findOne({ 'googleID': profile.id })
+            .then((existingUser) => {
+                if (existingUser) {
+                    // already have the profile
+                    console.log(profile)
+                    done(null, existingUser);
+                } else {
+                    new User({ googleID: profile.id })
+                        .save()
+                        .then(user => done(null, user));
+                }
+            });
 
     }
 ));

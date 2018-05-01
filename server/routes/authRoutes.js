@@ -15,18 +15,18 @@ router.get(
 );
 
 router.get(
-  "/profile",
-  (req, res) => {
-    res.send(req.user);
-  }
+    "/profile",
+    (req, res) => {
+        res.send(req.user);
+    }
 );
 
 router.get(
-  "/logout",
-  (req, res) => {
-    req.logout();
-    res.send(req.user);
-  }
+    "/logout",
+    (req, res) => {
+        req.logout();
+        res.send(req.user);
+    }
 );
 
 export default router;
