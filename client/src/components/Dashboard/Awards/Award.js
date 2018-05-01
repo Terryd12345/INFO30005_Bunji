@@ -4,7 +4,7 @@ class Award extends Component {
     render() {
         return (
             <div className="award centered">
-                {this.props.title}
+                {this.props.caption}
             </div>
         );
     }

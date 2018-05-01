@@ -24,7 +24,91 @@ class GetStarted extends Component {
             doneSection2: true,
             tickSection2: false,
             
-            showSection3: false
+            showSection3: false,
+            
+            skills: [
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                }
+            ],
+    
+            users: [
+                {
+                    firstName: "John",
+                    lastName: "Doe",
+                    age: "21",
+                    gender: "Male",
+                    location: "Melbourne",
+                    skills: ["Facebook", "Twitter"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Jane",
+                    lastName: "Doe",
+                    age: "19",
+                    gender: "Female",
+                    location: "Adelaide",
+                    skills: ["Instagram", "iPhone"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Fred",
+                    lastName: "Doe",
+                    age: "24",
+                    gender: "Male",
+                    location: "Gold Coast",
+                    skills: ["MacBook", "Computer"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    imagePath: "user"
+                }
+            ]
         };
     }
     
@@ -92,7 +176,7 @@ class GetStarted extends Component {
                     {
                         this.state.showSection1 ? (
                             <div className="section-content">
-                                <SkillSelection />
+                                <SkillSelection skills={this.state.skills} />
                                 
                                 <a onClick={this.toSection2} className="button" id="skill-selection-btn"
                                    href={this.state.doneSection1 ? "#section-2" : null}>
@@ -117,7 +201,7 @@ class GetStarted extends Component {
                     {
                         this.state.showSection2 ? (
                             <div className="section-content">
-                                <UserSelection />
+                                <UserSelection users={this.state.users} />
     
                                 <SignUp ref={signup => this.signup = signup} />
                                 <a onClick={this.toSection3} className="button" id="user-selection-btn"

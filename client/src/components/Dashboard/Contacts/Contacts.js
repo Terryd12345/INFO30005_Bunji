@@ -10,9 +10,11 @@ class Contacts extends Component {
                 </header>
                 
                 <div id="contacts-content">
-                    <Contact name="John Doe" />
-                    <Contact name="Jane Doe" />
-                    <Contact name="Fred Doe" />
+                    {
+                        this.props.users.map(user => {
+                            return <Contact firstName={user.firstName} lastName={user.lastName} imagePath={user.imagePath} />;
+                        })
+                    }
                 </div>
             </div>
         );

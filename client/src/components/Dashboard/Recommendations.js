@@ -14,17 +14,17 @@ class Recommendations extends Component {
                 </div>
                 
                 <div id="recommendations-content">
-                    <Skill title="Facebook" picName="facebook" />
-                    <Skill title="Twitter" picName="twitter" />
-                    <Skill title="Instagram" picName="instagram" />
-                    <Skill title="LinkedIn" picName="linkedin" />
-                    <Skill title="iPad" picName="apple" />
+                    {
+                        this.props.skills.map(skill => {
+                            return <Skill skill={skill.skill} imagePath={skill.imagePath} />;
+                        })
+                    }
                 </div>
-    
+                
                 <div className="centered" id="recommendations-nav-right">
                     <span><img src={require("../../images/icons/arrow-right.png")} alt="Icon" /></span>
                 </div>
-    
+                
                 <div className="section-button">
                     <a className="button" id="recommendations-btn" href="">
                         Add to Selected Skills

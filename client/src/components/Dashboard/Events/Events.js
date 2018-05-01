@@ -37,9 +37,11 @@ class Events extends Component {
                     </div>
                     
                     <div id="events-window">
-                        <Event title="Meeting 1" />
-                        <Event title="Meeting 2" />
-                        <Event title="Meeting 3" />
+                        {
+                            this.props.events.map(event => {
+                                return <Event title={event.title} date={event.date} time={event.time} location={event.location} imagePath={event.imagePath} />;
+                            })
+                        }
                     </div>
                 </div>
             </div>

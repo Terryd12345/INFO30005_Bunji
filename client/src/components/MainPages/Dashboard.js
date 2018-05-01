@@ -7,16 +7,146 @@ import Events from "../Dashboard/Events/Events";
 import Recommendations from "../Dashboard/Recommendations";
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            user: {
+                firstName: "John",
+                imagePath: "user"
+            },
+            
+            awards: [
+                {
+                    caption: "Welcome!"
+                },
+                {
+                    caption: "First Skill"
+                },
+                {
+                    caption: "Contact a Mentor"
+                },
+                {
+                    caption:"3 Days In"
+                },
+                {
+                    caption: "5 Out Of 5"
+                },
+                {
+                    caption: "Logged In 10 Days"
+                },
+                {
+                    caption: "Learn 3 New Skills"
+                },
+                {
+                    caption: "Super Learner"
+                },
+                {
+                    caption: "First Birthday"
+                },
+                {
+                    caption: "Second Birthday"
+                },
+                {
+                    caption: "Third Birthday"
+                },
+                {
+                    caption: "Fourth Birthday"
+                }
+            ],
+            
+            notifications: [
+                {
+                    notification: "Jon sent you a message.",
+                    time: "Just Now",
+                    imagePath: "user"
+                },
+                {
+                    notification: "Jane sent you a message.",
+                    time: "1hr ago",
+                    imagePath: "user"
+                },
+                {
+                    notification: "Fred sent you a message.",
+                    time: "2hr ago",
+                    imagePath: "user"
+                }
+            ],
+            
+            contacts: [
+                {
+                    firstName: "Jon",
+                    lastName: "Doe",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Jane",
+                    lastName: "Doe",
+                    imagePath: "user"
+                },
+                {
+                    firstName: "Fred",
+                    lastName: "Doe",
+                    imagePath: "user"
+                }
+            ],
+    
+            events: [
+                {
+                    date: "1 January 2019",
+                    time: "12 - 2 PM",
+                    location: "Melbourne Central",
+                    imagePath: "user"
+                },
+                {
+                    date: "8 January 2019",
+                    time: "1 - 3 PM",
+                    location: "Victoria Market",
+                    imagePath: "user"
+                },
+                {
+                    date: "15 January 2019",
+                    time: "12 - 2 PM",
+                    location: "Melbourne Central",
+                    imagePath: "user"
+                }
+            ],
+            
+            recommendations: [
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                }
+            ]
+        };
+    }
+    
     render() {
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile />
+                    <PersonalProfile user={this.state.user} awards={this.state.awards} />
                     <Badges />
-                    <Notifications />
-                    <Contacts />
-                    <Events />
-                    <Recommendations />
+                    <Notifications notifications={this.state.notifications} />
+                    <Contacts users={this.state.contacts} />
+                    <Events events={this.state.events} />
+                    <Recommendations skills={this.state.recommendations} />
                 </div>
             </div>
         );

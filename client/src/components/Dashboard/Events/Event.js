@@ -6,7 +6,7 @@ class Event extends Component {
             <div>
                 <div className="event-panel">
                     <div className="event-pic">
-                        <img src={require("../../../images/user.png")} alt="User" />
+                        <img src={require(`../../../images/${this.props.imagePath}.png`)} alt={this.props.firstName} />
                     </div>
                     <div className="event-desc centered">
                         <div className="event-desc-title">
@@ -20,9 +20,9 @@ class Event extends Component {
                         </div>
                         
                         <div className="event-desc-content">
-                            <h6>1 January 2019</h6>
-                            <h6>12 - 2 PM</h6>
-                            <h6>Melbourne Central</h6>
+                            <h6>{this.props.date}</h6>
+                            <h6>{this.props.time}</h6>
+                            <h6>{this.props.location}</h6>
                         </div>
                     </div>
                 </div>

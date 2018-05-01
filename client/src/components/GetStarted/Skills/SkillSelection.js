@@ -11,18 +11,11 @@ class SkillSelection extends Component {
                 </header>
 
                 <div className="skills-content">
-                    <Skill title="Facebook" picName="facebook" />
-                    <Skill title="Twitter" picName="twitter" />
-                    <Skill title="Instagram" picName="instagram" />
-                    <Skill title="LinkedIn" picName="linkedin" />
-                    <Skill title="iPad" picName="apple" />
-                    <Skill title="iPhone" picName="apple" />
-                    <Skill title="Facebook" picName="facebook" />
-                    <Skill title="Twitter" picName="twitter" />
-                    <Skill title="Instagram" picName="instagram" />
-                    <Skill title="LinkedIn" picName="linkedin" />
-                    <Skill title="iPad" picName="apple" />
-                    <Skill title="iPhone" picName="apple" />
+                    {
+                        this.props.skills.map(skill => {
+                            return <Skill skill={skill.skill} imagePath={skill.imagePath} />;
+                        })
+                    }
                 </div>
             </div>
         );

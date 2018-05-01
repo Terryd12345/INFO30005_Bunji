@@ -10,9 +10,11 @@ class Notifications extends Component {
                 </header>
                 
                 <div id="notifications-content">
-                    <Notification title="John sent you a message." time="Just Now" />
-                    <Notification title="Jane sent you a message." time="1hr ago" />
-                    <Notification title="Fred sent you a message." time="2d ago" />
+                    {
+                        this.props.notifications.map(notification => {
+                            return <Notification notification={notification.notification} time={notification.time} imagePath={notification.imagePath} />;
+                        })
+                    }
                 </div>
             </div>
         );
