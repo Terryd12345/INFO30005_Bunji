@@ -81,7 +81,7 @@ class GetStarted extends Component {
                 {
                     firstName: "John",
                     lastName: "Doe",
-                    age: "21",
+                    birthDate: "1997-01-01T00:00:00+00:00",
                     gender: "Male",
                     location: "Melbourne",
                     skills: ["Facebook", "Twitter"],
@@ -91,7 +91,7 @@ class GetStarted extends Component {
                 {
                     firstName: "Jane",
                     lastName: "Doe",
-                    age: "19",
+                    birthDate: "1999-01-01T00:00:00+00:00",
                     gender: "Female",
                     location: "Adelaide",
                     skills: ["Instagram", "iPhone"],
@@ -101,7 +101,7 @@ class GetStarted extends Component {
                 {
                     firstName: "Fred",
                     lastName: "Doe",
-                    age: "24",
+                    birthDate: "1994-01-01T00:00:00+00:00",
                     gender: "Male",
                     location: "Gold Coast",
                     skills: ["MacBook", "Computer"],
