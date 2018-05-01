@@ -1,15 +1,26 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { auth } from "../config";
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
 
 passport.use(new GoogleStrategy({
     clientID: auth.GOOGLE_CLIENT_ID,
     clientSecret: auth.GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/callback"
 },
-    (accessToken, refreshToken, profile, cb) => {
-        console.log("access token: ", accessToken);
-        console.log("refreshToken: ", refreshToken);
-        console.log("profile: ", profile);
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ 'googleID': profile.id })
+        .then((existingUser) => {
+          if(existingUser){
+            // already have the profile
+            console.log(profile)
+            done(null, existingUser);
+          } else {
+            new User({ googleID: profile.id })
+              .save()
+              .then(user => done(null, user));
+          }
+        });
     }
 ));
