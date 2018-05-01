@@ -3,13 +3,13 @@ import express from "express"
 import path from "path";
 import cors from "cors";
 import compression from "compression";
-import passport from 'passport';
-import cookieSession from 'cookie-session';
+import passport from "passport";
+import cookieSession from "cookie-session";
 import "./models/db";
 import "./services/passport";
 import api from "./routes/api";
 import auth from "./routes/authRoutes";
-import { cookieKey } from './config';
+import { cookieKey } from "./config";
 
 
 const staticFiles = express.static(path.join(__dirname, "../../client/build"))
