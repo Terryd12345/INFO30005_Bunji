@@ -2,8 +2,8 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { auth } from "../config";
 
-const mongoose = require('mongoose');
-const User = mongoose.model('user');
+import mongoose from "mongoose";
+const User = mongoose.model("user");
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
     callbackURL: "/auth/google/callback"
 },
     (accessToken, refreshToken, profile, done) => {
-        User.findOne({ 'googleID': profile.id })
+        User.findOne({ "googleID": profile.id })
             .then((existingUser) => {
                 if (existingUser) {
                     // already have the profile
