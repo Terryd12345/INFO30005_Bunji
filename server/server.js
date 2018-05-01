@@ -3,18 +3,32 @@ import express from "express"
 import path from "path";
 import cors from "cors";
 import compression from "compression";
+import passport from 'passport';
+import cookieSession from 'cookie-session';
+import "./models/db";
+import "./services/passport";
+import api from "./routes/api";
+import auth from "./routes/authRoutes";
+import { cookieKey } from './config';
 
+
+const staticFiles = express.static(path.join(__dirname, "../../client/build"))
 const app = express()
+
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [cookieKey]
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors());
 app.use(compression());
 
-import "./models/db";
-import "./services/passport";
-import api from "./routes/api";
-import auth from "./routes/authRoutes";
-const staticFiles = express.static(path.join(__dirname, "../../client/build"))
 
 app.use("/api", api);
 app.use("/auth", auth);
