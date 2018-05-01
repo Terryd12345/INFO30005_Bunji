@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import user from "./user.js";
 
 var eventSchema = mongoose.Schema({
     title: { type: String, required: true },
