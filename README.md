@@ -2,8 +2,7 @@
 
 ## instructions:
 
-  * run yarn install in root folder
-  * run yarn install in client folder
+  * run yarn install-all in root folder
   * from root folder run 'yarn start'
   * express server running on port 5000
   * client server running on port 3000
