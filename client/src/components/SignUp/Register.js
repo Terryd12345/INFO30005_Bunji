@@ -40,6 +40,9 @@ class Register extends Component {
                 </select>
                 <br />
                 
+                <label htmlFor="location">Location</label>
+                <input type="text" name="location" required />
+                
                 <label htmlFor="email">Email</label>
                 <input type="text" name="email" required />
                 

@@ -1301,7 +1301,11 @@ a:hover {
 }
 
 #events-sidebar-sm select {
+    width: 100%;
     margin: 0;
+    padding: 10px;
+    background: #f1f1f1;
+    border: none;
     border-radius: 8px;
 }
 
@@ -1878,26 +1882,26 @@ a:hover {
 
 /* ====================== SignUp.js ======================= */
 
-form p {
+#signup form p {
     margin: -2px 0 8px 0;
     text-align: center;
 }
 
-label {
+#signup label {
     width: 100%;
     font-size: 1.05rem;
     font-weight: 600;
 }
 
-input,
-select {
+#signup input,
+#signup select {
     border-radius: 0;
     font-size: 1rem;
 }
 
-input[type=text],
-input[type=password],
-select {
+#signup input[type=text],
+#signup input[type=password],
+#signup select {
     width: 100%;
     margin: 0 0 20px 0;
     padding: 10px;
@@ -1905,12 +1909,12 @@ select {
     border: none;
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
+#signup input[type=text]:focus,
+#signup input[type=password]:focus {
     background: #ddd;
 }
 
-select {
+#signup select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -1918,46 +1922,47 @@ select {
     appearance: none;
 }
 
-#first-name {
+#signup #first-name {
     margin-right: 4%;
 }
 
-#first-name,
-#last-name {
+#signup #first-name,
+#signup #last-name {
     width: 48%;
 }
 
-#birth-date {
+#signup #birth-date {
     width: 70%;
     margin-right: 4%;
 }
 
-#gender {
+#signup #gender {
     width: 26%;
 }
 
-#month {
+#signup #month {
     width: 28%;
     margin-right: 2%;
 }
 
-#day {
+#signup #day {
     width: 18%;
     margin-right: 2%;
 }
 
-#year {
+#signup #year {
     width: 20%;
     margin-right: 4%;
 }
 
 @media (min-width: 1801px) {
-    form p {
+    #signup form p {
         margin: -2px 0 15px 0;
     }
-    input[type=text],
-    input[type=password],
-    select {
+    
+    #signup input[type=text],
+    #signup input[type=password],
+    #signup select {
         margin: 8px 0 35px 0;
     }
 }
