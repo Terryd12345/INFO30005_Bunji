@@ -20,7 +20,10 @@ class Events extends Component {
                     </div>
                 </div>
                 <div className="events-sidebar-medium">
-                    <h3><a href="">Upcoming Events</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">Past Events</a></h3>
+                    <h3><a href="">Upcoming Events</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="">This Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="">This Month</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="">Past Events</a></h3>
                 </div>
                 <div className="events-sidebar">
                     <h3><a href="">Upcoming Events</a></h3>

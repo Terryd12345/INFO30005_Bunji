@@ -1,8 +1,10 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { auth } from "../config";
+
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
+
 
 passport.use(new GoogleStrategy({
     clientID: auth.GOOGLE_CLIENT_ID,
@@ -22,5 +24,6 @@ passport.use(new GoogleStrategy({
               .then(user => done(null, user));
           }
         });
+
     }
 ));
