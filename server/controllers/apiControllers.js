@@ -37,6 +37,13 @@ export default {
             birthDate: req.body.birthDate,
             isMentor: req.body.isMentor,
             description: req.body.description,
+        }, function (err) {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            };
+            res.flush();
         }));
     },
 
@@ -94,6 +101,16 @@ export default {
                 res.sendStatus(200);
             };
             res.flush();
+        });
+    },
+
+    allSkills: function (req, res) {
+        Skill.find({}, function (err, docs) {
+            if (!err) {
+                res.send(docs);
+            } else {
+                res.sendStatus(404);
+            }
         });
     },
 
