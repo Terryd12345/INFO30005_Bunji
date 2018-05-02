@@ -30,6 +30,8 @@ class GetStarted extends Component {
 
             showSection3: false,
 
+            skills:[],
+
             users: [
                 {
                     firstName: "John",
@@ -66,11 +68,10 @@ class GetStarted extends Component {
     }
 
     componentDidMount() {
-        axios.get("localhost:5000/api/allSkills")
+        var self = this;
+        axios.get("/api/allSkills")
             .then(function (res) {
-                console.log(res);
-                console.log(res.data);
-                this.setState({ skills: res.data });
+                self.setState({ skills: res.data });
             })
             .catch(function (error) {
                 console.log(error);
