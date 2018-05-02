@@ -87,7 +87,14 @@ export default {
         Skill.create(new Skill({
             skill: req.body.skill,
             imagePath: req.body.imagePath
-        }));
+        }), function (err) {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            };
+            res.flush();
+        });
     },
 
     getChat: function (req, res) {
