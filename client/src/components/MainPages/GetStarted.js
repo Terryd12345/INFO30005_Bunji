@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import SkillSelection from "../GetStarted/Skills/SkillSelection";
 import UserSelection from "../GetStarted/Users/UserSelection";
 import SignUp from "../SignUp/SignUp";
@@ -13,6 +14,8 @@ class GetStarted extends Component {
         this.handleSection1 = this.handleSection1.bind(this);
         this.handleSection2 = this.handleSection2.bind(this);
         
+        
+        
         this.state = {
             loggedIn: true,
             
@@ -25,57 +28,6 @@ class GetStarted extends Component {
             tickSection2: false,
             
             showSection3: false,
-            
-            skills: [
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                }
-            ],
     
             users: [
                 {
@@ -110,6 +62,10 @@ class GetStarted extends Component {
                 }
             ]
         };
+    }
+    
+    componentDidMount() {
+        this.setState({skills: axios.get("/api/allSkills")});
     }
     
     showRegister = () => {
