@@ -83,6 +83,13 @@ export default {
         });
     },
 
+    createSkill: function (req, res) {
+        Skill.create(new Skill({
+            skill: req.body.skill,
+            imagePath: req.body.imagePath
+        }));
+    },
+
     getChat: function (req, res) {
         var chatID = req.params.id;
         Chat.findById(chatID, (err, chat) => {
