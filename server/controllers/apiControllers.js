@@ -104,6 +104,16 @@ export default {
         });
     },
 
+    allSkills: function (req, res) {
+        Skill.find({}, function (err, docs) {
+            if (!err) {
+                res.send(docs);
+            } else {
+                res.sendStatus(404);
+            }
+        });
+    },
+
     getChat: function (req, res) {
         var chatID = req.params.id;
         Chat.findById(chatID, (err, chat) => {
