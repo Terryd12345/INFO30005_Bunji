@@ -66,9 +66,9 @@ class GetStarted extends Component {
     }
     
     componentDidMount() {
-        const skill = axios.get("localhost:5000/api/allSkills");
-        console.log(skill);
-        this.setState({skills: skill});
+        axios.get("localhost:5000/api/allSkills").then(function(res){
+            this.setState({skills: res});
+        });
     }
     
     showRegister = () => {
