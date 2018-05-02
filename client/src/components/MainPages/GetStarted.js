@@ -8,6 +8,7 @@ class GetStarted extends Component {
     constructor(props) {
         super(props);
     
+        this.componentDidMount = this.componentDidMount.bind(this);
         this.showRegister = this.showRegister.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
@@ -65,7 +66,9 @@ class GetStarted extends Component {
     }
     
     componentDidMount() {
-        this.setState({skills: axios.get("/api/allSkills")});
+        const skill = axios.get("localhost:5000/api/allSkills");
+        console.log(skill);
+        this.setState({skills: skill});
     }
     
     showRegister = () => {
