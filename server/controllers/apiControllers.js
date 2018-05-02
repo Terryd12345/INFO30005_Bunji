@@ -7,8 +7,11 @@ var Skill = mongoose.model("skill");
 var User = mongoose.model("user");
 
 export default {
-    getCurrentUser: function(req,res) {
-        res.send(req.user);
+    getCurrentUser: function (req, res) {
+        res.send(req.user)
+            .populate("skills")
+            .populate("awards")
+            .populate("connections");
         res.flush();
     },
 
@@ -16,7 +19,10 @@ export default {
         var userID = req.params.id;
         User.findById(userID, (err, user) => {
             if (!err) {
-                res.send(user);
+                res.send(user
+                    .populate("skills")
+                    .populate("awards")
+                    .populate("connections"));
             } else {
                 res.sendStatus(404);
             }
@@ -75,11 +81,6 @@ export default {
             }
             res.flush();
         });
-    },
-
-    getConnections: function(req, res) {
-        res.send(User.findById(req.user._id).populate("connections").connections);
-        res.flush();
     },
 
     getChat: function (req, res) {
