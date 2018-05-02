@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import ChatWindow from '../Connections/ChatWindow';
-import Connections from '../Connections/Connections';
-import Calendar from '../Connections/Calendar';
+import ChatWindow from "../Connections/ChatWindow";
+import Connections from "../Connections/Connections";
+import Calendar from "../Connections/Calendar";
 
 class Relationships extends Component {
     constructor(props) {
         super(props);
+    
+        this.chatHandler = this.chatHandler.bind(this);
+        this.messageHandler = this.messageHandler.bind(this);
+        
         this.state = {
             chats: [
                 {
@@ -45,9 +49,6 @@ class Relationships extends Component {
             ],
             chatID: 0
         }
-
-        this.chatHandler = this.chatHandler.bind(this);
-        this.messageHandler = this.messageHandler.bind(this);
     }
 
     chatHandler(e, newChatID) {
@@ -64,12 +65,19 @@ class Relationships extends Component {
 
     render() {
         return (
-            <div id="relationships">
-                <div id="chat">
-                    <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
-                    <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
+            <div id="page-wrap">
+                <div id="relationships">
+                    <div id="chat">
+                        <Connections chats={this.state.chats} chatHandler={this.chatHandler} />
+                        <ChatWindow chat={this.state.chats[this.state.chatID]} messageHandler={this.messageHandler} />
+                    </div>
+                    
+                    {/*<div id="calendar">*/}
+                        {/*<Events />*/}
+                    {/*</div>*/}
+                    
+                    <Calendar />
                 </div>
-                <Calendar />
             </div>
         );
     }

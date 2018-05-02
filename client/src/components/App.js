@@ -2,15 +2,20 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import { MoonLoader } from "react-spinners";
-
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Loading = () => <div id="loading"><MoonLoader loading={true} /></div>;
 
-// const Header = Loadable({
-//     loader: () => import("./Header"),
-//     loading: Loading,
-// })
+const Home = Loadable({
+    loader: () => import("./MainPages/Home"),
+    loading: Loading,
+})
+
+const GetStarted = Loadable({
+    loader: () => import("./MainPages/GetStarted"),
+    loading: Loading,
+})
 
 const Dashboard = Loadable({
     loader: () => import("./MainPages/Dashboard"),
@@ -18,32 +23,12 @@ const Dashboard = Loadable({
 })
 
 const UserSelection = Loadable({
-    loader: () => import("./Users/UserSelection"),
-    loading: Loading,
-})
-
-const Home = Loadable({
-    loader: () => import("./MainPages/Home"),
-    loading: Loading,
-})
-
-const Skills = Loadable({
-    loader: () => import("./Skills/SkillSelection"),
-    loading: Loading,
-})
-
-const Profile = Loadable({
-    loader: () => import("./MainPages/Profile"),
+    loader: () => import("./GetStarted/Users/UserSelection"),
     loading: Loading,
 })
 
 const Relationships = Loadable({
     loader: () => import("./MainPages/Relationships"),
-    loading: Loading,
-})
-
-const SignUp = Loadable({
-    loader: () => import("./MainPages/Signup"),
     loading: Loading,
 })
 
@@ -55,23 +40,22 @@ const NotFound = Loadable({
 class App extends Component {
     render() {
         return (
-            <div className="container">
-                <BrowserRouter>
-                    <div>
-                        <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/select-skills" component={Skills} />
-                            <Route exact path="/find-mentor" component={UserSelection} />
-                            <Route exact path="/profile" component={Profile} />
-                            <Route exact path="/dashboard" component={Dashboard} />
-                            <Route exact path="/connections" component={Relationships} />
-                            <Route exact path="/signup" component={SignUp} />
-                            <Route path="*" component={NotFound} />
-                        </Switch>
-                    </div>
-                </BrowserRouter>
-            </div>
+            <BrowserRouter>
+                <div>
+                    <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
+                    
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/get-started" component={GetStarted} />
+                        <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/connections" component={Relationships} />
+                        <Route exact path="/find-mentor" component={UserSelection} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
+                    
+                    <Footer />
+                </div>
+            </BrowserRouter>
         );
     };
 };

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 var chatSchema = mongoose.Schema({
-    user1: { type: String, required: true },
-    user2: { type: String, required: true },
+    user1: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
+    user2: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
     messages: [{
         date: { type: Date, required: true },
         sender: { type: String, required: true },
