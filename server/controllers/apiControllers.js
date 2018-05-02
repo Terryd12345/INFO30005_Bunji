@@ -7,6 +7,10 @@ var Skill = mongoose.model("skill");
 var User = mongoose.model("user");
 
 export default {
+    getCurrentUser: function(req,res) {
+        res.send(req.user);
+    },
+
     getUser: function (req, res) {
         var userID = req.params.id;
         User.findById(userID, (err, user) => {

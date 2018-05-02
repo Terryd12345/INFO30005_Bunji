@@ -3,6 +3,7 @@ const router = express.Router();
 
 import controller from "../controllers/apiControllers";
 
+router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
 
 router.get("/chat/:id", controller.getChat);
