@@ -7,7 +7,7 @@ router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
 router.post("/createUser", controller.createUser);
 
-router.post("/createSkill", controller.addSkill);
+router.post("/createSkill", controller.createSkill);
 
 router.get("/chat/:id", controller.getChat);
 
