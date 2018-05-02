@@ -68,6 +68,8 @@ class GetStarted extends Component {
     componentDidMount() {
         axios.get("localhost:5000/api/allSkills")
             .then(function (res) {
+                console.log(res);
+                console.log(res.data);
                 this.setState({ skills: res.data });
             })
             .catch(function (error) {
