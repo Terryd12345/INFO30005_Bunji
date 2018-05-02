@@ -9,15 +9,16 @@ class User extends Component {
         
         this.state = {
             isSelected: false,
+            backgroundColor: "",
             borderColor: ""
         };
     }
 
     onSelected() {
         if (this.state.isSelected === false) {
-            this.setState({ isSelected: true, borderColor: "#8b55a4" });
+            this.setState({ isSelected: true, backgroundColor: "#f3e5f5", borderColor: "#8b55a4" });
         } else {
-            this.setState({ isSelected: false, borderColor: "" });
+            this.setState({ isSelected: false, backgroundColor: "", borderColor: "" });
         }
     }
     
@@ -33,6 +34,7 @@ class User extends Component {
     
     render() {
         const style = {
+            backgroundColor: this.state.backgroundColor,
             borderColor: this.state.borderColor
         }
         

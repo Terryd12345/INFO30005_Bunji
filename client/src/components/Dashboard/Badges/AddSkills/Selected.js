@@ -14,14 +14,11 @@ class Selected extends Component {
         return (
             <div>
                 <div id="skills">
-                    <Skill title="iPad" picName="apple" />
-                    <Skill title="iPhone" picName="apple" />
-                    <Skill title="Facebook" picName="facebook" />
-                    <Skill title="Twitter" picName="twitter" />
-                    <Skill title="Instagram" picName="instagram" />
-                    <Skill title="LinkedIn" picName="linkedin" />
-                    <Skill title="iPad" picName="apple" />
-                    <Skill title="iPhone" picName="apple" />
+                    {
+                        this.props.skills.map(skill => {
+                            return <Skill skill={skill.skill} imagePath={skill.imagePath} />;
+                        })
+                    }
                 </div>
                 
                 <div id="modal-button">

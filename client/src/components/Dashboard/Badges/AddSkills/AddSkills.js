@@ -13,7 +13,93 @@ class AddSkills extends Component {
         
         this.state = {
             show: false,
-            available: true
+            available: true,
+    
+            availableSkills: [
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                }
+            ],
+            
+            selectedSkills: [
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                }
+            ]
         };
     }
     
@@ -55,7 +141,7 @@ class AddSkills extends Component {
                     <Modal.Body>
                         <div id="signup">
                             {
-                                this.state.available ? <Available /> : <Selected />
+                                this.state.available ? <Available skills={this.state.availableSkills} /> : <Selected skills={this.state.selectedSkills} />
                             }
                         </div>
                     </Modal.Body>
