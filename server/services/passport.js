@@ -21,19 +21,13 @@ passport.use(new GoogleStrategy({
     clientSecret: auth.GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/callback"
 },
-    (accessToken, refreshToken, profile, done) => {
-        User.findOne({ "googleID": profile.id })
-            .then((existingUser) => {
-                if (existingUser) {
-                    // already have the profile
-                    console.log(profile)
-                    done(null, existingUser);
-                } else {
-                    new User({ googleID: profile.id })
-                        .save()
-                        .then(user => done(null, user));
-                }
-            });
-
+async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({ "googleID": profile.id });
+    if (existingUser) {
+        console.log(profile)
+        return done(null, existingUser);
     }
+    const user = await new User({ googleID: profile.id }).save();
+    done(null, user);
+}
 ));
