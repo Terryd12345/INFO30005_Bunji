@@ -37,6 +37,13 @@ export default {
             birthDate: req.body.birthDate,
             isMentor: req.body.isMentor,
             description: req.body.description,
+        }, function (err) {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            };
+            res.flush();
         }));
     },
 
