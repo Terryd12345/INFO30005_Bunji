@@ -9,6 +9,7 @@ var User = mongoose.model("user");
 export default {
     getCurrentUser: function(req,res) {
         res.send(req.user);
+        res.flush();
     },
 
     getUser: function (req, res) {
@@ -26,6 +27,7 @@ export default {
     createUser: function (req, res) {
         User.create(new User({
             firstName: req.body.firstName,
+            lastName: req.body.lastName,
             birthDate: req.body.birthDate,
             isMentor: req.body.isMentor,
             description: req.body.description,
@@ -73,6 +75,11 @@ export default {
             }
             res.flush();
         });
+    },
+
+    getConnections: function(req, res) {
+        res.send(User.findById(req.user._id).populate("connections").connections);
+        res.flush();
     },
 
     getChat: function (req, res) {
