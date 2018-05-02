@@ -13,7 +13,93 @@ class CompleteSkills extends Component {
         
         this.state = {
             show: false,
-            current: true
+            selected: true,
+    
+            selectedSkills: [
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                }
+            ],
+    
+            learnedSkills: [
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "Facebook",
+                    imagePath: "facebook"
+                },
+                {
+                    skill: "Twitter",
+                    imagePath: "twitter"
+                },
+                {
+                    skill: "Instagram",
+                    imagePath: "instagram"
+                },
+                {
+                    skill: "LinkedIn",
+                    imagePath: "linkedin"
+                },
+                {
+                    skill: "iPad",
+                    imagePath: "apple"
+                },
+                {
+                    skill: "iPhone",
+                    imagePath: "apple"
+                }
+            ]
         };
     }
     
@@ -55,7 +141,7 @@ class CompleteSkills extends Component {
                     <Modal.Body>
                         <div id="signup">
                             {
-                                this.state.selected ? <Selected /> : <Learned />
+                                this.state.selected ? <Selected skills={this.state.selectedSkills} /> : <Learned skills={this.state.learnedSkills} />
                             }
                         </div>
                     </Modal.Body>

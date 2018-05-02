@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-import skill from "./skill.js";
-import award from "./award.js";
 
 var userSchema = mongoose.Schema({
     googleID: String,
