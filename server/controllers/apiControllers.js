@@ -111,6 +111,7 @@ export default {
             } else {
                 res.sendStatus(404);
             }
+            res.flush();
         });
     },
 
