@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-var Award = mongoose.model("award");
 var Chat = mongoose.model("chat");
 var Event = mongoose.model("event");
 var Skill = mongoose.model("skill");
@@ -48,7 +47,7 @@ export default {
     },
 
     editUser: function (req, res) {
-        User.update()
+        User.update();
     },
 
     addSkill: function (req, res) {
@@ -56,19 +55,6 @@ export default {
         Chat.findById(userID, (err, user) => {
             if (!err) {
                 user.skills.push(req.body.skillID);
-                user.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
-    },
-
-    addAward: function (req, res) {
-        var userID = req.params.id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.awards.push(req.body.awardID);
                 user.save(done);
             } else {
                 res.sendStatus(404);

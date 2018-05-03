@@ -8,7 +8,6 @@ var userSchema = mongoose.Schema({
     isMentor: Boolean,
     description: String,
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
-    awards: [{ type: mongoose.Schema.Types.ObjectId, ref: "award" }],
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }]
 })
 

@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { db } from "../config";
-import "./award";
 import "./chat";
 import "./event";
 import "./skill";
