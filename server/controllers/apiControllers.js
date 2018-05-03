@@ -52,7 +52,7 @@ export default {
     },
 
     addSkill: function (req, res) {
-        var userID = req.params.id;
+        var userID = req.user._id;
         Chat.findById(userID, (err, user) => {
             if (!err) {
                 user.skills.push(req.body.skillID);
@@ -78,7 +78,7 @@ export default {
     },
 
     addConnection: function (req, res) {
-        var userID = req.params.id;
+        var userID = req.user._id;
         Chat.findById(userID, (err, user) => {
             if (!err) {
                 user.connections.push(req.body.connectionID);
