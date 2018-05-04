@@ -9,7 +9,6 @@ export default {
     getCurrentUser: function (req, res) {
         res.send(req.user)
             .populate("skills")
-            .populate("awards")
             .populate("connections");
         res.flush();
     },
@@ -20,7 +19,6 @@ export default {
             if (!err) {
                 res.send(user
                     .populate("skills")
-                    .populate("awards")
                     .populate("connections"));
             } else {
                 res.sendStatus(404);
@@ -37,7 +35,7 @@ export default {
             isMentor: req.body.isMentor,
             description: req.body.description,
             skills: req.body.skills,
-            connections: req.body.awards
+            connections: req.body.connections
         }, function (err) {
             if (err) {
                 res.sendStatus(404);
