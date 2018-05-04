@@ -12,8 +12,10 @@ class SkillSelection extends Component {
 
                 <div className="skills-content">
                     {
-                        this.props.skills.map(skill => {
-                            return <Skill skill={skill.skill} imagePath={skill.imagePath} />;
+                        this.props.allSkills.map(skill => {
+                                return <Skill key={skill._id} skill={skill.skill} imagePath={skill.imagePath}
+                                              updateSelectedSkills={this.props.updateSelectedSkills}
+                                              isSelected={this.props.selectedSkills.indexOf(skill.skill) > -1} />
                         })
                     }
                 </div>

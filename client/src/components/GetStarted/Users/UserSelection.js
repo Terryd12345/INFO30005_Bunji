@@ -22,7 +22,7 @@ class UserSelection extends Component {
                     <div id="user-selection">
                         {
                             this.props.users.map(user => {
-                                return <User firstName={user.firstName} lastName={user.lastName} birthDate={user.birthDate} gender={user.gender} location={user.location} skills={user.skills} description={user.description} imagePath={user.imagePath} />;
+                                return <User key={user._id} firstName={user.firstName} lastName={user.lastName} birthDate={user.birthDate} gender={user.gender} location={user.location} skills={user.skills} description={user.description} imagePath={user.imagePath} />;
                             })
                         }
                     </div>

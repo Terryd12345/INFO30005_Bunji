@@ -7,16 +7,15 @@ import SignUp from "../SignUp/SignUp";
 class GetStarted extends Component {
     constructor(props) {
         super(props);
-
+        
         this.componentDidMount = this.componentDidMount.bind(this);
         this.showRegister = this.showRegister.bind(this);
+        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
         this.handleSection1 = this.handleSection1.bind(this);
         this.handleSection2 = this.handleSection2.bind(this);
-
-
-
+        
         this.state = {
             loggedIn: true,
 
@@ -29,8 +28,9 @@ class GetStarted extends Component {
             tickSection2: false,
 
             showSection3: false,
-
-            skills:[],
+            
+            allSkills: [],
+            selectedSkills: [],
 
             users: [
                 {
@@ -59,7 +59,7 @@ class GetStarted extends Component {
                     birthDate: "1994-01-01T00:00:00+00:00",
                     gender: "Male",
                     location: "Gold Coast",
-                    skills: ["MacBook", "Computer"],
+                    skills: ["MacBook", "MS Word"],
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                     imagePath: "user"
                 }
@@ -71,7 +71,7 @@ class GetStarted extends Component {
         var self = this;
         axios.get("/api/allSkills")
             .then(function (res) {
-                self.setState({ skills: res.data });
+                self.setState({ allSkills: res.data });
             })
             .catch(function (error) {
                 console.log(error);
@@ -81,6 +81,21 @@ class GetStarted extends Component {
     showRegister = () => {
         this.signup.showRegister();
     }
+    
+    updateSelectedSkills(e) {
+        if (e.state.isSelected === false) {
+            this.setState({
+                selectedSkills: [...this.state.selectedSkills, e.props.skill]
+            })
+        }
+        else {
+            this.setState(prevState => ({
+                selectedSkills: prevState.selectedSkills.filter(skill => skill !== e.props.skill)
+            }))
+        }
+    }
+    
+    /* ============================================================================================================= */
 
     toSection2() {
         if (this.state.doneSection1 === false) {
@@ -89,7 +104,7 @@ class GetStarted extends Component {
             this.setState({ showSection2: true, showSection1: false, tickSection1: true });
         }
     }
-
+    
     toSection3() {
         if (this.state.doneSection2 === false) {
             this.setState({ showSection3: false });
@@ -101,6 +116,8 @@ class GetStarted extends Component {
             }
         }
     }
+    
+    /* ============================================================================================================= */
 
     handleSection1() {
         if (this.state.tickSection1 === true && this.state.showSection1 === false) {
@@ -117,6 +134,8 @@ class GetStarted extends Component {
             this.setState({ showSection2: false });
         }
     }
+    
+    /* ============================================================================================================= */
 
     render() {
         const disabled = {
@@ -142,7 +161,10 @@ class GetStarted extends Component {
                     {
                         this.state.showSection1 ? (
                             <div className="section-content">
-                                <SkillSelection skills={this.state.skills} />
+                                <SkillSelection allSkills={this.state.allSkills}
+                                                selectedSkills={this.state.selectedSkills}
+                                                updateSelectedSkills={this.updateSelectedSkills}
+                                                ref={skillselection => this.skillselection = skillselection} />
 
                                 <a onClick={this.toSection2} className="button" id="skill-selection-btn"
                                     href={this.state.doneSection1 ? "#section-2" : null}>

@@ -3,14 +3,22 @@ import React, { Component } from "react";
 class Skill extends Component {
     constructor(props) {
         super(props);
-    
+        
         this.onSelected = this.onSelected.bind(this);
         
         this.state = {
-            isSelected: false,
+            isSelected: this.props.isSelected,
             backgroundColor: "",
             borderColor: ""
         };
+    }
+    
+    componentDidMount() {
+        if (this.state.isSelected === false) {
+            this.setState({ backgroundColor: "", borderColor: "" });
+        } else {
+            this.setState({ backgroundColor: "#f3e5f5", borderColor: "#8b55a4" });
+        }
     }
 
     onSelected() {
@@ -19,6 +27,7 @@ class Skill extends Component {
         } else {
             this.setState({ isSelected: false, backgroundColor: "", borderColor: "" });
         }
+        this.props.updateSelectedSkills(this);
     }
 
     render() {
