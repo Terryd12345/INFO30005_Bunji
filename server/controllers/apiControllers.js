@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-var Award = mongoose.model("award");
 var Chat = mongoose.model("chat");
 var Event = mongoose.model("event");
 var Skill = mongoose.model("skill");
@@ -10,7 +9,6 @@ export default {
     getCurrentUser: function (req, res) {
         res.send(req.user)
             .populate("skills")
-            .populate("awards")
             .populate("connections");
         res.flush();
     },
@@ -21,7 +19,6 @@ export default {
             if (!err) {
                 res.send(user
                     .populate("skills")
-                    .populate("awards")
                     .populate("connections"));
             } else {
                 res.sendStatus(404);
@@ -37,6 +34,8 @@ export default {
             birthDate: req.body.birthDate,
             isMentor: req.body.isMentor,
             description: req.body.description,
+            skills: req.body.skills,
+            connections: req.body.connections
         }, function (err) {
             if (err) {
                 res.sendStatus(404);
@@ -48,11 +47,11 @@ export default {
     },
 
     editUser: function (req, res) {
-        User.update()
+        User.update();
     },
 
     addSkill: function (req, res) {
-        var userID = req.params.id;
+        var userID = req.user._id;
         Chat.findById(userID, (err, user) => {
             if (!err) {
                 user.skills.push(req.body.skillID);
@@ -64,21 +63,8 @@ export default {
         });
     },
 
-    addAward: function (req, res) {
-        var userID = req.params.id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.awards.push(req.body.awardID);
-                user.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
-    },
-
     addConnection: function (req, res) {
-        var userID = req.params.id;
+        var userID = req.user._id;
         Chat.findById(userID, (err, user) => {
             if (!err) {
                 user.connections.push(req.body.connectionID);
