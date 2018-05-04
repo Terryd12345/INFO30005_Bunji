@@ -36,7 +36,7 @@ export default {
             description: req.body.description,
             skills: req.body.skills,
             connections: req.body.connections
-        }, function (err) {
+        }, (err) => {
             if (err) {
                 res.sendStatus(404);
             } else {
@@ -80,7 +80,7 @@ export default {
         Skill.create(new Skill({
             skill: req.body.skill,
             imagePath: req.body.imagePath
-        }), function (err) {
+        }), (err) => {
             if (err) {
                 res.sendStatus(404);
             } else {
@@ -91,7 +91,7 @@ export default {
     },
 
     allSkills: function (req, res) {
-        Skill.find({}, function (err, docs) {
+        Skill.find({}, (err, docs) => {
             if (!err) {
                 res.send(docs);
             } else {
