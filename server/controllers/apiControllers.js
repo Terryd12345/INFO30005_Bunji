@@ -124,8 +124,9 @@ export default {
     },
 
     postMessage: function (req, res) {
-        var chatID = req.params.id;
-        Chat.findById(chatID, (err, chat) => {
+        var user1ID = req.user._id;
+        var user2ID = req.params.id;
+        Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 chat.messages.push({
                     date: req.body.date,
