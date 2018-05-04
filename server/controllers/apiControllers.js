@@ -37,6 +37,8 @@ export default {
             birthDate: req.body.birthDate,
             isMentor: req.body.isMentor,
             description: req.body.description,
+            skills: req.body.skills,
+            connections: req.body.awards
         }, function (err) {
             if (err) {
                 res.sendStatus(404);
