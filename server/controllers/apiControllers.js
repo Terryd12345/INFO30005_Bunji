@@ -102,12 +102,22 @@ export default {
     },
 
     getChat: function (req, res) {
-        var chatID = req.params.id;
-        Chat.findById(chatID, (err, chat) => {
+        var user1ID = req.user._id;
+        var user2ID = req.params.id;
+        Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 res.send(chat);
             } else {
-                res.sendStatus(404);
+                var newChat = new Chat({
+                    user1: user1ID,
+                    user2: user2ID,
+                });
+                newChat.save((err) => {
+                    if (err) {
+                        res.sendStatus(500);
+                    }
+                });
+                res.send(newChat);
             }
             res.flush();
         });
