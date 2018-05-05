@@ -232,7 +232,7 @@ a:hover {
     width: 190px;
     height: 38px;
     background-color: #4285f4;
-    border: none;
+    border: 1px solid #4285f4;
     border-radius: 1px;
     color: #fff;
     text-align: center;
@@ -462,6 +462,13 @@ a:hover {
     height: 30px;
 }
 
+#menu-header {
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    right: 10px;
+}
+
 @media (max-width: 767px) {
     .navbar-nav {
         margin: 0 -15px;
@@ -547,6 +554,7 @@ a:hover {
 
 #menu {
     position: absolute;
+    z-index: 2;
     top: 20px;
     right: 20px;
 }
