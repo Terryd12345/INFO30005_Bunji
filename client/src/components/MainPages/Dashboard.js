@@ -9,14 +9,11 @@ import Events from "../Dashboard/Events/Events";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-    
+        
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         
         this.state = {
-            user: {
-                firstName: "John",
-                imagePath: "user"
-            },
+            user: {},
             
             allSkills: [],
             selectedSkills: [],
@@ -38,7 +35,7 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-            
+
             contacts: [
                 {
                     firstName: "Jon",
@@ -56,7 +53,7 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-    
+
             events: [
                 {
                     date: "1 January 2019",
@@ -79,16 +76,24 @@ class Dashboard extends Component {
             ]
         };
     }
-    
-    componentDidMount() {
+
+    componentDidMount(){
         var self = this;
         
+        axios.get("/api/user")
+            .then(function (res) {
+                self.setState({ user: res.data });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        
         axios.get("/api/allSkills")
-        .then(function (res) {
-            self.setState({ allSkills: res.data });
-        })
-        .catch(function (error) {
-            console.log(error);
+            .then(function (res) {
+                self.setState({ allSkills: res.data });
+            })
+            .catch(function (error) {
+                console.log(error);
         });
     }
     
@@ -106,6 +111,7 @@ class Dashboard extends Component {
     }
     
     render() {
+
         return (
             <div id="page-wrap">
                 <div id="dashboard">

@@ -32,7 +32,7 @@ class GetStarted extends Component {
     
     componentDidMount() {
         var self = this;
-        
+
         axios.get("/api/allSkills")
             .then(function (res) {
                 self.setState({ allSkills: res.data });
@@ -45,9 +45,9 @@ class GetStarted extends Component {
     showRegister = () => {
         this.signup.showRegister();
     }
-    
+
     /* ============================================================================================================= */
-    
+
     updateSelectedSkills(id, state) {
         if (state === false) {
             this.setState({
@@ -60,7 +60,7 @@ class GetStarted extends Component {
             }))
         }
     }
-    
+
     updateSelectedUsers(id, state) {
         if (state === false) {
             this.setState({
@@ -73,12 +73,12 @@ class GetStarted extends Component {
             }))
         }
     }
-    
+
     /* ============================================================================================================= */
 
     toSection2() {
         var self = this;
-        
+
         if (this.state.selectedSkills.length < 1) {
             this.setState({ showSection2: false });
             alert("Please select a skill.");
@@ -94,7 +94,7 @@ class GetStarted extends Component {
                 });
         }
     }
-    
+
     toSection3() {
         if (this.state.selectedUsers.length < 1) {
             this.setState({ showSection3: false });
@@ -107,7 +107,7 @@ class GetStarted extends Component {
             }
         }
     }
-    
+
     /* ============================================================================================================= */
 
     handleSection1() {
@@ -115,7 +115,7 @@ class GetStarted extends Component {
             this.setState({ showSection1: true, showSection2: false, showSection3: false });
         } else if (this.state.tickSection1 === true && this.state.showSection1 === true) {
             this.setState({ showSection1: false });
-            
+
             if (this.state.tickSection2 === false) {
                 this.setState({ showSection2: true })
             } else {
@@ -131,7 +131,7 @@ class GetStarted extends Component {
             this.setState({ showSection2: false, showSection3: true });
         }
     }
-    
+
     /* ============================================================================================================= */
 
     render() {
@@ -144,7 +144,7 @@ class GetStarted extends Component {
         return (
             <div id="page-wrap">
                 <SignUp ref={signup => this.signup = signup} />
-                
+
                 <div id="section-1">
                     <header onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
                         <h2>
@@ -192,7 +192,7 @@ class GetStarted extends Component {
                                 <UserSelection allUsers={this.state.allUsers}
                                                selectedUsers={this.state.selectedUsers}
                                                updateSelectedUsers={this.updateSelectedUsers} />
-                                
+
                                 <a onClick={this.toSection3} className="button" id="user-selection-btn">
                                     Confirm
                                 </a>

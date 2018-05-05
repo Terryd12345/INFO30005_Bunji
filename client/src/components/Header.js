@@ -5,28 +5,28 @@ import SignUp from "./SignUp/SignUp";
 class Header extends Component {
     constructor(props, context) {
         super(props, context);
-        
+
         this.showRegister = this.showRegister.bind(this);
         this.showLogin = this.showLogin.bind(this);
-        
+
         this.state = {
             loggedIn: true
         };
     }
-    
+
     showRegister = () => {
         this.signup.showRegister();
     }
-    
+
     showLogin = () => {
         this.signup.showLogin();
     }
-    
+
     render() {
         return (
             <Navbar>
                 <SignUp ref={signup => this.signup = signup}/>
-            
+
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a id="logo" href="/"><img src={require("../images/logo.jpg")} alt="Logo"/></a>
@@ -34,7 +34,7 @@ class Header extends Component {
 
                     <Navbar.Toggle/>
                 </Navbar.Header>
-                
+
                 <Navbar.Collapse>
                     {
                         this.state.loggedIn ? (
@@ -42,12 +42,12 @@ class Header extends Component {
                                 <NavItem href="/dashboard">
                                     Dashboard
                                 </NavItem>
-    
+
                                 <NavItem href="/connections">
                                     Connections
                                 </NavItem>
-    
-                                <NavItem href="/">
+
+                                <NavItem href="/auth/logout">
                                     Log Out
                                 </NavItem>
                             </Nav>
@@ -56,7 +56,7 @@ class Header extends Component {
                                 <NavItem onClick={this.showRegister}>
                                     Register
                                 </NavItem>
-            
+
                                 <NavItem onClick={this.showLogin}>
                                     Log In
                                 </NavItem>
