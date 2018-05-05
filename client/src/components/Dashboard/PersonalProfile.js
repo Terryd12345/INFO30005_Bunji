@@ -7,7 +7,7 @@ class PersonalProfile extends Component {
         return (
             <div id="personal-profile">
                 <div id="personal-pic">
-                    <img src={require(`../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
+                    <img src={this.props.user.imagePath} alt={this.props.user.firstName} />
                     <br />
                     <a className="button" id="personal-btn-1" href="">
                         Change Picture

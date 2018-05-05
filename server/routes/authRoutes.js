@@ -18,13 +18,6 @@ router.get(
 );
 
 router.get(
-    "/profile",
-    (req, res) => {
-        res.send(req.user);
-    }
-);
-
-router.get(
     "/logout",
     (req, res) => {
         req.logout();

@@ -157,7 +157,7 @@ class Dashboard extends Component {
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile user={this.state.user} awards={this.state.awards} />
+                    <PersonalProfile user={this.state.userDetails} awards={this.state.awards} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts users={this.state.contacts} />

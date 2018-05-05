@@ -24,6 +24,7 @@ passport.use(new GoogleStrategy({
 async (accessToken, refreshToken, profile, done) => {
     const existingUser = await User.findOne({ "googleID": profile.id });
     if (existingUser) {
+        console.log(profile);
         return done(null, existingUser);
     }
     const user = await new User({
@@ -31,6 +32,7 @@ async (accessToken, refreshToken, profile, done) => {
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         gender: profile.gender,
+        imagePath: profile._json.image.url
     }).save();
     done(null, user);
 }
