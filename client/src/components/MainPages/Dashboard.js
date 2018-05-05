@@ -5,17 +5,19 @@ import Notifications from "../Dashboard/Notifications/Notifications";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
 // import Recommendations from "../Dashboard/Recommendations";
+import axios from 'axios';
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
+            userDetails: {},
             user: {
                 firstName: "John",
                 imagePath: "user"
             },
-            
+
             awards: [
                 {
                     caption: "Welcome!"
@@ -54,7 +56,7 @@ class Dashboard extends Component {
                     caption: "Fourth Birthday"
                 }
             ],
-            
+
             notifications: [
                 {
                     notification: "Jon sent you a message.",
@@ -72,7 +74,7 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-            
+
             contacts: [
                 {
                     firstName: "Jon",
@@ -90,7 +92,7 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-    
+
             events: [
                 {
                     date: "1 January 2019",
@@ -111,7 +113,7 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-            
+
             recommendations: [
                 {
                     skill: "Facebook",
@@ -135,13 +137,27 @@ class Dashboard extends Component {
                 }
             ]
         };
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
-    
+
+    componentDidMount(){
+        var self = this;
+        axios.get("/api/user")
+            .then(function (res) {
+                self.setState({ userDetails: res.data });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        console.log(this.state);
+    }
+
     render() {
+
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile user={this.state.user} awards={this.state.awards} />
+                    <PersonalProfile user={this.state.userDetails} awards={this.state.awards} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts users={this.state.contacts} />
