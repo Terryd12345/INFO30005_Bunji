@@ -21,9 +21,6 @@ class UserSelection extends Component {
     
                     <div id="user-selection">
                         {
-                            console.log(this.props.allUsers)
-                        }
-                        {
                             this.props.allUsers.map(user => {
                                 return <User key={user._id} user={user}
                                              updateSelectedUsers={this.props.updateSelectedUsers}

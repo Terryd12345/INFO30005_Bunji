@@ -1087,7 +1087,7 @@ a:hover {
 }
 
 #personal-pic img {
-    max-width: 70%;
+    width: 70%;
     height: auto;
     border-radius: 50%;
 }
@@ -1508,7 +1508,8 @@ a:hover {
     }
     #personal-btn-1,
     #personal-btn-2 {
-        width: 110px;
+        width: 90px;
+        font-size: 0.8rem;
     }
 }
 
@@ -1535,6 +1536,10 @@ a:hover {
         grid-template-areas: "profile" "badges" "notifications" "contacts" "events";
         grid-gap: 20px;
     }
+    #personal-pic img {
+        width: auto;
+        height: 35%;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 875px) {
@@ -1546,6 +1551,10 @@ a:hover {
         grid-template-rows: 530px 170px 400px 400px;
         grid-template-areas: "profile profile" "badges badges" "notifications contacts" "events events";
         grid-gap: 20px;
+    }
+    #personal-pic img {
+        width: auto;
+        height: 45%;
     }
 }
 
@@ -1565,10 +1574,6 @@ a:hover {
         grid-auto-rows: 50px 250px 150px;
         grid-column-gap: 10px;
         grid-template-areas: "title title" "picture stats" "skills skills";
-    }
-    #personal-pic img {
-        width: auto;
-        max-height: 55%;
     }
     #stats {
         grid-template: "stat-1" "stat-2" "stat-3";
@@ -1618,7 +1623,7 @@ a:hover {
     }
     #personal-pic img {
         width: auto;
-        max-height: 65%;
+        height: 65%;
     }
     #stats {
         grid-template: "stat-1" "stat-2" "stat-3";
