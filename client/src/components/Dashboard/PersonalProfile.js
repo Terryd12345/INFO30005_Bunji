@@ -3,6 +3,11 @@ import Awards from "../Dashboard/Awards/Awards";
 import Stats from "../Dashboard/Stats";
 
 class PersonalProfile extends Component {
+    constructor(props){
+        super(props);
+        this.state = {}
+    }
+
     render() {
         return (
             <div id="personal-profile">
@@ -17,11 +22,11 @@ class PersonalProfile extends Component {
                         Edit Info
                     </a>
                 </div>
-                
+
                 <header className="section-title">
                     <h3>Good afternoon, {this.props.user.firstName}!</h3>
                 </header>
-                
+
                 <Stats />
                 <Awards awards={this.props.awards} />
             </div>

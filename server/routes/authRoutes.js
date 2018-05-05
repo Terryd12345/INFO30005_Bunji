@@ -5,13 +5,16 @@ const router = express.Router();
 router.get(
     "/google",
     passport.authenticate("google", {
-        scope: ["profile", "email"]
+        scope: ["profile"]
     })
 );
 
 router.get(
     "/google/callback",
-    passport.authenticate("google")
+    passport.authenticate("google"),
+    function (req, res) {
+        res.redirect('/dashboard')
+    }
 );
 
 router.get(
@@ -25,7 +28,6 @@ router.get(
     "/logout",
     (req, res) => {
         req.logout();
-        res.send(req.user);
     }
 );
 
