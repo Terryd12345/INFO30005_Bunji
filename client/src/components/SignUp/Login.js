@@ -15,9 +15,6 @@ class Login extends Component {
                         <button type="submit" className="button" id="signup-btn">Log In</button>
                     </div>
                 </form>
-                <div className='googleLogin'>
-                    <a href="/auth/google"><button>Google Login</button></a>
-                </div>
             </div>
         )
     };

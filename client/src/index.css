@@ -219,6 +219,51 @@ a:hover {
     color: #578bca;
 }
 
+/* ==================== Google Button ===================== */
+
+.button-google,
+.button-google:active,
+.button-google:focus,
+.button-google:hover {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    outline: none;
+    width: 190px;
+    height: 38px;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    text-align: center;
+}
+
+.button-google-content-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.button-google-icon {
+    float: left;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 1px;
+}
+
+.button-google-icon-image {
+    width: 18px;
+    height: 18px;
+}
+
+.button-google-contents {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 38px;
+    letter-spacing: .21px;
+}
+
+/* ======================================================== */
+
 #welcome-btn:hover {
     background: #578bca;
     color: #fff;
@@ -603,7 +648,7 @@ a:hover {
 /* ==================== Steps - Outer ===================== */
 
 #steps {
-    padding: 30px 0;
+    padding: 30px 0 60px 0;
     background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
     text-align: center;
 }
