@@ -19,8 +19,6 @@ export default {
     getUser: function (req, res) {
         var userID = req.params.id;
         User.findById(userID).populate("skills").populate("connections").exec((err, user) => {
-            console.log(user);
-            console.log(err);
             if (!err) {
                 res.send(user);
             } else {
