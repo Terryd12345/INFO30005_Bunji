@@ -3,11 +3,6 @@ import Awards from "../Dashboard/Awards/Awards";
 import Stats from "../Dashboard/Stats";
 
 class PersonalProfile extends Component {
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
-
     render() {
         return (
             <div id="personal-profile">
