@@ -1,38 +1,34 @@
 import React, { Component } from "react";
-import AddSkills from "./AddSkills/AddSkills";
-import CompleteSkills from "./CompleteSkills/CompleteSkills";
+import ManageSkills from "./ManageSkills/ManageSkills";
 
 class Badges extends Component {
     showAvailable = () => {
-        this.addSkills.showAvailable();
-    }
-    
-    showSelected = () => {
-        this.completeSkills.showSelected();
+        this.manageSkills.showAvailable();
     }
     
     render() {
         return (
             <div id="badges">
-                <AddSkills ref={addSkills => this.addSkills = addSkills} />
-                <CompleteSkills ref={completeSkills => this.completeSkills = completeSkills} />
+                <ManageSkills ref={manageSkills => this.manageSkills = manageSkills} />
                 
                 <div id="badges-content">
                     <div onClick={this.showAvailable.bind(this)} className="badge centered" id="badge-1">
                         <h5>
                             <img src={require("../../../images/icons/add.png")} alt="Icon" />
-                            Add Skills
+                            Manage Skills
                         </h5>
                     </div>
-            
-                    <div onClick={this.showSelected.bind(this)} className="badge centered" id="badge-2">
-                        <h5>
-                            <img src={require("../../../images/icons/complete.png")} alt="Icon" />
-                            Complete Skills
-                        </h5>
-                    </div>
+    
+                    <a href="">
+                        <div className="badge centered" id="badge-2">
+                            <h5>
+                                <img src={require("../../../images/icons/create.png")} alt="Icon" />
+                                Create an Event
+                            </h5>
+                        </div>
+                    </a>
                     
-                    <a href="/find-mentor">
+                    <a href="">
                         <div className="badge centered" id="badge-3">
                             <h5>
                                 <img src={require("../../../images/icons/find.png")} alt="Icon" />

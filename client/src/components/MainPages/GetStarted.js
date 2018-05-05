@@ -8,7 +8,6 @@ class GetStarted extends Component {
     constructor(props) {
         super(props);
         
-        this.componentDidMount = this.componentDidMount.bind(this);
         this.showRegister = this.showRegister.bind(this);
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.updateSelectedUsers = this.updateSelectedUsers.bind(this);
@@ -19,23 +18,18 @@ class GetStarted extends Component {
         
         this.state = {
             loggedIn: true,
-
             showSection1: true,
             tickSection1: false,
-
             showSection2: false,
             tickSection2: false,
-
             showSection3: false,
-            
             allSkills: [],
             selectedSkills: [],
-
             allUsers: [],
             selectedUsers: []
         };
     }
-
+    
     componentDidMount() {
         var self = this;
         
@@ -47,7 +41,7 @@ class GetStarted extends Component {
                 console.log(error);
             });
     }
-
+    
     showRegister = () => {
         this.signup.showRegister();
     }

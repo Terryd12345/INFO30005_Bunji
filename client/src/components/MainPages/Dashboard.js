@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import PersonalProfile from "../Dashboard/PersonalProfile";
+import axios from "axios";
+import PersonalProfile from "../Dashboard/PersonalProfile/PersonalProfile";
 import Badges from "../Dashboard/Badges/Badges";
 import Notifications from "../Dashboard/Notifications/Notifications";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
-// import Recommendations from "../Dashboard/Recommendations";
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
+    
+        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         
         this.state = {
             user: {
@@ -16,44 +18,8 @@ class Dashboard extends Component {
                 imagePath: "user"
             },
             
-            awards: [
-                {
-                    caption: "Welcome!"
-                },
-                {
-                    caption: "First Skill"
-                },
-                {
-                    caption: "Contact a Mentor"
-                },
-                {
-                    caption:"3 Days In"
-                },
-                {
-                    caption: "5 Out Of 5"
-                },
-                {
-                    caption: "Logged In 10 Days"
-                },
-                {
-                    caption: "Learn 3 New Skills"
-                },
-                {
-                    caption: "Super Learner"
-                },
-                {
-                    caption: "First Birthday"
-                },
-                {
-                    caption: "Second Birthday"
-                },
-                {
-                    caption: "Third Birthday"
-                },
-                {
-                    caption: "Fourth Birthday"
-                }
-            ],
+            allSkills: [],
+            selectedSkills: [],
             
             notifications: [
                 {
@@ -110,43 +76,44 @@ class Dashboard extends Component {
                     location: "Melbourne Central",
                     imagePath: "user"
                 }
-            ],
-            
-            recommendations: [
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                }
             ]
         };
+    }
+    
+    componentDidMount() {
+        var self = this;
+        
+        axios.get("/api/allSkills")
+        .then(function (res) {
+            self.setState({ allSkills: res.data });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    updateSelectedSkills(id, state) {
+        if (state === false) {
+            this.setState({
+                selectedSkills: [...this.state.selectedSkills, id]
+            })
+        }
+        else {
+            this.setState(prevState => ({
+                selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
+            }))
+        }
     }
     
     render() {
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile user={this.state.user} awards={this.state.awards} />
+                    <PersonalProfile user={this.state.user} allSkills={this.state.allSkills} updateSelectedSkills={this.updateSelectedSkills} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts users={this.state.contacts} />
                     <Events events={this.state.events} />
-                    {/*<Recommendations skills={this.state.recommendations} />*/}
                 </div>
             </div>
         );

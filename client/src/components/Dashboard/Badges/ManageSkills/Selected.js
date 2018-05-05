@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import Skill from "../../../GetStarted/Skills/Skill";
 
 class Selected extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            addSkills: true
-        };
-    }
-    
     render() {
         return (
             <div>
@@ -25,7 +17,10 @@ class Selected extends Component {
                 
                 <div id="modal-button">
                     <a className="button" id="badges-btn">
-                        {this.state.addSkills ? "Remove Skills" : "Add to Learned"}
+                        Remove Skills
+                    </a>
+                    <a className="button" id="badges-btn">
+                        Add to Learned
                     </a>
                 </div>
             </div>

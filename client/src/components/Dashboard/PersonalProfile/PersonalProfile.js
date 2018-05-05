@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Awards from "../Dashboard/Awards/Awards";
-import Stats from "../Dashboard/Stats";
+import Stats from "./Stats";
+import PersonalSkills from "./PersonalSkills";
 
 class PersonalProfile extends Component {
     render() {
         return (
             <div id="personal-profile">
                 <div id="personal-pic">
-                    <img src={require(`../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
+                    <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
                     <br />
                     <a className="button" id="personal-btn-1" href="">
                         Change Picture
@@ -23,7 +23,7 @@ class PersonalProfile extends Component {
                 </header>
                 
                 <Stats />
-                <Awards awards={this.props.awards} />
+                <PersonalSkills allSkills={this.props.allSkills} updateSelectedSkills={this.props.updateSelectedSkills} />
             </div>
         );
     }
