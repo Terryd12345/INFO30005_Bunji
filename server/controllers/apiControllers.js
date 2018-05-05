@@ -39,7 +39,7 @@ export default {
             skills: req.body.skills,
             connections: req.body.connections,
             imagePath: req.body.imagePath
-        }, function (err) {
+        }, (err) => {
             if (err) {
                 res.sendStatus(404);
             } else {
@@ -83,7 +83,7 @@ export default {
         Skill.create(new Skill({
             skill: req.body.skill,
             imagePath: req.body.imagePath
-        }), function (err) {
+        }), (err) => {
             if (err) {
                 res.sendStatus(404);
             } else {
@@ -94,7 +94,7 @@ export default {
     },
 
     allSkills: function (req, res) {
-        Skill.find({}, function (err, docs) {
+        Skill.find({}, (err, docs) => {
             if (!err) {
                 res.send(docs);
             } else {
@@ -105,11 +105,9 @@ export default {
     },
     
     mentorsBySkills: function (req, res) {
-        console.log(req.body.skills);
         User.find({ $and: [{isMentor: true}, {skills: {$in: req.body.skills}}]}, function (err, docs) {
             if (!err) {
                 res.send(docs.map(function(user) {
-                    console.log(user.populate("skills"));
                     return user.populate("skills");
                 }));
             } else {
@@ -120,20 +118,31 @@ export default {
     },
     
     getChat: function (req, res) {
-        var chatID = req.params.id;
-        Chat.findById(chatID, (err, chat) => {
+        var user1ID = req.user._id;
+        var user2ID = req.params.id;
+        Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 res.send(chat);
             } else {
-                res.sendStatus(404);
+                var newChat = new Chat({
+                    user1: user1ID,
+                    user2: user2ID,
+                });
+                newChat.save((err) => {
+                    if (err) {
+                        res.sendStatus(500);
+                    }
+                });
+                res.send(newChat);
             }
             res.flush();
         });
     },
 
     postMessage: function (req, res) {
-        var chatID = req.params.id;
-        Chat.findById(chatID, (err, chat) => {
+        var user1ID = req.user._id;
+        var user2ID = req.params.id;
+        Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 chat.messages.push({
                     date: req.body.date,
