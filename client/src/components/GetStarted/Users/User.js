@@ -49,8 +49,6 @@ class User extends Component {
         
         const age = this.getAge(new Date(this.props.user.birthDate));
         
-        console.log(this.props.user);
-        
         return (
             <div onClick={this.onSelected} className="user-panel" style={style}>
                 <div className="user-pic">
@@ -60,7 +58,7 @@ class User extends Component {
                 <div className="user-desc centered">
                     <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
                     <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
-                    <h6>Skills: {this.props.user.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h6>
+                    <h6>Skills: {this.props.user.skills.map(x => x.skill).reduce((prev, curr) => [prev, ", ", curr])}</h6>
                     <p>{this.props.user.description}</p>
                 </div>
             </div>
