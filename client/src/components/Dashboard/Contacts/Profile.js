@@ -7,6 +7,7 @@ class Profile extends Component {
         
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.getAge = this.getAge.bind(this);
         
         this.state = {
             show: false
@@ -21,29 +22,42 @@ class Profile extends Component {
         this.setState({ show: true })
     }
     
+    getAge(birthDate) {
+        var today = new Date();
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+    
     render() {
+        const age = this.getAge(new Date(this.props.user.birthDate));
+        
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                     <div id="profile-panel">
                         <div id="profile-button">
                             <a href="/connections">
-                                <a className="button" id="profile-btn">Contact John</a>
+                                <a className="button" id="profile-btn">Contact {this.props.user.firstName}</a>
                             </a>
                         </div>
 
                         <div id="profile-pic">
-                            <img src={require("../../../images/users/user.png")} alt="User" />
+                            <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
                         </div>
 
                         <div id="profile-bio">
-                            <h3>John Doe</h3>
-                            <h4>21 / Male / Melbourne</h4>
-                            <h6>Skills: Facebook, Twitter</h6>
+                            <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
+                            <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
+                            <h6>Skills: {this.props.user.skills.map(x => x.skill).reduce((prev, curr) => [prev, ", ", curr])}</h6>
                         </div>
 
                         <div id="profile-desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>{this.props.user.description}</p>
                         </div>
                     </div>
                 </Modal>

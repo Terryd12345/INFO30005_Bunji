@@ -11,8 +11,8 @@ class Contacts extends Component {
                 
                 <div id="contacts-content">
                     {
-                        this.props.users.map(user => {
-                            return <Contact firstName={user.firstName} lastName={user.lastName} imagePath={user.imagePath} />;
+                        this.props.connections.map(user => {
+                            return <Contact key={user._id} user={user} />;
                         })
                     }
                 </div>
