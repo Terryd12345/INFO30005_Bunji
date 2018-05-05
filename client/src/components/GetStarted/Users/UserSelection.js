@@ -15,11 +15,14 @@ class UserSelection extends Component {
             <div className="page-wrap">
                 <div className="wrapper">
                     <header className="header">
-                        <h2>We found 3 mentors for you!</h2>
-                        <h5>You can select up to 3 mentors, and the first one to confirm your request will be paired up with you.</h5>
+                        <h2>We found {this.props.allUsers.length} mentors for you!</h2>
+                        <h5>The first one to confirm your request will be paired up with you.</h5>
                     </header>
     
                     <div id="user-selection">
+                        {
+                            console.log(this.props.allUsers)
+                        }
                         {
                             this.props.allUsers.map(user => {
                                 return <User key={user._id} user={user}

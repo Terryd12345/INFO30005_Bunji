@@ -7,24 +7,30 @@ var User = mongoose.model("user");
 
 export default {
     getCurrentUser: function (req, res) {
-        User.findById(req.user._id).populate("skills").populate("connections").exec((err, user) => {
-            if (!err) {
-                res.send(user);
-            } else {
-                res.sendStatus(404);
-            }
+        User.findById(req.user._id)
+            .populate("skills")
+            .populate("connections")
+            .exec((err, user) => {
+                if (!err) {
+                    res.send(user);
+                } else {
+                    res.sendStatus(404);
+                }
         });
     },
 
     getUser: function (req, res) {
         var userID = req.params.id;
-        User.findById(userID).populate("skills").populate("connections").exec((err, user) => {
-            if (!err) {
-                res.send(user);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
+        User.findById(userID)
+            .populate("skills")
+            .populate("connections")
+            .exec((err, user) => {
+                if (!err) {
+                    res.send(user);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
         });
     },
 
@@ -106,13 +112,16 @@ export default {
     },
 
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }] }).populate("skills").populate("connections").exec(function (err, docs) {
-            if (!err) {
-                res.send(docs);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
+        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }] })
+            .populate("skills")
+            .populate("connections")
+            .exec((err, user) => {
+                if (!err) {
+                    res.send(user);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
         });
     },
 
