@@ -32,10 +32,13 @@ export default {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             birthDate: req.body.birthDate,
+            gender: req.body.gender,
+            location: req.body.location,
             isMentor: req.body.isMentor,
             description: req.body.description,
             skills: req.body.skills,
-            connections: req.body.connections
+            connections: req.body.connections,
+            imagePath: req.body.imagePath
         }, function (err) {
             if (err) {
                 res.sendStatus(404);
@@ -100,7 +103,22 @@ export default {
             res.flush();
         });
     },
-
+    
+    mentorsBySkills: function (req, res) {
+        console.log(req.body.skills);
+        User.find({ $and: [{isMentor: true}, {skills: {$in: req.body.skills}}]}, function (err, docs) {
+            if (!err) {
+                res.send(docs.map(function(user) {
+                    console.log(user.populate("skills"));
+                    return user.populate("skills");
+                }));
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+    
     getChat: function (req, res) {
         var chatID = req.params.id;
         Chat.findById(chatID, (err, chat) => {

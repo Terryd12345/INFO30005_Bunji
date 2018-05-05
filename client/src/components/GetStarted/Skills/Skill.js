@@ -27,7 +27,7 @@ class Skill extends Component {
         } else {
             this.setState({ isSelected: false, backgroundColor: "", borderColor: "" });
         }
-        this.props.updateSelectedSkills(this);
+        this.props.updateSelectedSkills(this.props.skill._id, this.state.isSelected);
     }
 
     render() {
@@ -38,8 +38,8 @@ class Skill extends Component {
 
         return (
             <div onClick={this.onSelected} className="skills-panel centered" style={style}>
-                <img src={require(`../../../images/skills/${this.props.imagePath}.png`)} alt={this.props.skill} />
-                {this.props.skill}
+                <img src={require(`../../../images/skills/${this.props.skill.imagePath}.png`)} alt={this.props.skill.skill} />
+                {this.props.skill.skill}
             </div>
         );
     }

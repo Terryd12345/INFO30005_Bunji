@@ -33,7 +33,7 @@ class Profile extends Component {
                         </div>
 
                         <div id="profile-pic">
-                            <img src={require("../../../images/user.png")} alt="User" />
+                            <img src={require("../../../images/users/user.png")} alt="User" />
                         </div>
 
                         <div id="profile-bio">

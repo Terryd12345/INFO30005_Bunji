@@ -6,7 +6,7 @@ class Notification extends Component {
             <div>
                 <div className="notification-panel">
                     <div className="notification-pic">
-                        <img src={require(`../../../images/${this.props.imagePath}.png`)} alt={this.props.firstName} />
+                        <img src={require(`../../../images/users/${this.props.imagePath}.png`)} alt={this.props.firstName} />
                     </div>
                     <div className="notification-desc">
                         {this.props.notification}

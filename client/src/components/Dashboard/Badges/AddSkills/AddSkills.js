@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import Available from "./Available";
 import Selected from "./Selected";
+import axios from "axios";
 
 class AddSkills extends Component {
     constructor(props) {
         super(props);
         
+        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.closeAll = this.closeAll.bind(this);
         this.showAvailable = this.showAvailable.bind(this);
         this.showSelected = this.showSelected.bind(this);
@@ -15,92 +17,37 @@ class AddSkills extends Component {
             show: false,
             available: true,
     
-            availableSkills: [
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                }
-            ],
+            availableSkills: [],
+            arrAvailable: [],
             
-            selectedSkills: [
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "Facebook",
-                    imagePath: "facebook"
-                },
-                {
-                    skill: "Twitter",
-                    imagePath: "twitter"
-                },
-                {
-                    skill: "Instagram",
-                    imagePath: "instagram"
-                },
-                {
-                    skill: "LinkedIn",
-                    imagePath: "linkedin"
-                },
-                {
-                    skill: "iPad",
-                    imagePath: "apple"
-                },
-                {
-                    skill: "iPhone",
-                    imagePath: "apple"
-                }
-            ]
+            selectedSkills: [],
+            arrSelected: []
         };
+    }
+    
+    componentDidMount() {
+        var self = this;
+    
+        axios.get("/api/allSkills")
+        .then(function (res) {
+            self.setState({ availableSkills: res.data, selectedSkills: res.data });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    updateSelectedSkills(id, state) {
+        if (state === false) {
+            this.setState({
+                arrAvailable: [...this.state.arrAvailable, id]
+            })
+        }
+        else {
+            this.setState(prevState => ({
+                arrAvailable: prevState.arrAvailable.filter(skill_id => skill_id !== id)
+            }))
+        }
     }
     
     closeAll() {
@@ -141,7 +88,7 @@ class AddSkills extends Component {
                     <Modal.Body>
                         <div id="signup">
                             {
-                                this.state.available ? <Available skills={this.state.availableSkills} /> : <Selected skills={this.state.selectedSkills} />
+                                this.state.available ? <Available skills={this.state.availableSkills} updateSelectedSkills={this.updateSelectedSkills} /> : <Selected skills={this.state.selectedSkills} updateSelectedSkills={this.updateSelectedSkills} />
                             }
                         </div>
                     </Modal.Body>

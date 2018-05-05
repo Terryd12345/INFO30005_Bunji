@@ -5,10 +5,13 @@ var userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     birthDate: Date,
+    gender: String,
+    location: String,
     isMentor: Boolean,
     description: String,
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }]
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }],
+    imagePath: String
 })
 
 export default mongoose.model("user", userSchema);

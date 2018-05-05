@@ -4,7 +4,7 @@ import Badges from "../Dashboard/Badges/Badges";
 import Notifications from "../Dashboard/Notifications/Notifications";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
-import Recommendations from "../Dashboard/Recommendations";
+// import Recommendations from "../Dashboard/Recommendations";
 
 class Dashboard extends Component {
     constructor(props) {
@@ -146,7 +146,7 @@ class Dashboard extends Component {
                     <Notifications notifications={this.state.notifications} />
                     <Contacts users={this.state.contacts} />
                     <Events events={this.state.events} />
-                    <Recommendations skills={this.state.recommendations} />
+                    {/*<Recommendations skills={this.state.recommendations} />*/}
                 </div>
             </div>
         );

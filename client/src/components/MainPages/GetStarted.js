@@ -11,6 +11,7 @@ class GetStarted extends Component {
         this.componentDidMount = this.componentDidMount.bind(this);
         this.showRegister = this.showRegister.bind(this);
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
+        this.updateSelectedUsers = this.updateSelectedUsers.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
         this.handleSection1 = this.handleSection1.bind(this);
@@ -32,43 +33,14 @@ class GetStarted extends Component {
             allSkills: [],
             selectedSkills: [],
 
-            users: [
-                {
-                    firstName: "John",
-                    lastName: "Doe",
-                    birthDate: "1997-01-01T00:00:00+00:00",
-                    gender: "Male",
-                    location: "Melbourne",
-                    skills: ["Facebook", "Twitter"],
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    imagePath: "user"
-                },
-                {
-                    firstName: "Jane",
-                    lastName: "Doe",
-                    birthDate: "1999-01-01T00:00:00+00:00",
-                    gender: "Female",
-                    location: "Adelaide",
-                    skills: ["Instagram", "iPhone"],
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    imagePath: "user"
-                },
-                {
-                    firstName: "Fred",
-                    lastName: "Doe",
-                    birthDate: "1994-01-01T00:00:00+00:00",
-                    gender: "Male",
-                    location: "Gold Coast",
-                    skills: ["MacBook", "MS Word"],
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    imagePath: "user"
-                }
-            ]
+            allUsers: [],
+            selectedUsers: []
         };
     }
 
     componentDidMount() {
         var self = this;
+        
         axios.get("/api/allSkills")
             .then(function (res) {
                 self.setState({ allSkills: res.data });
@@ -82,15 +54,30 @@ class GetStarted extends Component {
         this.signup.showRegister();
     }
     
-    updateSelectedSkills(e) {
-        if (e.state.isSelected === false) {
+    /* ============================================================================================================= */
+    
+    updateSelectedSkills(id, state) {
+        if (state === false) {
             this.setState({
-                selectedSkills: [...this.state.selectedSkills, e.props.skill]
+                selectedSkills: [...this.state.selectedSkills, id]
             })
         }
         else {
             this.setState(prevState => ({
-                selectedSkills: prevState.selectedSkills.filter(skill => skill !== e.props.skill)
+                selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
+            }))
+        }
+    }
+    
+    updateSelectedUsers(id, state) {
+        if (state === false) {
+            this.setState({
+                selectedUsers: [...this.state.selectedUsers, id]
+            })
+        }
+        else {
+            this.setState(prevState => ({
+                selectedUsers: prevState.selectedUsers.filter(user_id => user_id !== id)
             }))
         }
     }
@@ -98,10 +85,20 @@ class GetStarted extends Component {
     /* ============================================================================================================= */
 
     toSection2() {
+        var self = this;
+        
         if (this.state.doneSection1 === false) {
             this.setState({ showSection2: false });
         } else {
-            this.setState({ showSection2: true, showSection1: false, tickSection1: true });
+            axios.post("/api/mentorsBySkills", {
+                    skills: self.state.selectedSkills
+                })
+                .then(function (res) {
+                    self.setState({ allUsers: res.data, showSection2: true, showSection1: false, tickSection1: true });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
     
@@ -146,6 +143,8 @@ class GetStarted extends Component {
 
         return (
             <div id="page-wrap">
+                <SignUp ref={signup => this.signup = signup} />
+                
                 <div id="section-1">
                     <header onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
                         <h2>
@@ -163,8 +162,7 @@ class GetStarted extends Component {
                             <div className="section-content">
                                 <SkillSelection allSkills={this.state.allSkills}
                                                 selectedSkills={this.state.selectedSkills}
-                                                updateSelectedSkills={this.updateSelectedSkills}
-                                                ref={skillselection => this.skillselection = skillselection} />
+                                                updateSelectedSkills={this.updateSelectedSkills} />
 
                                 <a onClick={this.toSection2} className="button" id="skill-selection-btn"
                                     href={this.state.doneSection1 ? "#section-2" : null}>
@@ -175,8 +173,8 @@ class GetStarted extends Component {
                     }
                 </div>
 
-                <div onClick={this.handleSection2} id="section-2">
-                    <header className="section-header" style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
+                <div id="section-2">
+                    <header onClick={this.handleSection2} className="section-header" style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
                         <h2>2. Find Mentor
                         {
                                 this.state.tickSection2 ? (
@@ -189,9 +187,10 @@ class GetStarted extends Component {
                     {
                         this.state.showSection2 ? (
                             <div className="section-content">
-                                <UserSelection users={this.state.users} />
-
-                                <SignUp ref={signup => this.signup = signup} />
+                                <UserSelection allUsers={this.state.allUsers}
+                                               selectedUsers={this.state.selectedUsers}
+                                               updateSelectedUsers={this.updateSelectedUsers} />
+                                
                                 <a onClick={this.toSection3} className="button" id="user-selection-btn"
                                     href={this.state.doneSection2 ? "#section-3" : null}>
                                     Confirm

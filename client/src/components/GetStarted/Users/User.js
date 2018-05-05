@@ -8,10 +8,18 @@ class User extends Component {
         this.getAge = this.getAge.bind(this);
         
         this.state = {
-            isSelected: false,
+            isSelected: this.props.isSelected,
             backgroundColor: "",
             borderColor: ""
         };
+    }
+    
+    componentDidMount() {
+        if (this.state.isSelected === false) {
+            this.setState({ backgroundColor: "", borderColor: "" });
+        } else {
+            this.setState({ backgroundColor: "#f3e5f5", borderColor: "#8b55a4" });
+        }
     }
 
     onSelected() {
@@ -20,6 +28,7 @@ class User extends Component {
         } else {
             this.setState({ isSelected: false, backgroundColor: "", borderColor: "" });
         }
+        this.props.updateSelectedUsers(this.props.user._id, this.state.isSelected);
     }
     
     getAge(birthDate) {
@@ -38,19 +47,21 @@ class User extends Component {
             borderColor: this.state.borderColor
         }
         
-        const age = this.getAge(new Date(this.props.birthDate));
+        const age = this.getAge(new Date(this.props.user.birthDate));
+        
+        console.log(this.props.user);
         
         return (
             <div onClick={this.onSelected} className="user-panel" style={style}>
                 <div className="user-pic">
-                    <img src={require(`../../../images/${this.props.imagePath}.png`)} alt={this.props.firstName} />
+                    <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
                 </div>
                 
                 <div className="user-desc centered">
-                    <h3>{this.props.firstName} {this.props.lastName}</h3>
-                    <h4>{age} / {this.props.gender} / {this.props.location}</h4>
-                    <h6>Skills: {this.props.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h6>
-                    <p>{this.props.description}</p>
+                    <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
+                    <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
+                    <h6>Skills: {this.props.user.skills.map(x => x).reduce((prev, curr) => [prev, ", ", curr])}</h6>
+                    <p>{this.props.user.description}</p>
                 </div>
             </div>
         );
