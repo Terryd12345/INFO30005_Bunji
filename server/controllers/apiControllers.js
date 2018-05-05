@@ -7,19 +7,22 @@ var User = mongoose.model("user");
 
 export default {
     getCurrentUser: function (req, res) {
-        res.send(req.user)
-            .populate("skills")
-            .populate("connections");
-        res.flush();
+        User.findById(req.user._id).populate("skills").populate("connections").exec((err, user) => {
+            if (!err) {
+                res.send(user);
+            } else {
+                res.sendStatus(404);
+            }
+        });
     },
 
     getUser: function (req, res) {
         var userID = req.params.id;
-        User.findById(userID, (err, user) => {
+        User.findById(userID).populate("skills").populate("connections").exec((err, user) => {
+            console.log(user);
+            console.log(err);
             if (!err) {
-                res.send(user
-                    .populate("skills")
-                    .populate("connections"));
+                res.send(user);
             } else {
                 res.sendStatus(404);
             }
@@ -103,20 +106,18 @@ export default {
             res.flush();
         });
     },
-    
+
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [{isMentor: true}, {skills: {$in: req.body.skills}}]}, function (err, docs) {
+        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }] }).populate("skills").populate("connections").exec(function (err, docs) {
             if (!err) {
-                res.send(docs.map(function(user) {
-                    return user.populate("skills");
-                }));
+                res.send(docs);
             } else {
                 res.sendStatus(404);
             }
             res.flush();
         });
     },
-    
+
     getChat: function (req, res) {
         var user1ID = req.user._id;
         var user2ID = req.params.id;

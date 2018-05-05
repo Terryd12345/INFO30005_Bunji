@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
     isMentor: Boolean,
     description: String,
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "userSchema" }],
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     imagePath: String
 })
 
