@@ -9,7 +9,7 @@ export default {
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
-            .populate("connections")
+            .populate({ path: "connections", populate: { path: "skills" }})
             .exec((err, user) => {
                 if (!err) {
                     res.send(user);

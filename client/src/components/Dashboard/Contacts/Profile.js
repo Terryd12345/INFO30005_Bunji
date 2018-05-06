@@ -15,22 +15,6 @@ class Profile extends Component {
         };
     }
     
-    // componentDidMount(){
-    //     var self = this;
-    //
-    //     axios.get("/api/user", {
-    //         params: {
-    //             id: this.props.user._id
-    //         }
-    //     })
-    //     .then(function (res) {
-    //         self.setState({ skills: res.data.skills });
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
-    // }
-    
     handleClose() {
         this.setState({ show: false });
     }
