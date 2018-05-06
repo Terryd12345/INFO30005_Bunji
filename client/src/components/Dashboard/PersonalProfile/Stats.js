@@ -5,11 +5,11 @@ class Stats extends Component {
         return (
             <div id="stats">
                 <div className="stat centered" id="stat-1">
-                    <h3>5</h3>
+                    <h3>{this.props.skills}</h3>
                     <h5>Skills Learned</h5>
                 </div>
                 <div className="stat centered" id="stat-2">
-                    <h3>3</h3>
+                    <h3>{this.props.connections}</h3>
                     <h5>Mentors Met</h5>
                 </div>
                 <div className="stat centered" id="stat-3">

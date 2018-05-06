@@ -20,16 +20,19 @@ class Dashboard extends Component {
             
             notifications: [
                 {
+                    _id: "1",
                     notification: "Jon sent you a message.",
                     time: "Just Now",
                     imagePath: "user"
                 },
                 {
+                    _id: "2",
                     notification: "Jane sent you a message.",
                     time: "1hr ago",
                     imagePath: "user"
                 },
                 {
+                    _id: "3",
                     notification: "Fred sent you a message.",
                     time: "2hr ago",
                     imagePath: "user"
@@ -92,18 +95,21 @@ class Dashboard extends Component {
 
             events: [
                 {
+                    _id: "1",
                     date: "1 January 2019",
                     time: "12 - 2 PM",
                     location: "Melbourne Central",
                     imagePath: "user"
                 },
                 {
+                    _id: "2",
                     date: "8 January 2019",
                     time: "1 - 3 PM",
                     location: "Victoria Market",
                     imagePath: "user"
                 },
                 {
+                    _id: "3",
                     date: "15 January 2019",
                     time: "12 - 2 PM",
                     location: "Melbourne Central",
@@ -116,21 +122,25 @@ class Dashboard extends Component {
     componentDidMount(){
         var self = this;
         
+        // Use this if you are not logged in as Bunji Bunji.
+        // =================================================
+        // axios.get("/api/allSkills")
+        //     .then(function (res) {
+        //         self.setState({ allSkills: res.data });
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+        
+        // Use this if you are logged in as Bunji Bunji.
+        // =================================================
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({ user: res.data });
+                self.setState({ user: res.data, allSkills: res.data.skills, connections: res.data.connections });
             })
             .catch(function (error) {
                 console.log(error);
             });
-        
-        axios.get("/api/allSkills")
-            .then(function (res) {
-                self.setState({ allSkills: res.data });
-            })
-            .catch(function (error) {
-                console.log(error);
-        });
     }
     
     updateSelectedSkills(id, state) {
@@ -147,11 +157,10 @@ class Dashboard extends Component {
     }
     
     render() {
-
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile user={this.state.user} allSkills={this.state.allSkills} updateSelectedSkills={this.updateSelectedSkills} />
+                    <PersonalProfile user={this.state.user} connections={this.state.connections} allSkills={this.state.allSkills} updateSelectedSkills={this.updateSelectedSkills} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts connections={this.state.connections} />

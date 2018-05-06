@@ -44,7 +44,7 @@ class PersonalProfile extends Component {
                     <h3>Good {greeting}, {this.props.user.firstName}!</h3>
                 </header>
 
-                <Stats />
+                <Stats skills={this.props.allSkills.length} connections={this.props.connections.length} />
                 <PersonalSkills allSkills={this.props.allSkills} updateSelectedSkills={this.props.updateSelectedSkills} />
             </div>
         );

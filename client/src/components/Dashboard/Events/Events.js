@@ -12,7 +12,7 @@ class Events extends Component {
                 <div id="events-content">
                     <div id="events-sidebar-sm">
                         <select>
-                            <option value="" selected>Upcoming</option>
+                            <option value="" defaultValue>Upcoming</option>
                             <option value="">This Week</option>
                             <option value="">This Month</option>
                             <option value="">Past</option>
@@ -39,7 +39,7 @@ class Events extends Component {
                     <div id="events-window">
                         {
                             this.props.events.map(event => {
-                                return <Event title={event.title} date={event.date} time={event.time} location={event.location} imagePath={event.imagePath} />;
+                                return <Event key={event._id} title={event.title} date={event.date} time={event.time} location={event.location} imagePath={event.imagePath} />;
                             })
                         }
                     </div>

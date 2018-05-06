@@ -9,10 +9,12 @@ class ManageSkills extends Component {
     constructor(props) {
         super(props);
         
-        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.closeAll = this.closeAll.bind(this);
         this.showAvailable = this.showAvailable.bind(this);
         this.showSelected = this.showSelected.bind(this);
+        this.showLearned = this.showLearned.bind(this);
+        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
+        this.getAvailableSkills = this.getAvailableSkills.bind(this);
         
         this.state = {
             show: false,
@@ -30,13 +32,37 @@ class ManageSkills extends Component {
     componentDidMount() {
         var self = this;
     
+        axios.get("/api/user")
+            .then(function (res) {
+                self.setState({ selectedSkills: res.data.skills });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    
         axios.get("/api/allSkills")
-        .then(function (res) {
-            self.setState({ availableSkills: res.data, selectedSkills: res.data, learnedSkills: res.data });
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (res) {
+                self.setState({ availableSkills: res.data });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    
+    closeAll() {
+        this.setState({ show: false });
+    }
+    
+    showAvailable() {
+        this.setState({ availableSkills: this.getAvailableSkills(this.state.availableSkills), show: true, available: true, selected: false });
+    }
+    
+    showSelected() {
+        this.setState({ show: true, available: false, selected: true });
+    }
+    
+    showLearned() {
+        this.setState({ show: true, available: false, selected: false });
     }
     
     updateSelectedSkills(id, state) {
@@ -51,21 +77,19 @@ class ManageSkills extends Component {
             }))
         }
     }
+
+    getAvailableSkills(e) {
+        let available = e;
+        let selected = this.state.selectedSkills;
     
-    closeAll() {
-        this.setState({ show: false });
-    }
-    
-    showAvailable() {
-        this.setState({ show: true, available: true, selected: false })
-    }
-    
-    showSelected = () => {
-        this.setState({ show: true, available: false, selected: true })
-    }
-    
-    showLearned = () => {
-        this.setState({ show: true, available: false, selected: false })
+        for(let i=available.length-1; i>=0; i--) {
+            for(let j=0; j<selected.length; j++) {
+                if(available[i] && (available[i]._id === selected[j]._id)) {
+                    available.splice(i, 1);
+                }
+            }
+        }
+        return available;
     }
     
     render() {

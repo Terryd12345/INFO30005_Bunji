@@ -10,9 +10,26 @@ class Profile extends Component {
         this.getAge = this.getAge.bind(this);
         
         this.state = {
-            show: false
+            show: false,
+            skills: []
         };
     }
+    
+    // componentDidMount(){
+    //     var self = this;
+    //
+    //     axios.get("/api/user", {
+    //         params: {
+    //             id: this.props.user._id
+    //         }
+    //     })
+    //     .then(function (res) {
+    //         self.setState({ skills: res.data.skills });
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    // }
     
     handleClose() {
         this.setState({ show: false });
@@ -23,9 +40,9 @@ class Profile extends Component {
     }
     
     getAge(birthDate) {
-        var today = new Date();
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
+        let today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
         
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
             age--;
@@ -41,9 +58,7 @@ class Profile extends Component {
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                     <div id="profile-panel">
                         <div id="profile-button">
-                            <a href="/connections">
-                                <a className="button" id="profile-btn">Contact {this.props.user.firstName}</a>
-                            </a>
+                            <a className="button" id="profile-btn" href="/connections">Contact {this.props.user.firstName}</a>
                         </div>
 
                         <div id="profile-pic">
