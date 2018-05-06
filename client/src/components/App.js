@@ -10,32 +10,37 @@ const Loading = () => <div id="loading"><MoonLoader loading={true} /></div>;
 const Home = Loadable({
     loader: () => import("./MainPages/Home"),
     loading: Loading,
-})
+});
+
+const Welcome = Loadable({
+    loader: () => import("./MainPages/Welcome"),
+    loading: Loading,
+});
 
 const GetStarted = Loadable({
     loader: () => import("./MainPages/GetStarted"),
     loading: Loading,
-})
+});
 
 const Dashboard = Loadable({
     loader: () => import("./MainPages/Dashboard"),
     loading: Loading,
-})
+});
 
 const UserSelection = Loadable({
     loader: () => import("./GetStarted/Users/UserSelection"),
     loading: Loading,
-})
+});
 
 const Relationships = Loadable({
     loader: () => import("./MainPages/Relationships"),
     loading: Loading,
-})
+});
 
 const NotFound = Loadable({
     loader: () => import("./NotFound"),
     loading: Loading,
-})
+});
 
 class App extends Component {
     render() {
@@ -46,6 +51,7 @@ class App extends Component {
                     
                     <Switch>
                         <Route exact path="/" component={Home} />
+                        <Route exact path="/welcome" component={Welcome} />
                         <Route exact path="/get-started" component={GetStarted} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/connections" component={Relationships} />

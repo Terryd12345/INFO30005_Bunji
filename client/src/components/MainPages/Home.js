@@ -13,8 +13,8 @@ class Home extends Component {
     render() {
         return (
             <div id="page-wrap">
-                <div id="welcome">
-                    <video id="welcome-video" autoPlay muted loop>
+                <div id="home">
+                    <video id="home-video" autoPlay muted loop>
                         <source src={require(`../../images/home.mp4`)} type="video/mp4" />
                     </video>
                     
@@ -48,7 +48,7 @@ class Home extends Component {
                         
                         <h1 className="fade-in">Bunji</h1>
                         <h4 className="fade-in">It's never too late to learn!</h4>
-                        <a className="button fade-in" id="welcome-btn" href="get-started">
+                        <a className="button fade-in" id="home-btn" href="get-started">
                             Get Started!
                         </a>
                         <Scroll type="id" element="about">
@@ -60,7 +60,7 @@ class Home extends Component {
                 </div>
         
                 <div id="about">
-                    <div id="about-pic"></div>
+                    <div id="about-pic" />
                     
                     <div id="about-desc">
                         <h1>What is Bunji?</h1>
@@ -108,7 +108,7 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    {/*<a onClick={this.showRegister.bind(this)} className="button fade-in" id="about-btn">*/}
+                    {/*<a onClick={this.showRegister.bind(this)} className="button fade-in" id="steps-btn">*/}
                         {/*Register*/}
                     {/*</a>*/}
                 </div>

@@ -64,7 +64,7 @@ class Header extends Component {
                         <Navbar>
                             <Navbar.Header>
                                 <Navbar.Brand>
-                                    <a id="logo" href="/"><img src={require("../images/logo.jpg")} alt="Logo"/></a>
+                                    <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo"/></a>
                                 </Navbar.Brand>
             
                                 <Navbar.Toggle/>
@@ -90,7 +90,7 @@ class Header extends Component {
                         <Navbar>
                             <Navbar.Header>
                                 <Navbar.Brand>
-                                    <a id="logo" href="/"><img src={require("../images/logo.jpg")} alt="Logo"/></a>
+                                    <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo"/></a>
                                 </Navbar.Brand>
                             </Navbar.Header>
                         </Navbar>
