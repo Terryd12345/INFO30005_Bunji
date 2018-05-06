@@ -229,7 +229,7 @@ a:hover {
     outline: none;
     width: 190px;
     height: 38px;
-    background-color: #4285f4;
+    background: #4285f4;
     border: 1px solid #4285f4;
     border-radius: 1px;
     color: #fff;
@@ -244,7 +244,7 @@ a:hover {
 .button-google-icon {
     float: left;
     padding: 10px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 1px;
 }
 
@@ -1894,32 +1894,24 @@ a:hover {
 /* =============================================== Relationships.js ================================================ */
 
 #relationships {
-    width: 100%;
-    display: grid;
-    grid-template: "chat calendar" 1fr / 1fr 1fr;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.05rem;
+    line-height: 140%;
 }
 
 #chat {
-    grid-area: chat;
-    width: 100%;
+    padding: 25px;
     display: grid;
     grid-template: "connections chatBox" 1fr / 1fr 3fr;
 }
 
-#connections {
-    grid-area: connections;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: rgba(60, 60, 60, 0.2);
-}
-
-#connections .connection:nth-child(odd) {
-    background: #eee;
-}
+/* ===================== Connections ====================== */
 
 .connection {
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     background: #fff;
 }
 
@@ -1928,25 +1920,29 @@ a:hover {
     background: #ccc;
 }
 
-#chatBox {
-    grid-area: chatBox;
-}
-
-#messages {
+#connections {
+    grid-area: connections;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(100vh - 105px);
-    margin: 0;
-    padding: 0;
+    background: rgba(60, 60, 60, 0.2);
+    border-radius: 8px 0 0 8px;
+    font-size: 1.2rem;
+    line-height: 140%;
 }
+
+#connections .connection:nth-child(odd) {
+    background: #eee;
+}
+
+/* ======================= Chat Box ======================= */
 
 .message {
     display: inline-block;
     clear: both;
-    margin-bottom: 2px;
-    padding: 20px;
-    border-radius: 30px;
-    font-family: Helvetica, Arial, sans-serif;
+    max-width: 70%;
+    margin-bottom: 8px;
+    padding: 5px 15px;
+    border-radius: 20px;
 }
 
 .message.other {
@@ -1959,6 +1955,27 @@ a:hover {
     background: #0084ff;
     color: #fff;
 }
+
+#chatBox {
+    grid-area: chatBox;
+}
+
+#messages-outer {
+    padding: 5px;
+    background: #fff;
+    border-radius: 0 8px 0 0;
+}
+
+#messages {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 105px);
+    margin: 0;
+    padding: 10px;
+    background: #fff;
+}
+
+/* ===================== Message Box ====================== */
 
 #messageBox {
     display: flex;
@@ -1973,7 +1990,6 @@ a:hover {
     background: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
     color: #495057;
     font-size: 1rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -1986,7 +2002,7 @@ a:hover {
     padding: .375rem .75rem;
     background: #eee none;
     border: 1px solid #6c757d;
-    border-radius: .25rem;
+    border-radius: 0 0 8px 0;
     color: #6c757d;
     font-size: 1rem;
     font-weight: 400;
@@ -1999,16 +2015,22 @@ a:hover {
     color: #fff;
 }
 
-#calendar {
-    grid-area: calendar;
-    padding: 10px;
-}
+/* ======================================================== */
 
-@media (max-width: 1100px) {
-    #relationships {
-        grid-template: "chat" "calendar";
+/* @media (max-width: 700px) {
+    #chat {
+        grid-template: "chatBox" 1fr;
     }
-}
+    #connections {
+        display: none;
+    }
+    #messages-outer {
+        border-radius: 8px 8px 0 0;
+    }
+    #message {
+        border-radius: 0 0 0 8px;
+    }
+} */
 
 /* ================================================= Modal Window ================================================== */
 
