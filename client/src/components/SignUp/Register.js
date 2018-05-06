@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Register extends Component {
     render() {
         return (
-            <form action="/action_page.php">
+            <form action="">
                 <label htmlFor="first-name" id="first-name">First Name</label>
                 <label htmlFor="last-name" id="last-name">Last Name</label>
                 
@@ -60,6 +60,6 @@ class Register extends Component {
             </form>
         )
     };
-};
+}
 
 export default Register;

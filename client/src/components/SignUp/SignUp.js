@@ -25,20 +25,20 @@ class SignUp extends Component {
         this.setState({ show: true, register: true })
     }
     
-    showLogin = () => {
+    showLogin() {
         this.setState({ show: true, register: false })
     }
-
+    
     render() {
         const activeRegister = {
             backgroundColor: "#f1f1f1",
             borderTopLeftRadius: "6px"
-        }
+        };
         
         const activeLogin = {
             backgroundColor: "#f1f1f1",
             borderTopRightRadius: "6px"
-        }
+        };
         
         return (
             <div>
@@ -63,6 +63,6 @@ class SignUp extends Component {
             </div>
         )
     };
-};
+}
 
 export default SignUp;

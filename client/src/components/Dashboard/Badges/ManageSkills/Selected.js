@@ -16,16 +16,16 @@ class Selected extends Component {
                 </div>
                 
                 <div id="modal-button">
-                    <a className="button" id="badges-btn">
+                    <a onClick={this.props.unselectSkills} className="button" id="badges-btn">
                         Remove Skills
                     </a>
-                    <a className="button" id="badges-btn">
+                    <a onClick={this.props.addLearned} className="button" id="badges-btn">
                         Add to Learned
                     </a>
                 </div>
             </div>
         )
     };
-};
+}
 
 export default Selected;

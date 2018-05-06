@@ -4,7 +4,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <form action="/action_page.php">
+                <form action="">
                     <label htmlFor="email">Email</label>
                     <input type="text" name="email" required />
 
@@ -18,6 +18,6 @@ class Login extends Component {
             </div>
         )
     };
-};
+}
 
 export default Login;

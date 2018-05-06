@@ -4,7 +4,7 @@ import ManageSkills from "./ManageSkills/ManageSkills";
 class Badges extends Component {
     showAvailable = () => {
         this.manageSkills.showAvailable();
-    }
+    };
     
     render() {
         return (

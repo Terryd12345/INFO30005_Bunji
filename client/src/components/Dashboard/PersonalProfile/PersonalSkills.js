@@ -6,10 +6,11 @@ class PersonalSkills extends Component {
         return (
             <div id="personal-skills">
                 {
-                    this.props.allSkills.map(skill => {
+                    this.props.learnedSkills.map(skill => {
                         return <Skill key={skill._id} skill={skill}
                                       updateSelectedSkills={this.props.updateSelectedSkills}
-                                      isSelected={false} />;
+                                      isSelected={false}
+                                      inDashboard={true} />;
                     })
                 }
             </div>

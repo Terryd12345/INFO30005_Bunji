@@ -34,7 +34,7 @@ class Skill extends Component {
         const style = {
             backgroundColor: this.state.backgroundColor,
             borderColor: this.state.borderColor
-        }
+        };
 
         return (
             <div onClick={this.onSelected} className="skills-panel centered" style={style}>

@@ -6,7 +6,7 @@ class Messages extends Component {
         
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
-        this.scrollToBotton = this.scrollToBotton.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this);
         
         this.state = {
         
@@ -14,14 +14,14 @@ class Messages extends Component {
     }
 
     componentDidMount() {
-        this.scrollToBotton();
+        this.scrollToBottom();
     }
 
     componentDidUpdate() {
-        this.scrollToBotton();
+        this.scrollToBottom();
     }
 
-    scrollToBotton() {
+    scrollToBottom() {
         this.myRef.scrollTop = this.myRef.scrollHeight;
     }
 

@@ -12,7 +12,7 @@ class Welcome extends Component {
                             <h2>One last step!</h2>
                         </header>
                         
-                        <form action="/action_page.php">
+                        <form action="">
                             <label htmlFor="birth-date" id="birth-date">Date of Birth</label>
                             <select name="month" id="month" defaultValue="">
                                 <option value="" disabled={true}>Month</option>
@@ -51,6 +51,6 @@ class Welcome extends Component {
             </div>
         );
     };
-};
+}
 
 export default Welcome;

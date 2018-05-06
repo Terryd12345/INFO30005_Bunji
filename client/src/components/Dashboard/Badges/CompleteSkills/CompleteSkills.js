@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
-import Selected from "../AddSkills/Selected";
-import Learned from "./Learned";
 import axios from "axios";
+import Selected from "../ManageSkills/Selected";
+import Learned from "../ManageSkills/Learned";
 
 class CompleteSkills extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class CompleteSkills extends Component {
     }
     
     componentDidMount() {
-        var self = this;
+        const self = this;
         
         axios.get("/api/allSkills")
         .then(function (res) {
@@ -58,7 +58,7 @@ class CompleteSkills extends Component {
         this.setState({ show: true, selected: true })
     }
     
-    showLearned = () => {
+    showLearned() {
         this.setState({ show: true, selected: false })
     }
     
@@ -66,12 +66,12 @@ class CompleteSkills extends Component {
         const activeSelected = {
             backgroundColor: "#f1f1f1",
             borderTopLeftRadius: "6px"
-        }
+        };
     
         const activeLearned = {
             backgroundColor: "#f1f1f1",
             borderTopRightRadius: "6px"
-        }
+        };
         
         return (
             <div>
@@ -96,6 +96,6 @@ class CompleteSkills extends Component {
             </div>
         )
     };
-};
+}
 
 export default CompleteSkills;

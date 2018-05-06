@@ -46,7 +46,7 @@ class User extends Component {
         const style = {
             backgroundColor: this.state.backgroundColor,
             borderColor: this.state.borderColor
-        }
+        };
         
         const age = this.getAge(new Date(this.props.user.birthDate));
         
