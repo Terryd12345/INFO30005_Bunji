@@ -141,6 +141,12 @@ a:hover {
     height: 100px;
 }
 
+#sectionLoading {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+}
+
 :focus {
     outline: none;
 }

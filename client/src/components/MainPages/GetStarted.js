@@ -176,11 +176,11 @@ class GetStarted extends Component {
                     {
                         this.state.showSection1 ? (
                             <div className="section-content">
-                                <div id="loading"><MoonLoader loading={this.state.loadingSkills} /></div>
                                 <SkillSelection allSkills={this.state.allSkills}
                                     selectedSkills={this.state.selectedSkills}
                                     updateSelectedSkills={this.updateSelectedSkills} />
 
+                                <div id="sectionLoading"><MoonLoader loading={this.state.loadingSkills} /></div>
                                 <a onClick={this.toSection2} className="button" id="skill-selection-btn" href={this.tickSection1 ? "#section-2" : "#section-1"}>
                                     Find Mentor
                                 </a>
