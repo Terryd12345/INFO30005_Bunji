@@ -13,7 +13,10 @@ class NewEvent extends Component {
         this.state = {
             show: false,
             register: true,
-            name: ''
+            name: '',
+            location: '',
+            invite: '',
+            date: ''
         };
     }
 
@@ -26,7 +29,14 @@ class NewEvent extends Component {
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.name);
+        alert(
+            `
+            name:  ${this.state.name}
+            location: ${this.state.location}
+            invite: ${this.state.invite}
+            date: ${this.state.date}
+            `
+        );
         event.preventDefault();
     }
 
@@ -55,25 +65,32 @@ class NewEvent extends Component {
                       <label>
                         Name:
                         <br />
-                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text" value={this.state.name}
+                        onChange={(event) => this.setState({name: event.target.value})} />
                       </label>
                       <br />
                       <label>
                         Location:
                         <br />
-                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text"
+                        value={this.state.location}
+                        onChange={(event) => this.setState({location: event.target.value})} />
                       </label>
                       <br />
                       <label>
                         Invite:
                         <br />
-                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text"
+                         value={this.state.invite}
+                         onChange={(event) => this.setState({invite: event.target.value})} />
                       </label>
                       <br />
                       <label>
                         Date:
                         <br />
-                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text"
+                        value={this.state.date}
+                        onChange={(event) => this.setState({date: event.target.value})} />
                       </label>
                       <br />
                       <input type="submit" value="Submit" />
