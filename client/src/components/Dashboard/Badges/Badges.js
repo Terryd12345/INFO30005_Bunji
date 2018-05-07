@@ -9,9 +9,7 @@ class Badges extends Component {
             <div id="badges">
                 <div id="badges-content">
                     <ManageSkills />
-                    <a href="">
-                        <NewEvent />
-                    </a>
+                    <NewEvent />
                     <a href="">
                     <div className="badge centered" id="badge-3">
                         <h5>
