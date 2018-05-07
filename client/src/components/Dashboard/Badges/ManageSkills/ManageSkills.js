@@ -67,29 +67,43 @@ class ManageSkills extends Component {
     /* ============================================================================================================= */
 
     closeAll() {
-        this.setState({ show: false, arrAvailable: [], arrSelected: [], arrLearned: [] });
+        this.setState({
+            show: false,
+            arrAvailable: [],
+            arrSelected: [],
+            arrLearned: []
+        });
     }
 
     showAvailable() {
         this.setState({
             availableSkills: this.filterAvailableSkills(this.state.allAvailableSkills),
-            show: true, available: true, selected: false,
-            arrSelected: [], arrLearned: []
+            show: true,
+            available: true,
+            selected: false,
+            arrSelected: [],
+            arrLearned: []
         });
     }
 
     showSelected() {
         this.setState({
             selectedSkills: this.filterSelectedSkills(this.state.allSelectedSkills),
-            show: true, available: false, selected: true,
-            arrAvailable: [], arrLearned: []
+            show: true,
+            available: false,
+            selected: true,
+            arrAvailable: [],
+            arrLearned: []
         });
     }
 
     showLearned() {
         this.setState({
-            show: true, available: false, selected: false,
-            arrAvailable: [], arrSelected: []
+            show: true,
+            available: false,
+            selected: false,
+            arrAvailable: [],
+            arrSelected: []
         });
     }
 

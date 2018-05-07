@@ -23,15 +23,6 @@ class NewEvent extends Component {
     }
 
     render() {
-        const activeRegister = {
-            backgroundColor: "#f1f1f1",
-            borderTopLeftRadius: "6px"
-        };
-
-        const activeLogin = {
-            backgroundColor: "#f1f1f1",
-            borderTopRightRadius: "6px"
-        };
 
         return (
             <div>
