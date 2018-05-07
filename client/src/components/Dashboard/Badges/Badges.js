@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ManageSkills from "./ManageSkills/ManageSkills";
 import NewEvent from './CreateEvent/NewEvent';
+import FindMentor from './FindMentor/FindMentor';
 
 class Badges extends Component {
 
@@ -10,14 +11,7 @@ class Badges extends Component {
                 <div id="badges-content">
                     <ManageSkills />
                     <NewEvent />
-                    <a href="">
-                    <div className="badge centered" id="badge-3">
-                        <h5>
-                            <img src={require("../../../images/icons/find.png")} alt="Icon" />
-                            Find Mentor
-                        </h5>
-                    </div>
-                    </a>
+                    <FindMentor />
                 </div>
             </div>
         );
