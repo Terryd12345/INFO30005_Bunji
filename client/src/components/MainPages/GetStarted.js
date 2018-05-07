@@ -3,11 +3,12 @@ import axios from "axios";
 import SkillSelection from "../GetStarted/Skills/SkillSelection";
 import UserSelection from "../GetStarted/Users/UserSelection";
 import SignUp from "../SignUp/SignUp";
+import { MoonLoader } from "react-spinners";
 
 class GetStarted extends Component {
     constructor(props) {
         super(props);
-        
+
         this.showRegister = this.showRegister.bind(this);
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.updateSelectedUsers = this.updateSelectedUsers.bind(this);
@@ -15,7 +16,7 @@ class GetStarted extends Component {
         this.toSection3 = this.toSection3.bind(this);
         this.handleSection1 = this.handleSection1.bind(this);
         this.handleSection2 = this.handleSection2.bind(this);
-        
+
         this.state = {
             loggedIn: true,
             showSection1: true,
@@ -23,6 +24,7 @@ class GetStarted extends Component {
             showSection2: false,
             tickSection2: false,
             showSection3: false,
+            loadingSkills: true,
             allSkills: [],
             selectedSkills: [],
             tmpSkills: [],
@@ -31,19 +33,19 @@ class GetStarted extends Component {
             tmpUsers: []
         };
     }
-    
+
     componentDidMount() {
         var self = this;
 
         axios.get("/api/allSkills")
             .then(function (res) {
-                self.setState({ allSkills: res.data });
+                self.setState({ loadingSkills: false, allSkills: res.data });
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-    
+
     showRegister = () => {
         this.signup.showRegister();
     }
@@ -86,8 +88,8 @@ class GetStarted extends Component {
             alert("Please select a skill.");
         } else {
             axios.post("/api/mentorsBySkills", {
-                    skills: self.state.selectedSkills
-                })
+                skills: self.state.selectedSkills
+            })
                 .then(function (res) {
                     self.setState({ allUsers: res.data, showSection1: false, showSection2: true, tickSection1: true, tickSection2: false, selectedUsers: [], tmpSkills: [], tmpUsers: [] });
                 })
@@ -114,11 +116,15 @@ class GetStarted extends Component {
 
     handleSection1() {
         if (this.state.tickSection1 === true && this.state.showSection1 === false) {
-            this.setState({ showSection1: true, showSection2: false, showSection3: false,
-                            tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers });
+            this.setState({
+                showSection1: true, showSection2: false, showSection3: false,
+                tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers
+            });
         } else if (this.state.tickSection1 === true && this.state.showSection1 === true) {
-            this.setState({ showSection1: false, selectedSkills: this.state.tmpSkills, tmpSkills: [],
-                            selectedUsers: this.state.tmpUsers, tmpUsers: [] });
+            this.setState({
+                showSection1: false, selectedSkills: this.state.tmpSkills, tmpSkills: [],
+                selectedUsers: this.state.tmpUsers, tmpUsers: []
+            });
 
             if (this.state.tickSection2 === false) {
                 this.setState({ showSection2: true })
@@ -130,11 +136,15 @@ class GetStarted extends Component {
 
     handleSection2() {
         if (this.state.tickSection2 === true && this.state.showSection2 === false) {
-            this.setState({ showSection2: true, showSection1: false, showSection3: false,
-                            tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers });
+            this.setState({
+                showSection2: true, showSection1: false, showSection3: false,
+                tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers
+            });
         } else if (this.state.tickSection2 === true && this.state.showSection2 === true) {
-            this.setState({ showSection2: false, showSection3: true, selectedSkills: this.state.tmpSkills, tmpSkills: [],
-                            selectedUsers: this.state.tmpUsers, tmpUsers: []  });
+            this.setState({
+                showSection2: false, showSection3: true, selectedSkills: this.state.tmpSkills, tmpSkills: [],
+                selectedUsers: this.state.tmpUsers, tmpUsers: []
+            });
         }
     }
 
@@ -166,9 +176,10 @@ class GetStarted extends Component {
                     {
                         this.state.showSection1 ? (
                             <div className="section-content">
+                                <div id="loading"><MoonLoader loading={this.state.loadingSkills} /></div>
                                 <SkillSelection allSkills={this.state.allSkills}
-                                                selectedSkills={this.state.selectedSkills}
-                                                updateSelectedSkills={this.updateSelectedSkills} />
+                                    selectedSkills={this.state.selectedSkills}
+                                    updateSelectedSkills={this.updateSelectedSkills} />
 
                                 <a onClick={this.toSection2} className="button" id="skill-selection-btn" href={this.tickSection1 ? "#section-2" : "#section-1"}>
                                     Find Mentor
@@ -193,8 +204,8 @@ class GetStarted extends Component {
                         this.state.showSection2 ? (
                             <div className="section-content">
                                 <UserSelection allUsers={this.state.allUsers}
-                                               selectedUsers={this.state.selectedUsers}
-                                               updateSelectedUsers={this.updateSelectedUsers} />
+                                    selectedUsers={this.state.selectedUsers}
+                                    updateSelectedUsers={this.updateSelectedUsers} />
 
                                 <a onClick={this.toSection3} className="button" id="user-selection-btn" href={this.tickSection2 ? "#section-3" : "#section-2"}>
                                     Confirm
