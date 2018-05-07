@@ -6,7 +6,7 @@ class Messages extends Component {
         
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
-        this.scrollToBotton = this.scrollToBotton.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this);
         
         this.state = {
         
@@ -14,27 +14,29 @@ class Messages extends Component {
     }
 
     componentDidMount() {
-        this.scrollToBotton();
+        this.scrollToBottom();
     }
 
     componentDidUpdate() {
-        this.scrollToBotton();
+        this.scrollToBottom();
     }
 
-    scrollToBotton() {
+    scrollToBottom() {
         this.myRef.scrollTop = this.myRef.scrollHeight;
     }
 
     render() {
         return (
-            <div ref={(el) => { this.myRef = el; }} id="messages">
-                {this.props.chat.messages.map(message => {
-                    if (message.sender === this.props.chat.user1) {
-                        return <div className="message own">{message.message}</div>;
-                    } else {
-                        return <div className="message other">{message.message}</div>;
-                    }
-                })}
+            <div id="messages-outer">
+                <div ref={(el) => { this.myRef = el; }} id="messages">
+                    {this.props.chat.messages.map(message => {
+                        if (message.sender === this.props.chat.user1) {
+                            return <div className="message own">{message.message}</div>;
+                        } else {
+                            return <div className="message other">{message.message}</div>;
+                        }
+                    })}
+                </div>
             </div>
         )
     }

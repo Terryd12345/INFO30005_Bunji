@@ -16,11 +16,11 @@ class Learned extends Component {
                 </div>
                 
                 <div id="modal-button">
-                    <a className="button" id="badges-btn">Remove from Learned</a>
+                    <a onClick={this.props.removeLearned} className="button" id="badges-btn">Remove from Learned</a>
                 </div>
             </div>
         )
     };
-};
+}
 
 export default Learned;

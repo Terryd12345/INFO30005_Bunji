@@ -16,11 +16,11 @@ class Available extends Component {
                 </div>
                 
                 <div id="modal-button">
-                    <a className="button" id="badges-btn">Select Skills</a>
+                    <a onClick={this.props.selectSkills} className="button" id="badges-btn">Select Skills</a>
                 </div>
             </div>
         )
     };
-};
+}
 
 export default Available;

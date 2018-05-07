@@ -35,7 +35,7 @@ class GetStarted extends Component {
     }
 
     componentDidMount() {
-        var self = this;
+        const self = this;
 
         axios.get("/api/allSkills")
             .then(function (res) {
@@ -45,13 +45,13 @@ class GetStarted extends Component {
                 console.log(error);
             });
     }
-
-    showRegister = () => {
+    
+    showRegister() {
         this.signup.showRegister();
     }
-
+    
     /* ============================================================================================================= */
-
+    
     updateSelectedSkills(id, state) {
         if (state === false) {
             this.setState({
@@ -64,7 +64,7 @@ class GetStarted extends Component {
             }))
         }
     }
-
+    
     updateSelectedUsers(id, state) {
         if (state === false) {
             this.setState({
@@ -77,12 +77,12 @@ class GetStarted extends Component {
             }))
         }
     }
-
+    
     /* ============================================================================================================= */
-
+    
     toSection2() {
-        var self = this;
-
+        const self = this;
+        
         if (this.state.selectedSkills.length < 1) {
             this.setState({ showSection2: false, tickSection1: false, tickSection2: false });
             alert("Please select a skill.");
@@ -98,7 +98,7 @@ class GetStarted extends Component {
                 });
         }
     }
-
+    
     toSection3() {
         if (this.state.selectedUsers.length < 1) {
             this.setState({ showSection3: false, tickSection2: false });
@@ -111,9 +111,9 @@ class GetStarted extends Component {
             }
         }
     }
-
+    
     /* ============================================================================================================= */
-
+    
     handleSection1() {
         if (this.state.tickSection1 === true && this.state.showSection1 === false) {
             this.setState({
@@ -133,7 +133,7 @@ class GetStarted extends Component {
             }
         }
     }
-
+    
     handleSection2() {
         if (this.state.tickSection2 === true && this.state.showSection2 === false) {
             this.setState({
@@ -147,16 +147,16 @@ class GetStarted extends Component {
             });
         }
     }
-
+    
     /* ============================================================================================================= */
-
+    
     render() {
         const disabled = {
             backgroundColor: "#eee",
             borderColor: "#bbb",
             color: "#bbb"
-        }
-
+        };
+        
         return (
             <div id="page-wrap">
                 <SignUp ref={signup => this.signup = signup} />

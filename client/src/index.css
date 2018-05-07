@@ -175,7 +175,6 @@ a:hover {
     margin: 0 auto;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -208,7 +207,6 @@ a:hover {
     text-decoration: none;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -231,7 +229,7 @@ a:hover {
     outline: none;
     width: 190px;
     height: 38px;
-    background-color: #4285f4;
+    background: #4285f4;
     border: 1px solid #4285f4;
     border-radius: 1px;
     color: #fff;
@@ -246,7 +244,7 @@ a:hover {
 .button-google-icon {
     float: left;
     padding: 10px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 1px;
 }
 
@@ -264,25 +262,38 @@ a:hover {
 
 /* ======================================================== */
 
-#welcome-btn:hover {
+#home-btn:hover {
     background: #578bca;
     color: #fff;
     transform: scale(1.1);
 }
 
-#about-btn,
-#about-btn:active,
-#about-btn:focus {
+#steps-btn,
+#steps-btn:active,
+#steps-btn:focus {
     margin-bottom: 0;
     background: #8b55a4;
     border: 2px solid #8b55a4;
 }
 
-#about-btn:hover {
+#steps-btn:hover {
     background: #8b55a4;
     border: 2px solid #8b55a4;
     color: #fff;
     transform: scale(1.1);
+}
+
+#welcome-btn,
+#welcome-btn:active,
+#welcome-btn:focus {
+    margin: 5px auto 0 auto;
+    background: #8b55a4;
+    border: 2px solid #8b55a4;
+}
+
+#welcome-btn:hover {
+    background: #fff;
+    color: #8b55a4;
 }
 
 #skill-selection-btn {
@@ -336,12 +347,16 @@ a:hover {
 }
 
 #badges-btn {
-    margin: 15px 5px 0 5px;
+    margin: 15px 10px 0 10px;
     padding: 5px 15px;
     font-size: 1.1rem;
 }
 
 @media (max-width: 800px) {
+    #welcome-btn {
+        margin: 2px auto 0 auto;
+        padding: 8px 20px;
+    }
     #profile-btn {
         margin: 0 auto;
     }
@@ -429,7 +444,6 @@ a:hover {
     background: #3e3f3d;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -444,7 +458,6 @@ a:hover {
     border-bottom: 5px solid #fff;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -516,35 +529,34 @@ a:hover {
 
 /* ==================================================== Home.js ==================================================== */
 
-/* ======================= Welcome ======================== */
+/* ========================= Home ========================= */
 
-#welcome {
+#home {
     position: relative;
     height: 100vh;
     padding: 0;
     overflow: hidden;
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
 }
 
-#welcome h1 {
+#home h1 {
     color: #fff;
     font-family: "Abril Fatface", serif;
     font-size: 8rem;
     margin-bottom: 5px;
 }
 
-#welcome h4 {
+#home h4 {
     margin-bottom: 5px;
     color: #fff;
     font-family: "Courgette", cursive;
 }
 
-#welcome-video {
+#home-video {
     position: absolute;
     top: -70px;
     right: 0;
@@ -568,7 +580,6 @@ a:hover {
     font-size: 1.3rem;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -579,13 +590,13 @@ a:hover {
 }
 
 @media (min-width: 1701px) and (max-width: 2000px) {
-    #welcome-video {
+    #home-video {
         height: 150vh;
     }
 }
 
 @media (min-width: 2001px) {
-    #welcome-video {
+    #home-video {
         height: 200vh;
     }
 }
@@ -600,10 +611,9 @@ a:hover {
 
 #about-pic {
     grid-area: picture;
-    background: url("images/about.png") center;
+    background: url("images/women.png") right;
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
@@ -669,7 +679,6 @@ a:hover {
 
 #steps-title h1 {
     color: #fff;
-    font-family: "Lato", sans-serif;
 }
 
 #steps-content {
@@ -802,6 +811,113 @@ a:hover {
     }
 }
 
+/* ================================================== Welcome.js =================================================== */
+
+#welcome {
+    display: grid;
+    grid-template: "picture form" 1fr / 45% 55%;
+}
+
+#welcome-pic {
+    grid-area: picture;
+    background: url("images/men.png") center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#welcome-form {
+    grid-area: form;
+    padding: 50px;
+    background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
+}
+
+#welcome-form label {
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+#welcome-form input,
+#welcome-form select,
+#welcome-form textarea {
+    width: 100%;
+    margin: 3px 0 25px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    background: #f1f1f1;
+}
+
+#welcome-form input:focus,
+#welcome-form textarea:focus {
+    background: #ddd;
+}
+
+#welcome-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#welcome-form textarea {
+    resize: none;
+}
+
+#welcome-form #month {
+    width: 48%;
+    margin-right: 2%;
+}
+
+#welcome-form #day {
+    width: 22%;
+    margin-right: 2%;
+}
+
+#welcome-form #year {
+    width: 26%;
+}
+
+#welcome-form-title h2 {
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+@media (max-width: 800px) {
+    #welcome {
+        height: 100vh;
+        grid-template: "form" 1fr / 1fr;
+    }
+    #welcome-pic {
+        display: none;
+    }
+    #welcome-form {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 950px) {
+    #welcome {
+        grid-template: 1fr / 1fr 1fr;
+    }
+    #welcome-form {
+        padding: 30px 50px;
+    }
+}
+
+@media (min-width: 1801px) {
+    #welcome-form {
+        padding: 60px 80px;
+    }
+    #welcome-form input,
+    #welcome-form select,
+    #welcome-form textarea {
+        margin: 8px 0 35px 0;
+    }
+}
+
 /* ================================================= GetStarted.js ================================================= */
 
 .header {
@@ -885,7 +1001,6 @@ a:hover {
     font-size: 1.6rem;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -958,7 +1073,6 @@ a:hover {
     grid-gap: 15px;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -1175,6 +1289,14 @@ a:hover {
     width: 30px;
     height: 30px;
     margin: 0 auto 1px auto;
+}
+
+#personal-skills-overlay {
+    grid-area: skills;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
 /* ======================== Badges ======================== */
@@ -1403,7 +1525,6 @@ a:hover {
     text-decoration: none;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -1465,7 +1586,6 @@ a:hover {
     height: 40px;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -1774,32 +1894,24 @@ a:hover {
 /* =============================================== Relationships.js ================================================ */
 
 #relationships {
-    width: 100%;
-    display: grid;
-    grid-template: "chat calendar" 1fr / 1fr 1fr;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.05rem;
+    line-height: 140%;
 }
 
 #chat {
-    grid-area: chat;
-    width: 100%;
+    padding: 25px;
     display: grid;
     grid-template: "connections chatBox" 1fr / 1fr 3fr;
 }
 
-#connections {
-    grid-area: connections;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: rgba(60, 60, 60, 0.2);
-}
-
-#connections .connection:nth-child(odd) {
-    background: #eee;
-}
+/* ===================== Connections ====================== */
 
 .connection {
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     background: #fff;
 }
 
@@ -1808,25 +1920,29 @@ a:hover {
     background: #ccc;
 }
 
-#chatBox {
-    grid-area: chatBox;
-}
-
-#messages {
+#connections {
+    grid-area: connections;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(100vh - 105px);
-    margin: 0;
-    padding: 0;
+    background: rgba(60, 60, 60, 0.2);
+    border-radius: 8px 0 0 8px;
+    font-size: 1.2rem;
+    line-height: 140%;
 }
+
+#connections .connection:nth-child(odd) {
+    background: #eee;
+}
+
+/* ======================= Chat Box ======================= */
 
 .message {
     display: inline-block;
     clear: both;
-    margin-bottom: 2px;
-    padding: 20px;
-    border-radius: 30px;
-    font-family: Helvetica, Arial, sans-serif;
+    max-width: 70%;
+    margin-bottom: 8px;
+    padding: 5px 15px;
+    border-radius: 20px;
 }
 
 .message.other {
@@ -1839,6 +1955,27 @@ a:hover {
     background: #0084ff;
     color: #fff;
 }
+
+#chatBox {
+    grid-area: chatBox;
+}
+
+#messages-outer {
+    padding: 5px;
+    background: #fff;
+    border-radius: 0 8px 0 0;
+}
+
+#messages {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 105px);
+    margin: 0;
+    padding: 10px;
+    background: #fff;
+}
+
+/* ===================== Message Box ====================== */
 
 #messageBox {
     display: flex;
@@ -1853,7 +1990,6 @@ a:hover {
     background: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
     color: #495057;
     font-size: 1rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -1866,7 +2002,7 @@ a:hover {
     padding: .375rem .75rem;
     background: #eee none;
     border: 1px solid #6c757d;
-    border-radius: .25rem;
+    border-radius: 0 0 8px 0;
     color: #6c757d;
     font-size: 1rem;
     font-weight: 400;
@@ -1879,16 +2015,22 @@ a:hover {
     color: #fff;
 }
 
-#calendar {
-    grid-area: calendar;
-    padding: 10px;
-}
+/* ======================================================== */
 
-@media (max-width: 1100px) {
-    #relationships {
-        grid-template: "chat" "calendar";
+/* @media (max-width: 700px) {
+    #chat {
+        grid-template: "chatBox" 1fr;
     }
-}
+    #connections {
+        display: none;
+    }
+    #messages-outer {
+        border-radius: 8px 8px 0 0;
+    }
+    #message {
+        border-radius: 0 0 0 8px;
+    }
+} */
 
 /* ================================================= Modal Window ================================================== */
 
@@ -1998,9 +2140,6 @@ a:hover {
 #signup select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
 }
 
 #signup #first-name {

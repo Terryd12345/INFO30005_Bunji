@@ -12,8 +12,8 @@ import auth from "./routes/authRoutes";
 import { cookieKey } from "./config";
 
 
-const staticFiles = express.static(path.join(__dirname, "../../client/build"))
-const app = express()
+const staticFiles = express.static(path.join(__dirname, "../../client/build"));
+const app = express();
 
 app.use(
   cookieSession({
@@ -24,8 +24,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(compression());
 
@@ -38,11 +38,11 @@ app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "../../client/build/index.html"), function (err) {
         if (err) {
             res.status(500).send(err);
-        };
+        }
     });
-})
+});
 
-app.set("port", (process.env.PORT || 5000))
+app.set("port", (process.env.PORT || 5000));
 app.listen(app.get("port"), () => {
     console.log(`Listening on ${app.get("port")}`)
-})
+});

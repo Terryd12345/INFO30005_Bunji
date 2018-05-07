@@ -10,8 +10,8 @@ class PersonalProfile extends Component {
     }
     
     getGreeting() {
-        var today = new Date();
-        var hour = today.getHours();
+        let today = new Date();
+        let hour = today.getHours();
         
         if (hour < 12) {
             return "morning";
@@ -44,8 +44,9 @@ class PersonalProfile extends Component {
                     <h3>Good {greeting}, {this.props.user.firstName}!</h3>
                 </header>
 
-                <Stats skills={this.props.allSkills.length} connections={this.props.connections.length} />
-                <PersonalSkills allSkills={this.props.allSkills} updateSelectedSkills={this.props.updateSelectedSkills} />
+                <Stats skills={this.props.learnedSkills.length} connections={this.props.connections.length} />
+                <PersonalSkills learnedSkills={this.props.learnedSkills} updateSelectedSkills={this.props.updateSelectedSkills} />
+                <div id="personal-skills-overlay" />
             </div>
         );
     }

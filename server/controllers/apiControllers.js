@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
 
-var Chat = mongoose.model("chat");
-var Event = mongoose.model("event");
-var Skill = mongoose.model("skill");
-var User = mongoose.model("user");
+const Chat = mongoose.model("chat");
+const Event = mongoose.model("event");
+const Skill = mongoose.model("skill");
+const User = mongoose.model("user");
 
 export default {
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
+            .populate("learnedSkills")
             .populate({ path: "connections", populate: { path: "skills" }})
             .exec((err, user) => {
                 if (!err) {
@@ -20,7 +21,7 @@ export default {
     },
 
     getUser: function (req, res) {
-        var userID = req.params.id;
+        let userID = req.params.id;
         User.findById(userID)
             .populate("skills")
             .populate("connections")
@@ -34,6 +35,10 @@ export default {
         });
     },
 
+    editUser: function (req, res) {
+        User.update();
+    },
+
     createUser: function (req, res) {
         User.create(new User({
             firstName: req.body.firstName,
@@ -44,6 +49,7 @@ export default {
             isMentor: req.body.isMentor,
             description: req.body.description,
             skills: req.body.skills,
+            learnedSkills: req.body.learnedSkills,
             connections: req.body.connections,
             imagePath: req.body.imagePath
         }, (err) => {
@@ -51,54 +57,12 @@ export default {
                 res.sendStatus(404);
             } else {
                 res.sendStatus(200);
-            };
+            }
             res.flush();
         }));
     },
 
-    editUser: function (req, res) {
-        User.update();
-    },
-
-    addSkill: function (req, res) {
-        var userID = req.user._id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.skills.push(req.body.skillID);
-                user.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
-    },
-
-    addConnection: function (req, res) {
-        var userID = req.user._id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.connections.push(req.body.connectionID);
-                user.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
-    },
-
-    createSkill: function (req, res) {
-        Skill.create(new Skill({
-            skill: req.body.skill,
-            imagePath: req.body.imagePath
-        }), (err) => {
-            if (err) {
-                res.sendStatus(404);
-            } else {
-                res.sendStatus(200);
-            };
-            res.flush();
-        });
-    },
+    /* ============================================================================================================= */
 
     allSkills: function (req, res) {
         Skill.find({}, (err, docs) => {
@@ -125,14 +89,105 @@ export default {
         });
     },
 
+    addSkills: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.skills.push(skill);
+                        user.save(user);
+                    });
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+        });
+    },
+
+    removeSkills: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.skills.pull(skill);
+                        user.save(user);
+                    });
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+        });
+    },
+
+    addLearned: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.learnedSkills.push(skill);
+                        user.save(user);
+                    });
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+        });
+    },
+
+    removeLearned: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.learnedSkills.pull(skill);
+                        user.save(user);
+                    });
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+        });
+    },
+
+    createSkill: function (req, res) {
+        Skill.create(new Skill({
+            skill: req.body.skill,
+            imagePath: req.body.imagePath
+        }), (err) => {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            }
+            res.flush();
+        });
+    },
+
+    /* ============================================================================================================= */
+
+    addConnection: function (req, res) {
+        let userID = req.user._id;
+        Chat.findById(userID, (err, user) => {
+            if (!err) {
+                user.connections.push(req.body.connectionID);
+                user.save(done);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
+    /* ============================================================================================================= */
+
     getChat: function (req, res) {
-        var user1ID = req.user._id;
-        var user2ID = req.params.id;
+        let user1ID = req.user._id;
+        let user2ID = req.params.id;
         Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 res.send(chat);
             } else {
-                var newChat = new Chat({
+                let newChat = new Chat({
                     user1: user1ID,
                     user2: user2ID,
                 });
@@ -148,8 +203,8 @@ export default {
     },
 
     postMessage: function (req, res) {
-        var user1ID = req.user._id;
-        var user2ID = req.params.id;
+        let user1ID = req.user._id;
+        let user2ID = req.params.id;
         Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
             if (!err) {
                 chat.messages.push({

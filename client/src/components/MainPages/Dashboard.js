@@ -16,6 +16,7 @@ class Dashboard extends Component {
             user: {},
             
             allSkills: [],
+            learnedSkills: [],
             selectedSkills: [],
             
             notifications: [
@@ -38,61 +39,9 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-
-            connections: [
-                {
-                    "_id": "5aebf0f519c95f09964a5265",
-                    "skills": [
-                        {"_id":"5ae977b7762c284337d33c82","skill":"Facebook","imagePath":"facebook","__v":0},
-                        {"_id":"5ae977d1762c284337d33c83","skill":"Twitter","imagePath":"twitter","__v":0}
-                    ],
-                    "connections": [],
-                    "firstName": "Jon",
-                    "lastName": "Doe",
-                    "birthDate": "1997-01-01T00:00:00.000Z",
-                    "gender": "Male",
-                    "location": "Melbourne",
-                    "isMentor": true,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "imagePath": "user",
-                    "__v": 0
-                },
-                {
-                    "_id": "5aebf20f83101509a708a4ac",
-                    "skills": [
-                        {"_id":"5ae977b7762c284337d33c82","skill":"Facebook","imagePath":"facebook","__v":0},
-                        {"_id":"5ae977d1762c284337d33c83","skill":"Twitter","imagePath":"twitter","__v":0}
-                    ],
-                    "connections": [],
-                    "firstName": "Jane",
-                    "lastName": "Doe",
-                    "birthDate": "1999-01-01T00:00:00.000Z",
-                    "gender": "Female",
-                    "location": "Melbourne",
-                    "isMentor": true,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "imagePath": "user",
-                    "__v": 0
-                },
-                {
-                    "_id": "5aebf23783101509a708a4ad",
-                    "skills": [
-                        {"_id":"5ae977b7762c284337d33c82","skill":"Facebook","imagePath":"facebook","__v":0},
-                        {"_id":"5ae97896c7ae04439da1424f","skill":"YouTube","imagePath":"youtube","__v":0}
-                    ],
-                    "connections": [],
-                    "firstName": "Fred",
-                    "lastName": "Doe",
-                    "birthDate": "1994-01-01T00:00:00.000Z",
-                    "gender": "Male",
-                    "location": "Melbourne",
-                    "isMentor": true,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "imagePath": "user",
-                    "__v": 0
-                }
-            ],
-
+            
+            connections: [],
+            
             events: [
                 {
                     _id: "1",
@@ -118,25 +67,14 @@ class Dashboard extends Component {
             ]
         };
     }
-
+    
     componentDidMount(){
-        var self = this;
+        const self = this;
         
-        // Use this if you are not logged in as Bunji Bunji.
-        // =================================================
-        // axios.get("/api/allSkills")
-        //     .then(function (res) {
-        //         self.setState({ allSkills: res.data });
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
-        
-        // Use this if you are logged in as Bunji Bunji.
-        // =================================================
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({ user: res.data, allSkills: res.data.skills, connections: res.data.connections });
+                self.setState({ user: res.data, allSkills: res.data.skills, learnedSkills: res.data.learnedSkills,
+                                connections: res.data.connections });
             })
             .catch(function (error) {
                 console.log(error);
@@ -160,7 +98,9 @@ class Dashboard extends Component {
         return (
             <div id="page-wrap">
                 <div id="dashboard">
-                    <PersonalProfile user={this.state.user} connections={this.state.connections} allSkills={this.state.allSkills} updateSelectedSkills={this.updateSelectedSkills} />
+                    <PersonalProfile user={this.state.user} connections={this.state.connections}
+                                     allSkills={this.state.allSkills} learnedSkills={this.state.learnedSkills}
+                                     updateSelectedSkills={this.updateSelectedSkills} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts connections={this.state.connections} />

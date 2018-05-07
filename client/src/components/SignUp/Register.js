@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Register extends Component {
     render() {
         return (
-            <form action="/action_page.php">
+            <form action="">
                 <label htmlFor="first-name" id="first-name">First Name</label>
                 <label htmlFor="last-name" id="last-name">Last Name</label>
                 
@@ -14,8 +14,8 @@ class Register extends Component {
                 <label htmlFor="gender" id="gender">Gender</label>
                 <br />
                 
-                <select name="month" id="month">
-                    <option value="" selected disabled>Month</option>
+                <select name="month" id="month" defaultValue="">
+                    <option value="" disabled={true}>Month</option>
                     <option value="january">January</option>
                     <option value="february">February</option>
                     <option value="march">March</option>
@@ -32,8 +32,8 @@ class Register extends Component {
                 <input type="text" name="day" placeholder="Day" id="day" required />
                 <input type="text" name="year" placeholder="Year" id="year" required />
                 
-                <select name="gender" id="gender">
-                    <option value="" selected>---</option>
+                <select name="gender" id="gender" defaultValue="">
+                    <option value="" disabled={true}>---</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -60,6 +60,6 @@ class Register extends Component {
             </form>
         )
     };
-};
+}
 
 export default Register;

@@ -4,8 +4,8 @@ import Profile from "./Profile";
 class Contact extends Component {
     handleShow = () => {
         this.profile.handleShow();
-    }
-
+    };
+    
     render() {
         return (
             <div>
