@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 class NewEvent extends Component {
     constructor(props) {
@@ -7,10 +7,13 @@ class NewEvent extends Component {
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             show: false,
-            register: true
+            register: true,
+            name: ''
         };
     }
 
@@ -22,16 +25,16 @@ class NewEvent extends Component {
         this.setState({ show: true })
     }
 
-    render() {
-        const activeRegister = {
-            backgroundColor: "#f1f1f1",
-            borderTopLeftRadius: "6px"
-        };
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.name);
+        event.preventDefault();
+    }
 
-        const activeLogin = {
-            backgroundColor: "#f1f1f1",
-            borderTopRightRadius: "6px"
-        };
+    handleChange(event) {
+        this.setState({name: event.target.value});
+    }
+
+    render() {
 
         return (
             <div>
@@ -41,18 +44,48 @@ class NewEvent extends Component {
                         Create an Event
                     </h5>
                 </div>
-                <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                    <Modal.Header>
-                        hi
-                    </Modal.Header>
 
-                    <Modal.Body>
-                        Body text
-                    </Modal.Body>
+
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Create a New Event</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                  <form onSubmit={this.handleSubmit}>
+                      <label>
+                        Name:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Location:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Invite:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Date:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <input type="submit" value="Submit" />
+                    </form>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button onClick={this.handleClose}>Close</Button>
+                  </Modal.Footer>
                 </Modal>
             </div>
-        )
-    };
+        );
+    }
 }
 
 export default NewEvent;
