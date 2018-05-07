@@ -265,6 +265,12 @@ class ManageSkills extends Component {
 
         return (
             <div>
+                <div onClick={this.showAvailable} className="badge centered" id="badge-1">
+                    <h5>
+                        <img src={require("../../../../images/icons/add.png")} alt="Icon" />
+                        Manage Skills
+                    </h5>
+                </div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
                     <Modal.Header id="badges-header">
                         <Modal.Title className="modal-title-dashboard" id="left-title"
