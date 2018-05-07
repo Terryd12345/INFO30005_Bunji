@@ -7,36 +7,36 @@ import Learned from "../ManageSkills/Learned";
 class CompleteSkills extends Component {
     constructor(props) {
         super(props);
-    
+
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
         this.closeAll = this.closeAll.bind(this);
         this.showSelected = this.showSelected.bind(this);
         this.showLearned = this.showLearned.bind(this);
-        
+
         this.state = {
             show: false,
             selected: true,
-    
+
             selectedSkills: [],
             arrSelected: [],
-            
+
             learnedSkills: [],
             arrLearned: []
         };
     }
-    
+
     componentDidMount() {
         const self = this;
-        
+
         axios.get("/api/allSkills")
-        .then(function (res) {
-            self.setState({ selectedSkills: res.data, learnedSkills: res.data });
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (res) {
+                self.setState({ selectedSkills: res.data, learnedSkills: res.data });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
-    
+
     updateSelectedSkills(id, state) {
         if (state === false) {
             this.setState({
@@ -49,30 +49,30 @@ class CompleteSkills extends Component {
             }))
         }
     }
-    
+
     closeAll() {
         this.setState({ show: false });
     }
-    
+
     showSelected() {
         this.setState({ show: true, selected: true })
     }
-    
+
     showLearned() {
         this.setState({ show: true, selected: false })
     }
-    
+
     render() {
         const activeSelected = {
             backgroundColor: "#f1f1f1",
             borderTopLeftRadius: "6px"
         };
-    
+
         const activeLearned = {
             backgroundColor: "#f1f1f1",
             borderTopRightRadius: "6px"
         };
-        
+
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
@@ -84,7 +84,7 @@ class CompleteSkills extends Component {
                             LEARNED
                         </Modal.Title>
                     </Modal.Header>
-                    
+
                     <Modal.Body>
                         <div id="signup">
                             {

@@ -3,13 +3,13 @@ import React, { Component } from "react";
 class Messages extends Component {
     constructor(props) {
         super(props);
-        
+
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
         this.scrollToBottom = this.scrollToBottom.bind(this);
-        
+
         this.state = {
-        
+
         };
     }
 

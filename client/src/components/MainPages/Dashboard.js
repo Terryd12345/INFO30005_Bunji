@@ -9,16 +9,16 @@ import Events from "../Dashboard/Events/Events";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        
+
         this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
-        
+
         this.state = {
             user: {},
-            
+
             allSkills: [],
             learnedSkills: [],
             selectedSkills: [],
-            
+
             notifications: [
                 {
                     _id: "1",
@@ -39,9 +39,9 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-            
+
             connections: [],
-            
+
             events: [
                 {
                     _id: "1",
@@ -67,20 +67,22 @@ class Dashboard extends Component {
             ]
         };
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         const self = this;
-        
+
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({ user: res.data, allSkills: res.data.skills, learnedSkills: res.data.learnedSkills,
-                                connections: res.data.connections });
+                self.setState({
+                    user: res.data, allSkills: res.data.skills, learnedSkills: res.data.learnedSkills,
+                    connections: res.data.connections
+                });
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-    
+
     updateSelectedSkills(id, state) {
         if (state === false) {
             this.setState({
@@ -93,14 +95,14 @@ class Dashboard extends Component {
             }))
         }
     }
-    
+
     render() {
         return (
             <div id="page-wrap">
                 <div id="dashboard">
                     <PersonalProfile user={this.state.user} connections={this.state.connections}
-                                     allSkills={this.state.allSkills} learnedSkills={this.state.learnedSkills}
-                                     updateSelectedSkills={this.updateSelectedSkills} />
+                        allSkills={this.state.allSkills} learnedSkills={this.state.learnedSkills}
+                        updateSelectedSkills={this.updateSelectedSkills} />
                     <Badges />
                     <Notifications notifications={this.state.notifications} />
                     <Contacts connections={this.state.connections} />

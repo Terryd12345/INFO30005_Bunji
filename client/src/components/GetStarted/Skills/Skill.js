@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class Skill extends Component {
     constructor(props) {
         super(props);
-        
+
         this.onSelected = this.onSelected.bind(this);
-        
+
         this.state = {
             isSelected: this.props.isSelected,
             backgroundColor: "",
             borderColor: ""
         };
     }
-    
+
     componentDidMount() {
         if (this.state.isSelected === false) {
             this.setState({ backgroundColor: "", borderColor: "" });

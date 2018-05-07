@@ -10,14 +10,14 @@ export default {
         User.findById(req.user._id)
             .populate("skills")
             .populate("learnedSkills")
-            .populate({ path: "connections", populate: { path: "skills" }})
+            .populate({ path: "connections", populate: { path: "skills" } })
             .exec((err, user) => {
                 if (!err) {
                     res.send(user);
                 } else {
                     res.sendStatus(404);
                 }
-        });
+            });
     },
 
     getUser: function (req, res) {
@@ -32,7 +32,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     editUser: function (req, res) {
@@ -86,7 +86,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     addSkills: function (req, res) {
@@ -101,7 +101,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     removeSkills: function (req, res) {
@@ -116,7 +116,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     addLearned: function (req, res) {
@@ -131,7 +131,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     removeLearned: function (req, res) {
@@ -146,7 +146,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     createSkill: function (req, res) {

@@ -12,7 +12,7 @@ class Header extends Component {
             isLoggedIn: true
         };
     }
-    
+
     // showRegister = () => {
     //     this.signup.showRegister();
     // }
@@ -28,12 +28,12 @@ class Header extends Component {
     // <NavItem onClick={this.showLogin}>
     //     Log In
     // </NavItem>
-    
+
     render() {
         return (
             <div>
                 {/*<SignUp ref={signup => this.signup = signup}/>*/}
-                
+
                 {
                     this.state.isLoggedIn ? (null) : (
                         <a className="button-google" id="menu-header" href="/auth/google">
@@ -58,28 +58,28 @@ class Header extends Component {
                         </a>
                     )
                 }
-                
+
                 {
                     this.state.isLoggedIn ? (
                         <Navbar>
                             <Navbar.Header>
                                 <Navbar.Brand>
-                                    <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo"/></a>
+                                    <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo" /></a>
                                 </Navbar.Brand>
-            
-                                <Navbar.Toggle/>
+
+                                <Navbar.Toggle />
                             </Navbar.Header>
-                            
+
                             <Navbar.Collapse>
                                 <Nav pullRight>
                                     <NavItem href="/dashboard">
                                         Dashboard
                                     </NavItem>
-    
+
                                     <NavItem href="/connections">
                                         Connections
                                     </NavItem>
-    
+
                                     <NavItem href="/auth/logout">
                                         Log Out
                                     </NavItem>
@@ -87,14 +87,14 @@ class Header extends Component {
                             </Navbar.Collapse>
                         </Navbar>
                     ) : (
-                        <Navbar>
-                            <Navbar.Header>
-                                <Navbar.Brand>
-                                    <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo"/></a>
-                                </Navbar.Brand>
-                            </Navbar.Header>
-                        </Navbar>
-                    )
+                            <Navbar>
+                                <Navbar.Header>
+                                    <Navbar.Brand>
+                                        <a id="logo" href="/"><img src={require("../images/logo.png")} alt="Logo" /></a>
+                                    </Navbar.Brand>
+                                </Navbar.Header>
+                            </Navbar>
+                        )
                 }
             </div>
         );

@@ -48,7 +48,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                    
+
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/welcome" component={Welcome} />
@@ -58,7 +58,7 @@ class App extends Component {
                         <Route exact path="/find-mentor" component={UserSelection} />
                         <Route path="*" component={NotFound} />
                     </Switch>
-                    
+
                     <Footer />
                 </div>
             </BrowserRouter>

@@ -5,12 +5,12 @@ class Badges extends Component {
     showAvailable = () => {
         this.manageSkills.showAvailable();
     };
-    
+
     render() {
         return (
             <div id="badges">
                 <ManageSkills ref={manageSkills => this.manageSkills = manageSkills} />
-                
+
                 <div id="badges-content">
                     <div onClick={this.showAvailable.bind(this)} className="badge centered" id="badge-1">
                         <h5>
@@ -18,7 +18,7 @@ class Badges extends Component {
                             Manage Skills
                         </h5>
                     </div>
-    
+
                     <a href="">
                         <div className="badge centered" id="badge-2">
                             <h5>
@@ -27,7 +27,7 @@ class Badges extends Component {
                             </h5>
                         </div>
                     </a>
-                    
+
                     <a href="">
                         <div className="badge centered" id="badge-3">
                             <h5>

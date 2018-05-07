@@ -9,12 +9,12 @@ class Available extends Component {
                     {
                         this.props.skills.map(skill => {
                             return <Skill key={skill._id} skill={skill}
-                                          updateSelectedSkills={this.props.updateSelectedSkills}
-                                          isSelected={false} />;
+                                updateSelectedSkills={this.props.updateSelectedSkills}
+                                isSelected={false} />;
                         })
                     }
                 </div>
-                
+
                 <div id="modal-button">
                     <a onClick={this.props.selectSkills} className="button" id="badges-btn">Select Skills</a>
                 </div>

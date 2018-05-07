@@ -5,10 +5,10 @@ import Connections from "../Connections/Connections";
 class Relationships extends Component {
     constructor(props) {
         super(props);
-    
+
         this.chatHandler = this.chatHandler.bind(this);
         this.messageHandler = this.messageHandler.bind(this);
-        
+
         this.state = {
             chats: [
                 {
@@ -46,9 +46,9 @@ class Relationships extends Component {
                     ]
                 }
             ],
-            
+
             chatID: 0,
-            
+
             events: [
                 {
                     _id: "1",

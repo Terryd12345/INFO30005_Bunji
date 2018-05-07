@@ -16,10 +16,10 @@ const staticFiles = express.static(path.join(__dirname, "../../client/build"));
 const app = express();
 
 app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [cookieKey]
-  })
+    cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [cookieKey]
+    })
 );
 
 app.use(passport.initialize());
