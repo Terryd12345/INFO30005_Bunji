@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Popover, Tooltip, OverlayTrigger, Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 class NewEvent extends Component {
     constructor(props) {
@@ -7,10 +7,13 @@ class NewEvent extends Component {
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             show: false,
-            register: true
+            register: true,
+            name: ''
         };
     }
 
@@ -22,14 +25,16 @@ class NewEvent extends Component {
         this.setState({ show: true })
     }
 
-    render() {
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.name);
+        event.preventDefault();
+    }
 
-        const popover = (
-           <Popover id="modal-popover" title="popover">
-             very popover. such engagement
-           </Popover>
-        );
-       const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
+    handleChange(event) {
+        this.setState({name: event.target.value});
+    }
+
+    render() {
 
         return (
             <div>
@@ -43,80 +48,36 @@ class NewEvent extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Create a New Event</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <h4>Text in a modal</h4>
-                    <p>
-                      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </p>
-
-                    <h4>Popover in a modal</h4>
-                    <p>
-                      there is a{' '}
-                      <OverlayTrigger overlay={popover}>
-                        <a href="#popover">popover</a>
-                      </OverlayTrigger>{' '}
-                      here
-                    </p>
-
-                    <h4>Tooltips in a modal</h4>
-                    <p>
-                      there is a{' '}
-                      <OverlayTrigger overlay={tooltip}>
-                        <a href="#tooltip">tooltip</a>
-                      </OverlayTrigger>{' '}
-                      here
-                    </p>
-
-                    <hr />
-
-                    <h4>Overflowing text to show scroll behavior</h4>
-                    <p>
-                      Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                      dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                      ac consectetur ac, vestibulum at eros.
-                    </p>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                      et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                      auctor.
-                    </p>
-                    <p>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                      cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                      dui. Donec ullamcorper nulla non metus auctor fringilla.
-                    </p>
-                    <p>
-                      Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                      dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                      ac consectetur ac, vestibulum at eros.
-                    </p>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                      et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                      auctor.
-                    </p>
-                    <p>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                      cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                      dui. Donec ullamcorper nulla non metus auctor fringilla.
-                    </p>
-                    <p>
-                      Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                      dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                      ac consectetur ac, vestibulum at eros.
-                    </p>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                      et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                      auctor.
-                    </p>
-                    <p>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                      cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                      dui. Donec ullamcorper nulla non metus auctor fringilla.
-                    </p>
+                  <form onSubmit={this.handleSubmit}>
+                      <label>
+                        Name:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Location:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Invite:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <label>
+                        Date:
+                        <br />
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                      </label>
+                      <br />
+                      <input type="submit" value="Submit" />
+                    </form>
                   </Modal.Body>
                   <Modal.Footer>
                     <Button onClick={this.handleClose}>Close</Button>
