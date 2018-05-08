@@ -17,7 +17,8 @@ class NewEvent extends Component {
             title: '',
             location: '',
             invite: '',
-            date: ''
+            date: '',
+            time: ''
         };
     }
 
@@ -30,19 +31,12 @@ class NewEvent extends Component {
     }
 
     handleSubmit(event) {
-        axios.post("/newevent", {
+        axios.post("/api/newevent", {
             title: this.state.title,
             date: this.state.date,
             location: this.state.location
         });
-        alert(
-            `
-            title:  ${this.state.title}
-            location: ${this.state.location}
-            invite: ${this.state.invite}
-            date: ${this.state.date}
-            `
-        );
+        this.handleClose();
         event.preventDefault();
     }
 
@@ -94,9 +88,16 @@ class NewEvent extends Component {
                       <label>
                         Date:
                         <br />
-                        <input type="text"
+                        <input type="date"
                         value={this.state.date}
                         onChange={(event) => this.setState({date: event.target.value})} />
+                      </label>
+                      <label>
+                        Time:
+                        <br />
+                        <input type="time"
+                        value={this.state.time}
+                        onChange={(event) => this.setState({time: event.target.value})} />
                       </label>
                       <br />
                       <input type="submit" value="Submit" />

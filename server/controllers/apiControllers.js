@@ -6,12 +6,12 @@ const Skill = mongoose.model("skill");
 const User = mongoose.model("user");
 
 export default {
-    
+
     createEvent: function (req, res) {
         Event.create(new Event({
             title: req.body.title,
             date: req.body.date,
-            location: req.body.location
+            location: req.body.location,
         }, (err) => {
             if (err) {
                 res.sendStatus(404);
