@@ -8,18 +8,20 @@ class Selected extends Component {
                 <div id="skills">
                     {
                         this.props.skills.map(skill => {
-                            return <Skill key={skill._id} skill={skill}
-                                updateSelectedSkills={this.props.updateSelectedSkills}
-                                isSelected={false} />;
+                            return <Skill key={skill._id}
+                                          skill={skill}
+                                          isSelected={false}
+                                          updateSelected={this.props.updateSelected}
+                                          functionType={2} />;
                         })
                     }
                 </div>
 
                 <div id="modal-button">
-                    <a onClick={this.props.unselectSkills} className="button" id="badges-btn">
+                    <a onClick={() => this.props.updateSkills(2)} className="button" id="popups-btn">
                         Remove Skills
                     </a>
-                    <a onClick={this.props.addLearned} className="button" id="badges-btn">
+                    <a onClick={() => this.props.updateSkills(3)} className="button" id="popups-btn">
                         Add to Learned
                     </a>
                 </div>

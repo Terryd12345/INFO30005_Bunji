@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { MoonLoader } from "react-spinners";
 import axios from "axios";
 import PersonalProfile from "../Dashboard/PersonalProfile/PersonalProfile";
-import Badges from "../Dashboard/Badges/Badges";
+import Popups from "../Dashboard/Popups/Popups";
 import Notifications from "../Dashboard/Notifications/Notifications";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
@@ -10,9 +11,10 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
 
-        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
+        this.updateSelected = this.updateSelected.bind(this);
 
         this.state = {
+            loading: true,
             user: {},
 
             allSkills: [],
@@ -74,7 +76,10 @@ class Dashboard extends Component {
         axios.get("/api/user")
             .then(function (res) {
                 self.setState({
-                    user: res.data, allSkills: res.data.skills, learnedSkills: res.data.learnedSkills,
+                    loading: false,
+                    user: res.data,
+                    allSkills: res.data.skills,
+                    learnedSkills: res.data.learnedSkills,
                     connections: res.data.connections
                 });
             })
@@ -83,31 +88,56 @@ class Dashboard extends Component {
             });
     }
 
-    updateSelectedSkills(id, state) {
-        if (state === false) {
-            this.setState({
-                selectedSkills: [...this.state.selectedSkills, id]
-            })
-        }
-        else {
-            this.setState(prevState => ({
-                selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
-            }))
+    /* ============================================================================================================= */
+
+    /* type               : (0) default, i.e., skills
+     * id                 : skill's or user's id
+     * previouslySelected : (true) to be removed from array, (false) to be added to array
+     */
+    updateSelected(type, id, previouslySelected) {
+        switch(type) {
+            case 0:
+                if (!previouslySelected) {
+                    this.setState({
+                        selectedSkills: [...this.state.selectedSkills, id]
+                    })
+                }
+                else {
+                    this.setState(prevState => ({
+                        selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
+                    }))
+                }
+                break;
+            
+            default:
+                break;
         }
     }
+
+    /* ============================================================================================================= */
 
     render() {
         return (
             <div id="page-wrap">
-                <div id="dashboard">
-                    <PersonalProfile user={this.state.user} connections={this.state.connections}
-                        allSkills={this.state.allSkills} learnedSkills={this.state.learnedSkills}
-                        updateSelectedSkills={this.updateSelectedSkills} />
-                    <Badges />
-                    <Notifications notifications={this.state.notifications} />
-                    <Contacts connections={this.state.connections} />
-                    <Events events={this.state.events} />
-                </div>
+                {
+                    this.state.loading ? (
+                        <div id="loading">
+                            <MoonLoader loading={this.state.loading} />
+                        </div>
+                    ) : (
+                        <div id="dashboard">
+                            <PersonalProfile user={this.state.user}
+                                             connections={this.state.connections}
+                                             allSkills={this.state.allSkills}
+                                             learnedSkills={this.state.learnedSkills}
+                                             updateSelected={this.updateSelected} />
+                            <Popups />
+                            <Notifications notifications={this.state.notifications} />
+                            <Contacts connections={this.state.connections} />
+                            <Events events={this.state.events} />
+                        </div>
+                    )
+                }
             </div>
         );
     }

@@ -70,8 +70,6 @@ class Welcome extends Component {
                                     <label htmlFor="description">Description</label>
                                     <textarea rows="5" name="description" placeholder="Describe yourself here..." />
                 
-                                    {/*<p>By creating an account, you agree to our <a href="">Terms & Privacy</a>.</p>*/}
-                
                                     <button type="submit" className="button" id="welcome-btn">Confirm</button>
                                 </form>
                             </div>

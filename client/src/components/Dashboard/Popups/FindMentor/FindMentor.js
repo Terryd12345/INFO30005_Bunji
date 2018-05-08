@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 
-class NewEvent extends Component {
+class FindMentor extends Component {
     constructor(props) {
         super(props);
 
@@ -15,23 +15,28 @@ class NewEvent extends Component {
     }
 
     handleClose() {
-        this.setState({ show: false });
+        this.setState({
+            show: false
+        });
     }
 
     handleShow() {
-        this.setState({ show: true })
+        this.setState({
+            show: true
+        })
     }
 
     render() {
 
         return (
             <div>
-                <div onClick={this.handleShow} className="badge centered" id="badge-3">
+                <div onClick={this.handleShow} className="popup centered" id="popup-3">
                     <h5>
                         <img src={require("../../../../images/icons/find.png")} alt="Icon" />
                         Find Mentor
                     </h5>
                 </div>
+                
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                     <Modal.Header>
                         hi
@@ -46,4 +51,4 @@ class NewEvent extends Component {
     };
 }
 
-export default NewEvent;
+export default FindMentor;

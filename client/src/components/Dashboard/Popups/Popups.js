@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import ManageSkills from "./ManageSkills/ManageSkills";
-import NewEvent from './CreateEvent/NewEvent';
+import CreateEvent from './CreateEvent/CreateEvent';
 import FindMentor from './FindMentor/FindMentor';
 
-class Badges extends Component {
+class Popups extends Component {
 
     render() {
         return (
-            <div id="badges">
-                <div id="badges-content">
+            <div id="popups">
+                <div id="popups-content">
                     <ManageSkills />
-                    <NewEvent />
+                    <CreateEvent />
                     <FindMentor />
                 </div>
             </div>
@@ -18,4 +18,4 @@ class Badges extends Component {
     }
 }
 
-export default Badges;
+export default Popups;

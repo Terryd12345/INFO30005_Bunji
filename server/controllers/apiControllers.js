@@ -97,6 +97,7 @@ export default {
                         user.skills.push(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
@@ -112,6 +113,7 @@ export default {
                         user.skills.pull(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
@@ -127,6 +129,7 @@ export default {
                         user.learnedSkills.push(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
@@ -142,6 +145,7 @@ export default {
                         user.learnedSkills.pull(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
@@ -165,21 +169,24 @@ export default {
 
     /* ============================================================================================================= */
 
-    addConnection: function (req, res) {
-        let userID = req.user._id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.connections.push(req.body.connectionID);
-                user.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
+    addConnections: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.connections.forEach(connection => {
+                        user.connections.push(connection);
+                        user.save(user);
+                    });
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
     },
-    
+
     /* ============================================================================================================= */
-    
+
     createEvent: function (req, res) {
         Event.create(new Event({
             title: req.body.title,

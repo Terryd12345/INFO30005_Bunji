@@ -18,15 +18,23 @@ class SignUp extends Component {
     }
 
     closeAll() {
-        this.setState({ show: false });
+        this.setState({
+            show: false
+        });
     }
 
     showRegister() {
-        this.setState({ show: true, register: true })
+        this.setState({
+            show: true,
+            register: true
+        })
     }
 
     showLogin() {
-        this.setState({ show: true, register: false })
+        this.setState({
+            show: true,
+            register: false
+        })
     }
 
     render() {
@@ -41,26 +49,29 @@ class SignUp extends Component {
         };
 
         return (
-            <div>
-                <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-                    <Modal.Header>
-                        <Modal.Title id="left-title" onClick={this.showRegister} style={this.state.register ? null : activeRegister}>
-                            Register
-                        </Modal.Title>
-                        <Modal.Title id="right-title" onClick={this.showLogin} style={this.state.register ? activeLogin : null}>
-                            Log In
-                        </Modal.Title>
-                    </Modal.Header>
+            <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
+                <Modal.Header>
+                    <Modal.Title id="left-title"
+                                 onClick={this.showRegister}
+                                 style={this.state.register ? null : activeRegister}>
+                        Register
+                    </Modal.Title>
+                    
+                    <Modal.Title id="right-title"
+                                 onClick={this.showLogin}
+                                 style={this.state.register ? activeLogin : null}>
+                        Log In
+                    </Modal.Title>
+                </Modal.Header>
 
-                    <Modal.Body>
-                        <div id="signup">
-                            {
-                                this.state.register ? <Register /> : <Login />
-                            }
-                        </div>
-                    </Modal.Body>
-                </Modal>
-            </div>
+                <Modal.Body>
+                    <div id="signup">
+                        {
+                            this.state.register ? <Register /> : <Login />
+                        }
+                    </div>
+                </Modal.Body>
+            </Modal>
         )
     };
 }

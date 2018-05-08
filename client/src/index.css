@@ -96,6 +96,19 @@ a:hover {
     background: rgba(60, 60, 60, 0.5);
 }
 
+.section-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+:focus {
+    outline: none;
+}
+
 #page-wrap {
     min-height: 100vh;
     margin-bottom: -26px;
@@ -136,22 +149,9 @@ a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
     width: 100px;
     height: 100px;
-}
-
-#sectionLoading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
-    width: 100px;
-    height: 100px;
-}
-
-:focus {
-    outline: none;
 }
 
 @media (max-width: 900px) {
@@ -356,7 +356,7 @@ a:hover {
     font-size: 1.1rem;
 }
 
-#badges-btn {
+#popups-btn {
     margin: 15px 10px 0 10px;
     padding: 5px 15px;
     font-size: 1.1rem;
@@ -396,7 +396,7 @@ a:hover {
     #signup-btn {
         padding: 8px 25px;
     }
-    #badges-btn {
+    #popups-btn {
         margin: 25px 0 0 0;
         padding: 8px 20px;
     }
@@ -1174,7 +1174,7 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 165px 285px 400px;
     grid-gap: 20px;
-    grid-template-areas: "profile profile badges" "profile profile notifications" "contacts events events";
+    grid-template-areas: "profile profile popups" "profile profile notifications" "contacts events events";
 }
 
 #dashboard div {
@@ -1185,8 +1185,8 @@ a:hover {
     border: 3px solid #a1dbf3;
 }
 
-#badges {
-    grid-area: badges;
+#popups {
+    grid-area: popups;
     border: none !important;
 }
 
@@ -1314,45 +1314,45 @@ a:hover {
     background: transparent;
 }
 
-/* ======================== Badges ======================== */
+/* ======================== popups ======================== */
 
-.badge {
+.popup {
     cursor: pointer;
     background: #578bca;
 }
 
-.badge:hover {
+.popup:hover {
     background: #3f6da5;
 }
 
-.badge h5 {
+.popup h5 {
     color: #fff;
 }
 
-.badge img {
+.popup img {
     width: auto;
     height: 2.4rem;
     margin-right: 10px;
 }
 
-#badges-content {
+#popups-content {
     border-radius: 8px;
     display: grid;
     grid-template-rows: 50px 50px 50px;
     grid-gap: 10px;
-    grid-template-areas: "badge-1" "badge-2" "badge-3";
+    grid-template-areas: "popup-1" "popup-2" "popup-3";
 }
 
-#badge-1 {
-    grid-area: badge-1;
+#popup-1 {
+    grid-area: popup-1;
 }
 
-#badge-2 {
-    grid-area: badge-2;
+#popup-2 {
+    grid-area: popup-2;
 }
 
-#badge-3 {
-    grid-area: badge-3;
+#popup-3 {
+    grid-area: popup-3;
 }
 
 /* ==================== Notifications ===================== */
@@ -1682,7 +1682,7 @@ a:hover {
     #dashboard {
         grid-template-columns: 1fr;
         grid-template-rows: 530px 170px 285px 400px 400px;
-        grid-template-areas: "profile" "badges" "notifications" "contacts" "events";
+        grid-template-areas: "profile" "popups" "notifications" "contacts" "events";
         grid-gap: 20px;
     }
     #personal-pic img {
@@ -1698,7 +1698,7 @@ a:hover {
     #dashboard {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 530px 170px 400px 400px;
-        grid-template-areas: "profile profile" "badges badges" "notifications contacts" "events events";
+        grid-template-areas: "profile profile" "popups popups" "notifications contacts" "events events";
         grid-gap: 20px;
     }
     #personal-pic img {
@@ -1833,7 +1833,7 @@ a:hover {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-auto-rows: 100px;
     }
-    #badges-content {
+    #popups-content {
         grid-template-rows: 90px 90px 90px;
     }
     #recommendations {
@@ -2202,9 +2202,9 @@ a:hover {
     }
 }
 
-/* ====================== Badges.js ======================= */
+/* ====================== popups.js ======================= */
 
-#badges-header {
+#popups-header {
     grid-template: "left middle right" 1fr / 1fr 1fr 1fr;
 }
 

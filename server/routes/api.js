@@ -18,7 +18,7 @@ router.post("/removeLearned", controller.removeLearned);
 //router.get("/events", controller.getEvents);
 router.post('/newevent', controller.createEvent);
 
-router.post("/addConnection", controller.addConnection);
+router.post("/addConnections", controller.addConnections);
 
 router.get("/chat/:id", controller.getChat);
 router.post("/chat/:id", controller.postMessage);

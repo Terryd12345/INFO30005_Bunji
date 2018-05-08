@@ -11,18 +11,23 @@ class Contact extends Component {
             <div>
                 <div className="contact-panel">
                     <div className="contact-pic centered">
-                        <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
+                        <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)}
+                             alt={this.props.user.firstName} />
                     </div>
+                    
                     <div className="contact-desc centered">
                         {this.props.user.firstName} {this.props.user.lastName}
                 
                         <Profile user={this.props.user} ref={profile => this.profile = profile} />
+                        
                         <h6>
                             <a onClick={this.handleShow} className="button" id="contact-btn-1">
                                 Profile
                             </a>
                             
-                            <span className="contact-br"><br /></span>
+                            <span className="contact-br">
+                                <br />
+                            </span>
                             
                             <a href="/connections" className="button" id="contact-btn-2">
                                 Connection

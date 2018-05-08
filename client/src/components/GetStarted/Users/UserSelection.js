@@ -6,7 +6,7 @@ class UserSelection extends Component {
         super(props);
 
         this.state = {
-            fromDashboard: false
+            isOnDashboard: this.props.isOnDashboard
         };
     }
 
@@ -22,16 +22,18 @@ class UserSelection extends Component {
                     <div id="user-selection">
                         {
                             this.props.allUsers.map(user => {
-                                return <User key={user._id} user={user}
-                                    updateSelectedUsers={this.props.updateSelectedUsers}
-                                    isSelected={this.props.selectedUsers.indexOf(user._id) > -1} />;
+                                return <User key={user._id}
+                                             user={user}
+                                             isSelected={this.props.selectedUsers.indexOf(user._id) > -1}
+                                             updateSelected={this.props.updateSelected}
+                                             functionType={2} />;
                             })
                         }
                     </div>
 
                     {
-                        this.state.fromDashboard ? (
-                            <a className="button" id="user-selection-btn" href="/dashboard">
+                        this.state.isOnDashboard ? (
+                            <a href="/dashboard" className="button" id="user-selection-btn">
                                 Confirm
                             </a>
                         ) : (null)

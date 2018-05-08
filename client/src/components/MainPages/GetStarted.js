@@ -1,33 +1,33 @@
 import React, { Component } from "react";
+import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import SkillSelection from "../GetStarted/Skills/SkillSelection";
 import UserSelection from "../GetStarted/Users/UserSelection";
-import SignUp from "../SignUp/SignUp";
-import { MoonLoader } from "react-spinners";
 
 class GetStarted extends Component {
     constructor(props) {
         super(props);
 
-        this.showRegister = this.showRegister.bind(this);
-        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
-        this.updateSelectedUsers = this.updateSelectedUsers.bind(this);
+        this.updateSelected = this.updateSelected.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
         this.handleSection1 = this.handleSection1.bind(this);
         this.handleSection2 = this.handleSection2.bind(this);
 
         this.state = {
-            loggedIn: true,
+            loadingSkills: true,
+            loadingUsers: false,
+            
             showSection1: true,
             tickSection1: false,
             showSection2: false,
             tickSection2: false,
             showSection3: false,
-            loadingSkills: true,
+            
             allSkills: [],
             selectedSkills: [],
             tmpSkills: [],
+            
             allUsers: [],
             selectedUsers: [],
             tmpUsers: []
@@ -39,59 +39,88 @@ class GetStarted extends Component {
 
         axios.get("/api/allSkills")
             .then(function (res) {
-                self.setState({ loadingSkills: false, allSkills: res.data });
+                self.setState({
+                    loadingSkills: false,
+                    allSkills: res.data
+                });
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
-    showRegister() {
-        this.signup.showRegister();
-    }
-
     /* ============================================================================================================= */
-
-    updateSelectedSkills(id, state) {
-        if (state === false) {
-            this.setState({
-                selectedSkills: [...this.state.selectedSkills, id]
-            })
-        }
-        else {
-            this.setState(prevState => ({
-                selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
-            }))
-        }
-    }
-
-    updateSelectedUsers(id, state) {
-        if (state === false) {
-            this.setState({
-                selectedUsers: [...this.state.selectedUsers, id]
-            })
-        }
-        else {
-            this.setState(prevState => ({
-                selectedUsers: prevState.selectedUsers.filter(user_id => user_id !== id)
-            }))
+    
+    /* type               : (1) skills, (2) users
+     * id                 : skill's or user's id
+     * previouslySelected : (true) to be removed from array, (false) to be added to array
+     */
+    updateSelected(type, id, previouslySelected) {
+        switch(type) {
+            case 1:
+                if (!previouslySelected) {
+                    this.setState({
+                        selectedSkills: [...this.state.selectedSkills, id]
+                    })
+                }
+                else {
+                    this.setState(prevState => ({
+                        selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
+                    }))
+                }
+                break;
+                
+            case 2:
+                if (!previouslySelected) {
+                    this.setState({
+                        selectedUsers: [...this.state.selectedUsers, id]
+                    })
+                }
+                else {
+                    this.setState(prevState => ({
+                        selectedUsers: prevState.selectedUsers.filter(skill_id => skill_id !== id)
+                    }))
+                }
+                break;
+                
+            default:
+                break;
         }
     }
 
     /* ============================================================================================================= */
 
     toSection2() {
-        const self = this;
-
         if (this.state.selectedSkills.length < 1) {
-            this.setState({ showSection2: false, tickSection1: false, tickSection2: false });
+            this.setState({
+                showSection2: false,
+                tickSection1: false,
+                tickSection2: false
+            });
             alert("Please select a skill.");
         } else {
+            const self = this;
+            
+            self.setState({
+                loadingUsers: true,
+                showSection1: false,
+                showSection2: true,
+                tickSection1: true,
+                tickSection2: false,
+                selectedUsers: [],
+                tmpSkills: [],
+                tmpUsers: []
+            });
+            
             axios.post("/api/mentorsBySkills", {
                 skills: self.state.selectedSkills
             })
                 .then(function (res) {
-                    self.setState({ allUsers: res.data, showSection1: false, showSection2: true, tickSection1: true, tickSection2: false, selectedUsers: [], tmpSkills: [], tmpUsers: [] });
+                    self.setState({
+                        loadingUsers: false,
+                        allUsers: res.data
+                    });
+                    window.scrollTo(0, 55);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -101,50 +130,87 @@ class GetStarted extends Component {
 
     toSection3() {
         if (this.state.selectedUsers.length < 1) {
-            this.setState({ showSection3: false, tickSection2: false });
+            this.setState({
+                showSection3: false,
+                tickSection2: false
+            });
             alert("Please select a mentor.");
         } else {
-            if (this.state.loggedIn === false) {
-                this.showRegister();
-            } else {
-                this.setState({ showSection3: true, showSection2: false, tickSection2: true, tmpSkills: [], tmpUsers: [] });
-            }
+            const self = this;
+            
+            axios.post("/api/addConnections", {
+                connections: self.state.selectedUsers
+            })
+                .then(function () {
+                    self.setState({
+                        showSection3: true,
+                        showSection2: false,
+                        tickSection2: true,
+                        tmpSkills: [],
+                        tmpUsers: []
+                    });
+                    window.scrollTo(0, 55);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 
     /* ============================================================================================================= */
 
     handleSection1() {
-        if (this.state.tickSection1 === true && this.state.showSection1 === false) {
-            this.setState({
-                showSection1: true, showSection2: false, showSection3: false,
-                tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers
-            });
-        } else if (this.state.tickSection1 === true && this.state.showSection1 === true) {
-            this.setState({
-                showSection1: false, selectedSkills: this.state.tmpSkills, tmpSkills: [],
-                selectedUsers: this.state.tmpUsers, tmpUsers: []
-            });
-
-            if (this.state.tickSection2 === false) {
-                this.setState({ showSection2: true })
+        if (this.state.tickSection1) {
+            if (this.state.showSection1) {
+                this.setState({
+                    showSection1: false,
+                    selectedSkills: this.state.tmpSkills,
+                    selectedUsers: this.state.tmpUsers,
+                    tmpSkills: [],
+                    tmpUsers: []
+                });
+        
+                if (this.state.tickSection2) {
+                    this.setState({
+                        showSection3: true
+                    });
+                } else {
+                    this.setState({
+                        showSection2: true
+                    });
+                }
             } else {
-                this.setState({ showSection3: true })
+                this.setState({
+                    showSection1: true,
+                    showSection2: false,
+                    showSection3: false,
+                    tmpSkills: this.state.selectedSkills,
+                    tmpUsers: this.state.selectedUsers
+                });
             }
         }
     }
 
     handleSection2() {
-        if (this.state.tickSection2 === true && this.state.showSection2 === false) {
-            this.setState({
-                showSection2: true, showSection1: false, showSection3: false,
-                tmpSkills: this.state.selectedSkills, tmpUsers: this.state.selectedUsers
-            });
-        } else if (this.state.tickSection2 === true && this.state.showSection2 === true) {
-            this.setState({
-                showSection2: false, showSection3: true, selectedSkills: this.state.tmpSkills, tmpSkills: [],
-                selectedUsers: this.state.tmpUsers, tmpUsers: []
-            });
+        if (this.state.tickSection2) {
+            if (this.state.showSection2) {
+                this.setState({
+                    showSection2: false,
+                    showSection3: true,
+                    selectedSkills: this.state.tmpSkills,
+                    selectedUsers: this.state.tmpUsers,
+                    tmpSkills: [],
+                    tmpUsers: []
+                });
+            } else {
+                this.setState({
+                    showSection2: true,
+                    showSection1: false,
+                    showSection3: false,
+                    tmpSkills: this.state.selectedSkills,
+                    tmpUsers: this.state.selectedUsers
+                });
+            }
         }
     }
 
@@ -159,15 +225,16 @@ class GetStarted extends Component {
 
         return (
             <div id="page-wrap">
-                <SignUp ref={signup => this.signup = signup} />
-
                 <div id="section-1">
-                    <header onClick={this.handleSection1} className="section-header" style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
+                    <header onClick={this.handleSection1} className="section-header"
+                            style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
                         <h2>
                             1. Select Skills
                             {
                                 this.state.tickSection1 ? (
-                                    <span><img src={require(`../../images/icons/tick.png`)} alt="Completed" /></span>
+                                    <span>
+                                        <img src={require(`../../images/icons/tick.png`)} alt="Completed" />
+                                    </span>
                                 ) : (null)
                             }
                         </h2>
@@ -177,11 +244,18 @@ class GetStarted extends Component {
                         this.state.showSection1 ? (
                             <div className="section-content">
                                 <SkillSelection allSkills={this.state.allSkills}
-                                    selectedSkills={this.state.selectedSkills}
-                                    updateSelectedSkills={this.updateSelectedSkills} />
-
-                                <div id="sectionLoading"><MoonLoader loading={this.state.loadingSkills} /></div>
-                                <a onClick={this.toSection2} className="button" id="skill-selection-btn" href={this.tickSection1 ? "#section-2" : "#section-1"}>
+                                                selectedSkills={this.state.selectedSkills}
+                                                updateSelected={this.updateSelected} />
+                                
+                                {
+                                    this.state.loadingSkills ? (
+                                        <div className="section-loading">
+                                            <BeatLoader loading={this.state.loadingSkills} />
+                                        </div>
+                                    ) : (null)
+                                }
+                                
+                                <a onClick={this.toSection2} className="button" id="skill-selection-btn">
                                     Find Mentor
                                 </a>
                             </div>
@@ -190,11 +264,15 @@ class GetStarted extends Component {
                 </div>
 
                 <div id="section-2">
-                    <header onClick={this.handleSection2} className="section-header" style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
-                        <h2>2. Find Mentor
-                        {
+                    <header onClick={this.handleSection2} className="section-header"
+                            style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
+                        <h2>
+                            2. Find Mentor
+                            {
                                 this.state.tickSection2 ? (
-                                    <span><img src={require(`../../images/icons/tick.png`)} alt="Completed" /></span>
+                                    <span>
+                                        <img src={require(`../../images/icons/tick.png`)} alt="Completed" />
+                                    </span>
                                 ) : (null)
                             }
                         </h2>
@@ -204,10 +282,19 @@ class GetStarted extends Component {
                         this.state.showSection2 ? (
                             <div className="section-content">
                                 <UserSelection allUsers={this.state.allUsers}
-                                    selectedUsers={this.state.selectedUsers}
-                                    updateSelectedUsers={this.updateSelectedUsers} />
-
-                                <a onClick={this.toSection3} className="button" id="user-selection-btn" href={this.tickSection2 ? "#section-3" : "#section-2"}>
+                                               selectedUsers={this.state.selectedUsers}
+                                               updateSelected={this.updateSelected}
+                                               isOnDashboard={false} />
+    
+                                {
+                                    this.state.loadingUsers ? (
+                                        <div className="section-loading">
+                                            <BeatLoader loading={this.state.loadingUsers} />
+                                        </div>
+                                    ) : (null)
+                                }
+                                
+                                <a onClick={this.toSection3} className="button" id="user-selection-btn">
                                     Confirm
                                 </a>
                             </div>

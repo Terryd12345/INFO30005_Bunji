@@ -23,9 +23,6 @@ class Home extends Component {
                     <div className="overlay centered">
                         {/*<SignUp ref={signup => this.signup = signup} />*/}
                         {/*<h5 className="fade-in" id="menu"><a onClick={this.showRegister.bind(this)}>Register</a><a onClick={this.showLogin.bind(this)}>Log In</a></h5>*/}
-                        {/*<a className="button fade-in" id="menu" href="/auth/google">*/}
-                            {/*Google Login*/}
-                        {/*</a>*/}
                         
                         {/*<a className="button-google fade-in" id="menu" href="/auth/google">*/}
                             {/*<div className="button-google-content-wrapper">*/}
@@ -47,13 +44,16 @@ class Home extends Component {
                                 {/*</span>*/}
                             {/*</div>*/}
                         {/*</a>*/}
-                        
-                        <h1 className="fade-in">Bunji</h1>
-                        <h4 className="fade-in">It's never too late to learn!</h4>
-                        
+    
                         {/*<a className="button fade-in" id="home-btn" href="/get-started">*/}
                             {/*Get Started!*/}
                         {/*</a>*/}
+                        {/*<a onClick={this.showRegister.bind(this)} className="button fade-in" id="steps-btn">*/}
+                            {/*Register*/}
+                        {/*</a>*/}
+                        
+                        <h1 className="fade-in">Bunji</h1>
+                        <h4 className="fade-in">It's never too late to learn!</h4>
     
                         <a className="button-google fade-in" href="/auth/google">
                             <div className="button-google-content-wrapper">
@@ -70,6 +70,7 @@ class Home extends Component {
                                         </svg>
                                     </div>
                                 </div>
+                                
                                 <span className="button-google-contents">
                                     Sign in with Google
                                 </span>
@@ -132,10 +133,6 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-
-                    {/*<a onClick={this.showRegister.bind(this)} className="button fade-in" id="steps-btn">*/}
-                        {/*Register*/}
-                    {/*</a>*/}
                 </div>
             </div>
         );

@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import Stats from "./Stats";
 import PersonalSkills from "./PersonalSkills";
+import Stats from "./Stats";
 
 class PersonalProfile extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.getGreeting = this.getGreeting.bind(this);
-    }
-    
-    getGreeting() {
+    getGreeting = () => {
         let today = new Date();
         let hour = today.getHours();
         
@@ -20,7 +14,7 @@ class PersonalProfile extends Component {
         } else {
             return "evening";
         }
-    }
+    };
     
     render() {
         const greeting = this.getGreeting();
@@ -28,7 +22,6 @@ class PersonalProfile extends Component {
         return (
             <div id="personal-profile">
                 <div id="personal-pic">
-                    {/*<img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />*/}
                     <img src={this.props.user.imagePath} alt={this.props.user.firstName} />
                     <br />
                     <a className="button" id="personal-btn-1" href="">
@@ -44,9 +37,12 @@ class PersonalProfile extends Component {
                     <h3>Good {greeting}, {this.props.user.firstName}!</h3>
                 </header>
 
-                <Stats skills={this.props.learnedSkills.length} connections={this.props.connections.length} />
-                <PersonalSkills learnedSkills={this.props.learnedSkills} updateSelectedSkills={this.props.updateSelectedSkills} />
+                <Stats skills={this.props.learnedSkills.length}
+                       connections={this.props.connections.length} />
+
                 <div id="personal-skills-overlay" />
+                <PersonalSkills learnedSkills={this.props.learnedSkills}
+                                updateSelected={this.props.updateSelected} />
             </div>
         );
     }
