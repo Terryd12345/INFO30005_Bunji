@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
-import axios from 'axios';
+import axios from "axios";
 
 class NewEvent extends Component {
     constructor(props) {
@@ -14,11 +14,11 @@ class NewEvent extends Component {
         this.state = {
             show: false,
             register: true,
-            title: '',
-            location: '',
-            invite: '',
-            date: '',
-            time: ''
+            title: "",
+            location: "",
+            invite: "",
+            date: "",
+            time: ""
         };
     }
 
