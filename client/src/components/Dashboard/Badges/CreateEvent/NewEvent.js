@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
+import axios from "axios";
 
 class NewEvent extends Component {
     constructor(props) {
@@ -13,10 +14,11 @@ class NewEvent extends Component {
         this.state = {
             show: false,
             register: true,
-            name: '',
-            location: '',
-            invite: '',
-            date: ''
+            title: "",
+            location: "",
+            invite: "",
+            date: "",
+            time: ""
         };
     }
 
@@ -29,19 +31,17 @@ class NewEvent extends Component {
     }
 
     handleSubmit(event) {
-        alert(
-            `
-            name:  ${this.state.name}
-            location: ${this.state.location}
-            invite: ${this.state.invite}
-            date: ${this.state.date}
-            `
-        );
+        axios.post("/api/newevent", {
+            title: this.state.title,
+            date: new Date(this.state.date + " " + this.state.time),
+            location: this.state.location
+        });
+        this.handleClose();
         event.preventDefault();
     }
 
     handleChange(event) {
-        this.setState({name: event.target.value});
+        this.setState({ name: event.target.value });
     }
 
     render() {
@@ -57,48 +57,55 @@ class NewEvent extends Component {
 
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Create a New Event</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                  <form onSubmit={this.handleSubmit}>
-                      <label>
-                        Name:
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create a New Event</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                Title:
                         <br />
-                        <input type="text" value={this.state.name}
-                        onChange={(event) => this.setState({name: event.target.value})} />
-                      </label>
-                      <br />
-                      <label>
-                        Location:
+                                <input type="text" value={this.state.title}
+                                    onChange={(event) => this.setState({ title: event.target.value })} />
+                            </label>
+                            <br />
+                            <label>
+                                Location:
                         <br />
-                        <input type="text"
-                        value={this.state.location}
-                        onChange={(event) => this.setState({location: event.target.value})} />
-                      </label>
-                      <br />
-                      <label>
-                        Invite:
+                                <input type="text"
+                                    value={this.state.location}
+                                    onChange={(event) => this.setState({ location: event.target.value })} />
+                            </label>
+                            <br />
+                            <label>
+                                Invite:
                         <br />
-                        <input type="text"
-                         value={this.state.invite}
-                         onChange={(event) => this.setState({invite: event.target.value})} />
-                      </label>
-                      <br />
-                      <label>
-                        Date:
+                                <input type="text"
+                                    value={this.state.invite}
+                                    onChange={(event) => this.setState({ invite: event.target.value })} />
+                            </label>
+                            <br />
+                            <label>
+                                Date:
                         <br />
-                        <input type="text"
-                        value={this.state.date}
-                        onChange={(event) => this.setState({date: event.target.value})} />
-                      </label>
-                      <br />
-                      <input type="submit" value="Submit" />
-                    </form>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button onClick={this.handleClose}>Close</Button>
-                  </Modal.Footer>
+                                <input type="date"
+                                    value={this.state.date}
+                                    onChange={(event) => this.setState({ date: event.target.value })} />
+                            </label>
+                            <label>
+                                Time:
+                        <br />
+                                <input type="time"
+                                    value={this.state.time}
+                                    onChange={(event) => this.setState({ time: event.target.value })} />
+                            </label>
+                            <br />
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
                 </Modal>
             </div>
         );
