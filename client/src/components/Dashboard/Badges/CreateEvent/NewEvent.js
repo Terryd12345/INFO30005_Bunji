@@ -10,6 +10,7 @@ class NewEvent extends Component {
         this.handleShow = this.handleShow.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
 
         this.state = {
             show: false,
@@ -18,8 +19,20 @@ class NewEvent extends Component {
             location: "",
             invite: "",
             date: "",
-            time: ""
+            time: "",
+            userConnections: []
         };
+    }
+
+    componentDidMount(){
+        var self = this;
+        axios.get("/api/user")
+            .then((res) => {
+                self.setState({ userConnections: res.data.connections })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     handleClose() {
@@ -80,9 +93,12 @@ class NewEvent extends Component {
                             <label>
                                 Invite:
                         <br />
-                                <input type="text"
+                                <input type="text" list="connections"
                                     value={this.state.invite}
                                     onChange={(event) => this.setState({ invite: event.target.value })} />
+                                <datalist id="connections">
+                                    this.state.userConnections.map((person) => <option value="person" />)
+                                </datalist>
                             </label>
                             <br />
                             <label>

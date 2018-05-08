@@ -8,6 +8,8 @@ router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
 router.post("/createUser", controller.createUser);
 
+router.get("/loggingin", controller.loggingIn);
+
 router.get("/allSkills", controller.allSkills);
 router.post("/mentorsBySkills", controller.mentorsBySkills);
 router.post("/addSkills", controller.addSkills);
