@@ -28,7 +28,7 @@ class NewEvent extends Component {
         var self = this;
         axios.get("/api/user")
             .then((res) => {
-                self.setState({ userConnections: res.connections })
+                self.setState({ userConnections: res.data.connections })
             })
             .catch((error) => {
                 console.log(error);
