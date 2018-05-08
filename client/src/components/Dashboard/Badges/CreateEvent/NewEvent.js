@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
+import axios from 'axios';
 
 class NewEvent extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class NewEvent extends Component {
         this.state = {
             show: false,
             register: true,
-            name: '',
+            title: '',
             location: '',
             invite: '',
             date: ''
@@ -29,9 +30,14 @@ class NewEvent extends Component {
     }
 
     handleSubmit(event) {
+        axios.post("/newevent", {
+            title: this.state.title,
+            date: this.state.date,
+            location: this.state.location
+        });
         alert(
             `
-            name:  ${this.state.name}
+            title:  ${this.state.title}
             location: ${this.state.location}
             invite: ${this.state.invite}
             date: ${this.state.date}
@@ -63,10 +69,10 @@ class NewEvent extends Component {
                   <Modal.Body>
                   <form onSubmit={this.handleSubmit}>
                       <label>
-                        Name:
+                        Title:
                         <br />
-                        <input type="text" value={this.state.name}
-                        onChange={(event) => this.setState({name: event.target.value})} />
+                        <input type="text" value={this.state.title}
+                        onChange={(event) => this.setState({title: event.target.value})} />
                       </label>
                       <br />
                       <label>
