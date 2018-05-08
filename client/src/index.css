@@ -1978,7 +1978,7 @@ a:hover {
 #messages {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 165px);
     margin: 0;
     padding: 10px;
     background: #fff;
