@@ -12,7 +12,8 @@ const userSchema = mongoose.Schema({
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
     learnedSkills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
-    imagePath: String
+    imagePath: String,
+    existingUser: Boolean
 });
 
 export default mongoose.model("user", userSchema);

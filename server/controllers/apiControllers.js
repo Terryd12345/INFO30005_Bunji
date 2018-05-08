@@ -6,6 +6,19 @@ const Skill = mongoose.model("skill");
 const User = mongoose.model("user");
 
 export default {
+    loggingIn: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if(!err){
+                    if(req.user.existingUser === true){
+                        res.redirect("/dashboard");
+                    } else {
+                    res.redirect("/welcome");
+                    }
+                }
+            });
+    },
+
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
