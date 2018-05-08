@@ -586,6 +586,9 @@ a:hover {
     z-index: -1;
     min-width: 100%;
     min-height: 100%;
+    -webkit-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 #menu {
