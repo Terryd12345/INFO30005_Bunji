@@ -6,23 +6,6 @@ const Skill = mongoose.model("skill");
 const User = mongoose.model("user");
 
 export default {
-
-    createEvent: function (req, res) {
-        Event.create(new Event({
-            title: req.body.title,
-            date: req.body.date,
-            location: req.body.location,
-            user1: req.user._id
-        }, (err) => {
-            if (err) {
-                res.sendStatus(404);
-            } else {
-                res.sendStatus(200);
-            }
-            res.flush();
-        }));
-    },
-
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
@@ -194,6 +177,24 @@ export default {
             res.flush();
         });
     },
+    
+    /* ============================================================================================================= */
+    
+    createEvent: function (req, res) {
+        Event.create(new Event({
+            title: req.body.title,
+            date: req.body.date,
+            location: req.body.location,
+            user1: req.user._id
+        }, (err) => {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            }
+            res.flush();
+        }));
+    },
 
     /* ============================================================================================================= */
 
@@ -235,5 +236,5 @@ export default {
             }
             res.flush();
         });
-    },
+    }
 }
