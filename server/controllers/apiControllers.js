@@ -12,6 +12,7 @@ export default {
             title: req.body.title,
             date: req.body.date,
             location: req.body.location,
+            user1: req.user._id
         }, (err) => {
             if (err) {
                 res.sendStatus(404);
