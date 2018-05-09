@@ -18,7 +18,7 @@ class Learned extends Component {
                 </div>
 
                 <div id="modal-button">
-                    <a onClick={() => this.props.updateSkills(4)} className="button" id="badges-btn">
+                    <a onClick={() => this.props.updateSkills(4)} className="button" id="popups-btn">
                         Remove from Learned
                     </a>
                 </div>

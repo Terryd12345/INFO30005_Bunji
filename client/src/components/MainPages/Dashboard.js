@@ -12,8 +12,6 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
 
-        this.updateSelected = this.updateSelected.bind(this);
-
         this.state = {
             loading: true,
             user: {},
@@ -110,32 +108,6 @@ class Dashboard extends Component {
 
     /* ============================================================================================================= */
 
-    /* type               : (0) default, i.e., skills
-     * id                 : skill's or user's id
-     * previouslySelected : (true) to be removed from array, (false) to be added to array
-     */
-    updateSelected(type, id, previouslySelected) {
-        switch(type) {
-            case 0:
-                if (!previouslySelected) {
-                    this.setState({
-                        selectedSkills: [...this.state.selectedSkills, id]
-                    })
-                }
-                else {
-                    this.setState(prevState => ({
-                        selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
-                    }))
-                }
-                break;
-            
-            default:
-                break;
-        }
-    }
-
-    /* ============================================================================================================= */
-
     render() {
         return (
             <div id="page-wrap">
@@ -161,8 +133,7 @@ class Dashboard extends Component {
                             <PersonalProfile user={this.state.user}
                                              connections={this.state.connections}
                                              allSkills={this.state.allSkills}
-                                             learnedSkills={this.state.learnedSkills}
-                                             updateSelected={this.updateSelected} />
+                                             learnedSkills={this.state.learnedSkills} />
                             <Popups />
                             <Notifications notifications={this.state.notifications} />
                             <Contacts connections={this.state.connections} />

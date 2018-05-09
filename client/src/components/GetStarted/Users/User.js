@@ -29,20 +29,22 @@ class User extends Component {
     }
 
     onSelected() {
-        if (this.state.isSelected) {
-            this.setState({
-                isSelected: false,
-                backgroundColor: "",
-                borderColor: ""
-            });
-        } else {
-            this.setState({
-                isSelected: true,
-                backgroundColor: "#f3e5f5",
-                borderColor: "#8b55a4"
-            });
+        if (this.props.functionType > -1) {
+            if (this.state.isSelected) {
+                this.setState({
+                    isSelected: false,
+                    backgroundColor: "",
+                    borderColor: ""
+                });
+            } else {
+                this.setState({
+                    isSelected: true,
+                    backgroundColor: "#f3e5f5",
+                    borderColor: "#8b55a4"
+                });
+            }
+            this.props.updateSelected(this.props.functionType, this.props.user._id, this.state.isSelected);
         }
-        this.props.updateSelected(this.props.functionType, this.props.user._id, this.state.isSelected);
     }
 
     getAge(birthDate) {

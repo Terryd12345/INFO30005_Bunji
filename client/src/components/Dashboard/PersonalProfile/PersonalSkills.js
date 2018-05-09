@@ -10,8 +10,7 @@ class PersonalSkills extends Component {
                         return <Skill key={skill._id}
                                       skill={skill}
                                       isSelected={false}
-                                      updateSelected={this.props.updateSelected}
-                                      functionType={0} />;
+                                      functionType={-1} />;
                     })
                 }
             </div>

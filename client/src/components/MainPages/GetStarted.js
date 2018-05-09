@@ -208,7 +208,10 @@ class GetStarted extends Component {
                 axios.post("/api/addSkills", {
                     skills: self.state.selectedSkills
                 }),
-                axios.get("/api/addConnections", {
+                axios.post("/api/addConnections", {
+                    connections: self.state.selectedUsers
+                }),
+                axios.post("/api/updateConnections", {
                     connections: self.state.selectedUsers
                 })
             ])

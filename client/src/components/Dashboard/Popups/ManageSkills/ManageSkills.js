@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
+import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import Available from "./Available";
 import Selected from "./Selected";
@@ -18,6 +19,7 @@ class ManageSkills extends Component {
         this.updateSkills = this.updateSkills.bind(this);
 
         this.state = {
+            loading: true,
             show: false,
             available: true,
             selected: false,
@@ -45,6 +47,7 @@ class ManageSkills extends Component {
         ])
             .then(axios.spread((res1, res2) => {
                 self.setState({
+                    loading: false,
                     allAvailableSkills: res1.data,
                     allSelectedSkills: res2.data.skills,
                     learnedSkills: res2.data.learnedSkills,
@@ -61,6 +64,7 @@ class ManageSkills extends Component {
 
     closeAll() {
         this.setState({
+            loading: true,
             show: false,
             arrAvailable: [],
             arrSelected: [],
@@ -69,6 +73,9 @@ class ManageSkills extends Component {
     }
 
     showAvailable() {
+        if (this.state.loading) {
+            this.componentDidMount();
+        }
         this.setState({
             availableSkills: this.filterSkills(this.state.allAvailableSkills, this.state.allSelectedSkills),
             show: true,
@@ -218,16 +225,19 @@ class ManageSkills extends Component {
     render() {
         const inactiveAvailable = {
             backgroundColor: "#f1f1f1",
-            borderTopLeftRadius: "6px"
+            borderTopLeftRadius: "6px",
+            color: "#3e3f3d"
         };
 
         const inactiveSelected = {
-            backgroundColor: "#f1f1f1"
+            backgroundColor: "#f1f1f1",
+            color: "#3e3f3d"
         };
 
         const inactiveLearned = {
             backgroundColor: "#f1f1f1",
-            borderTopRightRadius: "6px"
+            borderTopRightRadius: "6px",
+            color: "#3e3f3d"
         };
 
         return (
@@ -240,43 +250,51 @@ class ManageSkills extends Component {
                 </div>
                 
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-                    <Modal.Header id="popups-header">
-                        <Modal.Title className="modal-title-dashboard" id="left-title"
+                    <Modal.Header id="skills-header">
+                        <Modal.Title className="modal-title-skills" id="left-title"
                                      onClick={this.showAvailable}
                                      style={this.state.available ? null : inactiveAvailable}>
                             AVAILABLE
                         </Modal.Title>
 
-                        <Modal.Title className="modal-title-dashboard" id="middle-title"
+                        <Modal.Title className="modal-title-skills" id="middle-title"
                                      onClick={this.showSelected}
                                      style={this.state.available ? inactiveSelected : (this.state.selected ? null : inactiveSelected)}>
                             SELECTED
                         </Modal.Title>
 
-                        <Modal.Title className="modal-title-dashboard" id="right-title"
+                        <Modal.Title className="modal-title-skills" id="right-title"
                                      onClick={this.showLearned}
                                      style={this.state.available ? inactiveLearned : (this.state.selected ? inactiveLearned : null)}>
                             LEARNED
                         </Modal.Title>
                     </Modal.Header>
-
-                    <Modal.Body>
-                        <div id="signup">
-                            {
-                                this.state.available ?
-                                    <Available skills={this.state.availableSkills}
-                                               updateSelected={this.handleClickedSkills}
-                                               updateSkills={this.updateSkills} />
-                                : (this.state.selected ?
-                                    <Selected skills={this.state.selectedSkills}
-                                              updateSelected={this.handleClickedSkills}
-                                              updateSkills={this.updateSkills} />
-                                : <Learned skills={this.state.learnedSkills}
-                                           updateSelected={this.handleClickedSkills}
-                                           updateSkills={this.updateSkills} />)
-                            }
-                        </div>
-                    </Modal.Body>
+    
+                    {
+                        this.state.loading ? (
+                            <Modal.Body>
+                                <div className="section-loading">
+                                    <BeatLoader loading={this.state.loading}/>
+                                </div>
+                            </Modal.Body>
+                        ) : (
+                            <Modal.Body>
+                                {
+                                    this.state.available ?
+                                        <Available skills={this.state.availableSkills}
+                                                   updateSelected={this.handleClickedSkills}
+                                                   updateSkills={this.updateSkills}/>
+                                        : (this.state.selected ?
+                                        <Selected skills={this.state.selectedSkills}
+                                                  updateSelected={this.handleClickedSkills}
+                                                  updateSkills={this.updateSkills}/>
+                                        : <Learned skills={this.state.learnedSkills}
+                                                   updateSelected={this.handleClickedSkills}
+                                                   updateSkills={this.updateSkills}/>)
+                                }
+                            </Modal.Body>
+                        )
+                    }
                 </Modal>
             </div>
         )

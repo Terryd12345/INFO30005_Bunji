@@ -115,12 +115,17 @@ export default {
     },
 
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }, { $nin: {connections: req.user.connections}}] })
+        User.find({ $and: [
+                            { _id: { $nin: req.user.connections } },
+                            { isMentor: true },
+                            { skills: { $in: req.body.skills } }
+                          ]
+        })
             .populate("skills")
             .populate("connections")
-            .exec((err, user) => {
+            .exec((err, users) => {
                 if (!err) {
-                    res.send(user);
+                    res.send(users);
                 } else {
                     res.sendStatus(404);
                 }
@@ -134,8 +139,8 @@ export default {
                 if (!err) {
                     req.body.skills.forEach(skill => {
                         user.skills.push(skill);
-                        user.save(user);
                     });
+                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -150,8 +155,8 @@ export default {
                 if (!err) {
                     req.body.skills.forEach(skill => {
                         user.skills.pull(skill);
-                        user.save(user);
                     });
+                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -182,8 +187,8 @@ export default {
                 if (!err) {
                     req.body.skills.forEach(skill => {
                         user.learnedSkills.push(skill);
-                        user.save(user);
                     });
+                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -198,8 +203,8 @@ export default {
                 if (!err) {
                     req.body.skills.forEach(skill => {
                         user.learnedSkills.pull(skill);
-                        user.save(user);
                     });
+                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -216,8 +221,24 @@ export default {
                 if (!err) {
                     req.body.connections.forEach(connection => {
                         user.connections.push(connection);
-                        user.save(user);
                     });
+                    user.save(user);
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    updateConnections: function (req, res) {
+        User.find({ _id: { $in: req.body.connections } })
+            .exec((err, users) => {
+                if (!err) {
+                    users.forEach(user => {
+                        user.connections.push(req.user._id);
+                    });
+                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);

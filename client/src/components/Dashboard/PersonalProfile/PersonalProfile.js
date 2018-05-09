@@ -36,9 +36,7 @@ class PersonalProfile extends Component {
                 <Stats skills={this.props.learnedSkills.length}
                        connections={this.props.connections.length} />
 
-                <div id="personal-skills-overlay" />
-                <PersonalSkills learnedSkills={this.props.learnedSkills}
-                                updateSelected={this.props.updateSelected} />
+                <PersonalSkills learnedSkills={this.props.learnedSkills} />
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
+import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
 import User from "../../../GetStarted/Users/User"
 
@@ -10,13 +11,17 @@ class FindMentor extends Component {
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toPrevious = this.toPrevious.bind(this);
+        this.toNext = this.toNext.bind(this);
         this.filterSkills = this.filterSkills.bind(this);
-        this.updateSelected = this.updateSelected.bind(this);
 
         this.state = {
+            loading: true,
             show: false,
             allUsers: [],
-            selectedUsers: []
+            currentUser: {},
+            length: 0,
+            index: 0
         };
     }
     
@@ -25,14 +30,16 @@ class FindMentor extends Component {
     
         axios.get("/api/user")
             .then(function (res1) {
-                axios.post("/api/mentorBySkills", {
+                axios.post("/api/mentorsBySkills", {
                     skills: self.filterSkills(res1.data.skills, res1.data.learnedSkills)
                 })
                 .then(function (res2) {
-                    console.log(res2);
-                    // self.setState({
-                    //     allUsers: res2.data
-                    // });
+                    self.setState({
+                        loading: false,
+                        allUsers: res2.data,
+                        currentUser: res2.data[self.state.index],
+                        length: res2.data.length
+                    });
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -47,11 +54,13 @@ class FindMentor extends Component {
 
     handleClose() {
         this.setState({
+            loading: true,
             show: false
         });
     }
 
     handleShow() {
+        this.componentDidMount();
         this.setState({
             show: true
         })
@@ -59,17 +68,44 @@ class FindMentor extends Component {
     
     handleSubmit() {
         const self = this;
-        
-        // axios.get("/api/addConnections", {
-        //     connections: self.state.selectedUsers
-        // })
-        // .then(function () {
-        //     self.componentDidMount();
-        // })
-        // .catch(function (error) {
-        //     console.log(error);
-        // });
+    
+        axios.all([
+            axios.post("/api/addConnections", {
+                connections: [self.state.currentUser._id]
+            }),
+            axios.post("/api/updateConnections", {
+                connections: [self.state.currentUser._id]
+            })
+        ])
+            .then(function () {
+                self.componentDidMount();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
+    
+    /* ============================================================================================================= */
+    
+    toPrevious() {
+        if (this.state.index > 0) {
+            this.setState({
+                index: this.state.index - 1,
+                currentUser: this.state.allUsers[this.state.index - 1]
+            });
+        }
+    }
+    
+    toNext() {
+        if (this.state.index < this.state.length-1) {
+            this.setState({
+                index: this.state.index + 1,
+                currentUser: this.state.allUsers[this.state.index + 1]
+            });
+        }
+    }
+    
+    /* ============================================================================================================= */
     
     filterSkills(keep, remove) {
         for (let i = keep.length - 1; i >= 0; i--) {
@@ -86,34 +122,15 @@ class FindMentor extends Component {
         return keep;
     }
     
-    /* type               : (0) users - default
-     * id                 : user's id
-     * previouslySelected : (true) to be removed from array, (false) to be added to array
-     */
-    updateSelected(type, id, previouslySelected) {
-        switch(type) {
-            case 0:
-                if (!previouslySelected) {
-                    this.setState({
-                        selectedUsers: [...this.state.selectedUsers, id]
-                    })
-                }
-                else {
-                    this.setState(prevState => ({
-                        selectedUsers: prevState.selectedUsers.filter(skill_id => skill_id !== id)
-                    }))
-                }
-                break;
-            
-            default:
-                break;
-        }
-    }
-    
     /* ============================================================================================================= */
 
     render() {
-
+        const disabled = {
+            backgroundColor: "#bbb",
+            borderColor: "#bbb",
+            color: "#eee"
+        };
+        
         return (
             <div>
                 <div onClick={this.handleShow} className="popup centered" id="popup-3">
@@ -124,21 +141,54 @@ class FindMentor extends Component {
                 </div>
                 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                    <Modal.Body>
-                        {
-                            this.state.allUsers.map(user => {
-                                return <User key={user._id}
-                                             user={user}
-                                             isSelected={false}
-                                             updateSelected={this.props.updateSelected}
-                                             functionType={0} />;
-                            })
-                        }
-                        
-                        <a onClick={this.handleSubmit} className="button" id="user-selection-btn">
-                            Confirm
-                        </a>
-                    </Modal.Body>
+                    <Modal.Header id="popups-header">
+                        <Modal.Title className="modal-title-popups">
+                            FIND MENTOR
+                        </Modal.Title>
+                    </Modal.Header>
+                    
+                    {
+                        this.state.loading ? (
+                            <Modal.Body>
+                                <div className="section-loading">
+                                    <BeatLoader loading={this.state.loading}/>
+                                </div>
+                            </Modal.Body>
+                        ) : (
+                            <Modal.Body>
+                                <div id="mentor">
+                                    <User key={this.state.currentUser._id}
+                                          user={this.state.currentUser}
+                                          isSelected={false}
+                                          functionType={-1} />
+                                </div>
+                                
+                                <div id="mentor-button">
+                                    <div id="mentor-button-previous">
+                                        <a className="button round" id="popups-arrow-btn"
+                                           onClick={this.toPrevious}
+                                           style={(this.state.index > 0) ? null : disabled}>
+                                            &#8249;
+                                        </a>
+                                    </div>
+    
+                                    <div id="mentor-button-select">
+                                        <a onClick={this.handleSubmit} className="button" id="popups-btn">
+                                            Select Mentor
+                                        </a>
+                                    </div>
+    
+                                    <div id="mentor-button-next">
+                                        <a className="button round" id="popups-arrow-btn"
+                                           onClick={this.toNext}
+                                           style={(this.state.index < this.state.length-1) ? null : disabled}>
+                                            &#8250;
+                                        </a>
+                                    </div>
+                                </div>
+                            </Modal.Body>
+                        )
+                    }
                 </Modal>
             </div>
         )
