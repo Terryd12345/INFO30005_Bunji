@@ -18,6 +18,7 @@ class CreateEvent extends Component {
             title: "",
             location: "",
             invite: "",
+            invite_id: "",
             date: "",
             time: "",
             userConnections: []
@@ -48,10 +49,12 @@ class CreateEvent extends Component {
     }
 
     handleSubmit(event) {
+        console.log(this.state.invite_id);
         axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
-            location: this.state.location
+            location: this.state.location,
+            user2: this.state.invite_id
         });
         this.handleClose();
         event.preventDefault();
@@ -78,7 +81,7 @@ class CreateEvent extends Component {
                     <Modal.Header closeButton>
                         <Modal.Title>Create a New Event</Modal.Title>
                     </Modal.Header>
-                    
+
                     <Modal.Body>
                         <form onSubmit={this.handleSubmit}>
                             <label>
@@ -88,9 +91,9 @@ class CreateEvent extends Component {
                                        value={this.state.title}
                                        onChange={(event) => this.setState({ title: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Location:
                                 <br />
@@ -98,22 +101,26 @@ class CreateEvent extends Component {
                                        value={this.state.location}
                                        onChange={(event) => this.setState({ location: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Invite:
                                 <br />
                                 <input type="text" list="connections"
                                        value={this.state.invite}
-                                       onChange={(event) => this.setState({ invite: event.target.value })} />
+                                       onChange={(event) => this.setState({ invite: event.target.value,
+                                                                            invite_id: event.target.dataset.id})}
+                                       />
                                 <datalist id="connections">
-                                    this.state.userConnections.map((person) => <option value="person" />)
+                                    {this.state.userConnections.map(person => {
+                                        return <option data-id={person._id} value={person.firstName+" "+person.lastName} />
+                                    })};
                                 </datalist>
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Date:
                                 <br />
@@ -121,7 +128,6 @@ class CreateEvent extends Component {
                                        value={this.state.date}
                                        onChange={(event) => this.setState({ date: event.target.value })} />
                             </label>
-                            
                             <label>
                                 Time:
                                 <br />
@@ -129,13 +135,13 @@ class CreateEvent extends Component {
                                        value={this.state.time}
                                        onChange={(event) => this.setState({ time: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <input type="submit" value="Submit" />
                         </form>
                     </Modal.Body>
-                    
+
                     <Modal.Footer>
                         <Button onClick={this.handleClose}>Close</Button>
                     </Modal.Footer>

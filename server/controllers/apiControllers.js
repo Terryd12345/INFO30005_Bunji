@@ -10,19 +10,12 @@ export default {
         User.findById(req.user._id)
             .exec((err, user) => {
                 if (!err) {
-                    if (user.description) {
-                        if (user.skills.length > 0) {
-                            res.redirect("/dashboard");
-                        } else {
-                            res.redirect("/get-started");
-                        }
+                    if (req.user.skills.length > 0) {
+                        res.redirect("/dashboard");
                     } else {
                         res.redirect("/welcome");
                     }
-                } else {
-                    res.sendStatus(404);
                 }
-                res.flush();
             });
     },
 
@@ -244,6 +237,18 @@ export default {
             res.flush();
         }));
     },
+
+    allEvents: function (req, res) {
+        Event.find({}, (err, events) => {
+            if (!err) {
+                res.send(events);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
 
     /* ============================================================================================================= */
 
