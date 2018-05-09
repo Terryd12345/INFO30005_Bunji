@@ -18,10 +18,10 @@ class CreateEvent extends Component {
             title: "",
             location: "",
             invite: "",
+            invite_id: "",
             date: "",
             time: "",
-            userConnections: [],
-            invitedId: ""
+            userConnections: []
         };
     }
 
@@ -49,11 +49,12 @@ class CreateEvent extends Component {
     }
 
     handleSubmit(event) {
+        console.log(this.state.invite_id);
         axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
             location: this.state.location,
-            user2: this.state.invite
+            user2: this.state.invite_id
         });
         this.handleClose();
         event.preventDefault();
@@ -108,11 +109,14 @@ class CreateEvent extends Component {
                                 <br />
                                 <h1>{this.state.userConnections.length}</h1>
                                 <input type="text" list="connections"
+                                       data-id={this.state.invite_id}
                                        value={this.state.invite}
-                                       onChange={(event) => this.setState({ invite: event.target["key"] })} />
+                                       onChange={(event) => this.setState({ invite: event.target.value,
+                                                                            invite_id: event.target["data-id"]})}
+                                       />
                                 <datalist id="connections">
                                     {this.state.userConnections.map(person => {
-                                        return <option key={person._id} value={person.firstName+" "+person.lastName} />
+                                        return <option key={person._id} data-id={person._id} value={person.firstName+" "+person.lastName} />
                                     })};
                                 </datalist>
                             </label>
