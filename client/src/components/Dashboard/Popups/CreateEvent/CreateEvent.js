@@ -53,8 +53,6 @@ class CreateEvent extends Component {
     }
 
     handleSubmit(event) {
-        console.log(this.state.invite);
-        console.log(this.state.invite_id);
         axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
@@ -120,7 +118,6 @@ class CreateEvent extends Component {
                                         invite_id: event.target.options[event.target.selectedIndex].dataset.id
                                     })}
                                 >
-
                                     {this.state.userConnections.map(person => {
                                         return <option data-id={person._id} value={person.firstName + " " + person.lastName}>{person.firstName + " " + person.lastName}</option>
                                     })};
