@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { MoonLoader } from "react-spinners";
 import axios from "axios";
 import PersonalProfile from "../Dashboard/PersonalProfile/PersonalProfile";
-import Badges from "../Dashboard/Badges/Badges";
+import Popups from "../Dashboard/Popups/Popups";
 import Notifications from "../Dashboard/Notifications/Notifications";
 import Contacts from "../Dashboard/Contacts/Contacts";
 import Events from "../Dashboard/Events/Events";
@@ -9,16 +11,21 @@ import Events from "../Dashboard/Events/Events";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        
-        this.updateSelectedSkills = this.updateSelectedSkills.bind(this);
-        
+
+        this.updateSelected = this.updateSelected.bind(this);
+
         this.state = {
+            loading: true,
             user: {},
-            
+    
+            redirectToHome: false,
+            redirectToWelcome: false,
+            redirectToGetStarted: false,
+
             allSkills: [],
             learnedSkills: [],
             selectedSkills: [],
-            
+
             notifications: [
                 {
                     _id: "1",
@@ -39,9 +46,9 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-            
+
             connections: [],
-            
+
             events: [
                 {
                     _id: "1",
@@ -67,45 +74,102 @@ class Dashboard extends Component {
             ]
         };
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         const self = this;
-        
+
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({ user: res.data, allSkills: res.data.skills, learnedSkills: res.data.learnedSkills,
-                                connections: res.data.connections });
+                if (res.data.description) {
+                    if (res.data.skills.length > 0) {
+                        self.setState({
+                            loading: false,
+                            user: res.data,
+                            allSkills: res.data.skills,
+                            learnedSkills: res.data.learnedSkills,
+                            connections: res.data.connections
+                        });
+                    } else {
+                        self.setState({
+                            redirectToGetStarted: true
+                        });
+                    }
+                } else {
+                    self.setState({
+                        redirectToWelcome: true
+                    });
+                }
             })
             .catch(function (error) {
+                self.setState({
+                    redirectToHome: true
+                });
                 console.log(error);
             });
     }
-    
-    updateSelectedSkills(id, state) {
-        if (state === false) {
-            this.setState({
-                selectedSkills: [...this.state.selectedSkills, id]
-            })
-        }
-        else {
-            this.setState(prevState => ({
-                selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
-            }))
+
+    /* ============================================================================================================= */
+
+    /* type               : (0) default, i.e., skills
+     * id                 : skill's or user's id
+     * previouslySelected : (true) to be removed from array, (false) to be added to array
+     */
+    updateSelected(type, id, previouslySelected) {
+        switch(type) {
+            case 0:
+                if (!previouslySelected) {
+                    this.setState({
+                        selectedSkills: [...this.state.selectedSkills, id]
+                    })
+                }
+                else {
+                    this.setState(prevState => ({
+                        selectedSkills: prevState.selectedSkills.filter(skill_id => skill_id !== id)
+                    }))
+                }
+                break;
+            
+            default:
+                break;
         }
     }
-    
+
+    /* ============================================================================================================= */
+
     render() {
         return (
             <div id="page-wrap">
-                <div id="dashboard">
-                    <PersonalProfile user={this.state.user} connections={this.state.connections}
-                                     allSkills={this.state.allSkills} learnedSkills={this.state.learnedSkills}
-                                     updateSelectedSkills={this.updateSelectedSkills} />
-                    <Badges />
-                    <Notifications notifications={this.state.notifications} />
-                    <Contacts connections={this.state.connections} />
-                    <Events events={this.state.events} />
-                </div>
+                {
+                    this.state.loading ? (
+                        <div id="loading">
+                            <MoonLoader loading={this.state.loading} />
+        
+                            {
+                                this.state.redirectToHome ? (<Redirect to="/" />) : (null)
+                            }
+        
+                            {
+                                this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
+                            }
+        
+                            {
+                                this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
+                            }
+                        </div>
+                    ) : (
+                        <div id="dashboard">
+                            <PersonalProfile user={this.state.user}
+                                             connections={this.state.connections}
+                                             allSkills={this.state.allSkills}
+                                             learnedSkills={this.state.learnedSkills}
+                                             updateSelected={this.updateSelected} />
+                            <Popups />
+                            <Notifications notifications={this.state.notifications} />
+                            <Contacts connections={this.state.connections} />
+                            <Events events={this.state.events} />
+                        </div>
+                    )
+                }
             </div>
         );
     }

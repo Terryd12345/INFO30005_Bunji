@@ -16,11 +16,15 @@ class Profile extends Component {
     }
     
     handleClose() {
-        this.setState({ show: false });
+        this.setState({
+            show: false
+        });
     }
     
     handleShow() {
-        this.setState({ show: true })
+        this.setState({
+            show: true
+        })
     }
     
     getAge(birthDate) {
@@ -38,29 +42,31 @@ class Profile extends Component {
         const age = this.getAge(new Date(this.props.user.birthDate));
         
         return (
-            <div>
-                <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                    <div id="profile-panel">
-                        <div id="profile-button">
-                            <a className="button" id="profile-btn" href="/connections">Contact {this.props.user.firstName}</a>
-                        </div>
-
-                        <div id="profile-pic">
-                            <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)} alt={this.props.user.firstName} />
-                        </div>
-
-                        <div id="profile-bio">
-                            <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
-                            <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
-                            <h6>Skills: {this.props.user.skills.map(x => x.skill).reduce((prev, curr) => [prev, ", ", curr])}</h6>
-                        </div>
-
-                        <div id="profile-desc">
-                            <p>{this.props.user.description}</p>
-                        </div>
+            <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
+                <div id="profile-panel">
+                    <div id="profile-button">
+                        <a href="/connections" className="button" id="profile-btn">
+                            Contact {this.props.user.firstName}
+                        </a>
                     </div>
-                </Modal>
-            </div>
+
+                    <div id="profile-pic">
+                        <img src={this.props.user.imagePath}
+                             alt={this.props.user.firstName} />
+                    </div>
+
+                    <div id="profile-bio">
+                        <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
+                        <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
+                        <h6>Skills: {this.props.user.skills.map(x => x.skill)
+                                                           .reduce((prev, curr) => [prev, ", ", curr])}</h6>
+                    </div>
+
+                    <div id="profile-desc">
+                        <p>{this.props.user.description}</p>
+                    </div>
+                </div>
+            </Modal>
         );
     }
 }

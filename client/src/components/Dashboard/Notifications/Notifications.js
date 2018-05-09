@@ -12,7 +12,10 @@ class Notifications extends Component {
                 <div id="notifications-content">
                     {
                         this.props.notifications.map(notification => {
-                            return <Notification key={notification._id} notification={notification.notification} time={notification.time} imagePath={notification.imagePath} />;
+                            return <Notification key={notification._id}
+                                                 notification={notification.notification}
+                                                 time={notification.time}
+                                                 imagePath={notification.imagePath} />;
                         })
                     }
                 </div>

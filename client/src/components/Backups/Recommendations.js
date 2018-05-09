@@ -10,7 +10,9 @@ class Recommendations extends Component {
                 </header>
                 
                 <div className="centered" id="recommendations-nav-left">
-                    <span><img src={require("../../images/icons/arrow-left.png")} alt="Icon" /></span>
+                    <span>
+                        <img src={require("../../images/icons/arrow-left.png")} alt="Icon" />
+                    </span>
                 </div>
                 
                 <div id="recommendations-content">
@@ -22,7 +24,9 @@ class Recommendations extends Component {
                 </div>
                 
                 <div className="centered" id="recommendations-nav-right">
-                    <span><img src={require("../../images/icons/arrow-right.png")} alt="Icon" /></span>
+                    <span>
+                        <img src={require("../../images/icons/arrow-right.png")} alt="Icon" />
+                    </span>
                 </div>
                 
                 <div className="section-button">

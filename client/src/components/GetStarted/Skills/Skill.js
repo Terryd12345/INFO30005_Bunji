@@ -3,31 +3,45 @@ import React, { Component } from "react";
 class Skill extends Component {
     constructor(props) {
         super(props);
-        
+
         this.onSelected = this.onSelected.bind(this);
-        
+
         this.state = {
             isSelected: this.props.isSelected,
             backgroundColor: "",
             borderColor: ""
         };
     }
-    
+
     componentDidMount() {
-        if (this.state.isSelected === false) {
-            this.setState({ backgroundColor: "", borderColor: "" });
+        if (this.state.isSelected) {
+            this.setState({
+                backgroundColor: "#f3e5f5",
+                borderColor: "#8b55a4"
+            });
         } else {
-            this.setState({ backgroundColor: "#f3e5f5", borderColor: "#8b55a4" });
+            this.setState({
+                backgroundColor: "",
+                borderColor: ""
+            });
         }
     }
 
     onSelected() {
-        if (this.state.isSelected === false) {
-            this.setState({ isSelected: true, backgroundColor: "#f3e5f5", borderColor: "#8b55a4" });
+        if (this.state.isSelected) {
+            this.setState({
+                isSelected: false,
+                backgroundColor: "",
+                borderColor: ""
+            });
         } else {
-            this.setState({ isSelected: false, backgroundColor: "", borderColor: "" });
+            this.setState({
+                isSelected: true,
+                backgroundColor: "#f3e5f5",
+                borderColor: "#8b55a4"
+            });
         }
-        this.props.updateSelectedSkills(this.props.skill._id, this.state.isSelected);
+        this.props.updateSelected(this.props.functionType, this.props.skill._id, this.state.isSelected);
     }
 
     render() {
@@ -38,7 +52,8 @@ class Skill extends Component {
 
         return (
             <div onClick={this.onSelected} className="skills-panel centered" style={style}>
-                <img src={require(`../../../images/skills/${this.props.skill.imagePath}.png`)} alt={this.props.skill.skill} />
+                <img src={require(`../../../images/skills/${this.props.skill.imagePath}.png`)}
+                     alt={this.props.skill.skill} />
                 {this.props.skill.skill}
             </div>
         );

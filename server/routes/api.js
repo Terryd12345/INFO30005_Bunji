@@ -4,18 +4,27 @@ const router = express.Router();
 import controller from "../controllers/apiControllers";
 
 // User calls
+router.get("/loggingIn", controller.loggingIn);
+
 router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
+router.post("/editUser", controller.editUser);
 router.post("/createUser", controller.createUser);
 
 router.get("/allSkills", controller.allSkills);
 router.post("/mentorsBySkills", controller.mentorsBySkills);
 router.post("/addSkills", controller.addSkills);
 router.post("/removeSkills", controller.removeSkills);
+router.post("/editSkills", controller.editSkills);
+
 router.post("/addLearned", controller.addLearned);
 router.post("/removeLearned", controller.removeLearned);
 
-router.post("/addConnection", controller.addConnection);
+//router.get("/events", controller.getEvents);
+router.post('/createEvent', controller.createEvent);
+
+router.post("/addConnections", controller.addConnections);
+router.post("/editConnections", controller.editConnections);
 
 router.get("/chat/:id", controller.getChat);
 router.post("/chat/:id", controller.postMessage);

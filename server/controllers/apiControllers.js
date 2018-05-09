@@ -6,18 +6,32 @@ const Skill = mongoose.model("skill");
 const User = mongoose.model("user");
 
 export default {
+    loggingIn: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    if (req.user.skills.length > 0) {
+                        res.redirect("/dashboard");
+                    } else {
+                        res.redirect("/welcome");
+                    }
+                }
+            });
+    },
+
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
             .populate("learnedSkills")
-            .populate({ path: "connections", populate: { path: "skills" }})
+            .populate({ path: "connections", populate: { path: "skills" } })
             .exec((err, user) => {
                 if (!err) {
                     res.send(user);
                 } else {
                     res.sendStatus(404);
                 }
-        });
+                res.flush();
+            });
     },
 
     getUser: function (req, res) {
@@ -32,11 +46,29 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     editUser: function (req, res) {
-        User.update();
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    birthDate: req.body.birthDate,
+                    gender: req.body.gender,
+                    location: req.body.location,
+                    isMentor: req.body.isMentor,
+                    description: req.body.description
+                }
+            },
+            (err) => {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
     },
 
     createUser: function (req, res) {
@@ -65,9 +97,9 @@ export default {
     /* ============================================================================================================= */
 
     allSkills: function (req, res) {
-        Skill.find({}, (err, docs) => {
+        Skill.find({}, (err, skills) => {
             if (!err) {
-                res.send(docs);
+                res.send(skills);
             } else {
                 res.sendStatus(404);
             }
@@ -86,7 +118,7 @@ export default {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     addSkills: function (req, res) {
@@ -94,14 +126,16 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
+                        console.log(skill);
                         user.skills.push(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
     removeSkills: function (req, res) {
@@ -112,41 +146,30 @@ export default {
                         user.skills.pull(skill);
                         user.save(user);
                     });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
+            });
     },
 
-    addLearned: function (req, res) {
-        User.findById(req.user._id)
-            .exec((err, user) => {
+    editSkills: function (req, res) {
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    skills: req.body.skills
+                }
+            },
+            (err) => {
                 if (!err) {
-                    req.body.skills.forEach(skill => {
-                        user.learnedSkills.push(skill);
-                        user.save(user);
-                    });
+                    res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
                 }
                 res.flush();
-        });
-    },
-
-    removeLearned: function (req, res) {
-        User.findById(req.user._id)
-            .exec((err, user) => {
-                if (!err) {
-                    req.body.skills.forEach(skill => {
-                        user.learnedSkills.pull(skill);
-                        user.save(user);
-                    });
-                } else {
-                    res.sendStatus(404);
-                }
-                res.flush();
-        });
+            });
     },
 
     createSkill: function (req, res) {
@@ -165,17 +188,90 @@ export default {
 
     /* ============================================================================================================= */
 
-    addConnection: function (req, res) {
-        let userID = req.user._id;
-        Chat.findById(userID, (err, user) => {
-            if (!err) {
-                user.connections.push(req.body.connectionID);
-                user.save(done);
-            } else {
+    addLearned: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.learnedSkills.push(skill);
+                        user.save(user);
+                    });
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    removeLearned: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.skills.forEach(skill => {
+                        user.learnedSkills.pull(skill);
+                        user.save(user);
+                    });
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    /* ============================================================================================================= */
+
+    addConnections: function (req, res) {
+        User.findById(req.user._id)
+            .exec((err, user) => {
+                if (!err) {
+                    req.body.connections.forEach(connection => {
+                        user.connections.push(connection);
+                        user.save(user);
+                    });
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    editConnections: function (req, res) {
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    connections: req.body.connections
+                }
+            },
+            (err) => {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    /* ============================================================================================================= */
+
+    createEvent: function (req, res) {
+        Event.create(new Event({
+            title: req.body.title,
+            date: req.body.date,
+            location: req.body.location,
+            user1: req.user._id
+        }, (err) => {
+            if (err) {
                 res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
             }
             res.flush();
-        });
+        }));
     },
 
     /* ============================================================================================================= */
@@ -218,5 +314,5 @@ export default {
             }
             res.flush();
         });
-    },
+    }
 }

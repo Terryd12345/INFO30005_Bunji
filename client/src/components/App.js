@@ -27,11 +27,6 @@ const Dashboard = Loadable({
     loading: Loading,
 });
 
-const UserSelection = Loadable({
-    loader: () => import("./GetStarted/Users/UserSelection"),
-    loading: Loading,
-});
-
 const Relationships = Loadable({
     loader: () => import("./MainPages/Relationships"),
     loading: Loading,
@@ -48,17 +43,16 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
-                    
+
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/welcome" component={Welcome} />
                         <Route exact path="/get-started" component={GetStarted} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/connections" component={Relationships} />
-                        <Route exact path="/find-mentor" component={UserSelection} />
                         <Route path="*" component={NotFound} />
                     </Switch>
-                    
+
                     <Footer />
                 </div>
             </BrowserRouter>
