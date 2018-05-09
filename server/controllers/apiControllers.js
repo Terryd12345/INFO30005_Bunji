@@ -133,6 +133,7 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
+                        console.log(skill);
                         user.skills.push(skill);
                         user.save(user);
                     });
@@ -159,6 +160,40 @@ export default {
                 res.flush();
             });
     },
+
+    editSkills: function (req, res) {
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    skills: req.body.skills
+                }
+            },
+            (err) => {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    createSkill: function (req, res) {
+        Skill.create(new Skill({
+            skill: req.body.skill,
+            imagePath: req.body.imagePath
+        }), (err) => {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            }
+            res.flush();
+        });
+    },
+
+    /* ============================================================================================================= */
 
     addLearned: function (req, res) {
         User.findById(req.user._id)
@@ -192,20 +227,6 @@ export default {
             });
     },
 
-    createSkill: function (req, res) {
-        Skill.create(new Skill({
-            skill: req.body.skill,
-            imagePath: req.body.imagePath
-        }), (err) => {
-            if (err) {
-                res.sendStatus(404);
-            } else {
-                res.sendStatus(200);
-            }
-            res.flush();
-        });
-    },
-
     /* ============================================================================================================= */
 
     addConnections: function (req, res) {
@@ -216,6 +237,24 @@ export default {
                         user.connections.push(connection);
                         user.save(user);
                     });
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    editConnections: function (req, res) {
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    connections: req.body.connections
+                }
+            },
+            (err) => {
+                if (!err) {
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);

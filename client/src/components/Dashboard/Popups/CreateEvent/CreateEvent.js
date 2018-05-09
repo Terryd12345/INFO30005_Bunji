@@ -48,7 +48,7 @@ class CreateEvent extends Component {
     }
 
     handleSubmit(event) {
-        axios.post("/api/newevent", {
+        axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
             location: this.state.location

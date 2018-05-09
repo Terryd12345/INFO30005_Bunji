@@ -31,7 +31,7 @@ passport.use(new GoogleStrategy({
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
             gender: profile.gender,
-            imagePath: profile._json.image.url
+            imagePath: profile._json.image.url.substr(0, profile._json.image.url.indexOf("?sz=")) + "?sz=200"
         }).save();
         done(null, user);
     }

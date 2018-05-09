@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { BeatLoader } from "react-spinners";
+import { Redirect } from "react-router-dom";
+import { MoonLoader, BeatLoader } from "react-spinners";
 import axios from "axios";
 import SkillSelection from "../GetStarted/Skills/SkillSelection";
 import UserSelection from "../GetStarted/Users/UserSelection";
@@ -15,8 +16,15 @@ class GetStarted extends Component {
         this.handleSection2 = this.handleSection2.bind(this);
 
         this.state = {
+            loading: true,
             loadingSkills: true,
             loadingUsers: false,
+            
+            redirectToHome: false,
+            redirectToWelcome: false,
+            redirectToDashboard: false,
+            
+            isMentor: false,
             
             showSection1: true,
             tickSection1: false,
@@ -36,15 +44,35 @@ class GetStarted extends Component {
 
     componentDidMount() {
         const self = this;
-
-        axios.get("/api/allSkills")
-            .then(function (res) {
-                self.setState({
-                    loadingSkills: false,
-                    allSkills: res.data
-                });
-            })
+    
+        axios.all([
+            axios.get("/api/allSkills"),
+            axios.get("/api/user")
+        ])
+            .then(axios.spread((res1, res2) => {
+                if (res2.data.description) {
+                    if (res2.data.skills.length < 1) {
+                        self.setState({
+                            loading: false,
+                            loadingSkills: false,
+                            allSkills: res1.data,
+                            isMentor: res2.data.isMentor
+                        });
+                    } else {
+                        self.setState({
+                            redirectToDashboard: true
+                        });
+                    }
+                } else {
+                    self.setState({
+                        redirectToWelcome: true
+                    });
+                }
+            }))
             .catch(function (error) {
+                self.setState({
+                    redirectToHome: true
+                });
                 console.log(error);
             });
     }
@@ -101,30 +129,52 @@ class GetStarted extends Component {
         } else {
             const self = this;
             
-            self.setState({
-                loadingUsers: true,
-                showSection1: false,
-                showSection2: true,
-                tickSection1: true,
-                tickSection2: false,
-                selectedUsers: [],
-                tmpSkills: [],
-                tmpUsers: []
-            });
-            
-            axios.post("/api/mentorsBySkills", {
-                skills: self.state.selectedSkills
-            })
-                .then(function (res) {
-                    self.setState({
-                        loadingUsers: false,
-                        allUsers: res.data
-                    });
-                    window.scrollTo(0, 55);
-                })
-                .catch(function (error) {
-                    console.log(error);
+            if (this.state.isMentor) {
+                this.setState({
+                    showSection1: false,
+                    showSection3: true,
+                    tickSection1: true,
+                    tickSection2: true,
+                    tmpSkills: []
                 });
+                
+                console.log(this.state.selectedSkills);
+
+                axios.post("/api/editSkills", {
+                    skills: self.state.selectedSkills
+                })
+                    .then(function () {
+                        window.scrollTo(0, 55);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            } else {
+                this.setState({
+                    loadingUsers: true,
+                    showSection1: false,
+                    showSection2: true,
+                    tickSection1: true,
+                    tickSection2: false,
+                    selectedUsers: [],
+                    tmpSkills: [],
+                    tmpUsers: []
+                });
+    
+                axios.post("/api/mentorsBySkills", {
+                    skills: self.state.selectedSkills
+                })
+                    .then(function (res) {
+                        self.setState({
+                            loadingUsers: false,
+                            allUsers: res.data
+                        });
+                        window.scrollTo(0, 55);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
         }
     }
 
@@ -138,7 +188,7 @@ class GetStarted extends Component {
         } else {
             const self = this;
             
-            axios.post("/api/addConnections", {
+            axios.post("/api/editConnections", {
                 connections: self.state.selectedUsers
             })
                 .then(function () {
@@ -225,103 +275,143 @@ class GetStarted extends Component {
 
         return (
             <div id="page-wrap">
-                <div id="section-1">
-                    <header onClick={this.handleSection1} className="section-header"
-                            style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
-                        <h2>
-                            1. Select Skills
+                {
+                    this.state.loading ? (
+                        <div id="loading">
+                            <MoonLoader loading={this.state.loading} />
+        
                             {
-                                this.state.tickSection1 ? (
-                                    <span>
-                                        <img src={require(`../../images/icons/tick.png`)} alt="Completed" />
-                                    </span>
-                                ) : (null)
+                                this.state.redirectToHome ? (<Redirect to="/" />) : (null)
                             }
-                        </h2>
-                    </header>
-
-                    {
-                        this.state.showSection1 ? (
-                            <div className="section-content">
-                                <SkillSelection allSkills={this.state.allSkills}
-                                                selectedSkills={this.state.selectedSkills}
-                                                updateSelected={this.updateSelected} />
-                                
-                                {
-                                    this.state.loadingSkills ? (
-                                        <div className="section-loading">
-                                            <BeatLoader loading={this.state.loadingSkills} />
-                                        </div>
-                                    ) : (null)
-                                }
-                                
-                                <a onClick={this.toSection2} className="button" id="skill-selection-btn">
-                                    Find Mentor
-                                </a>
-                            </div>
-                        ) : (null)
-                    }
-                </div>
-
-                <div id="section-2">
-                    <header onClick={this.handleSection2} className="section-header"
-                            style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
-                        <h2>
-                            2. Find Mentor
+        
                             {
-                                this.state.tickSection2 ? (
-                                    <span>
-                                        <img src={require(`../../images/icons/tick.png`)} alt="Completed" />
-                                    </span>
-                                ) : (null)
+                                this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
                             }
-                        </h2>
-                    </header>
-
-                    {
-                        this.state.showSection2 ? (
-                            <div className="section-content">
-                                <UserSelection allUsers={this.state.allUsers}
-                                               selectedUsers={this.state.selectedUsers}
-                                               updateSelected={this.updateSelected}
-                                               isOnDashboard={false} />
+        
+                            {
+                                this.state.redirectToDashboard ? (<Redirect to="/dashboard" />) : (null)
+                            }
+                        </div>
+                    ) : (
+                        <div>
     
+                        {/* ======================================================================================= */}
+                        
+                            <div id="section-1">
+                                <header onClick={this.handleSection1} className="section-header"
+                                        style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
+                                    <h2>
+                                        1. Select Skills
+                                        {
+                                            this.state.tickSection1 ? (
+                                                <span>
+                                                    <img src={require(`../../images/icons/tick.png`)} alt="Completed"/>
+                                                </span>
+                                            ) : (null)
+                                        }
+                                    </h2>
+                                </header>
+                    
                                 {
-                                    this.state.loadingUsers ? (
-                                        <div className="section-loading">
-                                            <BeatLoader loading={this.state.loadingUsers} />
+                                    this.state.showSection1 ? (
+                                        <div className="section-content">
+                                            <SkillSelection allSkills={this.state.allSkills}
+                                                            selectedSkills={this.state.selectedSkills}
+                                                            updateSelected={this.updateSelected}/>
+                                
+                                            {
+                                                this.state.loadingSkills ? (
+                                                    <div className="section-loading">
+                                                        <BeatLoader loading={this.state.loadingSkills}/>
+                                                    </div>
+                                                ) : (null)
+                                            }
+                                
+                                            <a className="button" id="skill-selection-btn"
+                                               onClick={this.toSection2}>
+                                                {
+                                                    this.state.isMentor ? "Confirm" : "Find Mentor"
+                                                }
+                                            </a>
                                         </div>
                                     ) : (null)
                                 }
-                                
-                                <a onClick={this.toSection3} className="button" id="user-selection-btn">
-                                    Confirm
-                                </a>
                             </div>
-                        ) : (null)
-                    }
-                </div>
-
-                <div id="section-3">
-                    <header className="section-header" style={this.state.showSection3 ? null : disabled}>
-                        <h2>3. Learn Skills</h2>
-                    </header>
-
-                    {
-                        this.state.showSection3 ? (
-                            <div className="wrapper" id="get-started">
-                                <header className="header">
-                                    <h2>All good!</h2>
-                                    <h6>Once a mentor confirms your request, you can start learning your skills.</h6>
+    
+                        {/* ======================================================================================= */}
+                        
+                        {
+                            this.state.isMentor ? (null) : (
+                            <div id="section-2">
+                                <header onClick={this.handleSection2} className="section-header"
+                                        style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
+                                <h2>
+                                        2. Find Mentor
+                                        {
+                                            this.state.tickSection2 ? (
+                                                <span>
+                                                    <img src={require(`../../images/icons/tick.png`)}
+                                                         alt="Completed"/>
+                                                </span>
+                                            ) : (null)
+                                        }
+                                        </h2>
                                 </header>
-
-                                <a className="button" id="get-started-btn" href="/dashboard">
-                                    View Dashboard
-                                </a>
+                    
+                                {
+                                    this.state.showSection2 ? (
+                                        <div className="section-content">
+                                            <UserSelection allUsers={this.state.allUsers}
+                                                           selectedUsers={this.state.selectedUsers}
+                                                           updateSelected={this.updateSelected}
+                                                           isOnDashboard={false}/>
+                                
+                                            {
+                                                this.state.loadingUsers ? (
+                                                    <div className="section-loading">
+                                                        <BeatLoader loading={this.state.loadingUsers}/>
+                                                    </div>
+                                                ) : (null)
+                                            }
+                                
+                                            <a onClick={this.toSection3} className="button" id="user-selection-btn">
+                                                Confirm
+                                            </a>
+                                        </div>
+                                    ) : (null)
+                                }
                             </div>
-                        ) : (null)
-                    }
-                </div>
+                            )
+                        }
+                        
+                        {/* ======================================================================================= */}
+                        
+                            <div id="section-3">
+                                <header className="section-header" style={this.state.showSection3 ? null : disabled}>
+                                    <h2>{this.state.isMentor ? "2. Teach Skills" : "3. Learn Skills"}</h2>
+                                </header>
+                
+                                {
+                                    this.state.showSection3 ? (
+                                        <div className="wrapper" id="get-started">
+                                            <header className="header">
+                                                <h2>All good!</h2>
+                                                <h6>Once a mentor confirms your request, you can start learning your skills.</h6>
+                                            </header>
+                                
+                                            <a className="button" id="get-started-btn" href="/dashboard">
+                                                View Dashboard
+                                            </a>
+                                        </div>
+                                    ) : (null)
+                                }
+                            </div>
+    
+                        {/* ======================================================================================= */}
+                        
+                        </div>
+                    )
+                }
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import axios from "axios";
 import PersonalProfile from "../Dashboard/PersonalProfile/PersonalProfile";
@@ -16,6 +17,10 @@ class Dashboard extends Component {
         this.state = {
             loading: true,
             user: {},
+    
+            redirectToHome: false,
+            redirectToWelcome: false,
+            redirectToGetStarted: false,
 
             allSkills: [],
             learnedSkills: [],
@@ -75,15 +80,30 @@ class Dashboard extends Component {
 
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({
-                    loading: false,
-                    user: res.data,
-                    allSkills: res.data.skills,
-                    learnedSkills: res.data.learnedSkills,
-                    connections: res.data.connections
-                });
+                if (res.data.description) {
+                    if (res.data.skills.length > 0) {
+                        self.setState({
+                            loading: false,
+                            user: res.data,
+                            allSkills: res.data.skills,
+                            learnedSkills: res.data.learnedSkills,
+                            connections: res.data.connections
+                        });
+                    } else {
+                        self.setState({
+                            redirectToGetStarted: true
+                        });
+                    }
+                } else {
+                    self.setState({
+                        redirectToWelcome: true
+                    });
+                }
             })
             .catch(function (error) {
+                self.setState({
+                    redirectToHome: true
+                });
                 console.log(error);
             });
     }
@@ -123,6 +143,18 @@ class Dashboard extends Component {
                     this.state.loading ? (
                         <div id="loading">
                             <MoonLoader loading={this.state.loading} />
+        
+                            {
+                                this.state.redirectToHome ? (<Redirect to="/" />) : (null)
+                            }
+        
+                            {
+                                this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
+                            }
+        
+                            {
+                                this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
+                            }
                         </div>
                     ) : (
                         <div id="dashboard">

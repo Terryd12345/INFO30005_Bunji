@@ -5,7 +5,7 @@ class Event extends Component {
         return (
             <div className="event-panel">
                 <div className="event-pic">
-                    <img src={require(`../../../images/users/${this.props.imagePath}.png`)}
+                    <img src={this.props.imagePath}
                          alt={this.props.firstName} />
                 </div>
                 

@@ -67,7 +67,7 @@ class User extends Component {
         return (
             <div onClick={this.onSelected} className="user-panel" style={style}>
                 <div className="user-pic">
-                    <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)}
+                    <img src={this.props.user.imagePath}
                          alt={this.props.user.firstName} />
                 </div>
 

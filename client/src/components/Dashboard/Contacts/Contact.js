@@ -11,7 +11,7 @@ class Contact extends Component {
             <div>
                 <div className="contact-panel">
                     <div className="contact-pic centered">
-                        <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)}
+                        <img src={this.props.user.imagePath}
                              alt={this.props.user.firstName} />
                     </div>
                     
