@@ -9,7 +9,7 @@ class Header extends Component {
         // this.showLogin = this.showLogin.bind(this);
 
         this.state = {
-            isLoggedIn: true
+            isLoggedIn: this.props.isLoggedIn
         };
     }
 

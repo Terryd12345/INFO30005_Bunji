@@ -42,7 +42,18 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Route path="/" render={(props) => (props.location.pathname !== "/") && <Header />} />
+                    <Route path="/" render={(props) => ((props.location.pathname === "/welcome")
+                                                        || (props.location.pathname === "/get-started")
+                                                        || (props.location.pathname === "/dashboard")
+                                                        || (props.location.pathname === "/connections"))
+                                                        && <Header isLoggedIn={true} />} />
+
+                    <Route path="/" render={(props) => ((props.location.pathname !== "/")
+                                                        && (props.location.pathname !== "/welcome")
+                                                        && (props.location.pathname !== "/get-started")
+                                                        && (props.location.pathname !== "/dashboard")
+                                                        && (props.location.pathname !== "/connections"))
+                                                        && <Header isLoggedIn={false} />} />
 
                     <Switch>
                         <Route exact path="/" component={Home} />
