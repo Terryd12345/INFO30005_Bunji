@@ -107,7 +107,6 @@ class CreateEvent extends Component {
                             <label>
                                 Invite:
                                 <br />
-                                <h1>{this.state.userConnections.length}</h1>
                                 <input type="text" list="connections"
                                        value={this.state.invite}
                                        onChange={(event) => this.setState({ invite: event.target.value,
@@ -118,7 +117,6 @@ class CreateEvent extends Component {
                                         return <option data-id={person._id} value={person.firstName+" "+person.lastName} />
                                     })};
                                 </datalist>
-                                <h1>{this.state.userConnections.length}</h1>
                             </label>
 
                             <br />
@@ -130,7 +128,6 @@ class CreateEvent extends Component {
                                        value={this.state.date}
                                        onChange={(event) => this.setState({ date: event.target.value })} />
                             </label>
-
                             <label>
                                 Time:
                                 <br />

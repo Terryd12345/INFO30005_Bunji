@@ -17,7 +17,7 @@ class Dashboard extends Component {
         this.state = {
             loading: true,
             user: {},
-    
+
             redirectToHome: false,
             redirectToWelcome: false,
             redirectToGetStarted: false,
@@ -46,37 +46,18 @@ class Dashboard extends Component {
                     imagePath: "user"
                 }
             ],
-
             connections: [],
-
-            events: [
-                {
-                    _id: "1",
-                    date: "1 January 2019",
-                    time: "12 - 2 PM",
-                    location: "Melbourne Central",
-                    imagePath: "user"
-                },
-                {
-                    _id: "2",
-                    date: "8 January 2019",
-                    time: "1 - 3 PM",
-                    location: "Victoria Market",
-                    imagePath: "user"
-                },
-                {
-                    _id: "3",
-                    date: "15 January 2019",
-                    time: "12 - 2 PM",
-                    location: "Melbourne Central",
-                    imagePath: "user"
-                }
-            ]
+            events: []
         };
     }
 
     componentDidMount() {
         const self = this;
+
+        axios.get("/api/events")
+            .then(function (res) {
+                self.setState({events: res.data})
+            });
 
         axios.get("/api/user")
             .then(function (res) {
@@ -128,7 +109,7 @@ class Dashboard extends Component {
                     }))
                 }
                 break;
-            
+
             default:
                 break;
         }
@@ -143,15 +124,15 @@ class Dashboard extends Component {
                     this.state.loading ? (
                         <div id="loading">
                             <MoonLoader loading={this.state.loading} />
-        
+
                             {
                                 this.state.redirectToHome ? (<Redirect to="/" />) : (null)
                             }
-        
+
                             {
                                 this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
                             }
-        
+
                             {
                                 this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
                             }

@@ -238,6 +238,18 @@ export default {
         }));
     },
 
+    allEvents: function (req, res) {
+        Event.find({}, (err, events) => {
+            if (!err) {
+                res.send(events);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
+
     /* ============================================================================================================= */
 
     getChat: function (req, res) {
