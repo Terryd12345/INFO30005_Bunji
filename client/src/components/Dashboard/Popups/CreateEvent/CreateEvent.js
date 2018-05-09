@@ -109,14 +109,13 @@ class CreateEvent extends Component {
                                 <br />
                                 <h1>{this.state.userConnections.length}</h1>
                                 <input type="text" list="connections"
-                                       data-id={this.state.invite_id}
                                        value={this.state.invite}
                                        onChange={(event) => this.setState({ invite: event.target.value,
-                                                                            invite_id: event.target["data-id"]})}
+                                                                            invite_id: event.target.dataset.id})}
                                        />
                                 <datalist id="connections">
                                     {this.state.userConnections.map(person => {
-                                        return <option key={person._id} data-id={person._id} value={person.firstName+" "+person.lastName} />
+                                        return <option data-id={person._id} value={person.firstName+" "+person.lastName} />
                                     })};
                                 </datalist>
                             </label>
