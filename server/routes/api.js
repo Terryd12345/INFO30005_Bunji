@@ -4,11 +4,12 @@ const router = express.Router();
 import controller from "../controllers/apiControllers";
 
 // User calls
+router.get("/loggingIn", controller.loggingIn);
+
 router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
+router.post("/editUser", controller.editUser);
 router.post("/createUser", controller.createUser);
-
-router.get("/loggingin", controller.loggingIn);
 
 router.get("/allSkills", controller.allSkills);
 router.post("/mentorsBySkills", controller.mentorsBySkills);

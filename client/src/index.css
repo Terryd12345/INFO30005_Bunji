@@ -844,6 +844,7 @@ a:hover {
 
 #welcome-form {
     grid-area: form;
+    min-height: 100vh;
     padding: 50px;
     background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
 }
@@ -881,18 +882,13 @@ a:hover {
     resize: none;
 }
 
-#welcome-form #month {
-    width: 48%;
-    margin-right: 2%;
+#welcome-form #birthDate {
+    width: 65%;
+    margin-right: 4%;
 }
 
-#welcome-form #day {
-    width: 22%;
-    margin-right: 2%;
-}
-
-#welcome-form #year {
-    width: 26%;
+#welcome-form #gender {
+    width: 31%;
 }
 
 #welcome-form-title h2 {
@@ -902,7 +898,6 @@ a:hover {
 
 @media (max-width: 800px) {
     #welcome {
-        height: 100vh;
         grid-template: "form" 1fr / 1fr;
     }
     #welcome-pic {

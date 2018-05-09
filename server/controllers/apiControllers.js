@@ -9,13 +9,20 @@ export default {
     loggingIn: function (req, res) {
         User.findById(req.user._id)
             .exec((err, user) => {
-                if(!err){
-                    if(req.user.existingUser === true){
-                        res.redirect("/dashboard");
+                if (!err){
+                    if (user.description) {
+                        if (user.skills.length > 0) {
+                            res.redirect("/dashboard");
+                        } else {
+                            res.redirect("/get-started");
+                        }
                     } else {
-                    res.redirect("/welcome");
+                        res.redirect("/welcome");
                     }
+                } else {
+                    res.sendStatus(404);
                 }
+                res.flush();
             });
     },
 
@@ -30,6 +37,7 @@ export default {
                 } else {
                     res.sendStatus(404);
                 }
+                res.flush();
             });
     },
 
@@ -49,7 +57,25 @@ export default {
     },
 
     editUser: function (req, res) {
-        User.update();
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    birthDate: req.body.birthDate,
+                    gender: req.body.gender,
+                    location: req.body.location,
+                    isMentor: req.body.isMentor,
+                    description: req.body.description
+                }
+            },
+            (err) => {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
     },
 
     createUser: function (req, res) {
@@ -78,9 +104,9 @@ export default {
     /* ============================================================================================================= */
 
     allSkills: function (req, res) {
-        Skill.find({}, (err, docs) => {
+        Skill.find({}, (err, skills) => {
             if (!err) {
-                res.send(docs);
+                res.send(skills);
             } else {
                 res.sendStatus(404);
             }

@@ -105,8 +105,8 @@ class CreateEvent extends Component {
                                 Invite:
                                 <br />
                                 <input type="text" list="connections"
-                                    value={this.state.invite}
-                                    onChange={(event) => this.setState({ invite: event.target.value })} />
+                                       value={this.state.invite}
+                                       onChange={(event) => this.setState({ invite: event.target.value })} />
                                 <datalist id="connections">
                                     this.state.userConnections.map((person) => <option value="person" />)
                                 </datalist>
