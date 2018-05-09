@@ -25,11 +25,15 @@ class CreateEvent extends Component {
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         var self = this;
         axios.get("/api/user")
             .then((res) => {
-                self.setState({ userConnections: res.data.connections })
+                self.setState({
+                    userConnections: res.data.connections,
+                    invite: res.data.connections[0].firstName + " " + res.data.connections[0].lastName,
+                    invite_id: res.data.connections[0]._id
+                })
             })
             .catch((error) => {
                 console.log(error);
@@ -49,7 +53,6 @@ class CreateEvent extends Component {
     }
 
     handleSubmit(event) {
-        console.log(this.state.invite_id);
         axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
@@ -88,8 +91,8 @@ class CreateEvent extends Component {
                                 Title:
                                 <br />
                                 <input type="text"
-                                       value={this.state.title}
-                                       onChange={(event) => this.setState({ title: event.target.value })} />
+                                    value={this.state.title}
+                                    onChange={(event) => this.setState({ title: event.target.value })} />
                             </label>
 
                             <br />
@@ -98,8 +101,8 @@ class CreateEvent extends Component {
                                 Location:
                                 <br />
                                 <input type="text"
-                                       value={this.state.location}
-                                       onChange={(event) => this.setState({ location: event.target.value })} />
+                                    value={this.state.location}
+                                    onChange={(event) => this.setState({ location: event.target.value })} />
                             </label>
 
                             <br />
@@ -107,16 +110,18 @@ class CreateEvent extends Component {
                             <label>
                                 Invite:
                                 <br />
-                                <input type="text" list="connections"
-                                       value={this.state.invite}
-                                       onChange={(event) => this.setState({ invite: event.target.value,
-                                                                            invite_id: event.target.dataset.id})}
-                                       />
-                                <datalist id="connections">
+                                <select name="connections"
+                                    data-id={this.state.invite_id}
+                                    value={this.state.invite}
+                                    onChange={(event) => this.setState({
+                                        invite: event.target.options[event.target.selectedIndex].value,
+                                        invite_id: event.target.options[event.target.selectedIndex].dataset.id
+                                    })}
+                                >
                                     {this.state.userConnections.map(person => {
-                                        return <option data-id={person._id} value={person.firstName+" "+person.lastName} />
+                                        return <option data-id={person._id} value={person.firstName + " " + person.lastName}>{person.firstName + " " + person.lastName}</option>
                                     })};
-                                </datalist>
+                                    </select>
                             </label>
 
                             <br />
@@ -125,15 +130,15 @@ class CreateEvent extends Component {
                                 Date:
                                 <br />
                                 <input type="date"
-                                       value={this.state.date}
-                                       onChange={(event) => this.setState({ date: event.target.value })} />
+                                    value={this.state.date}
+                                    onChange={(event) => this.setState({ date: event.target.value })} />
                             </label>
                             <label>
                                 Time:
                                 <br />
                                 <input type="time"
-                                       value={this.state.time}
-                                       onChange={(event) => this.setState({ time: event.target.value })} />
+                                    value={this.state.time}
+                                    onChange={(event) => this.setState({ time: event.target.value })} />
                             </label>
 
                             <br />
