@@ -51,7 +51,7 @@ class Profile extends Component {
                     </div>
 
                     <div id="profile-pic">
-                        <img src={require(`../../../images/users/${this.props.user.imagePath}.png`)}
+                        <img src={this.props.user.imagePath}
                              alt={this.props.user.firstName} />
                     </div>
 

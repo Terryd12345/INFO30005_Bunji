@@ -27,10 +27,6 @@ class PersonalProfile extends Component {
                     <a className="button" id="personal-btn-1" href="">
                         Edit Info
                     </a>
-                    <br />
-                    <a className="button" id="personal-btn-2" href="">
-                        Some Button
-                    </a>
                 </div>
 
                 <header className="section-title">

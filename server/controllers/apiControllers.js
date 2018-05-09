@@ -9,7 +9,7 @@ export default {
     loggingIn: function (req, res) {
         User.findById(req.user._id)
             .exec((err, user) => {
-                if (!err){
+                if (!err) {
                     if (user.description) {
                         if (user.skills.length > 0) {
                             res.redirect("/dashboard");
@@ -115,7 +115,7 @@ export default {
     },
 
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }] })
+        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }, { $nin: {connections: req.user.connections}}] })
             .populate("skills")
             .populate("connections")
             .exec((err, user) => {
@@ -160,6 +160,22 @@ export default {
             });
     },
 
+    createSkill: function (req, res) {
+        Skill.create(new Skill({
+            skill: req.body.skill,
+            imagePath: req.body.imagePath
+        }), (err) => {
+            if (err) {
+                res.sendStatus(404);
+            } else {
+                res.sendStatus(200);
+            }
+            res.flush();
+        });
+    },
+
+    /* ============================================================================================================= */
+
     addLearned: function (req, res) {
         User.findById(req.user._id)
             .exec((err, user) => {
@@ -192,20 +208,6 @@ export default {
             });
     },
 
-    createSkill: function (req, res) {
-        Skill.create(new Skill({
-            skill: req.body.skill,
-            imagePath: req.body.imagePath
-        }), (err) => {
-            if (err) {
-                res.sendStatus(404);
-            } else {
-                res.sendStatus(200);
-            }
-            res.flush();
-        });
-    },
-
     /* ============================================================================================================= */
 
     addConnections: function (req, res) {
@@ -231,7 +233,8 @@ export default {
             title: req.body.title,
             date: req.body.date,
             location: req.body.location,
-            user1: req.user._id
+            user1: req.user._id,
+            user2: req.body._id
         }, (err) => {
             if (err) {
                 res.sendStatus(404);

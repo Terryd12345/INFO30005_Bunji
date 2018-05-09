@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { MoonLoader } from "react-spinners";
 import axios from "axios/index";
 
 class Welcome extends Component {
@@ -9,7 +10,12 @@ class Welcome extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         
         this.state = {
-            redirect: false,
+            loading: true,
+            
+            redirectToHome: false,
+            redirectToGetStarted: false,
+            redirectToDashboard: false,
+            
             birthDate: "",
             gender: "",
             location: "",
@@ -17,6 +23,41 @@ class Welcome extends Component {
             description: ""
         };
     }
+    
+    componentDidMount() {
+        const self = this;
+        
+        axios.get("/api/user")
+            .then(function (res) {
+                if (res.data.description) {
+                    if (res.data.skills.length > 0) {
+                        self.setState({
+                            redirectToDashboard: true
+                        });
+                    } else {
+                        self.setState({
+                            redirectToGetStarted: true
+                        });
+                    }
+                } else {
+                    self.setState({
+                        loading: false,
+                        user: res.data,
+                        allSkills: res.data.skills,
+                        learnedSkills: res.data.learnedSkills,
+                        connections: res.data.connections
+                    });
+                }
+            })
+            .catch(function (error) {
+                self.setState({
+                    redirectToHome: true
+                });
+                console.log(error);
+            });
+    }
+    
+    /* ============================================================================================================= */
     
     handleSubmit(e) {
         const self = this;
@@ -30,20 +71,39 @@ class Welcome extends Component {
             description: this.state.description
         })
             .then(function () {
-                self.setState({ redirect: true });
+                self.setState({
+                    loading: true,
+                    redirectToGetStarted: true
+                });
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
     
+    /* ============================================================================================================= */
+    
     render() {
         return (
             <div id="page-wrap">
                 {
-                    this.state.redirect ?
-                        (<Redirect to="/get-started"/>)
-                    : (
+                    this.state.loading ? (
+                        <div id="loading">
+                            <MoonLoader loading={this.state.loading} />
+    
+                            {
+                                this.state.redirectToHome ? (<Redirect to="/" />) : (null)
+                            }
+    
+                            {
+                                this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
+                            }
+    
+                            {
+                                this.state.redirectToDashboard ? (<Redirect to="/dashboard" />) : (null)
+                            }
+                        </div>
+                    ) : (
                         <div id="welcome">
                             <div id="welcome-pic"/>
                 
