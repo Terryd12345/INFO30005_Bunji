@@ -33,12 +33,21 @@ export default {
                 res.flush();
             });
     },
-
+    
     getUser: function (req, res) {
-        let userID = req.params.id;
-        User.findById(userID)
-            .populate("skills")
-            .populate("connections")
+        User.findById(req.params.id)
+            .exec((err, user) => {
+                if (!err) {
+                    res.send(user);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
+    getUserById: function (req, res) {
+        User.findById(req.body.id)
             .exec((err, user) => {
                 if (!err) {
                     res.send(user);

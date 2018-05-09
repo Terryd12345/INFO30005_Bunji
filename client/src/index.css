@@ -1490,7 +1490,8 @@ a:hover {
     grid-area: description;
     text-align: left;
     display: grid;
-    grid-template: "title title" "detail content" 1fr / 25% 75%;
+    grid-template: "title title" "detail content" 1fr / auto minmax(50%, 80%);
+    grid-gap: 12px 20px;
 }
 
 .event-desc-title {
@@ -1498,7 +1499,17 @@ a:hover {
 }
 
 .event-desc-title h5 {
-    margin-bottom: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.event-desc-title h6 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 120%;
 }
 
 .event-desc-detail {
@@ -1507,6 +1518,7 @@ a:hover {
 
 .event-desc-detail h6,
 .event-desc-content h6 {
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 0.9rem;
     line-height: 140%;
 }
@@ -1536,6 +1548,7 @@ a:hover {
     background: #f1f1f1;
     border: none;
     border-radius: 8px;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 #events-sidebar-md {
@@ -1553,6 +1566,7 @@ a:hover {
 #events-sidebar-md a,
 #events-sidebar-lg a {
     color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
     text-decoration: none;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
@@ -1661,6 +1675,9 @@ a:hover {
     .event-pic img {
         max-width: 70%;
     }
+    .event-desc {
+        grid-gap: 10px;
+    }
     #events-content {
         grid-template: "sidebar" "window";
     }
@@ -1670,6 +1687,10 @@ a:hover {
     }
     #events-sidebar-sm {
         display: block;
+    }
+    #events-window {
+        padding: 20px 15px;
+        border-radius: 0 0 8px 8px !important;
     }
     #personal-btn-1,
     #personal-btn-2 {
@@ -1690,7 +1711,7 @@ a:hover {
         display: block;
     }
     #events-window {
-        border: 0 0 8px 8px !important;
+        border-radius: 0 0 8px 8px !important;
     }
 }
 
@@ -1725,14 +1746,9 @@ a:hover {
 
 @media (max-width: 875px) {
     .event-panel {
+        padding: 5px 5px 10px 5px;
         grid-template-columns: 25% 75%;
         grid-gap: 8px;
-    }
-    .event-desc {
-        grid-template: "title" "content" 1fr / 1fr;
-    }
-    .event-desc-detail {
-        display: none;
     }
     #personal-profile {
         padding: 8px 20px;
@@ -1800,9 +1816,6 @@ a:hover {
     .contact-br {
         display: inline;
     }
-    .event-desc {
-        grid-template-columns: 32% 68%;
-    }
     #dashboard {
         grid-template-rows: 165px 390px 400px;
     }
@@ -1858,11 +1871,8 @@ a:hover {
     }
     .event-panel {
         padding: 20px 10px 25px 10px;
-        grid-template-columns: 25% 75%;
+        grid-template-columns: 35% 65%;
         grid-gap: 0;
-    }
-    .event-desc {
-        grid-template-columns: 20% 80%;
     }
     #dashboard {
         grid-template-rows: 285px 315px 650px;

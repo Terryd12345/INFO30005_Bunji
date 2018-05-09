@@ -42,7 +42,9 @@ class Events extends Component {
                                 return <Event key={event._id}
                                               title={event.title}
                                               datetime={event.date}
-                                              location={event.location} />;
+                                              location={event.location}
+                                              user1={event.user1}
+                                              user2={event.user2} />;
                             })
                         }
                     </div>

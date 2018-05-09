@@ -5,7 +5,6 @@ class User extends Component {
         super(props);
 
         this.onSelected = this.onSelected.bind(this);
-        this.getAge = this.getAge.bind(this);
 
         this.state = {
             isSelected: this.props.isSelected,
@@ -47,7 +46,7 @@ class User extends Component {
         }
     }
 
-    getAge(birthDate) {
+    getAge = (birthDate) => {
         let today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
         let m = today.getMonth() - birthDate.getMonth();
@@ -56,7 +55,7 @@ class User extends Component {
             age--;
         }
         return age;
-    }
+    };
 
     render() {
         const style = {

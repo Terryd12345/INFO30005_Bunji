@@ -57,6 +57,9 @@ class Dashboard extends Component {
                 self.setState({
                     events: res.data
                 })
+            })
+            .catch(function (error) {
+                console.log(error);
             });
 
         axios.get("/api/user")

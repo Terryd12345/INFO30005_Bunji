@@ -8,6 +8,7 @@ router.get("/loggingIn", controller.loggingIn);
 
 router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
+router.post("/getUserById", controller.getUserById);
 router.post("/editUser", controller.editUser);
 router.post("/createUser", controller.createUser);
 
@@ -20,7 +21,7 @@ router.post("/addLearned", controller.addLearned);
 router.post("/removeLearned", controller.removeLearned);
 
 router.get("/events", controller.allEvents);
-router.post('/createEvent', controller.createEvent);
+router.post("/createEvent", controller.createEvent);
 
 router.post("/addConnections", controller.addConnections);
 router.post("/updateConnections", controller.updateConnections);

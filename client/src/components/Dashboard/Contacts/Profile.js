@@ -7,7 +7,6 @@ class Profile extends Component {
         
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
-        this.getAge = this.getAge.bind(this);
         
         this.state = {
             show: false,
@@ -27,7 +26,7 @@ class Profile extends Component {
         })
     }
     
-    getAge(birthDate) {
+    getAge = (birthDate) => {
         let today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
         let m = today.getMonth() - birthDate.getMonth();
@@ -36,7 +35,7 @@ class Profile extends Component {
             age--;
         }
         return age;
-    }
+    };
     
     render() {
         const age = this.getAge(new Date(this.props.user.birthDate));
