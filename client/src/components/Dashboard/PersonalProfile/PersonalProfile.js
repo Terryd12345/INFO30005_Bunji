@@ -34,7 +34,8 @@ class PersonalProfile extends Component {
                 </header>
 
                 <Stats skills={this.props.learnedSkills.length}
-                       connections={this.props.connections.length} />
+                       connections={this.props.connections.length}
+                       events={this.props.events.length} />
 
                 <PersonalSkills learnedSkills={this.props.learnedSkills} />
             </div>

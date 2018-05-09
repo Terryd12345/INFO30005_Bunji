@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 
 class Event extends Component {
+    getDate = () => {
+        let datetime = new Date(this.props.datetime);
+        return datetime.toLocaleString("en-US", { day: "numeric", month: "long", year: "numeric" });
+    };
+    
+    getTime = () => {
+        let datetime = new Date(this.props.datetime);
+        return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+    };
+    
     render() {
+        const date = this.getDate();
+        const time = this.getTime();
+        
         return (
             <div className="event-panel">
                 <div className="event-pic">
@@ -21,8 +34,8 @@ class Event extends Component {
                     </div>
                     
                     <div className="event-desc-content">
-                        <h6>{this.props.date}</h6>
-                        <h6>{this.props.time}</h6>
+                        <h6>{date}</h6>
+                        <h6>{time}</h6>
                         <h6>{this.props.location}</h6>
                     </div>
                 </div>

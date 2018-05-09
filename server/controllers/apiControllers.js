@@ -10,19 +10,12 @@ export default {
         User.findById(req.user._id)
             .exec((err, user) => {
                 if (!err) {
-                    if (user.description) {
-                        if (user.skills.length > 0) {
-                            res.redirect("/dashboard");
-                        } else {
-                            res.redirect("/get-started");
-                        }
+                    if (req.user.skills.length > 0) {
+                        res.redirect("/dashboard");
                     } else {
                         res.redirect("/welcome");
                     }
-                } else {
-                    res.sendStatus(404);
                 }
-                res.flush();
             });
     },
 
@@ -255,16 +248,28 @@ export default {
             date: req.body.date,
             location: req.body.location,
             user1: req.user._id,
-            user2: req.body._id
+            user2: req.body.user2
         }, (err) => {
-            if (err) {
-                res.sendStatus(404);
-            } else {
+            if (!err) {
                 res.sendStatus(200);
+            } else {
+                res.sendStatus(404);
             }
             res.flush();
         }));
     },
+
+    allEvents: function (req, res) {
+        Event.find({}, (err, events) => {
+            if (!err) {
+                res.send(events);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
 
     /* ============================================================================================================= */
 

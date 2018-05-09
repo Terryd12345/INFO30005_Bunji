@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
 import User from "../../../GetStarted/Users/User"
@@ -189,6 +189,10 @@ class FindMentor extends Component {
                             </Modal.Body>
                         )
                     }
+    
+                    <Modal.Footer>
+                        <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
                 </Modal>
             </div>
         )

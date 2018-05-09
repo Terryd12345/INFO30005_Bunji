@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import Available from "./Available";
@@ -295,6 +295,10 @@ class ManageSkills extends Component {
                             </Modal.Body>
                         )
                     }
+    
+                    <Modal.Footer>
+                        <Button onClick={this.closeAll}>Close</Button>
+                    </Modal.Footer>
                 </Modal>
             </div>
         )

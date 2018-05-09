@@ -6,17 +6,17 @@ class Stats extends Component {
             <div id="stats">
                 <div className="stat centered" id="stat-1">
                     <h3>{this.props.skills}</h3>
-                    <h5>Skills Learned</h5>
+                    <h5>{(this.props.skills > 1) ? "Skills" : "Skill"} Learned</h5>
                 </div>
                 
                 <div className="stat centered" id="stat-2">
                     <h3>{this.props.connections}</h3>
-                    <h5>Mentors Met</h5>
+                    <h5>{(this.props.connections > 1) ? "Mentors" : "Mentor"} Met</h5>
                 </div>
                 
                 <div className="stat centered" id="stat-3">
-                    <h3>12</h3>
-                    <h5>Hours Spent</h5>
+                    <h3>{this.props.events}</h3>
+                    <h5>{(this.props.events > 1) ? "Events" : "Event"} Created</h5>
                 </div>
             </div>
         );

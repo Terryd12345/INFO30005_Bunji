@@ -860,10 +860,10 @@ a:hover {
     width: 100%;
     margin: 3px 0 25px 0;
     padding: 10px;
+    background: #f1f1f1;
     border: none;
     border-radius: 0;
     font-size: 1rem;
-    background: #f1f1f1;
 }
 
 #welcome-form input:focus,
@@ -2263,22 +2263,16 @@ a:hover {
 
 #signup input,
 #signup select {
+    width: 100%;
+    margin: 3px 0 25px 0;
+    padding: 10px;
+    background: #f1f1f1;
+    border: none;
     border-radius: 0;
     font-size: 1rem;
 }
 
-#signup input[type=text],
-#signup input[type=password],
-#signup select {
-    width: 100%;
-    margin: 0 0 20px 0;
-    padding: 10px;
-    background: #f1f1f1;
-    border: none;
-}
-
-#signup input[type=text]:focus,
-#signup input[type=password]:focus {
+#signup input:focus {
     background: #ddd;
 }
 
@@ -2325,8 +2319,7 @@ a:hover {
         margin: -2px 0 15px 0;
     }
     
-    #signup input[type=text],
-    #signup input[type=password],
+    #signup input,
     #signup select {
         margin: 8px 0 35px 0;
     }
@@ -2443,6 +2436,44 @@ a:hover {
 }
 
 /* ======================================================== */
+/* ==================== CreateEvent.js ==================== */
+
+#event-form label {
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+#event-form input,
+#event-form select {
+    width: 100%;
+    margin: 3px 0 25px 0;
+    padding: 10px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+}
+
+#event-form input:focus {
+    background: #ddd;
+}
+
+#event-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#event-form #date {
+    width: 65%;
+    margin-right: 4%;
+}
+
+#event-form #time {
+    width: 31%;
+}
+
+/* ======================================================== */
 
 @media (max-width: 525px) {
     #skills {
@@ -2460,5 +2491,12 @@ a:hover {
         width: 40px;
         height: 40px;
         margin: 0 auto;
+    }
+}
+
+@media (min-width: 1801px) {
+    #event-form input,
+    #event-form select {
+        margin: 8px 0 35px 0;
     }
 }
