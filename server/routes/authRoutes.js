@@ -13,7 +13,7 @@ router.get(
     "/google/callback",
     passport.authenticate("google"),
     function (req, res) {
-        res.redirect("/api/loggingin")
+        res.redirect("/api/loggingIn")
     }
 );
 
