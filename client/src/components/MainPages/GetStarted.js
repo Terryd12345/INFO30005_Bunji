@@ -12,6 +12,7 @@ class GetStarted extends Component {
         this.updateSelected = this.updateSelected.bind(this);
         this.toSection2 = this.toSection2.bind(this);
         this.toSection3 = this.toSection3.bind(this);
+        this.toDashboard = this.toDashboard.bind(this);
         this.handleSection1 = this.handleSection1.bind(this);
         this.handleSection2 = this.handleSection2.bind(this);
 
@@ -127,8 +128,6 @@ class GetStarted extends Component {
             });
             alert("Please select a skill.");
         } else {
-            const self = this;
-            
             if (this.state.isMentor) {
                 this.setState({
                     showSection1: false,
@@ -137,19 +136,10 @@ class GetStarted extends Component {
                     tickSection2: true,
                     tmpSkills: []
                 });
-                
-                console.log(this.state.selectedSkills);
-
-                axios.post("/api/editSkills", {
-                    skills: self.state.selectedSkills
-                })
-                    .then(function () {
-                        window.scrollTo(0, 55);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                window.scrollTo(0, 55);
             } else {
+                const self = this;
+                
                 this.setState({
                     loadingUsers: true,
                     showSection1: false,
@@ -160,7 +150,7 @@ class GetStarted extends Component {
                     tmpSkills: [],
                     tmpUsers: []
                 });
-    
+                
                 axios.post("/api/mentorsBySkills", {
                     skills: self.state.selectedSkills
                 })
@@ -186,24 +176,51 @@ class GetStarted extends Component {
             });
             alert("Please select a mentor.");
         } else {
-            const self = this;
-            
-            axios.post("/api/editConnections", {
-                connections: self.state.selectedUsers
+            this.setState({
+                showSection3: true,
+                showSection2: false,
+                tickSection2: true,
+                tmpSkills: [],
+                tmpUsers: []
+            });
+            window.scrollTo(0, 55);
+        }
+    }
+
+    toDashboard() {
+        const self = this;
+        
+        if (this.state.isMentor) {
+            axios.post("/api/addSkills", {
+                skills: self.state.selectedSkills
             })
-                .then(function () {
-                    self.setState({
-                        showSection3: true,
-                        showSection2: false,
-                        tickSection2: true,
-                        tmpSkills: [],
-                        tmpUsers: []
-                    });
-                    window.scrollTo(0, 55);
-                })
-                .catch(function (error) {
-                    console.log(error);
+            .then(function () {
+                self.setState({
+                    loading: true,
+                    redirectToDashboard: true
                 });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } else {
+            axios.all([
+                axios.post("/api/addSkills", {
+                    skills: self.state.selectedSkills
+                }),
+                axios.get("/api/addConnections", {
+                    connections: self.state.selectedUsers
+                })
+            ])
+            .then(function () {
+                self.setState({
+                    loading: true,
+                    redirectToDashboard: true
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         }
     }
 
@@ -399,7 +416,7 @@ class GetStarted extends Component {
                                                 <h6>Once a mentor confirms your request, you can start learning your skills.</h6>
                                             </header>
                                 
-                                            <a className="button" id="get-started-btn" href="/dashboard">
+                                            <a onClick={this.toDashboard} className="button" id="get-started-btn">
                                                 View Dashboard
                                             </a>
                                         </div>

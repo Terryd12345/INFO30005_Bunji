@@ -126,7 +126,6 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
-                        console.log(skill);
                         user.skills.push(skill);
                         user.save(user);
                     });
@@ -146,24 +145,6 @@ export default {
                         user.skills.pull(skill);
                         user.save(user);
                     });
-                    res.sendStatus(200);
-                } else {
-                    res.sendStatus(404);
-                }
-                res.flush();
-            });
-    },
-
-    editSkills: function (req, res) {
-        User.findOneAndUpdate(
-            { _id: req.user._id },
-            {
-                $set: {
-                    skills: req.body.skills
-                }
-            },
-            (err) => {
-                if (!err) {
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -238,24 +219,6 @@ export default {
             });
     },
 
-    editConnections: function (req, res) {
-        User.findOneAndUpdate(
-            { _id: req.user._id },
-            {
-                $set: {
-                    connections: req.body.connections
-                }
-            },
-            (err) => {
-                if (!err) {
-                    res.sendStatus(200);
-                } else {
-                    res.sendStatus(404);
-                }
-                res.flush();
-            });
-    },
-
     /* ============================================================================================================= */
 
     createEvent: function (req, res) {
@@ -263,7 +226,8 @@ export default {
             title: req.body.title,
             date: req.body.date,
             location: req.body.location,
-            user1: req.user._id
+            user1: req.user._id,
+            user2: req.body._id
         }, (err) => {
             if (err) {
                 res.sendStatus(404);

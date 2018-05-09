@@ -131,18 +131,6 @@ a:hover {
     text-align: center;
 }
 
-#notFound {
-    overflow-wrap: break-word;
-    font-size: 15rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-#notFound p:not(:first-child) {
-    font-size: 5rem;
-    font-weight: normal;
-}
-
 #loading {
     position: absolute;
     top: 0;
@@ -2041,6 +2029,70 @@ a:hover {
         border-radius: 0 0 0 8px;
     }
 } */
+
+/* ================================================== NotFound.js ================================================== */
+
+#not-found {
+    display: grid;
+    grid-template: "picture description" 1fr / 45% 55%;
+}
+
+#not-found h1 {
+    color: #fff;
+    font-size: 7rem;
+}
+
+#not-found h5 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#not-found-pic {
+    grid-area: picture;
+    background: url("images/men.png") center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#not-found-desc-outer {
+    grid-area: description;
+    height: 100vh;
+    padding: 50px;
+    background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
+}
+
+#not-found-desc {
+    padding: 30px;
+}
+
+@media (max-width: 800px) {
+    #not-found {
+        grid-template: "description" 1fr / 1fr;
+    }
+    #not-found-pic {
+        display: none;
+    }
+    #not-found-desc-outer {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 950px) {
+    #not-found {
+        grid-template: 1fr / 1fr 1fr;
+    }
+    #not-found-desc-outer {
+        padding: 30px 50px;
+    }
+}
+
+@media (min-width: 1801px) {
+    #not-found-desc-outer {
+        padding: 60px 80px;
+    }
+}
 
 /* ================================================= Modal Window ================================================== */
 
