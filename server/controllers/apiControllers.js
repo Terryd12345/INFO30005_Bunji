@@ -9,7 +9,7 @@ export default {
     loggingIn: function (req, res) {
         User.findById(req.user._id)
             .exec((err, user) => {
-                if (!err){
+                if (!err) {
                     if (user.description) {
                         if (user.skills.length > 0) {
                             res.redirect("/dashboard");
@@ -115,7 +115,7 @@ export default {
     },
 
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }] })
+        User.find({ $and: [{ isMentor: true }, { skills: { $in: req.body.skills } }, { $nin: {connections: req.user.connections}}] })
             .populate("skills")
             .populate("connections")
             .exec((err, user) => {
@@ -233,7 +233,8 @@ export default {
             title: req.body.title,
             date: req.body.date,
             location: req.body.location,
-            user1: req.user._id
+            user1: req.user._id,
+            user2: req.body._id
         }, (err) => {
             if (err) {
                 res.sendStatus(404);
