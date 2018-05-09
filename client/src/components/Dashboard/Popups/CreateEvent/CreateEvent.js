@@ -78,7 +78,7 @@ class CreateEvent extends Component {
                     <Modal.Header closeButton>
                         <Modal.Title>Create a New Event</Modal.Title>
                     </Modal.Header>
-                    
+
                     <Modal.Body>
                         <form onSubmit={this.handleSubmit}>
                             <label>
@@ -88,9 +88,9 @@ class CreateEvent extends Component {
                                        value={this.state.title}
                                        onChange={(event) => this.setState({ title: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Location:
                                 <br />
@@ -98,9 +98,9 @@ class CreateEvent extends Component {
                                        value={this.state.location}
                                        onChange={(event) => this.setState({ location: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Invite:
                                 <br />
@@ -110,10 +110,11 @@ class CreateEvent extends Component {
                                 <datalist id="connections">
                                     this.state.userConnections.map((person) => <option value="person" />)
                                 </datalist>
+                                <h1>{this.state.userConnections.length}</h1>
                             </label>
-                            
+
                             <br />
-                            
+
                             <label>
                                 Date:
                                 <br />
@@ -121,7 +122,7 @@ class CreateEvent extends Component {
                                        value={this.state.date}
                                        onChange={(event) => this.setState({ date: event.target.value })} />
                             </label>
-                            
+
                             <label>
                                 Time:
                                 <br />
@@ -129,13 +130,13 @@ class CreateEvent extends Component {
                                        value={this.state.time}
                                        onChange={(event) => this.setState({ time: event.target.value })} />
                             </label>
-                            
+
                             <br />
-                            
+
                             <input type="submit" value="Submit" />
                         </form>
                     </Modal.Body>
-                    
+
                     <Modal.Footer>
                         <Button onClick={this.handleClose}>Close</Button>
                     </Modal.Footer>
