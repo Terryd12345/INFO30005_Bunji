@@ -133,7 +133,6 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
-                        console.log(skill);
                         user.skills.push(skill);
                         user.save(user);
                     });
@@ -153,24 +152,6 @@ export default {
                         user.skills.pull(skill);
                         user.save(user);
                     });
-                    res.sendStatus(200);
-                } else {
-                    res.sendStatus(404);
-                }
-                res.flush();
-            });
-    },
-
-    editSkills: function (req, res) {
-        User.findOneAndUpdate(
-            { _id: req.user._id },
-            {
-                $set: {
-                    skills: req.body.skills
-                }
-            },
-            (err) => {
-                if (!err) {
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
@@ -237,24 +218,6 @@ export default {
                         user.connections.push(connection);
                         user.save(user);
                     });
-                    res.sendStatus(200);
-                } else {
-                    res.sendStatus(404);
-                }
-                res.flush();
-            });
-    },
-
-    editConnections: function (req, res) {
-        User.findOneAndUpdate(
-            { _id: req.user._id },
-            {
-                $set: {
-                    connections: req.body.connections
-                }
-            },
-            (err) => {
-                if (!err) {
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);
