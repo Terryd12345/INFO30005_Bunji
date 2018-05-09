@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import User from "./User";
 
 class UserSelection extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOnDashboard: this.props.isOnDashboard
-        };
-    }
-
     render() {
         return (
             <div className="page-wrap">
@@ -30,14 +22,6 @@ class UserSelection extends Component {
                             })
                         }
                     </div>
-
-                    {
-                        this.state.isOnDashboard ? (
-                            <a href="/dashboard" className="button" id="user-selection-btn">
-                                Confirm
-                            </a>
-                        ) : (null)
-                    }
                 </div>
             </div>
         );

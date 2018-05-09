@@ -59,10 +59,9 @@ class Welcome extends Component {
     
     /* ============================================================================================================= */
     
-    handleSubmit(e) {
+    handleSubmit() {
         const self = this;
         
-        e.preventDefault();
         axios.post("/api/editUser", {
             birthDate: new Date(this.state.birthDate),
             gender: this.state.gender,

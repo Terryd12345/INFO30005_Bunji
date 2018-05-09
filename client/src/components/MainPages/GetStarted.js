@@ -380,8 +380,7 @@ class GetStarted extends Component {
                                         <div className="section-content">
                                             <UserSelection allUsers={this.state.allUsers}
                                                            selectedUsers={this.state.selectedUsers}
-                                                           updateSelected={this.updateSelected}
-                                                           isOnDashboard={false}/>
+                                                           updateSelected={this.updateSelected}/>
                                 
                                             {
                                                 this.state.loadingUsers ? (
