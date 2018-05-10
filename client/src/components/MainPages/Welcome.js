@@ -16,6 +16,8 @@ class Welcome extends Component {
             redirectToGetStarted: false,
             redirectToDashboard: false,
             
+            firstName: "",
+            lastName: "",
             birthDate: "",
             gender: "",
             location: "",
@@ -42,10 +44,8 @@ class Welcome extends Component {
                 } else {
                     self.setState({
                         loading: false,
-                        user: res.data,
-                        allSkills: res.data.skills,
-                        learnedSkills: res.data.learnedSkills,
-                        connections: res.data.connections
+                        firstName: res.data.firstName,
+                        lastName: res.data.lastName
                     });
                 }
             })
@@ -63,6 +63,8 @@ class Welcome extends Component {
         const self = this;
         
         axios.post("/api/editUser", {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             birthDate: new Date(this.state.birthDate),
             gender: this.state.gender,
             location: this.state.location,
@@ -157,7 +159,7 @@ class Welcome extends Component {
                                               onChange={(event) => this.setState({description: event.target.value})}
                                               required/>
                         
-                                    <button type="submit" className="button" id="welcome-btn">Confirm</button>
+                                    <button type="submit" className="button" id="welcome-btn">Submit</button>
                                 </form>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EditProfile from "./EditProfile";
 import PersonalSkills from "./PersonalSkills";
 import Stats from "./Stats";
 
@@ -16,6 +17,10 @@ class PersonalProfile extends Component {
         }
     };
     
+    handleShow = () => {
+        this.editProfile.handleShow();
+    };
+    
     render() {
         const greeting = this.getGreeting();
         
@@ -24,8 +29,13 @@ class PersonalProfile extends Component {
                 <div id="personal-pic">
                     <img src={this.props.user.imagePath} alt={this.props.user.firstName} />
                     <br />
-                    <a className="button" id="personal-btn-1" href="">
-                        Edit Info
+                    <EditProfile ref={editProfile => this.editProfile = editProfile} />
+                    <a className="button" id="personal-btn-1">
+                        Change Picture
+                    </a>
+                    <br />
+                    <a className="button" id="personal-btn-2" onClick={this.handleShow.bind(this)}>
+                        Edit Profile
                     </a>
                 </div>
 

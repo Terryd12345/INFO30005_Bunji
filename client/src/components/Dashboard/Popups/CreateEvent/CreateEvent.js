@@ -10,7 +10,6 @@ class CreateEvent extends Component {
         this.handleShow = this.handleShow.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
 
         this.state = {
             show: false,

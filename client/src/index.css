@@ -1164,6 +1164,7 @@ a:hover {
 
 #dashboard {
     padding: 20px;
+    background: linear-gradient(to bottom right, #effaff, #c0e3ea) no-repeat fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 165px 285px 400px;
@@ -1292,7 +1293,7 @@ a:hover {
     width: 70px;
     height: 40.41px;
     margin: 20.21px 0;
-    background-color: #fdc010;
+    background-color: #ffd14b;
     border: none;
     border-radius: 0 !important;
     font-size: 0.7rem;
@@ -1311,13 +1312,13 @@ a:hover {
 
 #personal-skills .skills-panel:before {
     bottom: 100%;
-    border-bottom: 20.21px solid #fdc010;
+    border-bottom: 20.21px solid #ffd14b;
 }
 
 #personal-skills .skills-panel:after {
     top: 100%;
     width: 0;
-    border-top: 20.21px solid #fdc010;
+    border-top: 20.21px solid #ffd14b;
 }
 
 #personal-skills .skills-panel img {
@@ -1470,7 +1471,7 @@ a:hover {
 .event-panel {
     margin-bottom: 25px;
     padding: 10px 10px 15px 10px;
-    background: #f1f1f1;
+    background: #f5f5f5;
     border-radius: 8px;
     text-align: center;
     display: grid;
@@ -1783,10 +1784,10 @@ a:hover {
         border-right: 22.5px solid transparent;
     }
     #personal-skills .skills-panel:before {
-        border-bottom: 12.99px solid #fdc010;
+        border-bottom: 12.99px solid #ffd14b;
     }
     #personal-skills .skills-panel:after {
-        border-top: 12.99px solid #fdc010;
+        border-top: 12.99px solid #ffd14b;
     }
     #personal-skills .skills-panel img {
         width: 25px;
@@ -1901,10 +1902,10 @@ a:hover {
         border-right: 45px solid transparent;
     }
     #personal-skills .skills-panel:before {
-        border-bottom: 25.98px solid #fdc010;
+        border-bottom: 25.98px solid #ffd14b;
     }
     #personal-skills .skills-panel:after {
-        border-top: 25.98px solid #fdc010;
+        border-top: 25.98px solid #ffd14b;
     }
     #personal-skills .skills-panel img {
         width: 48px;
@@ -2452,7 +2453,6 @@ a:hover {
     grid-area: next;
 }
 
-/* ======================================================== */
 /* ==================== CreateEvent.js ==================== */
 
 #event-form label {
@@ -2490,6 +2490,58 @@ a:hover {
     width: 31%;
 }
 
+/* ==================== EditProfile.js ==================== */
+
+#edit-profile-form label {
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+#edit-profile-form input,
+#edit-profile-form select,
+#edit-profile-form textarea {
+    width: 100%;
+    margin: 3px 0 25px 0;
+    padding: 10px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+}
+
+#edit-profile-form input:focus,
+#edit-profile-form textarea:focus {
+    background: #ddd;
+}
+
+#edit-profile-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#edit-profile-form textarea {
+    resize: none;
+}
+
+#edit-profile-form #firstName {
+    margin-right: 4%;
+}
+
+#edit-profile-form #firstName,
+#edit-profile-form #lastName {
+    width: 48%;
+}
+
+#edit-profile-form #birthDate {
+    width: 65%;
+    margin-right: 4%;
+}
+
+#edit-profile-form #gender {
+    width: 31%;
+}
+
 /* ======================================================== */
 
 @media (max-width: 525px) {
@@ -2513,7 +2565,9 @@ a:hover {
 
 @media (min-width: 1801px) {
     #event-form input,
-    #event-form select {
+    #event-form select,
+    #edit-profile-form input,
+    #edit-profile-form select {
         margin: 8px 0 35px 0;
     }
 }

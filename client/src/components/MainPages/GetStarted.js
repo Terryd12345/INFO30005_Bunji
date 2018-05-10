@@ -194,15 +194,15 @@ class GetStarted extends Component {
             axios.post("/api/addSkills", {
                 skills: self.state.selectedSkills
             })
-            .then(function () {
-                self.setState({
-                    loading: true,
-                    redirectToDashboard: true
+                .then(function () {
+                    self.setState({
+                        loading: true,
+                        redirectToDashboard: true
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
                 });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
         } else {
             axios.all([
                 axios.post("/api/addSkills", {
@@ -215,15 +215,15 @@ class GetStarted extends Component {
                     connections: self.state.selectedUsers
                 })
             ])
-            .then(function () {
-                self.setState({
-                    loading: true,
-                    redirectToDashboard: true
+                .then(function () {
+                    self.setState({
+                        loading: true,
+                        redirectToDashboard: true
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
                 });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
         }
     }
 
@@ -418,9 +418,9 @@ class GetStarted extends Component {
                                                 <h2>All good!</h2>
                                                 {
                                                     this.state.isMentor ? (
-                                                        <h6>Once you get in touch with your mentee, you can start teaching your skills.</h6>
+                                                        <h6>Once you get paired up with a mentee, you can start teaching your skills.</h6>
                                                     ) : (
-                                                        <h6>Once you get in touch with your mentor, you can start learning the skills you want.</h6>
+                                                        <h6>Get in touch with your mentor, and start learning the skills you want.</h6>
                                                     )
                                                 }
                                             </header>

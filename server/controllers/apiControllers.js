@@ -63,6 +63,8 @@ export default {
             { _id: req.user._id },
             {
                 $set: {
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
                     birthDate: req.body.birthDate,
                     gender: req.body.gender,
                     location: req.body.location,
@@ -239,8 +241,8 @@ export default {
                 if (!err) {
                     users.forEach(user => {
                         user.connections.push(req.user._id);
+                        user.save(user);
                     });
-                    user.save(user);
                     res.sendStatus(200);
                 } else {
                     res.sendStatus(404);

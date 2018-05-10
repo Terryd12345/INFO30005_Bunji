@@ -90,7 +90,7 @@ class Home extends Component {
                     
                     <div id="about-desc">
                         <h1>What is Bunji?</h1>
-                        <p>Bunji is a social platform that connects older adults with talented younger adults who have plenty of skills to share. Bunji is a social platform that connects older adults with talented younger adults who have plenty of skills to share. Bunji is a social platform that connects older adults with talented younger adults who have plenty of skills to share. Bunji is a social platform that connects older adults with talented younger adults who have plenty of skills to share.</p>
+                        <p>Bunji is an online mentoring program exclusively created for older adults as an avenue for continuous learning beyond age numbers. Bunji aims to provide a platform that would enable older adults to easily connect with younger adults, especially those who are excited to share the knowledge and skills they have mastered. Reverse mentorship, as many called it, is an invaluable learning opportunity for both mentor and mentee, and is definitely an experience you would not want to miss.</p>
                     </div>
                 </div>
                 
@@ -107,7 +107,7 @@ class Home extends Component {
                             </div>
                             
                             <div className="step-panel">
-                                <p>Pick what you want to learn. You can select from more than fifty skills available. Pick what you want to learn. You can select from more.</p>
+                                <p>Pick what you want to learn. Select from more than ten skills available, ranging from social media apps, desktop applications, to the latest smart devices.</p>
                             </div>
                         </div>
     
@@ -118,7 +118,7 @@ class Home extends Component {
                             </div>
                             
                             <div className="step-panel">
-                                <p>Find a mentor that can help. You can select from more than fifty skills available. Pick what you want to learn. You can select from more than.</p>
+                                <p>We will find mentors with the specific skills which you are interested in. View their profiles and send messages to those who suit your preferences.</p>
                             </div>
                         </div>
     
@@ -129,7 +129,7 @@ class Home extends Component {
                             </div>
                             
                             <div className="step-panel">
-                                <p>Connect with the mentor of your choice. You can select from more than fifty skills available. Pick what you want to learn. You can select.</p>
+                                <p>Learn the skills you have always wanted. Keep track of your progress through your event journal, and collect fun badges for every achievement you made.</p>
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ class UserSelection extends Component {
                 <div className="wrapper">
                     <header className="header">
                         <h2>We found {this.props.allUsers.length} mentors for you!</h2>
-                        <h5>The first one to confirm your request will be paired up with you.</h5>
+                        <h5>Read their profiles and select those who suit your preferences.</h5>
                     </header>
 
                     <div id="user-selection">

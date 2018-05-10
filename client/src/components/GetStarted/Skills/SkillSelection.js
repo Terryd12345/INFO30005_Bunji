@@ -9,12 +9,12 @@ class SkillSelection extends Component {
                     this.props.isMentor ? (
                         <header className="header">
                             <h2>Pick what you want to teach!</h2>
-                            <h5>You can select as many skills as you want, and we will pair you up with someone who wants all or most of the skills you have.</h5>
+                            <h5>You can select as many skills as you want, and we will pair you up with someone who wants to learn the skills you have.</h5>
                         </header>
                     ) : (
                         <header className="header">
                             <h2>Pick what you want to learn!</h2>
-                            <h5>You can select as many skills as you want, and we will pair you up with someone who has all or most of the skills you want.</h5>
+                            <h5>You can select as many skills as you want, and we will find mentors who have all or most of the skills you want to learn.</h5>
                         </header>
                     )
                 }
