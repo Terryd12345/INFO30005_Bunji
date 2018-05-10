@@ -25,6 +25,9 @@ class Dashboard extends Component {
             learnedSkills: [],
             selectedSkills: [],
 
+            connections: [],
+            events: [],
+
             notifications: [
                 {
                     _id: "1",
@@ -44,9 +47,7 @@ class Dashboard extends Component {
                     time: "2hr ago",
                     imagePath: "user"
                 }
-            ],
-            connections: [],
-            events: []
+            ]
         };
     }
 

@@ -251,6 +251,33 @@ export default {
 
     /* ============================================================================================================= */
 
+    allEvents: function (req, res) {
+        Event.find({}, (err, events) => {
+            if (!err) {
+                res.send(events);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
+    getEvents: function (req, res) {
+        Event.find({ $or: [
+                { user1: { $in: req.user._id } },
+                { user2: { $in: req.user._id } }
+            ]
+        })
+        .exec((err, events) => {
+            if (!err) {
+                res.send(events);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
     createEvent: function (req, res) {
         Event.create(new Event({
             title: req.body.title,
@@ -267,18 +294,6 @@ export default {
             res.flush();
         }));
     },
-
-    allEvents: function (req, res) {
-        Event.find({}, (err, events) => {
-            if (!err) {
-                res.send(events);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
-    },
-
 
     /* ============================================================================================================= */
 

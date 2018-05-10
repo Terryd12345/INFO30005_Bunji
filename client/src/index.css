@@ -1565,6 +1565,7 @@ a:hover {
 
 #events-sidebar-md a,
 #events-sidebar-lg a {
+    cursor: pointer;
     color: #fff;
     font-family: "Source Sans Pro", sans-serif;
     text-decoration: none;
@@ -1679,7 +1680,8 @@ a:hover {
         grid-gap: 10px;
     }
     #events-content {
-        grid-template: "sidebar" "window";
+        grid-template-rows: 51px 258px;
+        grid-template-areas: "sidebar sidebar" "window window";
     }
     #events-sidebar-md,
     #events-sidebar-lg {

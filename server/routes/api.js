@@ -20,7 +20,8 @@ router.post("/removeSkills", controller.removeSkills);
 router.post("/addLearned", controller.addLearned);
 router.post("/removeLearned", controller.removeLearned);
 
-router.get("/events", controller.allEvents);
+router.get("/allEvents", controller.allEvents);
+router.get("/events", controller.getEvents);
 router.post("/createEvent", controller.createEvent);
 
 router.post("/addConnections", controller.addConnections);

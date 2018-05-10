@@ -8,56 +8,43 @@ class Event extends Component {
         
         this.state = {
             loading: true,
-            id: "",
             firstName: "",
             lastName: "",
             imagePath: ""
         };
     }
-    
+
+    /* ============================================================================================================= */
+
     getDate = () => {
         let datetime = new Date(this.props.datetime);
         return datetime.toLocaleString("en-US", { day: "numeric", month: "long", year: "numeric" });
     };
-    
+
     getTime = () => {
         let datetime = new Date(this.props.datetime);
         return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
     };
-    
+
+    /* ============================================================================================================= */
+
     componentDidMount() {
         const self = this;
-    
-        axios.get("/api/user")
-            .then(function (res1) {
-                if (res1.data._id.localeCompare(self.props.user1) === 0) {
-                    self.setState({
-                        id: self.props.user2
-                    })
-                } else {
-                    self.setState({
-                        id: self.props.user1
-                    })
-                }
-                
-                axios.post("/api/getUserById", {
-                    id: self.state.id
-                })
-                .then(function (res2) {
-                    self.setState({
-                        loading: false,
-                        firstName: res2.data.firstName,
-                        lastName: res2.data.lastName,
-                        imagePath: res2.data.imagePath
-                    });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
+        
+        axios.post("/api/getUserById", {
+            id: (this.props.currentUserID.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
+        })
+        .then(function (res) {
+            self.setState({
+                loading: false,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                imagePath: res.data.imagePath
             });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
     
     render() {

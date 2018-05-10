@@ -32,8 +32,6 @@ class CreateEvent extends Component {
             .then((res) => {
                 self.setState({
                     userConnections: res.data.connections
-                    // invite: res.data.connections[0].firstName + " " + res.data.connections[0].lastName,
-                    // invite_id: res.data.connections[0]._id
                 })
             })
             .catch((error) => {
@@ -110,10 +108,11 @@ class CreateEvent extends Component {
                                         invite_id: event.target.options[event.target.selectedIndex].dataset.id
                                     })}
                                     required>
-                                <option value="" disabled={true}>---</option>
+                                <option key="" value="" disabled={true}>---</option>
                                 {
                                     this.state.userConnections.map(person => {
-                                        return <option data-id={person._id}
+                                        return <option key={person._id}
+                                                       data-id={person._id}
                                                        value={person.firstName + " " + person.lastName}>
                                             {person.firstName + " " + person.lastName}
                                         </option>
