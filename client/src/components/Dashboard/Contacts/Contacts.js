@@ -6,7 +6,13 @@ class Contacts extends Component {
         return (
             <div className="section" id="contacts">
                 <header className="section-title">
-                    <h3>Contacts</h3>
+                    {
+                        this.props.isMentor ? (
+                            <h3>Mentees</h3>
+                        ) : (
+                            <h3>Mentors</h3>
+                        )
+                    }
                 </header>
                 
                 <div id="contacts-content">

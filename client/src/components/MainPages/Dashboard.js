@@ -15,6 +15,7 @@ class Dashboard extends Component {
         this.state = {
             loading: true,
             user: {},
+            isMentor: false,
 
             redirectToHome: false,
             redirectToWelcome: false,
@@ -69,6 +70,7 @@ class Dashboard extends Component {
                         self.setState({
                             loading: false,
                             user: res.data,
+                            isMentor: res.data.isMentor,
                             allSkills: res.data.skills,
                             learnedSkills: res.data.learnedSkills,
                             connections: res.data.connections
@@ -115,13 +117,15 @@ class Dashboard extends Component {
                     ) : (
                         <div id="dashboard">
                             <PersonalProfile user={this.state.user}
+                                             isMentor={this.state.isMentor}
                                              connections={this.state.connections}
                                              events={this.state.events}
                                              allSkills={this.state.allSkills}
                                              learnedSkills={this.state.learnedSkills} />
-                            <Popups />
+                            <Popups isMentor={this.state.isMentor} />
                             <Notifications notifications={this.state.notifications} />
-                            <Contacts connections={this.state.connections} />
+                            <Contacts isMentor={this.state.isMentor}
+                                      connections={this.state.connections} />
                             <Events events={this.state.events} />
                         </div>
                     )

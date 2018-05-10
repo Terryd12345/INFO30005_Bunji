@@ -9,9 +9,22 @@ class Popups extends Component {
         return (
             <div id="popups">
                 <div id="popups-content">
-                    <ManageSkills />
+                    <ManageSkills isMentor={this.props.isMentor} />
                     <CreateEvent />
-                    <FindMentor />
+                    {
+                        this.props.isMentor ? (
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                <div className="popup centered" id="popup-3">
+                                    <h5>
+                                        <img src={require("../../../images/icons/community.png")} alt="Icon" />
+                                        Join the Community
+                                    </h5>
+                                </div>
+                            </a>
+                        ) : (
+                            <FindMentor />
+                        )
+                    }
                 </div>
             </div>
         );

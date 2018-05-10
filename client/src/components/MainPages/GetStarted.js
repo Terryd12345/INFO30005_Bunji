@@ -337,7 +337,8 @@ class GetStarted extends Component {
                                         <div className="section-content">
                                             <SkillSelection allSkills={this.state.allSkills}
                                                             selectedSkills={this.state.selectedSkills}
-                                                            updateSelected={this.updateSelected}/>
+                                                            updateSelected={this.updateSelected}
+                                                            isMentor={this.state.isMentor}/>
                                 
                                             {
                                                 this.state.loadingSkills ? (
@@ -415,7 +416,13 @@ class GetStarted extends Component {
                                         <div className="wrapper" id="get-started">
                                             <header className="header">
                                                 <h2>All good!</h2>
-                                                <h6>Once a mentor confirms your request, you can start learning your skills.</h6>
+                                                {
+                                                    this.state.isMentor ? (
+                                                        <h6>Once you get in touch with your mentee, you can start teaching your skills.</h6>
+                                                    ) : (
+                                                        <h6>Once you get in touch with your mentor, you can start learning the skills you want.</h6>
+                                                    )
+                                                }
                                             </header>
                                 
                                             <a onClick={this.toDashboard} className="button" id="get-started-btn">

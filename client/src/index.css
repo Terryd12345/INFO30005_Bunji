@@ -2367,6 +2367,11 @@ a:hover {
     grid-template: "left middle right" 1fr / 1fr 1fr 1fr;
 }
 
+#skills-header-mentor {
+    background-color: #578bca;
+    grid-template: "left right" 1fr / 1fr 1fr;
+}
+
 #middle-title {
     grid-area: middle;
 }
