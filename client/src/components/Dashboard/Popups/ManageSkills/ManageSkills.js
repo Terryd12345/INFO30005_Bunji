@@ -19,6 +19,7 @@ class ManageSkills extends Component {
 
         this.state = {
             loading: true,
+            changed: false,
             show: false,
             available: true,
             selected: false,
@@ -69,6 +70,13 @@ class ManageSkills extends Component {
             arrSelected: [],
             arrLearned: []
         });
+    
+        if (this.state.changed) {
+            this.setState({
+                changed: false
+            });
+            this.props.reload();
+        }
     }
 
     showAvailable() {
@@ -207,6 +215,9 @@ class ManageSkills extends Component {
                 skills: array
             })
                 .then(function () {
+                    self.setState({
+                        changed: true
+                    });
                     self.componentDidMount();
                 })
                 .catch(function (error) {

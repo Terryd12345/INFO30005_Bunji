@@ -25,7 +25,8 @@ class Contacts extends Component {
                             {
                                 this.props.connections.map(user => {
                                     return <Contact key={user._id}
-                                                    user={user} />;
+                                                    user={user}
+                                                    isMentor={this.props.isMentor} />;
                                 })
                             }
                         </div>

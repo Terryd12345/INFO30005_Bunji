@@ -11,6 +11,8 @@ import Events from "../Dashboard/Events/Events";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
+        
+        this.reload = this.reload.bind(this);
 
         this.state = {
             loading: true,
@@ -95,6 +97,13 @@ class Dashboard extends Component {
             });
     }
 
+    reload() {
+        this.setState({
+            loading: true
+        });
+        this.componentDidMount();
+    }
+
     render() {
         return (
             <div id="page-wrap">
@@ -122,8 +131,10 @@ class Dashboard extends Component {
                                              connections={this.state.connections}
                                              events={this.state.events}
                                              allSkills={this.state.allSkills}
-                                             learnedSkills={this.state.learnedSkills} />
-                            <Popups isMentor={this.state.isMentor} />
+                                             learnedSkills={this.state.learnedSkills}
+                                             reload={this.reload} />
+                            <Popups isMentor={this.state.isMentor}
+                                    reload={this.reload} />
                             <Notifications notifications={this.state.notifications} />
                             <Contacts isMentor={this.state.isMentor}
                                       connections={this.state.connections} />

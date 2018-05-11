@@ -71,7 +71,7 @@ class ChangePicture extends Component {
                                 self.setState({
                                     loading: false
                                 });
-                                self.handleClose();
+                                self.props.reload();
                             })
                             .catch(function (error) {
                                 console.log(error);

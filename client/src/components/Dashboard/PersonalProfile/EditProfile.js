@@ -49,10 +49,12 @@ class EditProfile extends Component {
             isMentor: self.state.isMentor,
             description: self.state.description
         })
+            .then(function () {
+                self.props.reload();
+            })
             .catch(function (error) {
                 console.log(error);
             });
-        this.handleClose();
     }
     
     formatDate = (date) => {
