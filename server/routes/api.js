@@ -10,6 +10,7 @@ router.get("/user", controller.getCurrentUser);
 router.get("/user/:id", controller.getUser);
 router.post("/getUserById", controller.getUserById);
 router.post("/editUser", controller.editUser);
+router.post("/editUserImage", controller.editUserImage);
 router.post("/createUser", controller.createUser);
 
 router.get("/allSkills", controller.allSkills);

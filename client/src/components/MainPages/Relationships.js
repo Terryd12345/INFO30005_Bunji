@@ -88,8 +88,6 @@ class Relationships extends Component {
             });
     }
 
-    /* ============================================================================================================= */
-
     chatHandler(e, newChatID) {
         e.preventDefault();
         this.setState({
@@ -111,8 +109,6 @@ class Relationships extends Component {
             chats: c
         });
     }
-
-    /* ============================================================================================================= */
 
     render() {
         return (

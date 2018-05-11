@@ -325,7 +325,7 @@ class GetStarted extends Component {
                                         {
                                             this.state.tickSection1 ? (
                                                 <span>
-                                                    <img src={require(`../../images/icons/tick.png`)} alt="Completed"/>
+                                                    <img src={require("../../images/icons/tick.png")} alt="Completed"/>
                                                 </span>
                                             ) : (null)
                                         }
@@ -371,7 +371,7 @@ class GetStarted extends Component {
                                         {
                                             this.state.tickSection2 ? (
                                                 <span>
-                                                    <img src={require(`../../images/icons/tick.png`)}
+                                                    <img src={require("../../images/icons/tick.png")}
                                                          alt="Completed"/>
                                                 </span>
                                             ) : (null)

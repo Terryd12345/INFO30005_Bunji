@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import Profile from "./Profile";
 
 class Contact extends Component {
-    handleShow = () => {
+    constructor(props) {
+        super(props);
+        
+        this.handleShow = this.handleShow.bind(this);
+    }
+    
+    handleShow() {
         this.profile.handleShow();
-    };
+    }
     
     render() {
         return (

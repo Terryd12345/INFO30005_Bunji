@@ -5,6 +5,10 @@ class PersonalSkills extends Component {
     render() {
         return (
             <div id="personal-skills">
+                <div className="centered" id="empty-badge">
+                    <img src={require("../../../images/logo.png")} alt="Bunji" />
+                </div>
+                
                 {
                     this.props.isMentor ? (
                         this.props.allSkills.map(skill => {

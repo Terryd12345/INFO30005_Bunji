@@ -27,8 +27,6 @@ class User extends Component {
         }
     }
 
-    /* ============================================================================================================= */
-
     onSelected() {
         if (this.props.functionType > -1) {
             if (this.state.isSelected) {
@@ -58,8 +56,6 @@ class User extends Component {
         }
         return age;
     };
-
-    /* ============================================================================================================= */
 
     render() {
         const style = {

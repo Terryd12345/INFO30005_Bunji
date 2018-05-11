@@ -13,7 +13,6 @@ class FindMentor extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toPrevious = this.toPrevious.bind(this);
         this.toNext = this.toNext.bind(this);
-        this.filterSkills = this.filterSkills.bind(this);
 
         this.state = {
             loading: true,
@@ -66,9 +65,10 @@ class FindMentor extends Component {
         })
     }
     
-    handleSubmit() {
+    handleSubmit(e) {
         const self = this;
-    
+        
+        e.preventDefault();
         axios.all([
             axios.post("/api/addConnections", {
                 connections: [self.state.currentUser._id]
@@ -107,7 +107,7 @@ class FindMentor extends Component {
     
     /* ============================================================================================================= */
     
-    filterSkills(keep, remove) {
+    filterSkills = (keep, remove) => {
         for (let i = keep.length - 1; i >= 0; i--) {
             for (let j = 0; j < remove.length; j++) {
                 if (keep[i]._id === remove[j]._id) {
@@ -120,7 +120,7 @@ class FindMentor extends Component {
             }
         }
         return keep;
-    }
+    };
     
     /* ============================================================================================================= */
 
@@ -190,8 +190,8 @@ class FindMentor extends Component {
                         )
                     }
     
-                    <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
+                    <Modal.Footer id="popups-footer">
+                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

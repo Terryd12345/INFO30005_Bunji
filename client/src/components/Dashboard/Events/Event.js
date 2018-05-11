@@ -6,6 +6,9 @@ class Event extends Component {
     constructor(props) {
         super(props);
         
+        this.getDate = this.getDate.bind(this);
+        this.getTime = this.getTime.bind(this);
+        
         this.state = {
             loading: true,
             firstName: "",
@@ -13,20 +16,6 @@ class Event extends Component {
             imagePath: ""
         };
     }
-
-    /* ============================================================================================================= */
-
-    getDate = () => {
-        let datetime = new Date(this.props.datetime);
-        return datetime.toLocaleString("en-US", { day: "numeric", month: "long", year: "numeric" });
-    };
-
-    getTime = () => {
-        let datetime = new Date(this.props.datetime);
-        return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
-    };
-
-    /* ============================================================================================================= */
 
     componentDidMount() {
         const self = this;
@@ -46,7 +35,17 @@ class Event extends Component {
             console.log(error);
         });
     }
-    
+
+    getDate() {
+        let datetime = new Date(this.props.datetime);
+        return datetime.toLocaleString("en-US", { day: "numeric", month: "long", year: "numeric" });
+    }
+
+    getTime() {
+        let datetime = new Date(this.props.datetime);
+        return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+    }
+
     render() {
         const date = this.getDate();
         const time = this.getTime();

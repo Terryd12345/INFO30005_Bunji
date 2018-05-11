@@ -82,6 +82,24 @@ export default {
             });
     },
 
+    editUserImage: function (req, res) {
+        User.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $set: {
+                    imagePath: req.body.imagePath
+                }
+            },
+            (err) => {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
+    },
+
     createUser: function (req, res) {
         User.create(new User({
             firstName: req.body.firstName,

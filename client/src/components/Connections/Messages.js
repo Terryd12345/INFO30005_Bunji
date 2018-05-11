@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
 class Messages extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.scrollToBottom = this.scrollToBottom.bind(this);
+    }
+
     componentDidMount() {
         this.scrollToBottom();
     }
@@ -9,9 +15,9 @@ class Messages extends Component {
         this.scrollToBottom();
     }
 
-    scrollToBottom = () => {
+    scrollToBottom() {
         this.myRef.scrollTop = this.myRef.scrollHeight;
-    };
+    }
 
     render() {
         return (

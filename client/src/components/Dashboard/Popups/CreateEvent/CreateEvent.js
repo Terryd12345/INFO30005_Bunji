@@ -52,7 +52,14 @@ class CreateEvent extends Component {
         })
     }
 
-    handleSubmit(event) {
+    handleChange(e) {
+        this.setState({
+            name: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
         axios.post("/api/createEvent", {
             title: this.state.title,
             date: new Date(this.state.date + " " + this.state.time),
@@ -60,15 +67,8 @@ class CreateEvent extends Component {
             user2: this.state.invite_id
         });
         this.handleClose();
-        event.preventDefault();
     }
 
-    handleChange(event) {
-        this.setState({
-            name: event.target.value
-        });
-    }
-    
     /* ============================================================================================================= */
 
     render() {
@@ -147,8 +147,8 @@ class CreateEvent extends Component {
                         </form>
                     </Modal.Body>
 
-                    <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
+                    <Modal.Footer id="popups-footer">
+                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
