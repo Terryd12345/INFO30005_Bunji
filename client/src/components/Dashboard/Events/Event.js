@@ -71,36 +71,37 @@ class Event extends Component {
                             <BeatLoader loading={this.state.loading} />
                         </div>
                     ) : (
-                        <div className="event-panel">
-                            <div className="event-pic">
-                                <img src={this.state.imagePath}
-                                     alt={this.state.firstName} />
-                            </div>
-
-                            <div className="event-desc">
-                                <div className="event-desc-title">
-                                    <h5>{this.props.title}</h5>
-                                    <h6>(with {this.state.firstName} {this.state.lastName})</h6>
+                            <div className="event-panel">
+                                <div className="event-pic">
+                                    <img src={this.state.imagePath}
+                                        alt={this.state.firstName} />
                                 </div>
 
-                                <div className="event-desc-detail">
-                                    <h6>Date:</h6>
-                                    <h6>Time:</h6>
-                                    <h6>Location:</h6>
-                                </div>
+                                <div className="event-desc">
+                                    <div className="event-desc-title">
+                                        <h5>{this.props.title}</h5>
+                                        <h6>(with {this.state.firstName} {this.state.lastName})</h6>
+                                    </div>
 
-                                <div className="event-desc-content">
-                                    <h6>{date}</h6>
-                                    <h6>{time}</h6>
-                                    <h6>{this.props.location}</h6>
-                                </div>
+                                    <div className="event-desc-detail">
+                                        <h6>Date:</h6>
+                                        <h6>Time:</h6>
+                                        <h6>Location:</h6>
+                                    </div>
 
-                                <h1>{this.state.temperature}</h1>
+                                    <div className="event-desc-content">
+                                        <h6>{date}</h6>
+                                        <h6>{time}</h6>
+                                        <h6>{this.props.location}</h6>
+                                    </div>
+
+                                    <h1>{this.state.temperature}</h1>
+                                </div>
                             </div>
                         )
                 }
             </div>
-        );
+        )
     }
 }
 

@@ -21,7 +21,8 @@ class Relationships extends Component {
             redirectToWelcome: false,
             redirectToGetStarted: false,
 
-            chatID: 0,
+            userID: 0,
+            connectionID: 0,
             connections: [],
             chat: []
         }
@@ -64,8 +65,11 @@ class Relationships extends Component {
         const self = this;
         axios.get("/api/user")
             .then(function (res) {
-                self.setState({ connections: res.data.connections });
-                console.log(self.state.connections[0]);
+                self.setState({
+                    userID: res.data._id,
+                    connections: res.data.connections,
+                    connectionID: res.data.connections[0]._id
+                });
                 self.getChat(self.state.connections[0]._id);
             });
     }
@@ -80,23 +84,24 @@ class Relationships extends Component {
     }
 
 
-    chatHandler(e, newChatID) {
+    chatHandler(e, newConnectionID) {
         e.preventDefault();
-        this.setState({
-            chatID: newChatID
-        });
+        this.setState({ connectionID: newConnectionID });
+        this.getChat(newConnectionID);
     }
 
     messageHandler(e, newMessage) {
         e.preventDefault();
-        let c = this.state.chat.slice();
 
-        c.messages.push({
-            date: new Date(),
-            sender: c.user1,
+        var messageObject = {
+            data: new Date(),
+            sender: this.state.userID,
             message: newMessage
-        });
+        }
+        axios.post(`/api/chat/${this.state.connectionID}`, messageObject)
 
+        let c = this.state.chat.slice();
+        c.messages.push(messageObject);
         this.setState({
             chat: c
         });
