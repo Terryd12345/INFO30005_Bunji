@@ -133,6 +133,7 @@ class Relationships extends Component {
 
                                     <ChatWindow
                                         chat={this.state.chat}
+                                        userID={this.state.userID}
                                         messageHandler={this.messageHandler} />
                                 </div>
                             </div>
