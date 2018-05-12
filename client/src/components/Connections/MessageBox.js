@@ -19,10 +19,13 @@ class MessageBox extends Component {
     }
 
     handleSubmit(e) {
-        this.props.messageHandler(e, this.state.value);
-        this.setState({
-            value: ""
-        });
+        e.preventDefault();
+        if (this.state.value !== "") {
+            this.props.messageHandler(e, this.state.value);
+            this.setState({
+                value: ""
+            });
+        }
     }
 
     render() {

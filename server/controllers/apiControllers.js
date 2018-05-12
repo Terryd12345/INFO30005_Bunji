@@ -361,10 +361,6 @@ export default {
     postMessage: function (req, res) {
         let user1ID = req.user._id;
         let user2ID = req.params.id;
-        console.log(req.body)
-        console.log(new Date(req.body.date))
-        console.log(req.body.sender)
-        console.log(req.body.message)
         Chat.update({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] },
             { $push: { messages: req.body } }, function (err, chat) {
                 if (!err) {
