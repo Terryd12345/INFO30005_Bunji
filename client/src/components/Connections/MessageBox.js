@@ -38,7 +38,7 @@ class MessageBox extends Component {
                     aria-label="Message..."
                     value={this.state.value}
                     onChange={this.handleChange}
-                    autocomplete="off" />
+                    autoComplete="off" />
                 <button id="send">Send</button>
             </form>
         );
