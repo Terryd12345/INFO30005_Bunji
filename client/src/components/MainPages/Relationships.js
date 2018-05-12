@@ -30,11 +30,10 @@ class Relationships extends Component {
     }
 
     componentWillMount() {
-        this.getConnections();
+
     }
 
     componentDidMount() {
-        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
         const self = this;
         axios.get("/api/user")
             .then(function (res) {
@@ -60,6 +59,8 @@ class Relationships extends Component {
                 });
                 console.log(error);
             });
+        this.getConnections();
+        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
     }
 
 
