@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "i": "^0.3.6",
+    "qs": "^6.5.2",
     "react": "15.3.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "15.3.0",
