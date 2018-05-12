@@ -374,7 +374,8 @@ export default {
                 res.send(response.data);
             })
             .catch(function (error) {
-                res.send(error);
+                console.log(`${req.params.location} not found`);
+                res.sendStatus(error.response.status);
             })
     }
 }
