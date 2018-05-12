@@ -79,7 +79,6 @@ class Relationships extends Component {
         axios.get(`/api/chat/${newConnectionID}`)
             .then(function (res) {
                 self.setState({ connectionID: newConnectionID, chat: res.data });
-                console.log(self.state.chat);
             });
     }
 
