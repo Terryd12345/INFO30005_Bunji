@@ -1234,7 +1234,7 @@ a:hover {
     background: linear-gradient(to bottom right, #effaff, #c0e3ea) no-repeat fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 165px 285px calc(100vh - 350px);
+    grid-template-rows: 165px 285px calc(100vh - 250px);
     grid-gap: 20px;
     grid-template-areas: "profile profile popups" "profile profile notifications" "contacts events events";
 }
@@ -1902,7 +1902,7 @@ a:hover {
         display: inline;
     }
     #dashboard {
-        grid-template-rows: 165px 390px calc(100vh - 455px);
+        grid-template-rows: 165px 390px calc(100vh - 355px);
     }
     #personal-profile {
         grid-template-columns: 40% 60%;
@@ -1960,7 +1960,7 @@ a:hover {
         grid-gap: 0;
     }
     #dashboard {
-        grid-template-rows: 285px 315px calc(100vh - 500px);
+        grid-template-rows: 285px 315px calc(100vh - 400px);
     }
     #personal-profile {
         grid-auto-rows: 85px 190px 265px;
@@ -2122,7 +2122,12 @@ a:hover {
 #connections .connection:nth-child(odd) {
     background: #eee;
 }
-
+.connection.selected:hover,
+#connections .connection.selected:hover,
+#connections .connection.selected {
+    background: #0084ff;
+    color: #fff;
+}
 /* ======================= Chat Box ======================= */
 
 .message {

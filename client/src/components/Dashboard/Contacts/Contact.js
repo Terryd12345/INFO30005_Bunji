@@ -13,6 +13,8 @@ class Contact extends Component {
     }
 
     render() {
+        const connection = "/connections?userID=" + this.props.user._id;
+
         return (
             <div>
                 <div className="contact-panel">
@@ -39,8 +41,8 @@ class Contact extends Component {
                                 <br />
                             </span>
 
-                            <a href="/connections" className="button" id="contact-btn-2">
-                                Connection
+                            <a href={connection} className="button" id="contact-btn-2">
+                                Message
                             </a>
                         </h6>
                     </div>
