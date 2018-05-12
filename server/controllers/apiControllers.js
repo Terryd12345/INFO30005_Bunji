@@ -157,9 +157,9 @@ export default {
                     let result = [];
                     let sameCity = users.filter(user => user.city === req.user.city);
                     let sameState = users.filter(user => (user.state === req.user.state)
-                                                      && (user.city !== req.user.city));
+                        && (user.city !== req.user.city));
                     let other = users.filter(user => user.state !== req.user.state);
-                    
+
                     result = result.concat(sameCity, sameState, other);
                     res.send(result.length < 11 ? result : result.slice(0, 10));
                 } else {
@@ -361,19 +361,18 @@ export default {
     postMessage: function (req, res) {
         let user1ID = req.user._id;
         let user2ID = req.params.id;
-        Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
-            if (!err) {
-                chat.messages.push({
-                    date: req.body.date,
-                    sender: req.body.sender,
-                    message: req.body.message
-                });
-                chat.save(done);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
+        console.log(req.body)
+        console.log(new Date(req.body.date))
+        console.log(req.body.sender)
+        console.log(req.body.message)
+        Chat.update({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] },
+            { $push: { messages: req.body } }, function (err, chat) {
+                if (!err) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(404);
+                }
+            });
     },
 
     /* ============================================================================================================= */

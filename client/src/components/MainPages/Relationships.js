@@ -74,11 +74,11 @@ class Relationships extends Component {
             });
     }
 
-    getChat(connectionID) {
+    getChat(newConnectionID) {
         const self = this;
-        axios.get(`/api/chat/${connectionID}`)
+        axios.get(`/api/chat/${newConnectionID}`)
             .then(function (res) {
-                self.setState({ chat: res.data });
+                self.setState({ connectionID: newConnectionID, chat: res.data });
                 console.log(self.state.chat);
             });
     }
@@ -94,7 +94,7 @@ class Relationships extends Component {
         e.preventDefault();
 
         var messageObject = {
-            data: new Date(),
+            date: new Date(),
             sender: this.state.userID,
             message: newMessage
         }
