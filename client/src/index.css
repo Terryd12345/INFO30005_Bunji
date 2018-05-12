@@ -2122,7 +2122,12 @@ a:hover {
 #connections .connection:nth-child(odd) {
     background: #eee;
 }
-
+.connection.selected:hover,
+#connections .connection.selected:hover,
+#connections .connection.selected {
+    background: #0084ff;
+    color: #fff;
+}
 /* ======================= Chat Box ======================= */
 
 .message {

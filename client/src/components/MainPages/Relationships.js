@@ -56,7 +56,7 @@ class Relationships extends Component {
                 console.log(error);
             });
         this.getConnections();
-        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
+        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 10000);
     }
 
 
@@ -127,7 +127,8 @@ class Relationships extends Component {
                                 <div id="chat">
                                     <Connections
                                         connections={this.state.connections}
-                                        chatHandler={this.chatHandler} />
+                                        chatHandler={this.chatHandler} 
+                                        connectionID={this.state.connectionID} />
 
                                     <ChatWindow
                                         chat={this.state.chat}
