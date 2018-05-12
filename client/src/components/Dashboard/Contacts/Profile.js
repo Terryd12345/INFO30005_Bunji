@@ -39,12 +39,13 @@ class Profile extends Component {
 
     render() {
         const age = this.getAge(new Date(this.props.user.birthDate));
+        const connection = "/connections?userID=" + this.props.user._id;
 
         return (
             <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                 <div id="profile-panel">
                     <div id="profile-button">
-                        <a href="/connections" className="button" id="profile-btn">
+                        <a href={connection} className="button" id="profile-btn">
                             Contact {this.props.user.firstName}
                         </a>
                     </div>
