@@ -2641,10 +2641,9 @@ a:hover {
     width: 100% !important;
     padding: 0 40px;
     text-align: center;
-    
 }
 
-#dropzone > div:hover {
+#dropzone>div:hover {
     background: #e6e6e6;
 }
 
@@ -2687,7 +2686,6 @@ a:hover {
     #signup form p {
         margin: -2px 0 15px 0;
     }
-    
     #signup input,
     #signup select {
         margin: 8px 0 35px 0;
