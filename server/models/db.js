@@ -3,6 +3,7 @@ import { db } from "../config";
 import "./chat";
 import "./event";
 import "./skill";
+import "./state";
 import "./user";
 
 mongoose.connect(db.mlab, function (err) {

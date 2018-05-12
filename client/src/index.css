@@ -930,6 +930,15 @@ a:hover {
     width: 31%;
 }
 
+#welcome-form #state {
+    width: 31%;
+    margin-right: 4%;
+}
+
+#welcome-form #city {
+    width: 65%;
+}
+
 #welcome-form-title h2 {
     margin-bottom: 25px;
     color: #fff;
@@ -2628,6 +2637,15 @@ a:hover {
 
 #edit-profile-form #gender {
     width: 31%;
+}
+
+#edit-profile-form #state {
+    width: 31%;
+    margin-right: 4%;
+}
+
+#edit-profile-form #city {
+    width: 65%;
 }
 
 /* =================== ChangePicture.js =================== */

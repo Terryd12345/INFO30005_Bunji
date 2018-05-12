@@ -6,7 +6,8 @@ import axios from "axios/index";
 class Welcome extends Component {
     constructor(props) {
         super(props);
-
+    
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
@@ -16,11 +17,16 @@ class Welcome extends Component {
             redirectToGetStarted: false,
             redirectToDashboard: false,
 
+            allStates: [],
+            currentState: {},
+            cities: [],
+
             firstName: "",
             lastName: "",
             birthDate: "",
             gender: "",
-            location: "",
+            state: "",
+            city: "",
             isMentor: "",
             description: ""
         };
@@ -28,33 +34,48 @@ class Welcome extends Component {
 
     componentDidMount() {
         const self = this;
-
-        axios.get("/api/user")
-            .then(function (res) {
-                if (res.data.description) {
-                    if (res.data.skills.length > 0) {
-                        self.setState({
-                            redirectToDashboard: true
-                        });
-                    } else {
-                        self.setState({
-                            redirectToGetStarted: true
-                        });
-                    }
+    
+        axios.all([
+            axios.get("/api/allStates"),
+            axios.get("/api/user")
+        ])
+        .then(axios.spread((res1, res2) => {
+            if (res2.data.description) {
+                if (res2.data.skills.length > 0) {
+                    self.setState({
+                        redirectToDashboard: true
+                    });
                 } else {
                     self.setState({
-                        loading: false,
-                        firstName: res.data.firstName,
-                        lastName: res.data.lastName
+                        redirectToGetStarted: true
                     });
                 }
-            })
-            .catch(function (error) {
+            } else {
                 self.setState({
-                    redirectToHome: true
+                    loading: false,
+                    allStates: res1.data,
+                    currentState: res1.data[0],
+                    cities: res1.data[0].cities,
+                    firstName: res2.data.firstName,
+                    lastName: res2.data.lastName
                 });
-                console.log(error);
+            }
+        }))
+        .catch(function (error) {
+            self.setState({
+                redirectToHome: true
             });
+            console.log(error);
+        });
+    }
+
+    handleChange(e) {
+        let state = this.state.allStates.find(state => state.state === e.target.value);
+        this.setState({
+            state: e.target.value,
+            currentState: state,
+            cities: state.cities
+        })
     }
 
     handleSubmit(e) {
@@ -66,7 +87,8 @@ class Welcome extends Component {
             lastName: this.state.lastName,
             birthDate: new Date(this.state.birthDate),
             gender: this.state.gender,
-            location: this.state.location,
+            state: this.state.state,
+            city: this.state.city,
             isMentor: this.state.isMentor,
             description: this.state.description
         })
@@ -140,13 +162,32 @@ class Welcome extends Component {
                                             <option value={false}>Mentee</option>
                                         </select>
 
-                                        <label id="location">Location</label>
-                                        <input
-                                            id="location"
-                                            type="text"
-                                            value={this.state.location}
-                                            onChange={(event) => this.setState({ location: event.target.value })}
-                                            required />
+                                        <label id="state">State</label>
+                                        <label id="city">City/Town</label>
+                                        
+                                        <select
+                                            id="state"
+                                            value={this.state.state}
+                                            onChange={this.handleChange}
+                                            required>
+                                            {
+                                                this.state.allStates.map(state => {
+                                                    return <option value={state.state}>{state.state}</option>
+                                                })
+                                            }
+                                        </select>
+
+                                        <select
+                                            id="city"
+                                            value={this.state.city}
+                                            onChange={(event) => this.setState({ city: event.target.value })}
+                                            required>
+                                            {
+                                                this.state.cities.map(city => {
+                                                    return <option value={city}>{city}</option>
+                                                })
+                                            }
+                                        </select>
 
                                         <label id="description">Description</label>
                                         <textarea
