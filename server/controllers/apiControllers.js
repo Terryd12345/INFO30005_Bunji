@@ -33,7 +33,7 @@ export default {
                 res.flush();
             });
     },
-    
+
     getUser: function (req, res) {
         User.findById(req.params.id)
             .exec((err, user) => {
@@ -137,11 +137,12 @@ export default {
     },
 
     mentorsBySkills: function (req, res) {
-        User.find({ $and: [
-                            { _id: { $nin: req.user.connections } },
-                            { isMentor: true },
-                            { skills: { $in: req.body.skills } }
-                          ]
+        User.find({
+            $and: [
+                { _id: { $nin: req.user.connections } },
+                { isMentor: true },
+                { skills: { $in: req.body.skills } }
+            ]
         })
             .populate("skills")
             .populate("connections")
@@ -283,19 +284,20 @@ export default {
     },
 
     getEvents: function (req, res) {
-        Event.find({ $or: [
+        Event.find({
+            $or: [
                 { user1: { $in: req.user._id } },
                 { user2: { $in: req.user._id } }
             ]
         })
-        .exec((err, events) => {
-            if (!err) {
-                res.send(events);
-            } else {
-                res.sendStatus(404);
-            }
-            res.flush();
-        });
+            .exec((err, events) => {
+                if (!err) {
+                    res.send(events);
+                } else {
+                    res.sendStatus(404);
+                }
+                res.flush();
+            });
     },
 
     createEvent: function (req, res) {
@@ -321,22 +323,26 @@ export default {
         let user1ID = req.user._id;
         let user2ID = req.params.id;
         Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
-            if (!err) {
-                res.send(chat);
-            } else {
-                let newChat = new Chat({
-                    user1: user1ID,
-                    user2: user2ID,
-                });
-                newChat.save((err) => {
-                    if (err) {
-                        res.sendStatus(500);
-                    }
-                });
-                res.send(newChat);
-            }
-            res.flush();
-        });
+                if (err) {
+                    res.sendStatus(404);
+                }
+                if (!chat) {
+                    console.log("error");
+                    Chat.create(new Chat({
+                        user1: user1ID,
+                        user2: user2ID,
+                    }, (err, chat) => {
+                        if (!err) {
+                            res.send(chat);
+                        } else {
+                            res.sendStatus(500);
+                        }
+                    }))
+                } else {
+                    res.send(chat);
+                }
+                res.flush();
+            });
     },
 
     postMessage: function (req, res) {
