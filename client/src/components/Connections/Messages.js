@@ -25,7 +25,7 @@ class Messages extends Component {
                 <div ref={(el) => { this.myRef = el; }} id="messages">
                     {
                         this.props.chat.messages.map(message => {
-                            if (message.sender === this.props.chat.user1) {
+                            if (message.sender === this.props.userID) {
                                 return <div className="message own">{message.message}</div>;
                             } else {
                                 return <div className="message other">{message.message}</div>;

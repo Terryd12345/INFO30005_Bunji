@@ -6,7 +6,7 @@ class ChatWindow extends Component {
     render() {
         return (
             <div id="chatBox">
-                <Messages chat={this.props.chat} />
+                <Messages chat={this.props.chat} userID={this.props.userID} />
                 <MessageBox messageHandler={this.props.messageHandler} />
             </div>
         );

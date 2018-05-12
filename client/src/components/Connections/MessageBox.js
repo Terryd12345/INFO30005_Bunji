@@ -19,18 +19,26 @@ class MessageBox extends Component {
     }
 
     handleSubmit(e) {
-        this.props.messageHandler(e, this.state.value);
-        this.setState({
-            value: ""
-        });
+        e.preventDefault();
+        if (this.state.value !== "") {
+            this.props.messageHandler(e, this.state.value);
+            this.setState({
+                value: ""
+            });
+        }
     }
 
     render() {
         return (
             <form id="messageBox" onSubmit={this.handleSubmit}>
-                <input id="message" type="text" placeholder="Message..." aria-label="Message..."
+                <input
+                    id="message"
+                    type="text"
+                    placeholder="Message..."
+                    aria-label="Message..."
                     value={this.state.value}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    autocomplete="off" />
                 <button id="send">Send</button>
             </form>
         );
