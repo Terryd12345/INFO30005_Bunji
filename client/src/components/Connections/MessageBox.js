@@ -28,9 +28,14 @@ class MessageBox extends Component {
     render() {
         return (
             <form id="messageBox" onSubmit={this.handleSubmit}>
-                <input id="message" type="text" placeholder="Message..." aria-label="Message..."
+                <input
+                    id="message"
+                    type="text"
+                    placeholder="Message..."
+                    aria-label="Message..."
                     value={this.state.value}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    autocomplete="off" />
                 <button id="send">Send</button>
             </form>
         );
