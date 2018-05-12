@@ -30,20 +30,15 @@ class Relationships extends Component {
     }
 
     componentWillMount() {
-        this.getConnections();
+
     }
 
     componentDidMount() {
-        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
         const self = this;
         axios.get("/api/user")
             .then(function (res) {
                 if (res.data.description) {
-                    if (res.data.skills.length > 0) {
-                        self.setState({
-                            loading: false
-                        });
-                    } else {
+                    if (res.data.skills.length === 0) {
                         self.setState({
                             redirectToGetStarted: true
                         });
@@ -60,6 +55,8 @@ class Relationships extends Component {
                 });
                 console.log(error);
             });
+        this.getConnections();
+        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
     }
 
 
@@ -80,7 +77,7 @@ class Relationships extends Component {
         const self = this;
         axios.get(`/api/chat/${newConnectionID}`)
             .then(function (res) {
-                self.setState({ connectionID: newConnectionID, chat: res.data });
+                self.setState({ loading: false, connectionID: newConnectionID, chat: res.data });
             });
     }
 
