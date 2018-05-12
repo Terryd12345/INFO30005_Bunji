@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
-import { keys } from "../../../keys";
 
 class Event extends Component {
     constructor(props) {
@@ -37,7 +36,7 @@ class Event extends Component {
                 console.log(error);
             });
 
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?appid=${keys.WEATHER_API_KEY}&q=${this.props.location}`)
+        axios.get(`api/weather/${this.props.location}`)
             .then((res) => {
                 self.setState({
                     temperature: res.data.main.temp

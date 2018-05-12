@@ -34,4 +34,7 @@ router.post("/chat/:id", controller.postMessage);
 // Admin calls
 router.post("/createSkill", controller.createSkill);
 
+// External calls
+router.get("/weather/:location", controller.getWeather)
+
 export default router;

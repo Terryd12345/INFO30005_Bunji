@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import axios from "axios/index";
+
+import { weatherApiKey } from "../config";
 
 const Chat = mongoose.model("chat");
 const Event = mongoose.model("event");
@@ -323,26 +326,26 @@ export default {
         let user1ID = req.user._id;
         let user2ID = req.params.id;
         Chat.findOne({ $or: [{ user1: user1ID, user2: user2ID }, { user1: user2ID, user2: user1ID }] }, (err, chat) => {
-                if (err) {
-                    res.sendStatus(404);
-                }
-                if (!chat) {
-                    console.log("error");
-                    Chat.create(new Chat({
-                        user1: user1ID,
-                        user2: user2ID,
-                    }, (err, chat) => {
-                        if (!err) {
-                            res.send(chat);
-                        } else {
-                            res.sendStatus(500);
-                        }
-                    }))
-                } else {
-                    res.send(chat);
-                }
-                res.flush();
-            });
+            if (err) {
+                res.sendStatus(404);
+            }
+            if (!chat) {
+                console.log("error");
+                Chat.create(new Chat({
+                    user1: user1ID,
+                    user2: user2ID,
+                }, (err, chat) => {
+                    if (!err) {
+                        res.send(chat);
+                    } else {
+                        res.sendStatus(500);
+                    }
+                }))
+            } else {
+                res.send(chat);
+            }
+            res.flush();
+        });
     },
 
     postMessage: function (req, res) {
@@ -361,5 +364,17 @@ export default {
             }
             res.flush();
         });
+    },
+
+    /* ============================================================================================================= */
+
+    getWeather: function (req, res) {
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?appid=${weatherApiKey}&q=${encodeURIComponent(req.params.location)}`)
+            .then(function (response) {
+                res.send(response.data);
+            })
+            .catch(function (error) {
+                res.send(error);
+            })
     }
 }
