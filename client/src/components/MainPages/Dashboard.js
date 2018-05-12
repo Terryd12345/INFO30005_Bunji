@@ -35,19 +35,19 @@ class Dashboard extends Component {
                     _id: "1",
                     notification: "Jon sent you a message.",
                     time: "Just Now",
-                    imagePath: "user"
+                    imagePath: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=200"
                 },
                 {
                     _id: "2",
                     notification: "Jane sent you a message.",
                     time: "1hr ago",
-                    imagePath: "user"
+                    imagePath: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=200"
                 },
                 {
                     _id: "3",
                     notification: "Fred sent you a message.",
                     time: "2hr ago",
-                    imagePath: "user"
+                    imagePath: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=200"
                 }
             ]
         };
