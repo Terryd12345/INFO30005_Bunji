@@ -31,8 +31,11 @@ router.post("/updateConnections", controller.updateConnections);
 router.get("/chat/:id", controller.getChat);
 router.post("/chat/:id", controller.postMessage);
 
+router.get("/allStates", controller.allStates);
+
 // Admin calls
 router.post("/createSkill", controller.createSkill);
+router.post("/createState", controller.createState);
 
 // External calls
 router.get("/weather/:location", controller.getWeather)

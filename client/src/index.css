@@ -930,6 +930,15 @@ a:hover {
     width: 31%;
 }
 
+#welcome-form #state {
+    width: 31%;
+    margin-right: 4%;
+}
+
+#welcome-form #city {
+    width: 65%;
+}
+
 #welcome-form-title h2 {
     margin-bottom: 25px;
     color: #fff;
@@ -1225,7 +1234,7 @@ a:hover {
     background: linear-gradient(to bottom right, #effaff, #c0e3ea) no-repeat fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 165px 285px 400px;
+    grid-template-rows: 165px 285px calc(100vh - 350px);
     grid-gap: 20px;
     grid-template-areas: "profile profile popups" "profile profile notifications" "contacts events events";
 }
@@ -1601,7 +1610,7 @@ a:hover {
 #events-sidebar-sm {
     grid-area: sidebar;
     display: none;
-    padding: 15px 20px;
+    padding: 12px 20px;
     background: #578bca;
     border-radius: 8px 8px 0 0 !important;
 }
@@ -1609,7 +1618,7 @@ a:hover {
 #events-sidebar-sm select {
     width: 100%;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     background: #f1f1f1;
     border: none;
     border-radius: 8px;
@@ -1893,7 +1902,7 @@ a:hover {
         display: inline;
     }
     #dashboard {
-        grid-template-rows: 165px 390px 400px;
+        grid-template-rows: 165px 390px calc(100vh - 455px);
     }
     #personal-profile {
         grid-template-columns: 40% 60%;
@@ -1951,10 +1960,13 @@ a:hover {
         grid-gap: 0;
     }
     #dashboard {
-        grid-template-rows: 285px 315px 650px;
+        grid-template-rows: 285px 315px calc(100vh - 500px);
     }
     #personal-profile {
         grid-auto-rows: 85px 190px 265px;
+    }
+    #personal-pic img {
+        width: 60%;
     }
     #personal-skills {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -2071,7 +2083,7 @@ a:hover {
 /* =============================================== Relationships.js ================================================ */
 
 #relationships {
-    height: 100vh;
+    height: calc(100vh - 28px);
     background: linear-gradient(to bottom right, #c0e3ea, #578bca) no-repeat fixed;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.05rem;
@@ -2208,6 +2220,12 @@ a:hover {
         border-radius: 0 0 0 8px;
     }
 } */
+
+@media (min-width: 1801px) {
+    #relationships {
+        height: calc(100vh - 45px);
+    }
+}
 
 /* ================================================== NotFound.js ================================================== */
 
@@ -2628,6 +2646,15 @@ a:hover {
 
 #edit-profile-form #gender {
     width: 31%;
+}
+
+#edit-profile-form #state {
+    width: 31%;
+    margin-right: 4%;
+}
+
+#edit-profile-form #city {
+    width: 65%;
 }
 
 /* =================== ChangePicture.js =================== */

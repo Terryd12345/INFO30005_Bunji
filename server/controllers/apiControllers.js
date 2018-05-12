@@ -6,6 +6,7 @@ import { weatherApiKey } from "../config";
 const Chat = mongoose.model("chat");
 const Event = mongoose.model("event");
 const Skill = mongoose.model("skill");
+const State = mongoose.model("state");
 const User = mongoose.model("user");
 
 export default {
@@ -70,7 +71,8 @@ export default {
                     lastName: req.body.lastName,
                     birthDate: req.body.birthDate,
                     gender: req.body.gender,
-                    location: req.body.location,
+                    state: req.body.state,
+                    city: req.body.city,
                     isMentor: req.body.isMentor,
                     description: req.body.description
                 }
@@ -109,7 +111,8 @@ export default {
             lastName: req.body.lastName,
             birthDate: req.body.birthDate,
             gender: req.body.gender,
-            location: req.body.location,
+            state: req.body.state,
+            city: req.body.city,
             isMentor: req.body.isMentor,
             description: req.body.description,
             skills: req.body.skills,
@@ -151,7 +154,14 @@ export default {
             .populate("connections")
             .exec((err, users) => {
                 if (!err) {
-                    res.send(users);
+                    let result = [];
+                    let sameCity = users.filter(user => user.city === req.user.city);
+                    let sameState = users.filter(user => (user.state === req.user.state)
+                                                      && (user.city !== req.user.city));
+                    let other = users.filter(user => user.state !== req.user.state);
+                    
+                    result = result.concat(sameCity, sameState, other);
+                    res.send(result.length < 11 ? result : result.slice(0, 10));
                 } else {
                     res.sendStatus(404);
                 }
@@ -359,6 +369,33 @@ export default {
                     message: req.body.message
                 });
                 chat.save(done);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
+    /* ============================================================================================================= */
+
+    allStates: function (req, res) {
+        State.find({}, (err, states) => {
+            if (!err) {
+                res.send(states);
+            } else {
+                res.sendStatus(404);
+            }
+            res.flush();
+        });
+    },
+
+    createState: function (req, res) {
+        State.create(new State({
+            state: req.body.state,
+            cities: req.body.cities
+        }), (err) => {
+            if (!err) {
+                res.sendStatus(200);
             } else {
                 res.sendStatus(404);
             }

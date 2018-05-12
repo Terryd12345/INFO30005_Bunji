@@ -86,9 +86,28 @@ class FindMentor extends Component {
             })
         ])
             .then(function () {
-                self.setState({
-                    changed: true
-                });
+                if (self.state.index === 0 && self.state.length === 1) {
+                    self.setState({
+                        changed: false
+                    });
+                    self.props.reload();
+                } else {
+                    if (self.state.index !== 0) {
+                        self.setState({
+                            currentUser: self.state.allUsers[self.state.index - 1],
+                            index: self.state.index - 1
+                        });
+                    } else {
+                        self.setState({
+                            currentUser: self.state.allUsers[self.state.index + 1]
+                        });
+                    }
+                    
+                    self.setState({
+                        changed: true,
+                        length: self.state.length - 1
+                    });
+                }
                 self.componentDidMount();
             })
             .catch(function (error) {

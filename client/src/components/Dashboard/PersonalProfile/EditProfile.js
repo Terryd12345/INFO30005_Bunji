@@ -8,18 +8,42 @@ class EditProfile extends Component {
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             show: false,
+
+            allStates: [],
+            currentState: {},
+            cities: [],
+
             firstName: this.props.user.firstName,
             lastName: this.props.user.lastName,
             birthDate: this.formatDate(new Date(this.props.user.birthDate)),
             gender: this.props.user.gender,
-            location: this.props.user.location,
+            state: this.props.user.state,
+            city: this.props.user.city,
             isMentor: this.props.user.isMentor,
             description: this.props.user.description
         };
+    }
+
+    componentDidMount() {
+        const self = this;
+        
+        axios.get("/api/allStates")
+        .then(function (res) {
+            let state = res.data.find(state => state.state === self.props.user.state);
+            self.setState({
+                allStates: res.data,
+                currentState: state,
+                cities: state.cities
+            })
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     /* ============================================================================================================= */
@@ -35,6 +59,15 @@ class EditProfile extends Component {
             show: true
         });
     }
+    
+    handleChange(e) {
+        let state = this.state.allStates.find(state => state.state === e.target.value);
+        this.setState({
+            state: e.target.value,
+            currentState: state,
+            cities: state.cities
+        })
+    }
 
     handleSubmit(e) {
         const self = this;
@@ -45,7 +78,8 @@ class EditProfile extends Component {
             lastName: self.state.lastName,
             birthDate: new Date(self.state.birthDate),
             gender: self.state.gender,
-            location: self.state.location,
+            state: self.state.state,
+            city: self.state.city,
             isMentor: self.state.isMentor,
             description: self.state.description
         })
@@ -99,15 +133,6 @@ class EditProfile extends Component {
                             onChange={(event) => this.setState({ lastName: event.target.value })}
                             required />
 
-                        <label id="location">Location</label>
-                        <input
-                            id="location"
-                            type="text"
-                            placeholder="Enter location here..."
-                            value={this.state.location}
-                            onChange={(event) => this.setState({ location: event.target.value })}
-                            required />
-
                         <label id="birthDate">Date of Birth</label>
                         <label id="gender">Gender</label>
 
@@ -127,6 +152,33 @@ class EditProfile extends Component {
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
+                        </select>
+
+                        <label id="state">State</label>
+                        <label id="city">City/Town</label>
+
+                        <select
+                            id="state"
+                            value={this.state.state}
+                            onChange={this.handleChange}
+                            required>
+                            {
+                                this.state.allStates.map(state => {
+                                    return <option key={state.state} value={state.state}>{state.state}</option>
+                                })
+                            }
+                        </select>
+
+                        <select
+                            id="city"
+                            value={this.state.city}
+                            onChange={(event) => this.setState({ city: event.target.value })}
+                            required>
+                            {
+                                this.state.cities.map(city => {
+                                    return <option key={city} value={city}>{city}</option>
+                                })
+                            }
                         </select>
 
                         <label id="description">Description</label>

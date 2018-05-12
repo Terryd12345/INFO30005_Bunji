@@ -54,7 +54,6 @@ class Event extends Component {
                     weatherCondition: res.data.weather[0].main,
                     weatherIcon: icon
                 });
-                console.log(res.data);
             })
             .catch((error) => {
                 console.log(error);

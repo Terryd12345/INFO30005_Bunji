@@ -100,7 +100,7 @@ class Relationships extends Component {
         }
         axios.post(`/api/chat/${this.state.connectionID}`, messageObject)
 
-        let c = this.state.chat.slice();
+        let c = this.state.chat;
         c.messages.push(messageObject);
         this.setState({
             chat: c
