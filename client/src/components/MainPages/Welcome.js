@@ -80,7 +80,7 @@ class Welcome extends Component {
                 console.log(error);
             });
     }
-
+    
     render() {
         return (
             <div id="page-wrap">
@@ -104,22 +104,22 @@ class Welcome extends Component {
                     ) : (
                         <div id="welcome">
                             <div id="welcome-pic"/>
-                
+                            
                             <div className="centered" id="welcome-form">
                                 <header id="welcome-form-title">
                                     <h2>One last step!</h2>
                                 </header>
-                    
+                                
                                 <form onSubmit={this.handleSubmit}>
                                     <label id="birthDate">Date of Birth</label>
                                     <label id="gender">Gender</label>
-                        
+                                    
                                     <input id="birthDate"
                                            type="date"
                                            value={this.state.birthDate}
                                            onChange={(event) => this.setState({birthDate: event.target.value})}
                                            required/>
-                        
+                                    
                                     <select id="gender"
                                             value={this.state.gender}
                                             onChange={(event) => this.setState({gender: event.target.value})}
@@ -129,7 +129,7 @@ class Welcome extends Component {
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
                                     </select>
-                        
+                                    
                                     <label id="role">Role</label>
                                     <select id="role"
                                             value={this.state.isMentor}
@@ -139,15 +139,14 @@ class Welcome extends Component {
                                         <option value={true}>Mentor</option>
                                         <option value={false}>Mentee</option>
                                     </select>
-                        
+                                    
                                     <label id="location">Location</label>
                                     <input id="location"
                                            type="text"
-                                           placeholder="Enter location here..."
                                            value={this.state.location}
                                            onChange={(event) => this.setState({location: event.target.value})}
                                            required/>
-                        
+                                    
                                     <label id="description">Description</label>
                                     <textarea id="description"
                                               rows="5"
@@ -155,7 +154,7 @@ class Welcome extends Component {
                                               value={this.state.description}
                                               onChange={(event) => this.setState({description: event.target.value})}
                                               required/>
-                        
+                                    
                                     <button type="submit" className="button" id="welcome-btn">Submit</button>
                                 </form>
                             </div>
