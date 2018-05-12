@@ -3,10 +3,10 @@ import React, { Component } from "react";
 class MessageBox extends Component {
     constructor(props) {
         super(props);
-        
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+
         this.state = {
             value: ""
         };
@@ -29,8 +29,8 @@ class MessageBox extends Component {
         return (
             <form id="messageBox" onSubmit={this.handleSubmit}>
                 <input id="message" type="text" placeholder="Message..." aria-label="Message..."
-                       value={this.state.value}
-                       onChange={this.handleChange} />
+                    value={this.state.value}
+                    onChange={this.handleChange} />
                 <button id="send">Send</button>
             </form>
         );

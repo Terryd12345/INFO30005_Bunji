@@ -14,11 +14,11 @@ class Relationships extends Component {
 
         this.state = {
             loading: true,
-    
+
             redirectToHome: false,
             redirectToWelcome: false,
             redirectToGetStarted: false,
-            
+
             chatID: 0,
             chats: [
                 {
@@ -58,10 +58,10 @@ class Relationships extends Component {
             ]
         }
     }
-    
+
     componentDidMount() {
         const self = this;
-        
+
         axios.get("/api/user")
             .then(function (res) {
                 if (res.data.description) {
@@ -98,13 +98,13 @@ class Relationships extends Component {
     messageHandler(e, newMessage) {
         e.preventDefault();
         let c = this.state.chats.slice();
-        
+
         c[this.state.chatID].messages.push({
             date: new Date(),
             sender: c[this.state.chatID].user1,
             message: newMessage
         });
-        
+
         this.setState({
             chats: c
         });
@@ -117,30 +117,29 @@ class Relationships extends Component {
                     this.state.loading ? (
                         <div id="loading">
                             <MoonLoader loading={this.state.loading} />
-    
                             {
                                 this.state.redirectToHome ? (<Redirect to="/" />) : (null)
                             }
-    
                             {
                                 this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
                             }
-    
                             {
                                 this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
                             }
                         </div>
                     ) : (
-                        <div id="relationships">
-                            <div id="chat">
-                                <Connections chats={this.state.chats}
-                                             chatHandler={this.chatHandler}/>
-                    
-                                <ChatWindow chat={this.state.chats[this.state.chatID]}
-                                            messageHandler={this.messageHandler}/>
+                            <div id="relationships">
+                                <div id="chat">
+                                    <Connections
+                                        chats={this.state.chats}
+                                        chatHandler={this.chatHandler} />
+
+                                    <ChatWindow
+                                        chat={this.state.chats[this.state.chatID]}
+                                        messageHandler={this.messageHandler} />
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
                 }
             </div>
         );

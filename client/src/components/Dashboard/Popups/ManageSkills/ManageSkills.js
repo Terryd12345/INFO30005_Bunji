@@ -23,16 +23,16 @@ class ManageSkills extends Component {
             show: false,
             available: true,
             selected: false,
-            
+
             allAvailableSkills: [],
             allSelectedSkills: [],
-            
+
             availableSkills: [],
             arrAvailable: [],
-            
+
             selectedSkills: [],
             arrSelected: [],
-            
+
             learnedSkills: [],
             arrLearned: []
         };
@@ -40,7 +40,7 @@ class ManageSkills extends Component {
 
     componentDidMount() {
         const self = this;
-    
+
         axios.all([
             axios.get("/api/allSkills"),
             axios.get("/api/user")
@@ -70,7 +70,7 @@ class ManageSkills extends Component {
             arrSelected: [],
             arrLearned: []
         });
-    
+
         if (this.state.changed) {
             this.setState({
                 changed: false
@@ -136,7 +136,7 @@ class ManageSkills extends Component {
      * previouslyClicked  : (true) to be removed from array, (false) to be added to array
      */
     handleClickedSkills(type, id, previouslyClicked) {
-        switch(type) {
+        switch (type) {
             case 1:
                 if (!previouslyClicked) {
                     this.setState({
@@ -148,7 +148,7 @@ class ManageSkills extends Component {
                     }))
                 }
                 break;
-                
+
             case 2:
                 if (!previouslyClicked) {
                     this.setState({
@@ -160,7 +160,7 @@ class ManageSkills extends Component {
                     }))
                 }
                 break;
-                
+
             case 3:
                 if (!previouslyClicked) {
                     this.setState({
@@ -172,7 +172,7 @@ class ManageSkills extends Component {
                     }))
                 }
                 break;
-                
+
             default:
                 break;
         }
@@ -182,32 +182,32 @@ class ManageSkills extends Component {
         const self = this;
         let source = "";
         let array = [];
-        
-        switch(type) {
+
+        switch (type) {
             case 1:
                 source = "/api/addSkills";
                 array = this.state.arrAvailable;
                 break;
-                
+
             case 2:
                 source = "/api/removeSkills";
                 array = this.state.arrSelected;
                 break;
-                
+
             case 3:
                 source = "/api/addLearned";
                 array = this.state.arrSelected;
                 break;
-                
+
             case 4:
                 source = "/api/removeLearned";
                 array = this.state.arrLearned;
                 break;
-                
+
             default:
                 break;
         }
-        
+
         if (array.length < 1) {
             alert("Please select a skill.");
         } else {
@@ -254,78 +254,89 @@ class ManageSkills extends Component {
                         Manage Skills
                     </h5>
                 </div>
-                
+
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
                     <Modal.Header id={this.props.isMentor ? "skills-header-mentor" : "skills-header"}>
-                        <Modal.Title className="modal-title-skills" id="left-title"
-                                     onClick={this.showAvailable}
-                                     style={this.state.available ? null : inactiveAvailable}>
+                        <Modal.Title
+                            className="modal-title-skills"
+                            id="left-title"
+                            onClick={this.showAvailable}
+                            style={this.state.available ? null : inactiveAvailable}>
                             AVAILABLE
                         </Modal.Title>
-                        
-                        <Modal.Title className="modal-title-skills" id={this.props.isMentor ? "right-title" : "middle-title"}
-                                     onClick={this.showSelected}
-                                     style={this.state.available ? inactiveSelected : (this.state.selected ? null : inactiveSelected)}>
+
+                        <Modal.Title
+                            className="modal-title-skills"
+                            id={this.props.isMentor ? "right-title" : "middle-title"}
+                            onClick={this.showSelected}
+                            style={this.state.available ? inactiveSelected : (this.state.selected ? null : inactiveSelected)}>
                             SELECTED
                         </Modal.Title>
 
                         {
                             this.props.isMentor ? (null) : (
-                                <Modal.Title className="modal-title-skills" id="right-title"
-                                             onClick={this.showLearned}
-                                             style={this.state.available ? inactiveLearned : (this.state.selected ? inactiveLearned : null)}>
+                                <Modal.Title
+                                    className="modal-title-skills"
+                                    id="right-title"
+                                    onClick={this.showLearned}
+                                    style={this.state.available ? inactiveLearned : (this.state.selected ? inactiveLearned : null)}>
                                     LEARNED
                                 </Modal.Title>
                             )
                         }
                     </Modal.Header>
-    
+
                     {
                         this.state.loading ? (
                             <Modal.Body>
                                 <div className="section-loading">
-                                    <BeatLoader loading={this.state.loading}/>
+                                    <BeatLoader loading={this.state.loading} />
                                 </div>
                             </Modal.Body>
                         ) : (
-                            <Modal.Body>
-                                {
-                                    this.props.isMentor ? (
-                                        <div>
-                                            {
-                                                this.state.available ?
-                                                    <Available skills={this.state.availableSkills}
-                                                               updateSelected={this.handleClickedSkills}
-                                                               updateSkills={this.updateSkills}/>
-                                                    : <Selected skills={this.state.selectedSkills}
+                                <Modal.Body>
+                                    {
+                                        this.props.isMentor ? (
+                                            <div>
+                                                {
+                                                    this.state.available ?
+                                                        <Available
+                                                            skills={this.state.availableSkills}
+                                                            updateSelected={this.handleClickedSkills}
+                                                            updateSkills={this.updateSkills} />
+                                                        : <Selected
+                                                            skills={this.state.selectedSkills}
+                                                            updateSelected={this.handleClickedSkills}
+                                                            updateSkills={this.updateSkills}
+                                                            isMentor={this.props.isMentor} />
+                                                }
+                                            </div>
+                                        ) : (
+                                                <div>
+                                                    {
+                                                        this.state.available ?
+                                                            <Available
+                                                                skills={this.state.availableSkills}
                                                                 updateSelected={this.handleClickedSkills}
-                                                                updateSkills={this.updateSkills}
-                                                                isMentor={this.props.isMentor}/>
-                                            }
-                                        </div>
-                                    ) : (
-                                        <div>
-                                            {
-                                                this.state.available ?
-                                                    <Available skills={this.state.availableSkills}
-                                                               updateSelected={this.handleClickedSkills}
-                                                               updateSkills={this.updateSkills}/>
-                                                : (this.state.selected ?
-                                                    <Selected skills={this.state.selectedSkills}
-                                                              updateSelected={this.handleClickedSkills}
-                                                              updateSkills={this.updateSkills}
-                                                              isMentor={this.props.isMentor}/>
-                                                : <Learned skills={this.state.learnedSkills}
-                                                           updateSelected={this.handleClickedSkills}
-                                                           updateSkills={this.updateSkills}/>)
-                                            }
-                                        </div>
-                                    )
-                                }
-                            </Modal.Body>
-                        )
+                                                                updateSkills={this.updateSkills} />
+                                                            : (this.state.selected ?
+                                                                <Selected
+                                                                    skills={this.state.selectedSkills}
+                                                                    updateSelected={this.handleClickedSkills}
+                                                                    updateSkills={this.updateSkills}
+                                                                    isMentor={this.props.isMentor} />
+                                                                : <Learned
+                                                                    skills={this.state.learnedSkills}
+                                                                    updateSelected={this.handleClickedSkills}
+                                                                    updateSkills={this.updateSkills} />)
+                                                    }
+                                                </div>
+                                            )
+                                    }
+                                </Modal.Body>
+                            )
                     }
-    
+
                     <Modal.Footer id="popups-footer">
                         <Button onClick={this.closeAll} id="close-btn">&times;</Button>
                     </Modal.Footer>

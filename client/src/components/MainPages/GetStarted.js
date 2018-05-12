@@ -20,23 +20,23 @@ class GetStarted extends Component {
             loading: true,
             loadingSkills: true,
             loadingUsers: false,
-            
+
             redirectToHome: false,
             redirectToWelcome: false,
             redirectToDashboard: false,
-            
+
             isMentor: false,
-            
+
             showSection1: true,
             tickSection1: false,
             showSection2: false,
             tickSection2: false,
             showSection3: false,
-            
+
             allSkills: [],
             selectedSkills: [],
             tmpSkills: [],
-            
+
             allUsers: [],
             selectedUsers: [],
             tmpUsers: []
@@ -45,7 +45,7 @@ class GetStarted extends Component {
 
     componentDidMount() {
         const self = this;
-    
+
         axios.all([
             axios.get("/api/allSkills"),
             axios.get("/api/user")
@@ -79,13 +79,13 @@ class GetStarted extends Component {
     }
 
     /* ============================================================================================================= */
-    
+
     /* type               : (1) skills, (2) users
      * id                 : skill's or user's id
      * previouslySelected : (true) to be removed from array, (false) to be added to array
      */
     updateSelected(type, id, previouslySelected) {
-        switch(type) {
+        switch (type) {
             case 1:
                 if (!previouslySelected) {
                     this.setState({
@@ -98,7 +98,7 @@ class GetStarted extends Component {
                     }))
                 }
                 break;
-                
+
             case 2:
                 if (!previouslySelected) {
                     this.setState({
@@ -111,7 +111,7 @@ class GetStarted extends Component {
                     }))
                 }
                 break;
-                
+
             default:
                 break;
         }
@@ -139,7 +139,7 @@ class GetStarted extends Component {
                 window.scrollTo(0, 55);
             } else {
                 const self = this;
-                
+
                 this.setState({
                     loadingUsers: true,
                     showSection1: false,
@@ -150,7 +150,7 @@ class GetStarted extends Component {
                     tmpSkills: [],
                     tmpUsers: []
                 });
-                
+
                 axios.post("/api/mentorsBySkills", {
                     skills: self.state.selectedSkills
                 })
@@ -189,7 +189,7 @@ class GetStarted extends Component {
 
     toDashboard() {
         const self = this;
-        
+
         if (this.state.isMentor) {
             axios.post("/api/addSkills", {
                 skills: self.state.selectedSkills
@@ -239,7 +239,7 @@ class GetStarted extends Component {
                     tmpSkills: [],
                     tmpUsers: []
                 });
-        
+
                 if (this.state.tickSection2) {
                     this.setState({
                         showSection3: true
@@ -299,144 +299,150 @@ class GetStarted extends Component {
                     this.state.loading ? (
                         <div id="loading">
                             <MoonLoader loading={this.state.loading} />
-        
+
                             {
                                 this.state.redirectToHome ? (<Redirect to="/" />) : (null)
                             }
-        
+
                             {
                                 this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
                             }
-        
+
                             {
                                 this.state.redirectToDashboard ? (<Redirect to="/dashboard" />) : (null)
                             }
                         </div>
                     ) : (
-                        <div>
-    
-                        {/* ======================================================================================= */}
-                        
-                            <div id="section-1">
-                                <header onClick={this.handleSection1} className="section-header"
+                            <div>
+
+                                {/* ======================================================================================= */}
+
+                                <div id="section-1">
+                                    <header
+                                        onClick={this.handleSection1}
+                                        className="section-header"
                                         style={(this.state.showSection1 && !this.state.tickSection1) ? null : disabled}>
-                                    <h2>
-                                        1. Select Skills
+                                        <h2>
+                                            1. Select Skills
                                         {
-                                            this.state.tickSection1 ? (
-                                                <span>
-                                                    <img src={require("../../images/icons/tick.png")} alt="Completed"/>
-                                                </span>
-                                            ) : (null)
-                                        }
-                                    </h2>
-                                </header>
-                    
-                                {
-                                    this.state.showSection1 ? (
-                                        <div className="section-content">
-                                            <SkillSelection allSkills={this.state.allSkills}
-                                                            selectedSkills={this.state.selectedSkills}
-                                                            updateSelected={this.updateSelected}
-                                                            isMentor={this.state.isMentor}/>
-                                
-                                            {
-                                                this.state.loadingSkills ? (
-                                                    <div className="section-loading">
-                                                        <BeatLoader loading={this.state.loadingSkills}/>
-                                                    </div>
+                                                this.state.tickSection1 ? (
+                                                    <span>
+                                                        <img src={require("../../images/icons/tick.png")} alt="Completed" />
+                                                    </span>
                                                 ) : (null)
                                             }
-                                
-                                            <a className="button" id="skill-selection-btn"
-                                               onClick={this.toSection2}>
-                                                {
-                                                    this.state.isMentor ? "Confirm" : "Find Mentor"
-                                                }
-                                            </a>
-                                        </div>
-                                    ) : (null)
-                                }
-                            </div>
-    
-                        {/* ======================================================================================= */}
-                        
-                        {
-                            this.state.isMentor ? (null) : (
-                            <div id="section-2">
-                                <header onClick={this.handleSection2} className="section-header"
-                                        style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
-                                <h2>
-                                        2. Find Mentor
-                                        {
-                                            this.state.tickSection2 ? (
-                                                <span>
-                                                    <img src={require("../../images/icons/tick.png")}
-                                                         alt="Completed"/>
-                                                </span>
-                                            ) : (null)
-                                        }
                                         </h2>
-                                </header>
-                    
+                                    </header>
+
+                                    {
+                                        this.state.showSection1 ? (
+                                            <div className="section-content">
+                                                <SkillSelection
+                                                    allSkills={this.state.allSkills}
+                                                    selectedSkills={this.state.selectedSkills}
+                                                    updateSelected={this.updateSelected}
+                                                    isMentor={this.state.isMentor} />
+
+                                                {
+                                                    this.state.loadingSkills ? (
+                                                        <div className="section-loading">
+                                                            <BeatLoader loading={this.state.loadingSkills} />
+                                                        </div>
+                                                    ) : (null)
+                                                }
+
+                                                <a className="button" id="skill-selection-btn"
+                                                    onClick={this.toSection2}>
+                                                    {
+                                                        this.state.isMentor ? "Confirm" : "Find Mentor"
+                                                    }
+                                                </a>
+                                            </div>
+                                        ) : (null)
+                                    }
+                                </div>
+
+                                {/* ======================================================================================= */}
+
                                 {
-                                    this.state.showSection2 ? (
-                                        <div className="section-content">
-                                            <UserSelection allUsers={this.state.allUsers}
-                                                           selectedUsers={this.state.selectedUsers}
-                                                           updateSelected={this.updateSelected}/>
-                                
+                                    this.state.isMentor ? (null) : (
+                                        <div id="section-2">
+                                            <header
+                                                onClick={this.handleSection2}
+                                                className="section-header"
+                                                style={(this.state.showSection2 && !this.state.tickSection2) ? null : disabled}>
+                                                <h2>
+                                                    2. Find Mentor
+                                        {
+                                                        this.state.tickSection2 ? (
+                                                            <span>
+                                                                <img src={require("../../images/icons/tick.png")}
+                                                                    alt="Completed" />
+                                                            </span>
+                                                        ) : (null)
+                                                    }
+                                                </h2>
+                                            </header>
+
                                             {
-                                                this.state.loadingUsers ? (
-                                                    <div className="section-loading">
-                                                        <BeatLoader loading={this.state.loadingUsers}/>
+                                                this.state.showSection2 ? (
+                                                    <div className="section-content">
+                                                        <UserSelection
+                                                            allUsers={this.state.allUsers}
+                                                            selectedUsers={this.state.selectedUsers}
+                                                            updateSelected={this.updateSelected} />
+
+                                                        {
+                                                            this.state.loadingUsers ? (
+                                                                <div className="section-loading">
+                                                                    <BeatLoader loading={this.state.loadingUsers} />
+                                                                </div>
+                                                            ) : (null)
+                                                        }
+
+                                                        <a onClick={this.toSection3} className="button" id="user-selection-btn">
+                                                            Confirm
+                                            </a>
                                                     </div>
                                                 ) : (null)
                                             }
-                                
-                                            <a onClick={this.toSection3} className="button" id="user-selection-btn">
-                                                Confirm
-                                            </a>
                                         </div>
-                                    ) : (null)
+                                    )
                                 }
-                            </div>
-                            )
-                        }
-                        
-                        {/* ======================================================================================= */}
-                        
-                            <div id="section-3">
-                                <header className="section-header" style={this.state.showSection3 ? null : disabled}>
-                                    <h2>{this.state.isMentor ? "2. Teach Skills" : "3. Learn Skills"}</h2>
-                                </header>
-                
-                                {
-                                    this.state.showSection3 ? (
-                                        <div className="wrapper" id="get-started">
-                                            <header className="header">
-                                                <h2>All good!</h2>
-                                                {
-                                                    this.state.isMentor ? (
-                                                        <h6>Once you get paired up with a mentee, you can start teaching your skills.</h6>
-                                                    ) : (
-                                                        <h6>Get in touch with your mentor, and start learning the skills you want.</h6>
-                                                    )
-                                                }
-                                            </header>
-                                
-                                            <a onClick={this.toDashboard} className="button" id="get-started-btn">
-                                                View Dashboard
+
+                                {/* ======================================================================================= */}
+
+                                <div id="section-3">
+                                    <header className="section-header" style={this.state.showSection3 ? null : disabled}>
+                                        <h2>{this.state.isMentor ? "2. Teach Skills" : "3. Learn Skills"}</h2>
+                                    </header>
+
+                                    {
+                                        this.state.showSection3 ? (
+                                            <div className="wrapper" id="get-started">
+                                                <header className="header">
+                                                    <h2>All good!</h2>
+                                                    {
+                                                        this.state.isMentor ? (
+                                                            <h6>Once you get paired up with a mentee, you can start teaching your skills.</h6>
+                                                        ) : (
+                                                                <h6>Get in touch with your mentor, and start learning the skills you want.</h6>
+                                                            )
+                                                    }
+                                                </header>
+
+                                                <a onClick={this.toDashboard} className="button" id="get-started-btn">
+                                                    View Dashboard
                                             </a>
-                                        </div>
-                                    ) : (null)
-                                }
+                                            </div>
+                                        ) : (null)
+                                    }
+                                </div>
+
+                                {/* ======================================================================================= */}
+
                             </div>
-    
-                        {/* ======================================================================================= */}
-                        
-                        </div>
-                    )
+                        )
                 }
             </div>
         );

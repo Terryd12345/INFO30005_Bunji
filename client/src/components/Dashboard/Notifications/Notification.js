@@ -5,14 +5,15 @@ class Notification extends Component {
         return (
             <div className="notification-panel">
                 <div className="notification-pic">
-                    <img src={this.props.imagePath}
-                         alt={this.props.firstName} />
+                    <img
+                        src={this.props.imagePath}
+                        alt={this.props.firstName} />
                 </div>
-                
+
                 <div className="notification-desc">
                     {this.props.notification}
                 </div>
-                
+
                 <div className="notification-time">
                     {this.props.time}
                 </div>
