@@ -14,7 +14,6 @@ class Relationships extends Component {
         this.messageHandler = this.messageHandler.bind(this);
         this.getConnections = this.getConnections.bind(this);
         this.getChat = this.getChat.bind(this);
-        this.refreshChat = this.refreshChat.bind(this);
 
         this.state = {
             loading: true,
@@ -35,11 +34,7 @@ class Relationships extends Component {
     }
 
     componentDidMount() {
-<<<<<<< HEAD
-        let refreshChat = setInterval(this.refreshChat, 1000);
-=======
         let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 1000);
->>>>>>> f342cdad33c78a7a58c31d936cc71b58973e4fe6
         const self = this;
         axios.get("/api/user")
             .then(function (res) {
@@ -65,10 +60,6 @@ class Relationships extends Component {
                 });
                 console.log(error);
             });
-    }
-
-    refreshChat() {
-        return this.getChat(this.state.connectionID);
     }
 
     getConnections() {
