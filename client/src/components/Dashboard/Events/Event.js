@@ -13,7 +13,8 @@ class Event extends Component {
             loading: true,
             firstName: "",
             lastName: "",
-            imagePath: ""
+            imagePath: "",
+            temperature: ""
         };
     }
 
@@ -33,6 +34,17 @@ class Event extends Component {
             })
             .catch(function (error) {
                 console.log(error);
+            });
+
+        axios.get(`api/weather/${this.props.location}`)
+            .then((res) => {
+                self.setState({
+                    temperature: res.data.main.temp
+                });
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log(error.message);
             });
     }
 
@@ -60,8 +72,7 @@ class Event extends Component {
                     ) : (
                             <div className="event-panel">
                                 <div className="event-pic">
-                                    <img
-                                        src={this.state.imagePath}
+                                    <img src={this.state.imagePath}
                                         alt={this.state.firstName} />
                                 </div>
 
@@ -82,12 +93,14 @@ class Event extends Component {
                                         <h6>{time}</h6>
                                         <h6>{this.props.location}</h6>
                                     </div>
+
+                                    <h1>{this.state.temperature}</h1>
                                 </div>
                             </div>
                         )
                 }
             </div>
-        );
+        )
     }
 }
 

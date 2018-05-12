@@ -11,6 +11,8 @@ class Relationships extends Component {
 
         this.chatHandler = this.chatHandler.bind(this);
         this.messageHandler = this.messageHandler.bind(this);
+        this.getConnections = this.getConnections.bind(this);
+        this.getChat = this.getChat.bind(this);
 
         this.state = {
             loading: true,
@@ -19,49 +21,19 @@ class Relationships extends Component {
             redirectToWelcome: false,
             redirectToGetStarted: false,
 
-            chatID: 0,
-            chats: [
-                {
-                    user1: "Bunji Bunji",
-                    user2: "Jon Doe",
-                    chatID: 0,
-                    messages: [
-                        {
-                            date: new Date(2018, 3, 1),
-                            sender: "Bunji Bunji",
-                            message: "Hey"
-                        },
-                        {
-                            date: new Date(2018, 3, 2),
-                            sender: "Jon Doe",
-                            message: "How are you?"
-                        },
-                        {
-                            date: new Date(2018, 3, 3),
-                            sender: "Bunji Bunji",
-                            message: "Good"
-                        }
-                    ]
-                },
-                {
-                    user1: "Bunji Bunji",
-                    user2: "Jane Doe",
-                    chatID: 1,
-                    messages: [
-                        {
-                            date: new Date(2018, 3, 1),
-                            sender: "Jane Doe",
-                            message: "Would you like to schedule a meeting?"
-                        }
-                    ]
-                }
-            ]
+            userID: 0,
+            connectionID: 0,
+            connections: [],
+            chat: []
         }
+    }
+
+    componentWillMount() {
+        this.getConnections();
     }
 
     componentDidMount() {
         const self = this;
-
         axios.get("/api/user")
             .then(function (res) {
                 if (res.data.description) {
@@ -88,25 +60,50 @@ class Relationships extends Component {
             });
     }
 
-    chatHandler(e, newChatID) {
+
+    getConnections() {
+        const self = this;
+        axios.get("/api/user")
+            .then(function (res) {
+                self.setState({
+                    userID: res.data._id,
+                    connections: res.data.connections,
+                    connectionID: res.data.connections[0]._id
+                });
+                self.getChat(self.state.connections[0]._id);
+            });
+    }
+
+    getChat(connectionID) {
+        const self = this;
+        axios.get(`/api/chat/${connectionID}`)
+            .then(function (res) {
+                self.setState({ chat: res.data });
+                console.log(self.state.chat);
+            });
+    }
+
+
+    chatHandler(e, newConnectionID) {
         e.preventDefault();
-        this.setState({
-            chatID: newChatID
-        });
+        this.setState({ connectionID: newConnectionID });
+        this.getChat(newConnectionID);
     }
 
     messageHandler(e, newMessage) {
         e.preventDefault();
-        let c = this.state.chats.slice();
 
-        c[this.state.chatID].messages.push({
-            date: new Date(),
-            sender: c[this.state.chatID].user1,
+        var messageObject = {
+            data: new Date(),
+            sender: this.state.userID,
             message: newMessage
-        });
+        }
+        axios.post(`/api/chat/${this.state.connectionID}`, messageObject)
 
+        let c = this.state.chat.slice();
+        c.messages.push(messageObject);
         this.setState({
-            chats: c
+            chat: c
         });
     }
 
@@ -131,11 +128,11 @@ class Relationships extends Component {
                             <div id="relationships">
                                 <div id="chat">
                                     <Connections
-                                        chats={this.state.chats}
+                                        connections={this.state.connections}
                                         chatHandler={this.chatHandler} />
 
                                     <ChatWindow
-                                        chat={this.state.chats[this.state.chatID]}
+                                        chat={this.state.chat}
                                         messageHandler={this.messageHandler} />
                                 </div>
                             </div>

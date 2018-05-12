@@ -37,4 +37,7 @@ router.get("/allStates", controller.allStates);
 router.post("/createSkill", controller.createSkill);
 router.post("/createState", controller.createState);
 
+// External calls
+router.get("/weather/:location", controller.getWeather)
+
 export default router;
