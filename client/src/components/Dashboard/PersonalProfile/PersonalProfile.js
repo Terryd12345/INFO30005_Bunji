@@ -7,23 +7,23 @@ import Stats from "./Stats";
 class PersonalProfile extends Component {
     constructor(props) {
         super(props);
-    
+
         this.showEditProfile = this.showEditProfile.bind(this);
         this.showChangePicture = this.showChangePicture.bind(this);
     }
-    
+
     showEditProfile() {
         this.editProfile.handleShow();
     }
-    
+
     showChangePicture() {
         this.changePicture.handleShow();
     }
-    
+
     getGreeting = () => {
         let today = new Date();
         let hour = today.getHours();
-        
+
         if (hour < 12) {
             return "morning";
         } else if (hour < 18) {
@@ -32,16 +32,16 @@ class PersonalProfile extends Component {
             return "evening";
         }
     };
-    
+
     render() {
         const greeting = this.getGreeting();
-        
+
         return (
             <div id="personal-profile">
                 <div id="personal-pic">
                     <img src={this.props.user.imagePath} alt={this.props.user.firstName} />
                     <br />
-                    
+
                     <ChangePicture ref={changePicture => this.changePicture = changePicture}
                                    user={this.props.user}
                                    reload={this.props.reload} />
@@ -49,7 +49,7 @@ class PersonalProfile extends Component {
                         Change Picture
                     </a>
                     <br />
-    
+
                     <EditProfile ref={editProfile => this.editProfile = editProfile}
                                  user={this.props.user}
                                  reload={this.props.reload} />

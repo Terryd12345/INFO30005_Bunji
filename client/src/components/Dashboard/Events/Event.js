@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
-import WEATHER_API_KEY from "../../../keys";
+import { keys } from "../../../keys";
 
 class Event extends Component {
     constructor(props) {
@@ -14,7 +14,8 @@ class Event extends Component {
             loading: true,
             firstName: "",
             lastName: "",
-            imagePath: ""
+            imagePath: "",
+            temperature: ""
         };
     }
 
@@ -23,25 +24,28 @@ class Event extends Component {
 
         axios.post("/api/getUserById", {
             id: (this.props.currentUserID.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
-        })
-        .then(function (res) {
-            self.setState({
-                loading: false,
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                imagePath: res.data.imagePath
+            })
+            .then(function (res) {
+                self.setState({
+                    loading: false,
+                    firstName: res.data.firstName,
+                    lastName: res.data.lastName,
+                    imagePath: res.data.imagePath
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
             });
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
 
-        axios.get(`api.openweathermap.org/data/2.5/weather?q=${this.props.location}&APPID=${WEATHER_API_KEY}`)
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?appid=${keys.WEATHER_API_KEY}&q=${this.props.location}`)
             .then((res) => {
-                console.log(res);
+                self.setState({
+                    temperature: res.data.main.temp
+                });
+                console.log(res.data);
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error.message);
             });
     }
 
@@ -90,6 +94,8 @@ class Event extends Component {
                                     <h6>{time}</h6>
                                     <h6>{this.props.location}</h6>
                                 </div>
+
+                                <h1>{this.state.temperature}</h1>
                             </div>
                         </div>
                     )
