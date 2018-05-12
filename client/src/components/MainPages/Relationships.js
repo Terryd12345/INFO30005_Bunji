@@ -33,7 +33,11 @@ class Relationships extends Component {
     }
 
     componentDidMount() {
+        let refreshChat = setInterval(this.getChat, 1000);
         const self = this;
+        self.setState({
+            chat: refreshChat
+        });
         axios.get("/api/user")
             .then(function (res) {
                 if (res.data.description) {
