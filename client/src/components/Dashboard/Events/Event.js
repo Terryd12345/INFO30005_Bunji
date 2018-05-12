@@ -14,7 +14,9 @@ class Event extends Component {
             firstName: "",
             lastName: "",
             imagePath: "",
-            temperature: ""
+            temperature: "",
+            weatherCondition: "",
+            weatherIcon: ""
         };
     }
 
@@ -38,12 +40,28 @@ class Event extends Component {
 
         axios.get(`api/weather/${this.props.location}`)
             .then((res) => {
+                const celsius = `${Math.round(res.data.main.temp - 273).toString()}`;
+                let icon = "";
+                if(celsius > 30){
+                    icon = <img src={require("../../../images/icons/sun.png")} alt="Bunji" />
+                } else if(celsius > 20){
+                    icon = <img src={require("../../../images/icons/cloud.png")} alt="Bunji" />
+                } else {
+                    icon = <img src={require("../../../images/icons/windy.png")} alt="Bunji" />
+                }
                 self.setState({
-                    temperature: res.data.main.temp
+                    temperature: celsius,
+                    weatherCondition: res.data.weather[0].main,
+                    weatherIcon: icon
                 });
             })
             .catch((error) => {
-                console.log(error.message);
+                console.log(error);
+                self.setState({
+                    temperature: "",
+                    weatherCondition: "",
+                    weatherIcon: ""
+                });
             });
     }
 
@@ -93,7 +111,13 @@ class Event extends Component {
                                         <h6>{this.props.location}</h6>
                                     </div>
 
-                                    <h1>{this.state.temperature}</h1>
+                                    <div className="event-desc-content">
+                                        <h6>{date}</h6>
+                                        <h6>{time}</h6>
+                                        <h6>{this.props.location}</h6>
+                                    </div>
+
+                                    {this.state.weatherIcon}
                                 </div>
                             </div>
                         )
