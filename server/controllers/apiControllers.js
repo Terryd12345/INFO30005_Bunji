@@ -150,7 +150,14 @@ export default {
             .populate("connections")
             .exec((err, users) => {
                 if (!err) {
-                    res.send(users);
+                    let result = [];
+                    let sameCity = users.filter(user => user.city === req.user.city);
+                    let sameState = users.filter(user => (user.state === req.user.state)
+                                                      && (user.city !== req.user.city));
+                    let other = users.filter(user => user.state !== req.user.state);
+                    
+                    result = result.concat(sameCity, sameState, other);
+                    res.send(result.length < 11 ? result : result.slice(0, 10));
                 } else {
                     res.sendStatus(404);
                 }

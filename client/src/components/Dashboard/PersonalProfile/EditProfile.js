@@ -164,7 +164,7 @@ class EditProfile extends Component {
                             required>
                             {
                                 this.state.allStates.map(state => {
-                                    return <option value={state.state}>{state.state}</option>
+                                    return <option key={state.state} value={state.state}>{state.state}</option>
                                 })
                             }
                         </select>
@@ -176,7 +176,7 @@ class EditProfile extends Component {
                             required>
                             {
                                 this.state.cities.map(city => {
-                                    return <option value={city}>{city}</option>
+                                    return <option key={city} value={city}>{city}</option>
                                 })
                             }
                         </select>
