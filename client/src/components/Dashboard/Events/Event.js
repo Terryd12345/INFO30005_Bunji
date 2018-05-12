@@ -41,7 +41,6 @@ class Event extends Component {
                 self.setState({
                     temperature: res.data.main.temp
                 });
-                console.log(res.data);
             })
             .catch((error) => {
                 console.log(error.message);
