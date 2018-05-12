@@ -8,11 +8,12 @@ class Available extends Component {
                 <div id="skills">
                     {
                         this.props.skills.map(skill => {
-                            return <Skill key={skill._id}
-                                          skill={skill}
-                                          isSelected={false}
-                                          updateSelected={this.props.updateSelected}
-                                          functionType={1} />;
+                            return <Skill
+                                key={skill._id}
+                                skill={skill}
+                                isSelected={false}
+                                updateSelected={this.props.updateSelected}
+                                functionType={1} />;
                         })
                     }
                 </div>

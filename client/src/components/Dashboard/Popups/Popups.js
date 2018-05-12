@@ -9,8 +9,9 @@ class Popups extends Component {
         return (
             <div id="popups">
                 <div id="popups-content">
-                    <ManageSkills isMentor={this.props.isMentor}
-                                  reload={this.props.reload} />
+                    <ManageSkills
+                        isMentor={this.props.isMentor}
+                        reload={this.props.reload} />
                     <CreateEvent reload={this.props.reload} />
                     {
                         this.props.isMentor ? (
@@ -23,8 +24,8 @@ class Popups extends Component {
                                 </div>
                             </a>
                         ) : (
-                            <FindMentor reload={this.props.reload} />
-                        )
+                                <FindMentor reload={this.props.reload} />
+                            )
                     }
                 </div>
             </div>

@@ -9,10 +9,10 @@ class Selected extends Component {
                     {
                         this.props.skills.map(skill => {
                             return <Skill key={skill._id}
-                                          skill={skill}
-                                          isSelected={false}
-                                          updateSelected={this.props.updateSelected}
-                                          functionType={2} />;
+                                skill={skill}
+                                isSelected={false}
+                                updateSelected={this.props.updateSelected}
+                                functionType={2} />;
                         })
                     }
                 </div>

@@ -51,15 +51,17 @@ class SignUp extends Component {
         return (
             <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
                 <Modal.Header>
-                    <Modal.Title id="left-title"
-                                 onClick={this.showRegister}
-                                 style={this.state.register ? null : activeRegister}>
+                    <Modal.Title
+                        id="left-title"
+                        onClick={this.showRegister}
+                        style={this.state.register ? null : activeRegister}>
                         Register
                     </Modal.Title>
-                    
-                    <Modal.Title id="right-title"
-                                 onClick={this.showLogin}
-                                 style={this.state.register ? activeLogin : null}>
+
+                    <Modal.Title
+                        id="right-title"
+                        onClick={this.showLogin}
+                        style={this.state.register ? activeLogin : null}>
                         Log In
                     </Modal.Title>
                 </Modal.Header>

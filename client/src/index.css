@@ -143,6 +143,8 @@ a:hover {
     margin: auto;
 }
 
+/* ======================================================== */
+
 @media (max-width: 900px) {
     .wrapper {
         width: 85vw;
@@ -523,6 +525,8 @@ a:hover {
     right: 10px;
 }
 
+/* ======================================================== */
+
 @media (max-width: 767px) {
     .navbar-nav {
         margin: 0 -15px;
@@ -678,6 +682,8 @@ a:hover {
     font-size: 1.3rem;
 }
 
+/* ======================================================== */
+
 @media (max-width: 800px) {
     #menu {
         top: 8px;
@@ -801,6 +807,8 @@ a:hover {
     margin-top: 15px;
     font-size: 1.3rem;
 }
+
+/* ======================================================== */
 
 @media (max-width: 600px) {
     .step-panel {
@@ -927,6 +935,8 @@ a:hover {
     color: #fff;
 }
 
+/* ======================================================== */
+
 @media (max-width: 800px) {
     #welcome {
         grid-template: "form" 1fr / 1fr;
@@ -1004,6 +1014,8 @@ a:hover {
     text-align: center;
 }
 
+/* ======================================================== */
+
 @media (max-width: 700px) {
     .header {
         padding: 30px;
@@ -1056,6 +1068,8 @@ a:hover {
     height: 110px;
     margin: 0 auto 15px auto;
 }
+
+/* ======================================================== */
 
 @media (max-width: 700px) {
     .skills-content {
@@ -1151,6 +1165,8 @@ a:hover {
 #user-selection {
     padding: 8px;
 }
+
+/* ======================================================== */
 
 @media (max-width: 550px) {
     .user-panel,
@@ -2041,6 +2057,8 @@ a:hover {
     margin: 0;
 }
 
+/* ======================================================== */
+
 @media (max-width: 800px) {
     #profile-panel {
         grid-template: "picture" "bio" "button" "description";
@@ -2228,6 +2246,8 @@ a:hover {
     padding: 30px;
 }
 
+/* ======================================================== */
+
 @media (max-width: 800px) {
     #not-found {
         grid-template: "description" 1fr / 1fr;
@@ -2297,6 +2317,8 @@ a:hover {
 #right-title {
     grid-area: right;
 }
+
+/* ======================================================== */
 
 @media (max-width: 550px) {
     .modal-dialog {
@@ -2396,17 +2418,6 @@ a:hover {
 #signup #year {
     width: 20%;
     margin-right: 4%;
-}
-
-@media (min-width: 1801px) {
-    #signup form p {
-        margin: -2px 0 15px 0;
-    }
-    
-    #signup input,
-    #signup select {
-        margin: 8px 0 35px 0;
-    }
 }
 
 /* ====================== Popups.js ======================= */
@@ -2630,10 +2641,9 @@ a:hover {
     width: 100% !important;
     padding: 0 40px;
     text-align: center;
-    
 }
 
-#dropzone > div:hover {
+#dropzone>div:hover {
     background: #e6e6e6;
 }
 
@@ -2673,6 +2683,13 @@ a:hover {
 }
 
 @media (min-width: 1801px) {
+    #signup form p {
+        margin: -2px 0 15px 0;
+    }
+    #signup input,
+    #signup select {
+        margin: 8px 0 35px 0;
+    }
     #event-form input,
     #event-form select,
     #edit-profile-form input,

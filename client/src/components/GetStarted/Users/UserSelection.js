@@ -14,11 +14,12 @@ class UserSelection extends Component {
                     <div id="user-selection">
                         {
                             this.props.allUsers.map(user => {
-                                return <User key={user._id}
-                                             user={user}
-                                             isSelected={this.props.selectedUsers.indexOf(user._id) > -1}
-                                             updateSelected={this.props.updateSelected}
-                                             functionType={2} />;
+                                return <User
+                                    key={user._id}
+                                    user={user}
+                                    isSelected={this.props.selectedUsers.indexOf(user._id) > -1}
+                                    updateSelected={this.props.updateSelected}
+                                    functionType={2} />;
                             })
                         }
                     </div>

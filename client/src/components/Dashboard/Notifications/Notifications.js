@@ -8,24 +8,25 @@ class Notifications extends Component {
                 <header className="section-title">
                     <h3>Notifications</h3>
                 </header>
-                
+
                 {
                     (this.props.notifications.length < 1) ? (
                         <div className="empty" id="notifications-content">
                             <h6>No notifications yet.</h6>
                         </div>
                     ) : (
-                        <div id="notifications-content">
-                            {
-                                this.props.notifications.map(notification => {
-                                    return <Notification key={notification._id}
-                                                         notification={notification.notification}
-                                                         time={notification.time}
-                                                         imagePath={notification.imagePath}/>;
-                                })
-                            }
-                        </div>
-                    )
+                            <div id="notifications-content">
+                                {
+                                    this.props.notifications.map(notification => {
+                                        return <Notification
+                                            key={notification._id}
+                                            notification={notification.notification}
+                                            time={notification.time}
+                                            imagePath={notification.imagePath} />;
+                                    })
+                                }
+                            </div>
+                        )
                 }
             </div>
         );

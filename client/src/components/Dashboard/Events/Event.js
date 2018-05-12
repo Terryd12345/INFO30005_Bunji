@@ -24,7 +24,7 @@ class Event extends Component {
 
         axios.post("/api/getUserById", {
             id: (this.props.currentUserID.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
-            })
+        })
             .then(function (res) {
                 self.setState({
                     loading: false,
@@ -97,8 +97,7 @@ class Event extends Component {
 
                                 <h1>{this.state.temperature}</h1>
                             </div>
-                        </div>
-                    )
+                        )
                 }
             </div>
         );

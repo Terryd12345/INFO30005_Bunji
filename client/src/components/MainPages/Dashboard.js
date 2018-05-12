@@ -11,7 +11,7 @@ import Events from "../Dashboard/Events/Events";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        
+
         this.reload = this.reload.bind(this);
 
         this.state = {
@@ -111,36 +111,36 @@ class Dashboard extends Component {
                     this.state.loading ? (
                         <div id="loading">
                             <MoonLoader loading={this.state.loading} />
-
                             {
                                 this.state.redirectToHome ? (<Redirect to="/" />) : (null)
                             }
-
                             {
                                 this.state.redirectToWelcome ? (<Redirect to="/welcome" />) : (null)
                             }
-
                             {
                                 this.state.redirectToGetStarted ? (<Redirect to="/get-started" />) : (null)
                             }
                         </div>
                     ) : (
-                        <div id="dashboard">
-                            <PersonalProfile user={this.state.user}
-                                             isMentor={this.state.isMentor}
-                                             connections={this.state.connections}
-                                             events={this.state.events}
-                                             allSkills={this.state.allSkills}
-                                             learnedSkills={this.state.learnedSkills}
-                                             reload={this.reload} />
-                            <Popups isMentor={this.state.isMentor}
+                            <div id="dashboard">
+                                <PersonalProfile
+                                    user={this.state.user}
+                                    isMentor={this.state.isMentor}
+                                    connections={this.state.connections}
+                                    events={this.state.events}
+                                    allSkills={this.state.allSkills}
+                                    learnedSkills={this.state.learnedSkills}
                                     reload={this.reload} />
-                            <Notifications notifications={this.state.notifications} />
-                            <Contacts isMentor={this.state.isMentor}
-                                      connections={this.state.connections} />
-                            <Events events={this.state.events} />
-                        </div>
-                    )
+                                <Popups
+                                    isMentor={this.state.isMentor}
+                                    reload={this.reload} />
+                                <Notifications notifications={this.state.notifications} />
+                                <Contacts
+                                    isMentor={this.state.isMentor}
+                                    connections={this.state.connections} />
+                                <Events events={this.state.events} />
+                            </div>
+                        )
                 }
             </div>
         );

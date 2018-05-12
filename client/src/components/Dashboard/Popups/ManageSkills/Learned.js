@@ -8,11 +8,12 @@ class Learned extends Component {
                 <div id="skills">
                     {
                         this.props.skills.map(skill => {
-                            return <Skill key={skill._id}
-                                          skill={skill}
-                                          isSelected={false}
-                                          updateSelected={this.props.updateSelected}
-                                          functionType={3} />;
+                            return <Skill
+                                key={skill._id}
+                                skill={skill}
+                                isSelected={false}
+                                updateSelected={this.props.updateSelected}
+                                functionType={3} />;
                         })
                     }
                 </div>

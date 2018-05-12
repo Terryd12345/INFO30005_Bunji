@@ -8,23 +8,25 @@ class PersonalSkills extends Component {
                 <div className="centered" id="empty-badge">
                     <img src={require("../../../images/logo.png")} alt="Bunji" />
                 </div>
-                
+
                 {
                     this.props.isMentor ? (
                         this.props.allSkills.map(skill => {
-                            return <Skill key={skill._id}
-                                          skill={skill}
-                                          isSelected={false}
-                                          functionType={-1} />;
+                            return <Skill
+                                key={skill._id}
+                                skill={skill}
+                                isSelected={false}
+                                functionType={-1} />;
                         })
                     ) : (
-                        this.props.learnedSkills.map(skill => {
-                            return <Skill key={skill._id}
-                                          skill={skill}
-                                          isSelected={false}
-                                          functionType={-1} />;
-                        })
-                    )
+                            this.props.learnedSkills.map(skill => {
+                                return <Skill
+                                    key={skill._id}
+                                    skill={skill}
+                                    isSelected={false}
+                                    functionType={-1} />;
+                            })
+                        )
                 }
             </div>
         );
