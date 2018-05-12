@@ -15,14 +15,23 @@ class Contacts extends Component {
                     }
                 </header>
                 
-                <div id="contacts-content">
-                    {
-                        this.props.connections.map(user => {
-                            return <Contact key={user._id}
-                                            user={user} />;
-                        })
-                    }
-                </div>
+                {
+                    (this.props.connections.length < 1) ? (
+                        <div className="empty" id="contacts-content">
+                            <h6>No {this.props.isMentor ? "mentees" : "mentors"} yet.</h6>
+                        </div>
+                    ) : (
+                        <div id="contacts-content">
+                            {
+                                this.props.connections.map(user => {
+                                    return <Contact key={user._id}
+                                                    user={user}
+                                                    isMentor={this.props.isMentor} />;
+                                })
+                            }
+                        </div>
+                    )
+                }
             </div>
         );
     }

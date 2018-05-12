@@ -1,9 +1,25 @@
 import React, { Component } from "react";
+import ChangePicture from "./ChangePicture";
 import EditProfile from "./EditProfile";
 import PersonalSkills from "./PersonalSkills";
 import Stats from "./Stats";
 
 class PersonalProfile extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.showEditProfile = this.showEditProfile.bind(this);
+        this.showChangePicture = this.showChangePicture.bind(this);
+    }
+    
+    showEditProfile() {
+        this.editProfile.handleShow();
+    }
+    
+    showChangePicture() {
+        this.changePicture.handleShow();
+    }
+    
     getGreeting = () => {
         let today = new Date();
         let hour = today.getHours();
@@ -17,10 +33,6 @@ class PersonalProfile extends Component {
         }
     };
     
-    handleShow = () => {
-        this.editProfile.handleShow();
-    };
-    
     render() {
         const greeting = this.getGreeting();
         
@@ -29,12 +41,19 @@ class PersonalProfile extends Component {
                 <div id="personal-pic">
                     <img src={this.props.user.imagePath} alt={this.props.user.firstName} />
                     <br />
-                    <EditProfile ref={editProfile => this.editProfile = editProfile} />
-                    <a className="button" id="personal-btn-1">
+                    
+                    <ChangePicture ref={changePicture => this.changePicture = changePicture}
+                                   user={this.props.user}
+                                   reload={this.props.reload} />
+                    <a className="button" id="personal-btn-1" onClick={this.showChangePicture}>
                         Change Picture
                     </a>
                     <br />
-                    <a className="button" id="personal-btn-2" onClick={this.handleShow.bind(this)}>
+    
+                    <EditProfile ref={editProfile => this.editProfile = editProfile}
+                                 user={this.props.user}
+                                 reload={this.props.reload} />
+                    <a className="button" id="personal-btn-2" onClick={this.showEditProfile}>
                         Edit Profile
                     </a>
                 </div>
@@ -43,7 +62,8 @@ class PersonalProfile extends Component {
                     <h3>Good {greeting}, {this.props.user.firstName}!</h3>
                 </header>
 
-                <Stats skills={this.props.learnedSkills.length}
+                <Stats allSkills={this.props.allSkills.length}
+                       learnedSkills={this.props.learnedSkills.length}
                        connections={this.props.connections.length}
                        events={this.props.events.length}
                        isMentor={this.props.isMentor} />

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
-import axios from "axios/index";
+import axios from "axios";
 
 class EditProfile extends Component {
     constructor(props) {
@@ -12,34 +12,14 @@ class EditProfile extends Component {
         
         this.state = {
             show: false,
-            firstName: "",
-            lastName: "",
-            birthDate: "",
-            gender: "",
-            location: "",
-            isMentor: "",
-            description: ""
+            firstName: this.props.user.firstName,
+            lastName: this.props.user.lastName,
+            birthDate: this.formatDate(new Date(this.props.user.birthDate)),
+            gender: this.props.user.gender,
+            location: this.props.user.location,
+            isMentor: this.props.user.isMentor,
+            description: this.props.user.description
         };
-    }
-    
-    componentDidMount() {
-        const self = this;
-        
-        axios.get("/api/user")
-            .then(function (res) {
-                self.setState({
-                    firstName: res.data.firstName,
-                    lastName: res.data.lastName,
-                    birthDate: self.formatDate(new Date(res.data.birthDate)),
-                    gender: res.data.gender,
-                    location: res.data.location,
-                    isMentor: res.data.isMentor,
-                    description: res.data.description
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     }
     
     /* ============================================================================================================= */
@@ -56,29 +36,25 @@ class EditProfile extends Component {
         });
     }
     
-    handleSubmit(event) {
+    handleSubmit(e) {
         const self = this;
         
+        e.preventDefault();
         axios.post("/api/editUser", {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            birthDate: new Date(this.state.birthDate),
-            gender: this.state.gender,
-            location: this.state.location,
-            isMentor: this.state.isMentor,
-            description: this.state.description
+            firstName: self.state.firstName,
+            lastName: self.state.lastName,
+            birthDate: new Date(self.state.birthDate),
+            gender: self.state.gender,
+            location: self.state.location,
+            isMentor: self.state.isMentor,
+            description: self.state.description
         })
             .then(function () {
-                self.setState({
-                    loading: true,
-                    redirectToGetStarted: true
-                });
+                self.props.reload();
             })
             .catch(function (error) {
                 console.log(error);
             });
-        this.handleClose();
-        event.preventDefault();
     }
     
     formatDate = (date) => {
@@ -162,8 +138,8 @@ class EditProfile extends Component {
                     </form>
                 </Modal.Body>
                 
-                <Modal.Footer>
-                    <Button onClick={this.handleClose}>Close</Button>
+                <Modal.Footer id="popups-footer">
+                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
                 </Modal.Footer>
             </Modal>
         );

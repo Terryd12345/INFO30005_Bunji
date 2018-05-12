@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import Profile from "./Profile";
 
 class Contact extends Component {
-    handleShow = () => {
+    constructor(props) {
+        super(props);
+        
+        this.handleShow = this.handleShow.bind(this);
+    }
+    
+    handleShow() {
         this.profile.handleShow();
-    };
+    }
     
     render() {
         return (
@@ -18,7 +24,8 @@ class Contact extends Component {
                     <div className="contact-desc centered">
                         {this.props.user.firstName} {this.props.user.lastName}
                 
-                        <Profile user={this.props.user} ref={profile => this.profile = profile} />
+                        <Profile user={this.props.user} ref={profile => this.profile = profile}
+                                 isMentor={this.props.isMentor} />
                         
                         <h6>
                             <a onClick={this.handleShow} className="button" id="contact-btn-1">

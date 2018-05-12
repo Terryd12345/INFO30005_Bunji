@@ -15,11 +15,11 @@ class ManageSkills extends Component {
         this.showSelected = this.showSelected.bind(this);
         this.showLearned = this.showLearned.bind(this);
         this.handleClickedSkills = this.handleClickedSkills.bind(this);
-        this.filterSkills = this.filterSkills.bind(this);
         this.updateSkills = this.updateSkills.bind(this);
 
         this.state = {
             loading: true,
+            changed: false,
             show: false,
             available: true,
             selected: false,
@@ -70,6 +70,13 @@ class ManageSkills extends Component {
             arrSelected: [],
             arrLearned: []
         });
+    
+        if (this.state.changed) {
+            this.setState({
+                changed: false
+            });
+            this.props.reload();
+        }
     }
 
     showAvailable() {
@@ -108,6 +115,21 @@ class ManageSkills extends Component {
     }
 
     /* ============================================================================================================= */
+
+    filterSkills = (keep, remove) => {
+        for (let i = keep.length - 1; i >= 0; i--) {
+            for (let j = 0; j < remove.length; j++) {
+                if (keep[i]._id === remove[j]._id) {
+                    keep = [
+                        ...keep.slice(0, i),
+                        ...keep.slice(i + 1)
+                    ];
+                    break;
+                }
+            }
+        }
+        return keep;
+    };
 
     /* type               : (1) available, (2) selected, (3) learned
      * id                 : skill's id
@@ -156,25 +178,6 @@ class ManageSkills extends Component {
         }
     }
 
-    /* ============================================================================================================= */
-
-    filterSkills(keep, remove) {
-        for (let i = keep.length - 1; i >= 0; i--) {
-            for (let j = 0; j < remove.length; j++) {
-                if (keep[i]._id === remove[j]._id) {
-                    keep = [
-                        ...keep.slice(0, i),
-                        ...keep.slice(i + 1)
-                    ];
-                    break;
-                }
-            }
-        }
-        return keep;
-    }
-
-    /* ============================================================================================================= */
-
     updateSkills(type) {
         const self = this;
         let source = "";
@@ -212,6 +215,9 @@ class ManageSkills extends Component {
                 skills: array
             })
                 .then(function () {
+                    self.setState({
+                        changed: true
+                    });
                     self.componentDidMount();
                 })
                 .catch(function (error) {
@@ -293,7 +299,8 @@ class ManageSkills extends Component {
                                                                updateSkills={this.updateSkills}/>
                                                     : <Selected skills={this.state.selectedSkills}
                                                                 updateSelected={this.handleClickedSkills}
-                                                                updateSkills={this.updateSkills}/>
+                                                                updateSkills={this.updateSkills}
+                                                                isMentor={this.props.isMentor}/>
                                             }
                                         </div>
                                     ) : (
@@ -306,7 +313,8 @@ class ManageSkills extends Component {
                                                 : (this.state.selected ?
                                                     <Selected skills={this.state.selectedSkills}
                                                               updateSelected={this.handleClickedSkills}
-                                                              updateSkills={this.updateSkills}/>
+                                                              updateSkills={this.updateSkills}
+                                                              isMentor={this.props.isMentor}/>
                                                 : <Learned skills={this.state.learnedSkills}
                                                            updateSelected={this.handleClickedSkills}
                                                            updateSkills={this.updateSkills}/>)
@@ -318,8 +326,8 @@ class ManageSkills extends Component {
                         )
                     }
     
-                    <Modal.Footer>
-                        <Button onClick={this.closeAll}>Close</Button>
+                    <Modal.Footer id="popups-footer">
+                        <Button onClick={this.closeAll} id="close-btn">&times;</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

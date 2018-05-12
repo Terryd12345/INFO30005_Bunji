@@ -7,6 +7,13 @@ class Events extends Component {
     constructor(props) {
         super(props);
         
+        this.showUpcoming = this.showUpcoming.bind(this);
+        this.showThisWeek = this.showThisWeek.bind(this);
+        this.showThisMonth = this.showThisMonth.bind(this);
+        this.showPast = this.showPast.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.filterEvents = this.filterEvents.bind(this);
+        
         this.state = {
             loading: true,
             currentUserID: "",
@@ -35,39 +42,39 @@ class Events extends Component {
     
     /* ============================================================================================================= */
     
-    showUpcoming = () => {
+    showUpcoming() {
         this.setState({
             upcoming: true,
             thisWeek: false,
             thisMonth: false,
         })
-    };
+    }
     
-    showThisWeek = () => {
+    showThisWeek() {
         this.setState({
             upcoming: false,
             thisWeek: true,
             thisMonth: false,
         })
-    };
+    }
     
-    showThisMonth = () => {
+    showThisMonth() {
         this.setState({
             upcoming: false,
             thisWeek: false,
             thisMonth: true,
         })
-    };
+    }
     
-    showPast = () => {
+    showPast() {
         this.setState({
             upcoming: false,
             thisWeek: false,
             thisMonth: false,
         })
-    };
+    }
     
-    handleChange = (type) => {
+    handleChange(type) {
         switch(type) {
             
             // Upcoming Events
@@ -93,9 +100,9 @@ class Events extends Component {
             default:
                 break;
         }
-    };
+    }
     
-    filterEvents = (type) => {
+    filterEvents(type) {
         let events = this.props.events;
         let filteredEvents = [];
         
@@ -143,7 +150,7 @@ class Events extends Component {
                 break;
         }
         
-        return filteredEvents.sort(function(a,b) {
+        return filteredEvents.sort(function(a, b) {
             if (type === 4) {
                 // newest to oldest
                 return (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0) * -1;
@@ -152,7 +159,7 @@ class Events extends Component {
                 return (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0);
             }
         });
-    };
+    }
     
     /* ============================================================================================================= */
     
@@ -198,61 +205,114 @@ class Events extends Component {
                         <hr />
                         <h5><a onClick={this.showPast}>Past</a></h5>
                     </div>
-
-                    <div id="events-window">
-                        {
-                            this.state.loading ? (
-                                <div className="section-loading">
-                                    <BeatLoader loading={this.state.loading} />
-                                </div>
-                            ) : (
-                                <div>
-                                    {
-                                        this.state.upcoming ?
-                                            upcoming.map(event => {
-                                                return <Event key={event._id}
-                                                              title={event.title}
-                                                              datetime={event.date}
-                                                              location={event.location}
-                                                              user1={event.user1}
-                                                              user2={event.user2}
-                                                              currentUserID={this.state.currentUserID} />})
-                                            
-                                        : (this.state.thisWeek ?
-                                            thisWeek.map(event => {
-                                                return <Event key={event._id}
-                                                              title={event.title}
-                                                              datetime={event.date}
-                                                              location={event.location}
-                                                              user1={event.user1}
-                                                              user2={event.user2}
-                                                              currentUserID={this.state.currentUserID} />})
-                                            
-                                        : (this.state.thisMonth ?
-                                            thisMonth.map(event => {
-                                                return <Event key={event._id}
-                                                              title={event.title}
-                                                              datetime={event.date}
-                                                              location={event.location}
-                                                              user1={event.user1}
-                                                              user2={event.user2}
-                                                              currentUserID={this.state.currentUserID} />})
-                                                    
-                                        : past.map(event => {
-                                            return <Event key={event._id}
-                                                          title={event.title}
-                                                          datetime={event.date}
-                                                          location={event.location}
-                                                          user1={event.user1}
-                                                          user2={event.user2}
-                                                          currentUserID={this.state.currentUserID} />})
-                                            
-                                        ))
-                                    }
-                                </div>
-                            )
-                        }
-                    </div>
+                    
+                    {
+                        this.state.loading ? (
+                            <div className="section-loading">
+                                <BeatLoader loading={this.state.loading} />
+                            </div>
+                        ) : (
+                            <div id="events-window">{
+                                
+                                this.state.upcoming ? (
+                                    <div>{
+                                        (upcoming.length < 1) ? (
+                                            <div className="empty">
+                                                <h6>No upcoming events.</h6>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                {
+                                                    upcoming.map(event => {
+                                                        return <Event key={event._id}
+                                                                      title={event.title}
+                                                                      datetime={event.date}
+                                                                      location={event.location}
+                                                                      user1={event.user1}
+                                                                      user2={event.user2}
+                                                                      currentUserID={this.state.currentUserID}/>
+                                                    })
+                                                }
+                                            </div>
+                                        )
+                                    }</div>
+                                )
+                                
+                                : (this.state.thisWeek ? (
+                                    <div>{
+                                        (thisWeek.length < 1) ? (
+                                            <div className="empty">
+                                                <h6>No events this week.</h6>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                {
+                                                    thisWeek.map(event => {
+                                                        return <Event key={event._id}
+                                                                      title={event.title}
+                                                                      datetime={event.date}
+                                                                      location={event.location}
+                                                                      user1={event.user1}
+                                                                      user2={event.user2}
+                                                                      currentUserID={this.state.currentUserID}/>
+                                                    })
+                                                }
+                                            </div>
+                                        )
+                                    }</div>
+                                )
+                                
+                                : (this.state.thisMonth ? (
+                                    <div>{
+                                        (thisMonth.length < 1) ? (
+                                            <div className="empty">
+                                                <h6>No events this month.</h6>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                {
+                                                    thisMonth.map(event => {
+                                                        return <Event key={event._id}
+                                                                      title={event.title}
+                                                                      datetime={event.date}
+                                                                      location={event.location}
+                                                                      user1={event.user1}
+                                                                      user2={event.user2}
+                                                                      currentUserID={this.state.currentUserID} />
+                                                    })
+                                                }
+                                            </div>
+                                        )
+                                    }</div>
+                                )
+                                
+                                : (
+                                    <div>{
+                                        (past.length < 1) ? (
+                                            <div className="empty">
+                                                <h6>No past events.</h6>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                {
+                                                    past.map(event => {
+                                                        return <Event key={event._id}
+                                                                      title={event.title}
+                                                                      datetime={event.date}
+                                                                      location={event.location}
+                                                                      user1={event.user1}
+                                                                      user2={event.user2}
+                                                                      currentUserID={this.state.currentUserID} />
+                                                    })
+                                                }
+                                            </div>
+                                        )
+                                    }</div>
+                                )))
+                                
+                            }</div>
+                        )
+                    }
                 </div>
             </div>
         );

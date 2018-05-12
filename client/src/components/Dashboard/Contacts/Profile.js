@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 class Profile extends Component {
     constructor(props) {
@@ -57,14 +57,20 @@ class Profile extends Component {
                     <div id="profile-bio">
                         <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
                         <h4>{age} / {this.props.user.gender} / {this.props.user.location}</h4>
-                        <h6>Skills: {this.props.user.skills.map(x => x.skill)
-                                                           .reduce((prev, curr) => [prev, ", ", curr])}</h6>
+                        <h6>Skills{this.props.isMentor ? " to Learn" : null}: {this.props.user.skills.map(x => x.skill)
+                                                                              .reduce((prev, curr) =>
+                                                                                  [prev, ", ", curr]
+                                                                              )}</h6>
                     </div>
 
                     <div id="profile-desc">
                         <p>{this.props.user.description}</p>
                     </div>
                 </div>
+                
+                <Modal.Footer id="popups-footer">
+                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
+                </Modal.Footer>
             </Modal>
         );
     }

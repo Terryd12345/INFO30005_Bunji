@@ -9,6 +9,7 @@ html {
 body {
     /* background from www.subtlepatterns.com */
     /*background: url("images/background.png") fixed center;*/
+    cursor: default;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -111,18 +112,18 @@ a:hover {
 
 #page-wrap {
     min-height: 100vh;
-    margin-bottom: -26px;
+    margin-bottom: -28px;
 }
 
 #page-wrap:after {
     content: "";
     display: block;
-    height: 26px;
+    height: 28px;
 }
 
 #copyright {
     width: 100%;
-    height: 26px;
+    height: 28px;
     padding: 5px 0;
     background: #fff;
     color: #3e3f3d;
@@ -157,6 +158,16 @@ a:hover {
 @media (min-width: 1801px) {
     html {
         font-size: 25px;
+    }
+    #page-wrap {
+        margin-bottom: -45px;
+    }
+    #page-wrap:after {
+        height: 45px;
+    }
+    #copyright {
+        height: 45px;
+        padding: 8px 0;
     }
 }
 
@@ -348,15 +359,37 @@ a:hover {
     font-size: 1.1rem;
 }
 
-#popups-btn {
+#popups-btn,
+#popups-btn:active,
+#popups-btn:focus {
     margin: 15px 10px 0 10px;
     padding: 5px 15px;
+    background: #e95387;
+    border: 2px solid #e95387;
     font-size: 1.1rem;
 }
 
-#popups-arrow-btn {
+#popups-btn:hover,
+#popups-arrow-btn:hover {
+    background: #fff;
+    color: #e95387;
+}
+
+#popups-arrow-btn,
+#popups-arrow-btn:active,
+#popups-arrow-btn:focus {
     margin: 15px 10px 0 10px;
     padding: 5px 14px 8px 14px;
+    background: #e95387;
+    border: 2px solid #e95387;
+    line-height: 100%;
+}
+
+#close-btn {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    font-weight: 600;
     line-height: 100%;
 }
 
@@ -1162,6 +1195,15 @@ a:hover {
     text-align: center;
 }
 
+.empty {
+    padding: 5px 0 0 0;
+    text-align: center;
+}
+
+.empty h6 {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
 #dashboard {
     padding: 20px;
     background: linear-gradient(to bottom right, #effaff, #c0e3ea) no-repeat fixed;
@@ -1287,22 +1329,23 @@ a:hover {
 #personal-skills .skills-panel,
 #personal-skills .skills-panel:active,
 #personal-skills .skills-panel:focus,
-#personal-skills .skills-panel:hover {
+#personal-skills .skills-panel:hover,
+#empty-badge {
     cursor: default;
     position: relative;
     width: 70px;
     height: 40.41px;
     margin: 20.21px 0;
-    background-color: #ffd14b;
+    background: #ffd14b;
     border: none;
     border-radius: 0 !important;
-    font-size: 0.7rem;
-    line-height: 110%;
     transition: none;
 }
 
 #personal-skills .skills-panel:before,
-#personal-skills .skills-panel:after {
+#personal-skills .skills-panel:after,
+#empty-badge:before,
+#empty-badge:after {
     content: "";
     position: absolute;
     width: 0;
@@ -1310,12 +1353,14 @@ a:hover {
     border-right: 35px solid transparent;
 }
 
-#personal-skills .skills-panel:before {
+#personal-skills .skills-panel:before,
+#empty-badge:before {
     bottom: 100%;
     border-bottom: 20.21px solid #ffd14b;
 }
 
-#personal-skills .skills-panel:after {
+#personal-skills .skills-panel:after,
+#empty-badge:after {
     top: 100%;
     width: 0;
     border-top: 20.21px solid #ffd14b;
@@ -1329,6 +1374,12 @@ a:hover {
 
 #personal-skills .skills-panel .skills-caption {
     display: none;
+}
+
+#empty-badge img {
+    width: 32px;
+    height: 32px;
+    margin: auto;
 }
 
 /* ======================== Popups ======================== */
@@ -1390,14 +1441,11 @@ a:hover {
     font-size: 0.9rem;
 }
 
-.notification-panel:hover {
+/*.notification-panel:hover {
     cursor: pointer;
     background: #578bca;
-}
-
-.notification-panel:hover {
     color: #fff;
-}
+}*/
 
 .notification-pic img {
     grid-area: picture;
@@ -1458,7 +1506,7 @@ a:hover {
 
 #contacts-content {
     overflow: auto;
-    padding: 10px;
+    margin: 10px;
 }
 
 #contacts-content>a {
@@ -1773,25 +1821,34 @@ a:hover {
     #personal-skills .skills-panel,
     #personal-skills .skills-panel:active,
     #personal-skills .skills-panel:focus,
-    #personal-skills .skills-panel:hover {
+    #personal-skills .skills-panel:hover,
+    #empty-badge {
         width: 45px;
         height: 25.98px;
         margin: 12.99px 0;
     }
     #personal-skills .skills-panel:before,
-    #personal-skills .skills-panel:after {
+    #personal-skills .skills-panel:after,
+    #empty-badge:before,
+    #empty-badge:after {
         border-left: 22.5px solid transparent;
         border-right: 22.5px solid transparent;
     }
-    #personal-skills .skills-panel:before {
+    #personal-skills .skills-panel:before,
+    #empty-badge:before {
         border-bottom: 12.99px solid #ffd14b;
     }
-    #personal-skills .skills-panel:after {
+    #personal-skills .skills-panel:after,
+    #empty-badge:after {
         border-top: 12.99px solid #ffd14b;
     }
     #personal-skills .skills-panel img {
         width: 25px;
         height: 25px;
+    }
+    #empty-badge img {
+        width: 22px;
+        height: 22px;
     }
     #recommendations {
         grid-template-rows: 60px 135px 60px;
@@ -1891,25 +1948,34 @@ a:hover {
     #personal-skills .skills-panel,
     #personal-skills .skills-panel:active,
     #personal-skills .skills-panel:focus,
-    #personal-skills .skills-panel:hover {
+    #personal-skills .skills-panel:hover,
+    #empty-badge {
         width: 90px;
         height: 51.96px;
         margin: 25.98px 0;
     }
     #personal-skills .skills-panel:before,
-    #personal-skills .skills-panel:after {
+    #personal-skills .skills-panel:after,
+    #empty-badge:before,
+    #empty-badge:after {
         border-left: 45px solid transparent;
         border-right: 45px solid transparent;
     }
-    #personal-skills .skills-panel:before {
+    #personal-skills .skills-panel:before,
+    #empty-badge:before {
         border-bottom: 25.98px solid #ffd14b;
     }
-    #personal-skills .skills-panel:after {
+    #personal-skills .skills-panel:after,
+    #empty-badge:after {
         border-top: 25.98px solid #ffd14b;
     }
     #personal-skills .skills-panel img {
         width: 48px;
         height: 48px;
+    }
+    #empty-badge img {
+        width: 45px;
+        height: 45px;
     }
     #popups-content {
         grid-template-rows: 90px 90px 90px;
@@ -2194,7 +2260,7 @@ a:hover {
 .modal-header {
     height: 50px;
     padding: 0;
-    border-color: #fff;
+    border: none;
     border-radius: 5px 5px 0 0;
     text-align: center;
     display: grid;
@@ -2213,6 +2279,11 @@ a:hover {
 
 .modal-body {
     padding: 25px 40px;
+}
+
+.modal-footer {
+    border: none;
+    border-radius: 0 0 5px 5px;
 }
 
 #modal-button {
@@ -2351,8 +2422,14 @@ a:hover {
 }
 
 #popups-header {
-    background-color: #578bca;
+    background: #578bca;
     grid-template: "title" 1fr / 1fr;
+}
+
+#popups-footer {
+    height: 46px;
+    padding: 8px;
+    background: #578bca;
 }
 
 /* =================== ManageSkills.js ==================== */
@@ -2366,12 +2443,12 @@ a:hover {
 }
 
 #skills-header {
-    background-color: #578bca;
+    background: #578bca;
     grid-template: "left middle right" 1fr / 1fr 1fr 1fr;
 }
 
 #skills-header-mentor {
-    background-color: #578bca;
+    background: #578bca;
     grid-template: "left right" 1fr / 1fr 1fr;
 }
 
@@ -2540,6 +2617,38 @@ a:hover {
 
 #edit-profile-form #gender {
     width: 31%;
+}
+
+/* =================== ChangePicture.js =================== */
+
+#dropzone {
+    margin: 0 0 25px 0;
+}
+
+#dropzone>div {
+    cursor: pointer;
+    width: 100% !important;
+    padding: 0 40px;
+    text-align: center;
+    
+}
+
+#dropzone > div:hover {
+    background: #e6e6e6;
+}
+
+#preview {
+    height: 300px;
+    margin: 0 0 5px 0;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#preview img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* ======================================================== */

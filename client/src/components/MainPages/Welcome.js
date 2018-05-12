@@ -56,12 +56,11 @@ class Welcome extends Component {
                 console.log(error);
             });
     }
-    
-    /* ============================================================================================================= */
-    
-    handleSubmit() {
+
+    handleSubmit(e) {
         const self = this;
-        
+    
+        e.preventDefault();
         axios.post("/api/editUser", {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -81,9 +80,7 @@ class Welcome extends Component {
                 console.log(error);
             });
     }
-    
-    /* ============================================================================================================= */
-    
+
     render() {
         return (
             <div id="page-wrap">

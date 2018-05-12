@@ -16,7 +16,7 @@ class Home extends Component {
                 <div id="home">
                     <div id="home-video-outer">
                         <video id="home-video" autoPlay muted loop>
-                            <source src={require(`../../images/home.mp4`)} type="video/mp4" />
+                            <source src={require("../../images/home.mp4")} type="video/mp4" />
                         </video>
                     </div>
                     
@@ -79,7 +79,7 @@ class Home extends Component {
                         
                         <Scroll type="id" element="about">
                             <span className="arrow">
-                                <img src={require(`../../images/icons/arrow-down.png`)} alt="Icon" />
+                                <img src={require("../../images/icons/arrow-down.png")} alt="Icon" />
                             </span>
                         </Scroll>
                     </div>

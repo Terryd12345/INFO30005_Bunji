@@ -52,23 +52,28 @@ class CreateEvent extends Component {
         })
     }
 
-    handleSubmit(event) {
-        axios.post("/api/createEvent", {
-            title: this.state.title,
-            date: new Date(this.state.date + " " + this.state.time),
-            location: this.state.location,
-            user2: this.state.invite_id
+    handleChange(e) {
+        this.setState({
+            name: e.target.value
         });
-        this.handleClose();
-        event.preventDefault();
     }
 
-    handleChange(event) {
-        this.setState({
-            name: event.target.value
-        });
+    handleSubmit(e) {
+        const self = this;
+        
+        e.preventDefault();
+        axios.post("/api/createEvent", {
+            title: self.state.title,
+            date: new Date(self.state.date + " " + self.state.time),
+            location: self.state.location,
+            user2: self.state.invite_id
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+        self.props.reload();
     }
-    
+
     /* ============================================================================================================= */
 
     render() {
@@ -147,8 +152,8 @@ class CreateEvent extends Component {
                         </form>
                     </Modal.Body>
 
-                    <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
+                    <Modal.Footer id="popups-footer">
+                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

@@ -21,9 +21,13 @@ class Selected extends Component {
                     <a onClick={() => this.props.updateSkills(2)} className="button" id="popups-btn">
                         Remove Skills
                     </a>
-                    <a onClick={() => this.props.updateSkills(3)} className="button" id="popups-btn">
-                        Add to Learned
-                    </a>
+                    {
+                        this.props.isMentor ? (null) : (
+                            <a onClick={() => this.props.updateSkills(3)} className="button" id="popups-btn">
+                                Add to Learned
+                            </a>
+                        )
+                    }
                 </div>
             </div>
         )
