@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
+import WEATHER_API_KEY from "../../../keys";
 
 class Event extends Component {
     constructor(props) {
         super(props);
-        
+
         this.getDate = this.getDate.bind(this);
         this.getTime = this.getTime.bind(this);
-        
+
         this.state = {
             loading: true,
             firstName: "",
@@ -19,7 +20,7 @@ class Event extends Component {
 
     componentDidMount() {
         const self = this;
-        
+
         axios.post("/api/getUserById", {
             id: (this.props.currentUserID.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
         })
@@ -34,6 +35,14 @@ class Event extends Component {
         .catch(function (error) {
             console.log(error);
         });
+
+        axios.get(`api.openweathermap.org/data/2.5/weather?q=${this.props.location}&APPID=${WEATHER_API_KEY}`)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     getDate() {
@@ -49,7 +58,7 @@ class Event extends Component {
     render() {
         const date = this.getDate();
         const time = this.getTime();
-        
+
         return (
             <div>
                 {
@@ -63,19 +72,19 @@ class Event extends Component {
                                 <img src={this.state.imagePath}
                                      alt={this.state.firstName} />
                             </div>
-        
+
                             <div className="event-desc">
                                 <div className="event-desc-title">
                                     <h5>{this.props.title}</h5>
                                     <h6>(with {this.state.firstName} {this.state.lastName})</h6>
                                 </div>
-                
+
                                 <div className="event-desc-detail">
                                     <h6>Date:</h6>
                                     <h6>Time:</h6>
                                     <h6>Location:</h6>
                                 </div>
-                
+
                                 <div className="event-desc-content">
                                     <h6>{date}</h6>
                                     <h6>{time}</h6>
