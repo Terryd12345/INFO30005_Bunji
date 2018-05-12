@@ -4,6 +4,7 @@ import { MoonLoader } from "react-spinners";
 import ChatWindow from "../Connections/ChatWindow";
 import Connections from "../Connections/Connections";
 import axios from "axios/index";
+import qs from "qs";
 
 class Relationships extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class Relationships extends Component {
     }
 
     componentDidMount() {
+        let refreshChat = setInterval(this.getChat, 1000);
         const self = this;
         axios.get("/api/user")
             .then(function (res) {
@@ -79,7 +81,6 @@ class Relationships extends Component {
         axios.get(`/api/chat/${newConnectionID}`)
             .then(function (res) {
                 self.setState({ connectionID: newConnectionID, chat: res.data });
-                console.log(self.state.chat);
             });
     }
 
