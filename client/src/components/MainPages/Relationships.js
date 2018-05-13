@@ -29,9 +29,6 @@ class Relationships extends Component {
         }
     }
 
-    componentWillMount() {
-
-    }
 
     componentDidMount() {
         const self = this;
@@ -127,7 +124,7 @@ class Relationships extends Component {
                                 <div id="chat">
                                     <Connections
                                         connections={this.state.connections}
-                                        chatHandler={this.chatHandler} 
+                                        chatHandler={this.chatHandler}
                                         connectionID={this.state.connectionID} />
 
                                     <ChatWindow
