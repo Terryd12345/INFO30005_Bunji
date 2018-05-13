@@ -67,9 +67,9 @@ class Relationships extends Component {
                 });
                 const query = qs.parse(self.props.location.search);
                 if (Object.prototype.hasOwnProperty.call(query, "userID")) {
-                    self.setState({connectionID: query.userID})
+                    self.setState({ connectionID: query.userID })
                 } else {
-                    self.setState({connectionID: res.data.connections[0]._id})
+                    self.setState({ connectionID: res.data.connections[0]._id })
                 }
                 self.getChat(self.state.connectionID);
             });
