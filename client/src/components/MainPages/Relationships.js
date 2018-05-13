@@ -4,7 +4,7 @@ import { MoonLoader } from "react-spinners";
 import ChatWindow from "../Connections/ChatWindow";
 import Connections from "../Connections/Connections";
 import axios from "axios/index";
-import queryString from "query-string";
+import qs from "query-string";
 
 class Relationships extends Component {
     constructor(props) {
@@ -63,10 +63,15 @@ class Relationships extends Component {
             .then(function (res) {
                 self.setState({
                     userID: res.data._id,
-                    connections: res.data.connections,
-                    connectionID: res.data.connections[0]._id
+                    connections: res.data.connections
                 });
-                self.getChat(self.state.connections[0]._id);
+                const query = qs.parse(self.props.location.search);
+                if (Object.prototype.hasOwnProperty.call(query, "userID")) {
+                    self.setState({connectionID: query.userID})
+                } else {
+                    self.setState({connectionID: res.data.connections[0]._id})
+                }
+                self.getChat(self.state.connectionID);
             });
     }
 
