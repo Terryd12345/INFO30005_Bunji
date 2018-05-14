@@ -4,7 +4,7 @@ import { MoonLoader } from "react-spinners";
 import ChatWindow from "../Connections/ChatWindow";
 import Connections from "../Connections/Connections";
 import axios from "axios/index";
-import qs from "query-string";
+import qs from "../../utils/query-string";
 
 class Relationships extends Component {
     constructor(props) {
