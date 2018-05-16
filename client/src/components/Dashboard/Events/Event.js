@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
+import { Modal, Button } from "react-bootstrap";
 
 class Event extends Component {
     constructor(props) {
@@ -8,6 +9,8 @@ class Event extends Component {
 
         this.getDate = this.getDate.bind(this);
         this.getTime = this.getTime.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
 
         this.state = {
             loading: true,
@@ -16,7 +19,8 @@ class Event extends Component {
             imagePath: "",
             temperature: "",
             weatherCondition: "",
-            weatherIcon: ""
+            weatherIcon: "",
+            show: false
         };
     }
 
@@ -76,12 +80,25 @@ class Event extends Component {
         return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
     }
 
+    handleShow() {
+        this.setState({
+            show: true
+        })
+    }
+
+    handleClose() {
+        this.setState({
+            show: false
+        });
+    }
+
     render() {
         const date = this.getDate();
         const time = this.getTime();
 
         return (
             <div>
+            <div onClick={this.handleShow} className="popup centered" id="popup-2">
                 {
                     this.state.loading ? (
                         <div className="section-loading">
@@ -123,6 +140,23 @@ class Event extends Component {
                             </div>
                         )
                 }
+            </div>
+            <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
+                <Modal.Header id="popups-header">
+                    <Modal.Title className="modal-title-popups">
+                        {this.props.title}
+                    </Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    {this.props.date}
+                    {this.props.location}
+                </Modal.Body>
+
+                <Modal.Footer id="popups-footer">
+                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
+                </Modal.Footer>
+            </Modal>
             </div>
         )
     }

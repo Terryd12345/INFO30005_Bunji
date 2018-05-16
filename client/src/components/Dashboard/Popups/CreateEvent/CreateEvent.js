@@ -3,6 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
 import Calendar from 'react-calendar';
 
+
 class CreateEvent extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,7 @@ class CreateEvent extends Component {
             location: "",
             invite: "",
             invite_id: "",
-            date: "",
+            date: new Date(),
             time: "",
             userConnections: []
         };
@@ -65,7 +66,7 @@ class CreateEvent extends Component {
         e.preventDefault();
         axios.post("/api/createEvent", {
             title: self.state.title,
-            date: new Date(self.state.date + " " + self.state.time),
+            date: self.state.date,
             location: self.state.location,
             user2: self.state.invite_id
         })
@@ -142,6 +143,7 @@ class CreateEvent extends Component {
                                 onChange={(date) => this.setState({ date })}
                                 value={this.state.date}
                             />
+
 
                             <input
                                 id="time"
