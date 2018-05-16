@@ -40,6 +40,7 @@ class Event extends Component {
 
         axios.get(`api/weather/${this.props.location}`)
             .then((res) => {
+                // Display weather picture
                 const celsius = `${Math.round(res.data.main.temp - 273).toString()}`;
                 let icon = "";
                 if(celsius > 30){

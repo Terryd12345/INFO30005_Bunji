@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
+import Calendar from 'react-calendar';
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -137,12 +138,10 @@ class CreateEvent extends Component {
                             <label id="date">Date</label>
                             <label id="time">Time</label>
 
-                            <input
-                                id="date"
-                                type="date"
+                            <Calendar
+                                onChange={(date) => this.setState({ date })}
                                 value={this.state.date}
-                                onChange={(event) => this.setState({ date: event.target.value })}
-                                required />
+                            />
 
                             <input
                                 id="time"
