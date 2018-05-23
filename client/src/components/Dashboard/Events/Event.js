@@ -134,24 +134,27 @@ class Event extends Component {
                                         <h6>{time}</h6>
                                         <h6>{this.props.location}</h6>
                                     </div>
-
-                                    {this.state.weatherIcon}
                                 </div>
                             </div>
                         )
                     }
                 </div>
-                
+
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
                     <Modal.Header id="popups-header">
                         <Modal.Title className="modal-title-popups">
                             {this.props.title}
                         </Modal.Title>
                     </Modal.Header>
-    
+
                     <Modal.Body>
-                        {this.props.date}
-                        {this.props.location}
+                        <img src={this.state.imagePath} />
+                        <br />
+                        Meeting with: {this.state.firstName} {this.state.lastName}
+                        <br />
+                        Expected Weather: {this.state.weatherCondition} / {this.state.temperature} &deg;C
+                        <br />
+                        {this.state.weatherIcon}
                     </Modal.Body>
                 </Modal>
             </div>
