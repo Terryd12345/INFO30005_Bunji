@@ -20,8 +20,7 @@ class Notifications extends Component {
                                     this.props.notifications.map(notification => {
                                         return <Notification
                                             key={notification._id}
-                                            notification={notification.notification}
-                                            time={notification.time}
+                                            user={notification.user}
                                             imagePath={notification.imagePath} />;
                                     })
                                 }

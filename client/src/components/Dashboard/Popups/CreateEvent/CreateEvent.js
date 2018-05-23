@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
 import Calendar from 'react-calendar';
 
@@ -82,10 +82,10 @@ class CreateEvent extends Component {
         return (
             <div>
                 <div onClick={this.handleShow} className="popup centered" id="popup-2">
-                    <h5>
+                    <h6>
                         <img src={require("../../../../images/icons/create.png")} alt="Icon" />
                         Create an Event
-                    </h5>
+                    </h6>
                 </div>
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>

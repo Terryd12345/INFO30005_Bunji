@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import Available from "./Available";
@@ -249,10 +249,10 @@ class ManageSkills extends Component {
         return (
             <div>
                 <div onClick={this.showAvailable} className="popup centered" id="popup-1">
-                    <h5>
+                    <h6>
                         <img src={require("../../../../images/icons/add.png")} alt="Icon" />
                         Manage Skills
-                    </h5>
+                    </h6>
                 </div>
 
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>

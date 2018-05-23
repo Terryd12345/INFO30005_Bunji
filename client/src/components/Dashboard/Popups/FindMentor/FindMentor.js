@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 import axios from "axios/index";
 import User from "../../../GetStarted/Users/User"
@@ -164,10 +164,10 @@ class FindMentor extends Component {
         return (
             <div>
                 <div onClick={this.handleShow} className="popup centered" id="popup-3">
-                    <h5>
+                    <h6>
                         <img src={require("../../../../images/icons/find.png")} alt="Icon" />
                         Find Mentor
-                    </h5>
+                    </h6>
                 </div>
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>

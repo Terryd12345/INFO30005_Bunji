@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 class Profile extends Component {
     constructor(props) {
@@ -68,10 +68,6 @@ class Profile extends Component {
                         <p>{this.props.user.description}</p>
                     </div>
                 </div>
-
-                <Modal.Footer id="popups-footer">
-                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                </Modal.Footer>
             </Modal>
         );
     }

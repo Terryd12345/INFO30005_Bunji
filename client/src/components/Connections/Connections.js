@@ -7,9 +7,9 @@ class Connections extends Component {
                 {
                     this.props.connections.map(connection => {
                         if (connection._id === this.props.connectionID) {
-                            return <div className="connection selected" onClick={(e) => this.props.chatHandler(e, connection._id)}>{connection.firstName + " " + connection.lastName}</div>;
+                            return <div key={connection._id} className="connection selected">{connection.firstName + " " + connection.lastName}</div>;
                         } else {
-                            return <div className="connection" onClick={(e) => this.props.chatHandler(e, connection._id)}>{connection.firstName + " " + connection.lastName}</div>;
+                            return <div key={connection._id} className="connection" onClick={(e) => this.props.chatHandler(e, connection._id)}>{connection.firstName + " " + connection.lastName}</div>;
                         }
                     })
                 }

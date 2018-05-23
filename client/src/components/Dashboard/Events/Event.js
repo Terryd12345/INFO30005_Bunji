@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
-import axios from "axios/index";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import axios from "axios";
 
 class Event extends Component {
     constructor(props) {
@@ -98,17 +98,17 @@ class Event extends Component {
 
         return (
             <div>
-            <div onClick={this.handleShow} className="popup centered" id="popup-2">
-                {
-                    this.state.loading ? (
-                        <div className="section-loading">
-                            <BeatLoader loading={this.state.loading} />
-                        </div>
-                    ) : (
+                <div onClick={this.handleShow}>
+                    {
+                        this.state.loading ? (
+                            <div className="section-loading">
+                                <BeatLoader loading={this.state.loading} />
+                            </div>
+                        ) : (
                             <div className="event-panel">
                                 <div className="event-pic">
                                     <img src={this.state.imagePath}
-                                        alt={this.state.firstName} />
+                                         alt={this.state.firstName} />
                                 </div>
 
                                 <div className="event-desc">
@@ -139,24 +139,21 @@ class Event extends Component {
                                 </div>
                             </div>
                         )
-                }
-            </div>
-            <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                <Modal.Header id="popups-header">
-                    <Modal.Title className="modal-title-popups">
-                        {this.props.title}
-                    </Modal.Title>
-                </Modal.Header>
-
-                <Modal.Body>
-                    {this.props.date}
-                    {this.props.location}
-                </Modal.Body>
-
-                <Modal.Footer id="popups-footer">
-                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                </Modal.Footer>
-            </Modal>
+                    }
+                </div>
+                
+                <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
+                    <Modal.Header id="popups-header">
+                        <Modal.Title className="modal-title-popups">
+                            {this.props.title}
+                        </Modal.Title>
+                    </Modal.Header>
+    
+                    <Modal.Body>
+                        {this.props.date}
+                        {this.props.location}
+                    </Modal.Body>
+                </Modal>
             </div>
         )
     }
