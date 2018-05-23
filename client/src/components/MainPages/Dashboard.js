@@ -122,6 +122,7 @@ class Dashboard extends Component {
                             }
                         </div>
                     ) : (
+                        <div id="dashboard-outer">
                             <div id="dashboard">
                                 <PersonalProfile
                                     user={this.state.user}
@@ -140,7 +141,8 @@ class Dashboard extends Component {
                                     connections={this.state.connections} />
                                 <Events events={this.state.events} />
                             </div>
-                        )
+                        </div>
+                    )
                 }
             </div>
         );

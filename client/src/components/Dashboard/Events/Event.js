@@ -98,47 +98,47 @@ class Event extends Component {
 
         return (
             <div>
-                <div onClick={this.handleShow} className="popup centered" id="popup-2">
+                <div onClick={this.handleShow}>
                     {
                         this.state.loading ? (
                             <div className="section-loading">
                                 <BeatLoader loading={this.state.loading} />
                             </div>
                         ) : (
-                                <div className="event-panel">
-                                    <div className="event-pic">
-                                        <img src={this.state.imagePath}
-                                            alt={this.state.firstName} />
-                                    </div>
-    
-                                    <div className="event-desc">
-                                        <div className="event-desc-title">
-                                            <h5>{this.props.title}</h5>
-                                            <h6>(with {this.state.firstName} {this.state.lastName})</h6>
-                                        </div>
-    
-                                        <div className="event-desc-detail">
-                                            <h6>Date:</h6>
-                                            <h6>Time:</h6>
-                                            <h6>Location:</h6>
-                                        </div>
-    
-                                        <div className="event-desc-content">
-                                            <h6>{date}</h6>
-                                            <h6>{time}</h6>
-                                            <h6>{this.props.location}</h6>
-                                        </div>
-    
-                                        <div className="event-desc-content">
-                                            <h6>{date}</h6>
-                                            <h6>{time}</h6>
-                                            <h6>{this.props.location}</h6>
-                                        </div>
-    
-                                        {this.state.weatherIcon}
-                                    </div>
+                            <div className="event-panel">
+                                <div className="event-pic">
+                                    <img src={this.state.imagePath}
+                                         alt={this.state.firstName} />
                                 </div>
-                            )
+
+                                <div className="event-desc">
+                                    <div className="event-desc-title">
+                                        <h5>{this.props.title}</h5>
+                                        <h6>(with {this.state.firstName} {this.state.lastName})</h6>
+                                    </div>
+
+                                    <div className="event-desc-detail">
+                                        <h6>Date:</h6>
+                                        <h6>Time:</h6>
+                                        <h6>Location:</h6>
+                                    </div>
+
+                                    <div className="event-desc-content">
+                                        <h6>{date}</h6>
+                                        <h6>{time}</h6>
+                                        <h6>{this.props.location}</h6>
+                                    </div>
+
+                                    <div className="event-desc-content">
+                                        <h6>{date}</h6>
+                                        <h6>{time}</h6>
+                                        <h6>{this.props.location}</h6>
+                                    </div>
+
+                                    {this.state.weatherIcon}
+                                </div>
+                            </div>
+                        )
                     }
                 </div>
                 
@@ -153,10 +153,6 @@ class Event extends Component {
                         {this.props.date}
                         {this.props.location}
                     </Modal.Body>
-    
-                    <Modal.Footer id="popups-footer">
-                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         )

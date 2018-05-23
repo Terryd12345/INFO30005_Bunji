@@ -451,9 +451,22 @@ a:hover {
         padding: 8px 25px;
     }
     #popups-btn,
-    #popups-cancel-btn {
-        margin: 25px 0 0 0;
+    #popups-btn:active,
+    #popups-btn:focus,
+    #popups-btn:hover,
+    #popups-cancel-btn,
+    #popups-cancel-btn:active,
+    #popups-cancel-btn:focus,
+    #popups-cancel-btn:hover {
+        margin-top: 25px;
         padding: 8px 20px;
+    }
+    #popups-arrow-btn,
+    #popups-arrow-btn:active,
+    #popups-arrow-btn:focus,
+    #popups-arrow-btn:hover {
+        margin-top: 25px;
+        padding: 6px 19px 12px 19px;
     }
     #recommendations-btn {
         margin: 5px 0 0 0;
@@ -1251,13 +1264,19 @@ a:hover {
     font-family: "Source Sans Pro", sans-serif;
 }
 
-#dashboard {
-    padding: 20px;
+
+#dashboard-outer {
+    height: 1000px;
     background: linear-gradient(to bottom right, #effaff, #c0e3ea) no-repeat fixed;
+}
+
+#dashboard {
+    height: 100%;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 165px 285px calc(100vh - 250px);
-    grid-gap: 20px;
+    grid-template-rows: 15% 30% 51%;
+    grid-gap: 2% 20px;
     grid-template-areas: "profile profile popups" "profile profile notifications" "contacts events events";
 }
 
@@ -1270,6 +1289,7 @@ a:hover {
 }
 
 #popups {
+    height: 100%;
     grid-area: popups;
     border: none !important;
 }
@@ -1297,9 +1317,9 @@ a:hover {
     padding: 10px;
     background: #a1dbf3;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-auto-rows: 50px 140px 200px;
-    grid-row-gap: 20px;
+    grid-template-columns: 28% 72%;
+    grid-auto-rows: 12% 30% 45%;
+    grid-row-gap: 5%;
     grid-template-areas: "picture title" "picture stats" "picture skills";
 }
 
@@ -1440,21 +1460,21 @@ a:hover {
     background: #3f6da5;
 }
 
-.popup h5 {
+.popup h6 {
     color: #fff;
 }
 
 .popup img {
     width: auto;
-    height: 2.4rem;
-    margin-right: 10px;
+    height: 2rem;
+    margin-right: 15px;
 }
 
 #popups-content {
-    border-radius: 8px;
+    height: 100%;
     display: grid;
-    grid-template-rows: 50px 50px 50px;
-    grid-gap: 10px;
+    grid-template-rows: 30% 30% 30%;
+    grid-gap: 5%;
     grid-template-areas: "popup-1" "popup-2" "popup-3";
 }
 
@@ -1563,15 +1583,22 @@ a:hover {
 
 /* ======================== Events ======================== */
 
-.event-panel {
+.event-panel,
+.event-panel:active,
+.event-panel:focus {
+    cursor: pointer;
     margin-bottom: 25px;
     padding: 10px 10px 15px 10px;
-    background: #f5f5f5;
+    background: #f1f1f1;
     border-radius: 8px;
     text-align: center;
     display: grid;
     grid-template: "picture description" 1fr / 30% 70%;
     grid-gap: 5px;
+}
+
+.event-panel:hover {
+    background: #ddd;
 }
 
 .event-pic img {
@@ -1848,6 +1875,9 @@ a:hover {
         grid-template-columns: 25% 75%;
         grid-gap: 8px;
     }
+    #dashboard-outer {
+        height: 100%;
+    }
     #personal-profile {
         padding: 8px 20px;
         grid-template-columns: 40% 60%;
@@ -1923,12 +1953,9 @@ a:hover {
     .contact-br {
         display: inline;
     }
-    #dashboard {
-        grid-template-rows: 165px 390px calc(100vh - 355px);
-    }
     #personal-profile {
         grid-template-columns: 40% 60%;
-        grid-auto-rows: 50px 250px 200px;
+        grid-auto-rows: 8% 50% 32%;
         grid-template-areas: "title title" "picture stats" "skills skills";
     }
     #personal-pic img {
@@ -1981,11 +2008,11 @@ a:hover {
         grid-template-columns: 35% 65%;
         grid-gap: 0;
     }
-    #dashboard {
-        grid-template-rows: 285px 315px calc(100vh - 400px);
+    #dashboard-outer {
+        height: 1600px;
     }
-    #personal-profile {
-        grid-auto-rows: 85px 190px 265px;
+    #dashboard {
+        grid-gap: 2% 32px;
     }
     #personal-pic img {
         width: 60%;
@@ -2026,9 +2053,6 @@ a:hover {
     #empty-badge img {
         width: 45px;
         height: 45px;
-    }
-    #popups-content {
-        grid-template-rows: 90px 90px 90px;
     }
     #recommendations {
         grid-template-rows: 85px 200px 90px;
@@ -2515,7 +2539,7 @@ a:hover {
 #skills {
     grid-area: content;
     overflow: auto;
-    height: 400px;
+    height: 500px;
     margin: 0 10px;
     padding: 20px;
     background: #fff;

@@ -17,10 +17,10 @@ class Popups extends Component {
                         this.props.isMentor ? (
                             <a href="https://www.facebook.com/groups/1638684616248563/" target="_blank" rel="noopener noreferrer">
                                 <div className="popup centered" id="popup-3">
-                                    <h5>
+                                    <h6>
                                         <img src={require("../../../images/icons/community.png")} alt="Icon" />
                                         Join the Community
-                                    </h5>
+                                    </h6>
                                 </div>
                             </a>
                         ) : (
