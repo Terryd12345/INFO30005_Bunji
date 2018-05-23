@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import Available from "./Available";

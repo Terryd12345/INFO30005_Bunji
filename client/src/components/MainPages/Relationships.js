@@ -29,7 +29,6 @@ class Relationships extends Component {
         }
     }
 
-
     componentDidMount() {
         const self = this;
         axios.get("/api/user")
@@ -53,7 +52,7 @@ class Relationships extends Component {
                 console.log(error);
             });
         this.getConnections();
-        let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 10000);
+        setInterval(() => this.getChat(this.state.connectionID), 10000);
     }
 
     getConnections() {
@@ -66,9 +65,13 @@ class Relationships extends Component {
                 });
                 const query = qs.parse(self.props.location.search);
                 if (Object.prototype.hasOwnProperty.call(query, "userID")) {
-                    self.setState({ connectionID: query.userID })
+                    self.setState({
+                        connectionID: query.userID
+                    })
                 } else {
-                    self.setState({ connectionID: res.data.connections[0]._id })
+                    self.setState({
+                        connectionID: res.data.connections[0]._id
+                    })
                 }
                 self.getChat(self.state.connectionID);
             });
@@ -78,25 +81,31 @@ class Relationships extends Component {
         const self = this;
         axios.get(`/api/chat/${newConnectionID}`)
             .then(function (res) {
-                self.setState({ loading: false, connectionID: newConnectionID, chat: res.data });
+                self.setState({
+                    loading: false,
+                    connectionID: newConnectionID,
+                    chat: res.data
+                });
             });
     }
 
-
     chatHandler(e, newConnectionID) {
         e.preventDefault();
-        this.setState({ connectionID: newConnectionID });
+        this.setState({
+            connectionID: newConnectionID,
+            chat: []
+        });
         this.getChat(newConnectionID);
     }
 
     messageHandler(e, newMessage) {
         e.preventDefault();
 
-        var messageObject = {
+        let messageObject = {
             date: new Date(),
             sender: this.state.userID,
             message: newMessage
-        }
+        };
         axios.post(`/api/chat/${this.state.connectionID}`, messageObject)
 
         let c = this.state.chat;
@@ -124,20 +133,20 @@ class Relationships extends Component {
                             }
                         </div>
                     ) : (
-                            <div id="relationships">
-                                <div id="chat">
-                                    <Connections
-                                        connections={this.state.connections}
-                                        chatHandler={this.chatHandler}
-                                        connectionID={this.state.connectionID} />
-
-                                    <ChatWindow
-                                        chat={this.state.chat}
-                                        userID={this.state.userID}
-                                        messageHandler={this.messageHandler} />
-                                </div>
+                        <div id="relationships">
+                            <div id="chat">
+                                <Connections
+                                    connections={this.state.connections}
+                                    chatHandler={this.chatHandler}
+                                    connectionID={this.state.connectionID} />
+                                
+                                <ChatWindow
+                                    chat={this.state.chat}
+                                    userID={this.state.userID}
+                                    messageHandler={this.messageHandler} />
                             </div>
-                        )
+                        </div>
+                    )
                 }
             </div>
         );
