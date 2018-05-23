@@ -56,7 +56,6 @@ class Relationships extends Component {
         let refreshChat = setInterval(() => this.getChat(this.state.connectionID), 10000);
     }
 
-
     getConnections() {
         const self = this;
         axios.get("/api/user")

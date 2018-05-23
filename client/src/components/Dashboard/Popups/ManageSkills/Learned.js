@@ -19,8 +19,11 @@ class Learned extends Component {
                 </div>
 
                 <div id="modal-button">
+                    <a onClick={this.props.handleClose} className="button" id="popups-cancel-btn">
+                        Cancel
+                    </a>
                     <a onClick={() => this.props.updateSkills(4)} className="button" id="popups-btn">
-                        Remove from Learned
+                        Remove
                     </a>
                 </div>
             </div>

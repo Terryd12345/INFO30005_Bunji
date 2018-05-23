@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
+import Calendar from 'react-calendar';
+
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class CreateEvent extends Component {
             location: "",
             invite: "",
             invite_id: "",
-            date: "",
+            date: new Date(),
             time: "",
             userConnections: []
         };
@@ -64,7 +66,7 @@ class CreateEvent extends Component {
         e.preventDefault();
         axios.post("/api/createEvent", {
             title: self.state.title,
-            date: new Date(self.state.date + " " + self.state.time),
+            date: self.state.date,
             location: self.state.location,
             user2: self.state.invite_id
         })
@@ -137,12 +139,11 @@ class CreateEvent extends Component {
                             <label id="date">Date</label>
                             <label id="time">Time</label>
 
-                            <input
-                                id="date"
-                                type="date"
+                            <Calendar
+                                onChange={(date) => this.setState({ date })}
                                 value={this.state.date}
-                                onChange={(event) => this.setState({ date: event.target.value })}
-                                required />
+                            />
+
 
                             <input
                                 id="time"
@@ -152,14 +153,13 @@ class CreateEvent extends Component {
                                 required />
 
                             <div id="modal-button">
+                                <a onClick={this.handleClose} className="button" id="popups-cancel-btn">
+                                    Cancel
+                                </a>
                                 <button type="submit" className="button" id="popups-btn">Submit</button>
                             </div>
                         </form>
                     </Modal.Body>
-
-                    <Modal.Footer id="popups-footer">
-                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );

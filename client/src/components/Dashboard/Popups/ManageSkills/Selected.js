@@ -18,13 +18,16 @@ class Selected extends Component {
                 </div>
 
                 <div id="modal-button">
+                    <a onClick={this.props.handleClose} className="button" id="popups-cancel-btn">
+                        Cancel
+                    </a>
                     <a onClick={() => this.props.updateSkills(2)} className="button" id="popups-btn">
-                        Remove Skills
+                        Unselect
                     </a>
                     {
                         this.props.isMentor ? (null) : (
                             <a onClick={() => this.props.updateSkills(3)} className="button" id="popups-btn">
-                                Add to Learned
+                                Learn
                             </a>
                         )
                     }
