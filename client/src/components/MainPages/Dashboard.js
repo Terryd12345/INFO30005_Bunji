@@ -33,20 +33,17 @@ class Dashboard extends Component {
             notifications: [
                 {
                     _id: "1",
-                    notification: "Jon sent you a message.",
-                    time: "Just Now",
+                    user: "James",
                     imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126616/w3zjcaang6oherqmnygo.jpg"
                 },
                 {
                     _id: "2",
-                    notification: "Jane sent you a message.",
-                    time: "1hr ago",
+                    user: "Jane",
                     imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126662/lhrajxxmtrr7fpa8uyea.jpg"
                 },
                 {
                     _id: "3",
-                    notification: "Fred sent you a message.",
-                    time: "2hr ago",
+                    user: "Fred",
                     imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126735/kiuuaemkcqhld9ncrfow.jpg"
                 }
             ]

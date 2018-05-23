@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
 
 class Event extends Component {

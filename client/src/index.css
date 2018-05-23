@@ -1495,12 +1495,12 @@ a:hover {
 .notification-panel {
     height: 55px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 9px;
     background: #fff;
     border: 1px solid #578bca;
     text-align: center;
     display: grid;
-    grid-template: "picture description time" 1fr / 15% 58% 25%;
+    grid-template: "picture description response" 1fr / 14% 58% 26%;
     grid-gap: 1%;
 }
 
@@ -1516,7 +1516,7 @@ a:hover {
 
 .notification-pic img {
     grid-area: picture;
-    max-width: 2.1rem;
+    max-width: 2rem;
     height: auto;
     border-radius: 50%;
 }
@@ -1527,17 +1527,29 @@ a:hover {
     text-align: left;
 }
 
-.notification-time {
-    grid-area: time;
+.notification-res {
+    grid-area: response;
     margin: auto 0;
-    padding-right: 10px;
     text-align: right;
+}
+
+.notification-res a {
+    cursor: pointer;
+}
+
+.notification-res a img {
+    max-width: 1.4rem;
+    height: auto;
 }
 
 #notifications-content {
     overflow: auto;
     margin: 10px;
     border-radius: 8px;
+}
+
+#accept {
+    padding-right: 5px;
 }
 
 /* ======================= Contacts ======================= */
