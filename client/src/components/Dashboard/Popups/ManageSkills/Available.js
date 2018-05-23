@@ -19,8 +19,11 @@ class Available extends Component {
                 </div>
 
                 <div id="modal-button">
+                    <a onClick={this.props.handleClose} className="button" id="popups-cancel-btn">
+                        Cancel
+                    </a>
                     <a onClick={() => this.props.updateSkills(1)} className="button" id="popups-btn">
-                        Select Skills
+                        Select
                     </a>
                 </div>
             </div>

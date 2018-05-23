@@ -318,17 +318,20 @@ class ManageSkills extends Component {
                                                             <Available
                                                                 skills={this.state.availableSkills}
                                                                 updateSelected={this.handleClickedSkills}
-                                                                updateSkills={this.updateSkills} />
+                                                                updateSkills={this.updateSkills}
+                                                                handleClose={this.closeAll} />
                                                             : (this.state.selected ?
                                                                 <Selected
                                                                     skills={this.state.selectedSkills}
                                                                     updateSelected={this.handleClickedSkills}
                                                                     updateSkills={this.updateSkills}
-                                                                    isMentor={this.props.isMentor} />
+                                                                    isMentor={this.props.isMentor}
+                                                                    handleClose={this.closeAll} />
                                                                 : <Learned
                                                                     skills={this.state.learnedSkills}
                                                                     updateSelected={this.handleClickedSkills}
-                                                                    updateSkills={this.updateSkills} />)
+                                                                    updateSkills={this.updateSkills}
+                                                                    handleClose={this.closeAll} />)
                                                     }
                                                 </div>
                                             )
@@ -336,10 +339,6 @@ class ManageSkills extends Component {
                                 </Modal.Body>
                             )
                     }
-
-                    <Modal.Footer id="popups-footer">
-                        <Button onClick={this.closeAll} id="close-btn">&times;</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         )

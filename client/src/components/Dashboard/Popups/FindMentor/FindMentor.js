@@ -208,9 +208,12 @@ class FindMentor extends Component {
                                         </div>
 
                                         <div id="mentor-button-select">
+                                            <a onClick={this.handleClose} className="button" id="popups-cancel-btn">
+                                                Cancel
+                                            </a>
                                             <a onClick={this.handleSubmit} className="button" id="popups-btn">
-                                                Select Mentor
-                                        </a>
+                                                Select
+                                            </a>
                                         </div>
 
                                         <div id="mentor-button-next">
@@ -235,10 +238,6 @@ class FindMentor extends Component {
                                     </Modal.Body>
                                 ))
                     }
-
-                    <Modal.Footer id="popups-footer">
-                        <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         )

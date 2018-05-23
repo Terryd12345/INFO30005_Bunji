@@ -191,14 +191,15 @@ class EditProfile extends Component {
                             required />
 
                         <div id="modal-button">
-                            <button type="submit" className="button" id="popups-btn">Save</button>
+                            <a onClick={this.handleClose} className="button" id="popups-cancel-btn">
+                                Cancel
+                            </a>
+                            <button type="submit" className="button" id="popups-btn">
+                                Save
+                            </button>
                         </div>
                     </form>
                 </Modal.Body>
-
-                <Modal.Footer id="popups-footer">
-                    <Button onClick={this.handleClose} id="close-btn">&times;</Button>
-                </Modal.Footer>
             </Modal>
         );
     }
