@@ -231,7 +231,9 @@ class Events extends Component {
                                                                     location={event.location}
                                                                     user1={event.user1}
                                                                     user2={event.user2}
-                                                                    currentUserID={this.state.currentUserID} />
+                                                                    currentUserID={this.state.currentUserID}
+                                                                    description={event.description}
+                                                                    />
                                                             })
                                                         }
                                                     </div>

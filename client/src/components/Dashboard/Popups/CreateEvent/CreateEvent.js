@@ -22,6 +22,7 @@ class CreateEvent extends Component {
             invite_id: "",
             date: new Date(),
             time: "",
+            description: "",
             userConnections: []
         };
     }
@@ -68,7 +69,8 @@ class CreateEvent extends Component {
             title: self.state.title,
             date: self.state.date,
             location: self.state.location,
-            user2: self.state.invite_id
+            user2: self.state.invite_id,
+            description: self.state.description
         })
             .catch(function (error) {
                 console.log(error);
@@ -136,8 +138,18 @@ class CreateEvent extends Component {
                                 onChange={(event) => this.setState({ location: event.target.value })}
                                 required />
 
+                                <label id="description">Description</label>
+                                <input
+                                    id="description"
+                                    type="text"
+                                    value={this.state.description}
+                                    onChange={(event) => this.setState({ description: event.target.value })}
+                                    required />
+
                             <label id="date">Date</label>
                             <label id="time">Time</label>
+
+
 
                             <Calendar
                                 onChange={(date) => this.setState({ date })}

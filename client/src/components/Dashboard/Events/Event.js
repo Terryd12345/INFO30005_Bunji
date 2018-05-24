@@ -35,7 +35,7 @@ class Event extends Component {
                     loading: false,
                     firstName: res.data.firstName,
                     lastName: res.data.lastName,
-                    imagePath: res.data.imagePath
+                    imagePath: res.data.imagePath,
                 });
             })
             .catch(function (error) {
@@ -152,9 +152,13 @@ class Event extends Component {
                         <br />
                         Meeting with: {this.state.firstName} {this.state.lastName}
                         <br />
+                        Location: {this.props.location}
+                        <br />
                         Expected Weather: {this.state.weatherCondition} / {this.state.temperature} &deg;C
                         <br />
                         {this.state.weatherIcon}
+                        <br />
+                        {this.props.description}
                     </Modal.Body>
                 </Modal>
             </div>

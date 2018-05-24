@@ -319,7 +319,8 @@ export default {
             date: req.body.date,
             location: req.body.location,
             user1: req.user._id,
-            user2: req.body.user2
+            user2: req.body.user2,
+            description: req.body.description
         }, (err) => {
             if (!err) {
                 res.sendStatus(200);
