@@ -48,7 +48,6 @@ class ManageSkills extends Component {
             .then(axios.spread((res1, res2) => {
                 self.setState({
                     loading: false,
-                    learned: res2.data.learned,
                     allAvailableSkills: res1.data,
                     allSelectedSkills: res2.data.skills,
                     learnedSkills: self.getSkills(res2.data.learned),
@@ -213,12 +212,7 @@ class ManageSkills extends Component {
 
             case 4:
                 source = "/api/removeLearned";
-                
-                for (let i = 0; i < this.state.learned.length; i++) {
-                    if (this.state.arrLearned.includes(this.state.learned[i].skill._id)) {
-                        array.push(this.state.learned[i]._id);
-                    }
-                }
+                array = this.state.arrLearned;
                 break;
 
             default:
@@ -232,7 +226,6 @@ class ManageSkills extends Component {
                 skills: array
             })
                 .then(function () {
-                    console.log(array);
                     self.setState({
                         changed: true
                     });

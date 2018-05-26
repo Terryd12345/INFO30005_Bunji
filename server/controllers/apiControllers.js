@@ -5,7 +5,6 @@ import { weatherApiKey } from "../config";
 
 const Chat = mongoose.model("chat");
 const Event = mongoose.model("event");
-const Learned = mongoose.model("learned");
 const Skill = mongoose.model("skill");
 const State = mongoose.model("state");
 const User = mongoose.model("user");
@@ -27,7 +26,7 @@ export default {
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
-            .populate({ path: "learned", populate: { path: "skill" } })
+            .populate("learned.skill")
             .populate({ path: "connections", populate: { path: "skills" } })
             .exec((err, user) => {
                 if (!err) {
@@ -224,12 +223,11 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
-                        let learned = new Learned({
+                        let learned = {
                             skill: skill,
                             date: new Date()
-                        });
-                        Learned.create(learned);
-                        user.learned.push(learned._id);
+                        };
+                        user.learned.push(learned);
                     });
                     user.save(user);
                     res.sendStatus(200);
@@ -244,10 +242,8 @@ export default {
         User.findById(req.user._id)
             .exec((err, user) => {
                 if (!err) {
-                    req.body.skills.forEach(id => {
-                        user.learned.pull(id);
-                        Learned.findByIdAndRemove(id)
-                        .exec();
+                    req.body.skills.forEach(skill => {
+                        user.learned.pull(user.learned.find( item => item.skill.toString() === skill ));
                     });
                     user.save(user);
                     res.sendStatus(200);

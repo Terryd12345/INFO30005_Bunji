@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import { db } from "../config";
 import "./chat";
 import "./event";
-import "./learned";
 import "./skill";
 import "./state";
 import "./user";
