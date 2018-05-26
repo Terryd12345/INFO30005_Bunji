@@ -57,7 +57,7 @@ class Dashboard extends Component {
             .then(function (res) {
                 self.setState({
                     events: res.data
-                })
+                });
             })
             .catch(function (error) {
                 console.log(error);

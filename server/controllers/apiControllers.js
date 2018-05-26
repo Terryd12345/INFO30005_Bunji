@@ -325,11 +325,12 @@ export default {
     createEvent: function (req, res) {
         Event.create(new Event({
             title: req.body.title,
-            date: req.body.date,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
             location: req.body.location,
+            description: req.body.description,
             user1: req.user._id,
-            user2: req.body.user2,
-            description: req.body.description
+            user2: req.body.user2
         }, (err) => {
             if (!err) {
                 res.sendStatus(200);

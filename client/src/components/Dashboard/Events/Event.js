@@ -8,7 +8,8 @@ class Event extends Component {
         super(props);
 
         this.getDate = this.getDate.bind(this);
-        this.getTime = this.getTime.bind(this);
+        this.getStartTime = this.getStartTime.bind(this);
+        this.getEndTime = this.getEndTime.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
 
@@ -48,11 +49,11 @@ class Event extends Component {
                 const celsius = `${Math.round(res.data.main.temp - 273).toString()}`;
                 let icon = "";
                 if(celsius > 30){
-                    icon = <img src={require("../../../images/icons/sun.png")} alt="Bunji" />
+                    icon = <img src={require("../../../images/icons/sun.png")} alt="Icon" />
                 } else if(celsius > 20){
-                    icon = <img src={require("../../../images/icons/cloud.png")} alt="Bunji" />
+                    icon = <img src={require("../../../images/icons/cloud.png")} alt="Icon" />
                 } else {
-                    icon = <img src={require("../../../images/icons/windy.png")} alt="Bunji" />
+                    icon = <img src={require("../../../images/icons/windy.png")} alt="Icon" />
                 }
                 self.setState({
                     temperature: celsius,
@@ -71,12 +72,17 @@ class Event extends Component {
     }
 
     getDate() {
-        let datetime = new Date(this.props.datetime);
+        let datetime = new Date(this.props.startDate);
         return datetime.toLocaleString("en-US", { day: "numeric", month: "long", year: "numeric" });
     }
 
-    getTime() {
-        let datetime = new Date(this.props.datetime);
+    getStartTime() {
+        let datetime = new Date(this.props.startDate);
+        return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+    }
+
+    getEndTime() {
+        let datetime = new Date(this.props.endDate);
         return datetime.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
     }
 
@@ -94,7 +100,8 @@ class Event extends Component {
 
     render() {
         const date = this.getDate();
-        const time = this.getTime();
+        const startTime = this.getStartTime();
+        const endTime = this.getEndTime();
 
         return (
             <div>
@@ -107,8 +114,7 @@ class Event extends Component {
                         ) : (
                             <div className="event-panel">
                                 <div className="event-pic">
-                                    <img src={this.state.imagePath}
-                                         alt={this.state.firstName} />
+                                    <img src={this.state.imagePath} alt={this.state.firstName} />
                                 </div>
 
                                 <div className="event-desc">
@@ -125,13 +131,7 @@ class Event extends Component {
 
                                     <div className="event-desc-content">
                                         <h6>{date}</h6>
-                                        <h6>{time}</h6>
-                                        <h6>{this.props.location}</h6>
-                                    </div>
-
-                                    <div className="event-desc-content">
-                                        <h6>{date}</h6>
-                                        <h6>{time}</h6>
+                                        <h6>{startTime} - {endTime}</h6>
                                         <h6>{this.props.location}</h6>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ class Event extends Component {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <img src={this.state.imagePath} />
+                        <img src={this.state.imagePath} alt="Icon" />
                         <br />
                         Meeting with: {this.state.firstName} {this.state.lastName}
                         <br />

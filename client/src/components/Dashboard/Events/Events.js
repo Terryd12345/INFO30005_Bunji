@@ -117,7 +117,7 @@ class Events extends Component {
             // Upcoming Events
             case 1:
                 filteredEvents = events.filter(function (event) {
-                    let eventDate = new Date(event.date);
+                    let eventDate = new Date(event.startDate);
                     return eventDate.getTime() >= today.getTime();
                 });
                 break;
@@ -125,7 +125,7 @@ class Events extends Component {
             // This Week's Events
             case 2:
                 filteredEvents = events.filter(function (event) {
-                    let eventDate = new Date(event.date);
+                    let eventDate = new Date(event.startDate);
                     return (eventDate.getTime() >= today.getTime()) && (eventDate.getTime() < sundayThisWeek.getTime());
                 });
                 break;
@@ -133,7 +133,7 @@ class Events extends Component {
             // This Month's Events
             case 3:
                 filteredEvents = events.filter(function (event) {
-                    let eventDate = new Date(event.date);
+                    let eventDate = new Date(event.startDate);
                     return (eventDate.getTime() >= today.getTime()) && (eventDate.getMonth() === thisMonth);
                 });
                 break;
@@ -141,7 +141,7 @@ class Events extends Component {
             // Past Events
             case 4:
                 filteredEvents = events.filter(function (event) {
-                    let eventDate = new Date(event.date);
+                    let eventDate = new Date(event.startDate);
                     return eventDate.getTime() < today.getTime();
                 });
                 break;
@@ -227,12 +227,13 @@ class Events extends Component {
                                                                 return <Event
                                                                     key={event._id}
                                                                     title={event.title}
-                                                                    datetime={event.date}
+                                                                    startDate={event.startDate}
+                                                                    endDate={event.endDate}
                                                                     location={event.location}
+                                                                    description={event.description}
                                                                     user1={event.user1}
                                                                     user2={event.user2}
                                                                     currentUserID={this.state.currentUserID}
-                                                                    description={event.description}
                                                                     />
                                                             })
                                                         }
@@ -254,8 +255,10 @@ class Events extends Component {
                                                                     return <Event
                                                                         key={event._id}
                                                                         title={event.title}
-                                                                        datetime={event.date}
+                                                                        startDate={event.startDate}
+                                                                        endDate={event.endDate}
                                                                         location={event.location}
+                                                                        description={event.description}
                                                                         user1={event.user1}
                                                                         user2={event.user2}
                                                                         currentUserID={this.state.currentUserID} />
@@ -279,8 +282,10 @@ class Events extends Component {
                                                                         return <Event
                                                                             key={event._id}
                                                                             title={event.title}
-                                                                            datetime={event.date}
+                                                                            startDate={event.startDate}
+                                                                            endDate={event.endDate}
                                                                             location={event.location}
+                                                                            description={event.description}
                                                                             user1={event.user1}
                                                                             user2={event.user2}
                                                                             currentUserID={this.state.currentUserID} />
@@ -304,8 +309,10 @@ class Events extends Component {
                                                                             return <Event
                                                                                 key={event._id}
                                                                                 title={event.title}
-                                                                                datetime={event.date}
+                                                                                startDate={event.startDate}
+                                                                                endDate={event.endDate}
                                                                                 location={event.location}
+                                                                                description={event.description}
                                                                                 user1={event.user1}
                                                                                 user2={event.user2}
                                                                                 currentUserID={this.state.currentUserID} />

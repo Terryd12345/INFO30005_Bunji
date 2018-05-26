@@ -10,18 +10,18 @@ class CreateEvent extends Component {
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             show: false,
             register: true,
             title: "",
-            location: "",
             invite: "",
             invite_id: "",
             date: new Date(),
-            time: "",
+            startTime: "",
+            endTime: "",
+            location: "",
             description: "",
             userConnections: []
         };
@@ -55,21 +55,20 @@ class CreateEvent extends Component {
         })
     }
 
-    handleChange(e) {
-        this.setState({
-            name: e.target.value
-        });
-    }
-
     handleSubmit(e) {
         const self = this;
 
         e.preventDefault();
         axios.post("/api/createEvent", {
             title: self.state.title,
-            date: self.state.date,
-            location: self.state.location,
             user2: self.state.invite_id,
+            startDate: new Date(self.state.date).setHours(
+                parseInt(self.state.startTime.split(":")[0], 10),
+                parseInt(self.state.startTime.split(":")[1], 10)),
+            endDate: new Date(self.state.date).setHours(
+                parseInt(self.state.endTime.split(":")[0], 10),
+                parseInt(self.state.endTime.split(":")[1], 10)),
+            location: self.state.location,
             description: self.state.description
         })
             .catch(function (error) {
@@ -130,6 +129,31 @@ class CreateEvent extends Component {
                                 }
                             </select>
 
+                            <label id="date">Date</label>
+                            <div id="date">
+                                <Calendar
+                                    onChange={(date) => this.setState({ date: date })}
+                                    value={this.state.date}
+                                />
+                            </div>
+    
+                            <label id="start-time">Start Time</label>
+                            <label id="end-time">End Time</label>
+    
+                            <input
+                                id="start-time"
+                                type="time"
+                                value={this.state.startTime}
+                                onChange={(event) => this.setState({ startTime: event.target.value })}
+                                required />
+
+                            <input
+                                id="end-time"
+                                type="time"
+                                value={this.state.endTime}
+                                onChange={(event) => this.setState({ endTime: event.target.value })}
+                                required />
+    
                             <label id="location">Location</label>
                             <input
                                 id="location"
@@ -138,31 +162,12 @@ class CreateEvent extends Component {
                                 onChange={(event) => this.setState({ location: event.target.value })}
                                 required />
 
-                                <label id="description">Description</label>
-                                <input
-                                    id="description"
-                                    type="text"
-                                    value={this.state.description}
-                                    onChange={(event) => this.setState({ description: event.target.value })}
-                                    required />
-
-                            <label id="date">Date</label>
-                            <label id="time">Time</label>
-
-
-
-                            <Calendar
-                                onChange={(date) => this.setState({ date })}
-                                value={this.state.date}
-                            />
-
-
-                            <input
-                                id="time"
-                                type="time"
-                                value={this.state.time}
-                                onChange={(event) => this.setState({ time: event.target.value })}
-                                required />
+                            <label id="description">Description</label>
+                            <textarea
+                                id="description"
+                                rows="5"
+                                value={this.state.description}
+                                onChange={(event) => this.setState({ description: event.target.value })} />
 
                             <div id="modal-button">
                                 <a onClick={this.handleClose} className="button" id="popups-cancel-btn">
