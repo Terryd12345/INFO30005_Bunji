@@ -1381,6 +1381,11 @@ a:hover {
     color: #fff;
 }
 
+.tooltip {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.8rem;
+}
+
 #personal-skills {
     grid-area: skills;
     overflow: auto;
@@ -2539,10 +2544,10 @@ a:hover {
     grid-template: "left middle right" 1fr / 1fr 1fr 1fr;
 }
 
-#skills-header-mentor {
+/*#skills-header-mentor {
     background: #578bca;
     grid-template: "left right" 1fr / 1fr 1fr;
-}
+}*/
 
 #middle-title {
     grid-area: middle;

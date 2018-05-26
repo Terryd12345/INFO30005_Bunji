@@ -11,9 +11,10 @@ const userSchema = mongoose.Schema({
     isMentor: Boolean,
     description: String,
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
-    learnedSkills: [{ type: mongoose.Schema.Types.ObjectId, ref: "skill" }],
+    learned: [{ type: mongoose.Schema.Types.ObjectId, ref: "learned" }],
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
-    imagePath: String
+    imagePath: String,
+    joinDate: Date
 });
 
 export default mongoose.model("user", userSchema);

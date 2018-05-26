@@ -48,11 +48,15 @@ class ManageSkills extends Component {
             .then(axios.spread((res1, res2) => {
                 self.setState({
                     loading: false,
+                    learned: res2.data.learned,
                     allAvailableSkills: res1.data,
                     allSelectedSkills: res2.data.skills,
-                    learnedSkills: res2.data.learnedSkills,
-                    selectedSkills: self.filterSkills(res2.data.skills, res2.data.learnedSkills),
-                    availableSkills: self.filterSkills(res1.data, res2.data.skills)
+                    learnedSkills: self.getSkills(res2.data.learned),
+                    selectedSkills: self.filterSkills(res2.data.skills, self.getSkills(res2.data.learned)),
+                    availableSkills: self.filterSkills(res1.data, res2.data.skills),
+                    arrAvailable: [],
+                    arrSelected: [],
+                    arrLearned: []
                 });
             }))
             .catch(function (error) {
@@ -115,7 +119,15 @@ class ManageSkills extends Component {
     }
 
     /* ============================================================================================================= */
-
+    
+    getSkills = (arr) => {
+        let skills = [];
+        for (let i = 0; i < arr.length; i++) {
+            skills.push(arr[i].skill);
+        }
+        return skills;
+    };
+    
     filterSkills = (keep, remove) => {
         for (let i = keep.length - 1; i >= 0; i--) {
             for (let j = 0; j < remove.length; j++) {
@@ -201,7 +213,12 @@ class ManageSkills extends Component {
 
             case 4:
                 source = "/api/removeLearned";
-                array = this.state.arrLearned;
+                
+                for (let i = 0; i < this.state.learned.length; i++) {
+                    if (this.state.arrLearned.includes(this.state.learned[i].skill._id)) {
+                        array.push(this.state.learned[i]._id);
+                    }
+                }
                 break;
 
             default:
@@ -215,6 +232,7 @@ class ManageSkills extends Component {
                 skills: array
             })
                 .then(function () {
+                    console.log(array);
                     self.setState({
                         changed: true
                     });
@@ -256,7 +274,7 @@ class ManageSkills extends Component {
                 </div>
 
                 <Modal show={this.state.show} onHide={this.closeAll} animation={true}>
-                    <Modal.Header id={this.props.isMentor ? "skills-header-mentor" : "skills-header"}>
+                    <Modal.Header id="skills-header">
                         <Modal.Title
                             className="modal-title-skills"
                             id="left-title"
@@ -267,23 +285,19 @@ class ManageSkills extends Component {
 
                         <Modal.Title
                             className="modal-title-skills"
-                            id={this.props.isMentor ? "right-title" : "middle-title"}
+                            id="middle-title"
                             onClick={this.showSelected}
                             style={this.state.available ? inactiveSelected : (this.state.selected ? null : inactiveSelected)}>
                             SELECTED
                         </Modal.Title>
 
-                        {
-                            this.props.isMentor ? (null) : (
-                                <Modal.Title
-                                    className="modal-title-skills"
-                                    id="right-title"
-                                    onClick={this.showLearned}
-                                    style={this.state.available ? inactiveLearned : (this.state.selected ? inactiveLearned : null)}>
-                                    LEARNED
-                                </Modal.Title>
-                            )
-                        }
+                        <Modal.Title
+                            className="modal-title-skills"
+                            id="right-title"
+                            onClick={this.showLearned}
+                            style={this.state.available ? inactiveLearned : (this.state.selected ? inactiveLearned : null)}>
+                            {this.props.isMentor ? "TAUGHT" : "LEARNED"}
+                        </Modal.Title>
                     </Modal.Header>
 
                     {
@@ -294,50 +308,30 @@ class ManageSkills extends Component {
                                 </div>
                             </Modal.Body>
                         ) : (
-                                <Modal.Body>
-                                    {
-                                        this.props.isMentor ? (
-                                            <div>
-                                                {
-                                                    this.state.available ?
-                                                        <Available
-                                                            skills={this.state.availableSkills}
-                                                            updateSelected={this.handleClickedSkills}
-                                                            updateSkills={this.updateSkills} />
-                                                        : <Selected
-                                                            skills={this.state.selectedSkills}
-                                                            updateSelected={this.handleClickedSkills}
-                                                            updateSkills={this.updateSkills}
-                                                            isMentor={this.props.isMentor} />
-                                                }
-                                            </div>
-                                        ) : (
-                                                <div>
-                                                    {
-                                                        this.state.available ?
-                                                            <Available
-                                                                skills={this.state.availableSkills}
-                                                                updateSelected={this.handleClickedSkills}
-                                                                updateSkills={this.updateSkills}
-                                                                handleClose={this.closeAll} />
-                                                            : (this.state.selected ?
-                                                                <Selected
-                                                                    skills={this.state.selectedSkills}
-                                                                    updateSelected={this.handleClickedSkills}
-                                                                    updateSkills={this.updateSkills}
-                                                                    isMentor={this.props.isMentor}
-                                                                    handleClose={this.closeAll} />
-                                                                : <Learned
-                                                                    skills={this.state.learnedSkills}
-                                                                    updateSelected={this.handleClickedSkills}
-                                                                    updateSkills={this.updateSkills}
-                                                                    handleClose={this.closeAll} />)
-                                                    }
-                                                </div>
-                                            )
-                                    }
-                                </Modal.Body>
-                            )
+                            <Modal.Body>
+                                {
+                                    this.state.available ?
+                                        <Available
+                                            skills={this.state.availableSkills}
+                                            updateSelected={this.handleClickedSkills}
+                                            updateSkills={this.updateSkills}
+                                            handleClose={this.closeAll} />
+                                        : (this.state.selected ?
+                                            <Selected
+                                                skills={this.state.selectedSkills}
+                                                updateSelected={this.handleClickedSkills}
+                                                updateSkills={this.updateSkills}
+                                                isMentor={this.props.isMentor}
+                                                handleClose={this.closeAll} />
+                                            : <Learned
+                                                skills={this.state.learnedSkills}
+                                                updateSelected={this.handleClickedSkills}
+                                                updateSkills={this.updateSkills}
+                                                isMentor={this.props.isMentor}
+                                                handleClose={this.closeAll} />)
+                                }
+                            </Modal.Body>
+                        )
                     }
                 </Modal>
             </div>

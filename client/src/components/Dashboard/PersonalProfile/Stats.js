@@ -5,7 +5,7 @@ class Stats extends Component {
         return (
             <div id="stats">
                 <div className="stat centered" id="stat-1">
-                    <h3>{this.props.isMentor ? this.props.allSkills : this.props.learnedSkills}</h3>
+                    <h3>{this.props.skills}</h3>
                     <h5>{(this.props.skills > 1) ? "Skills" : "Skill"} {this.props.isMentor ? "Taught" : "Learnt"}</h5>
                 </div>
 
@@ -17,10 +17,10 @@ class Stats extends Component {
                                 {(this.props.connections > 1) ? "Mentees" : "Mentee"} Met
                             </h5>
                         ) : (
-                                <h5>
-                                    {(this.props.connections > 1) ? "Mentors" : "Mentor"} Met
+                            <h5>
+                                {(this.props.connections > 1) ? "Mentors" : "Mentor"} Met
                             </h5>
-                            )
+                        )
                     }
                 </div>
 
