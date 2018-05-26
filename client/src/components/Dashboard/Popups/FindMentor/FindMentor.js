@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
-import axios from "axios/index";
+import axios from "axios";
 import User from "../../../GetStarted/Users/User"
 
 class FindMentor extends Component {
@@ -31,7 +31,7 @@ class FindMentor extends Component {
         axios.get("/api/user")
             .then(function (res1) {
                 axios.post("/api/mentorsBySkills", {
-                    skills: self.filterSkills(res1.data.skills, res1.data.learnedSkills)
+                    skills: self.filterSkills(res1.data.skills, self.getSkills(res1.data.learned))
                 })
                     .then(function (res2) {
                         self.setState({
@@ -136,6 +136,14 @@ class FindMentor extends Component {
     }
 
     /* ============================================================================================================= */
+
+    getSkills = (arr) => {
+        let skills = [];
+        for (let i = 0; i < arr.length; i++) {
+            skills.push(arr[i].skill);
+        }
+        return skills;
+    };
 
     filterSkills = (keep, remove) => {
         for (let i = keep.length - 1; i >= 0; i--) {

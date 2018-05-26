@@ -26,9 +26,9 @@ class Dashboard extends Component {
             allSkills: [],
             learnedSkills: [],
             selectedSkills: [],
-
             connections: [],
             events: [],
+            joinDate: {},
 
             notifications: [
                 {
@@ -72,8 +72,9 @@ class Dashboard extends Component {
                             user: res.data,
                             isMentor: res.data.isMentor,
                             allSkills: res.data.skills,
-                            learnedSkills: res.data.learnedSkills,
-                            connections: res.data.connections
+                            learnedSkills: res.data.learned,
+                            connections: res.data.connections,
+                            joinDate: res.data.joinDate
                         });
                     } else {
                         self.setState({
@@ -128,6 +129,7 @@ class Dashboard extends Component {
                                     events={this.state.events}
                                     allSkills={this.state.allSkills}
                                     learnedSkills={this.state.learnedSkills}
+                                    joinDate={this.state.joinDate}
                                     reload={this.reload} />
                                 <Popups
                                     isMentor={this.state.isMentor}

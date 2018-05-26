@@ -65,15 +65,14 @@ class PersonalProfile extends Component {
                 </header>
 
                 <Stats
-                    allSkills={this.props.allSkills.length}
-                    learnedSkills={this.props.learnedSkills.length}
+                    skills={this.props.learnedSkills.length}
                     connections={this.props.connections.length}
                     events={this.props.events.length}
                     isMentor={this.props.isMentor} />
 
                 <PersonalSkills
-                    allSkills={this.props.allSkills}
                     learnedSkills={this.props.learnedSkills}
+                    joinDate={this.props.joinDate}
                     isMentor={this.props.isMentor} />
             </div>
         );

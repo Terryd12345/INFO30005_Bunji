@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-import axios from "axios/index";
+import axios from "axios";
 
 import { weatherApiKey } from "../config";
 
 const Chat = mongoose.model("chat");
 const Event = mongoose.model("event");
+const Learned = mongoose.model("learned");
 const Skill = mongoose.model("skill");
 const State = mongoose.model("state");
 const User = mongoose.model("user");
@@ -12,7 +13,7 @@ const User = mongoose.model("user");
 export default {
     loggingIn: function (req, res) {
         User.findById(req.user._id)
-            .exec((err, user) => {
+            .exec((err) => {
                 if (!err) {
                     if (req.user.skills.length > 0) {
                         res.redirect("/dashboard");
@@ -26,7 +27,7 @@ export default {
     getCurrentUser: function (req, res) {
         User.findById(req.user._id)
             .populate("skills")
-            .populate("learnedSkills")
+            .populate({ path: "learned", populate: { path: "skill" } })
             .populate({ path: "connections", populate: { path: "skills" } })
             .exec((err, user) => {
                 if (!err) {
@@ -116,9 +117,10 @@ export default {
             isMentor: req.body.isMentor,
             description: req.body.description,
             skills: req.body.skills,
-            learnedSkills: req.body.learnedSkills,
+            learned: req.body.learned,
             connections: req.body.connections,
-            imagePath: req.body.imagePath
+            imagePath: req.body.imagePath,
+            joinDate: new Date()
         }, (err) => {
             if (!err) {
                 res.sendStatus(200);
@@ -222,7 +224,12 @@ export default {
             .exec((err, user) => {
                 if (!err) {
                     req.body.skills.forEach(skill => {
-                        user.learnedSkills.push(skill);
+                        let learned = new Learned({
+                            skill: skill,
+                            date: new Date()
+                        });
+                        Learned.create(learned);
+                        user.learned.push(learned._id);
                     });
                     user.save(user);
                     res.sendStatus(200);
@@ -237,8 +244,10 @@ export default {
         User.findById(req.user._id)
             .exec((err, user) => {
                 if (!err) {
-                    req.body.skills.forEach(skill => {
-                        user.learnedSkills.pull(skill);
+                    req.body.skills.forEach(id => {
+                        user.learned.pull(id);
+                        Learned.findByIdAndRemove(id)
+                        .exec();
                     });
                     user.save(user);
                     res.sendStatus(200);

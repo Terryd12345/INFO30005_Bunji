@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
-import axios from "axios/index";
+import axios from "axios";
 
 class Welcome extends Component {
     constructor(props) {

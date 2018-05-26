@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import ChatWindow from "../Connections/ChatWindow";
 import Connections from "../Connections/Connections";
-import axios from "axios/index";
+import axios from "axios";
 import qs from "../../utils/query-string";
 
 class Relationships extends Component {
