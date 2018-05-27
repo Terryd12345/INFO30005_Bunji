@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
-import Event from "./Event";
 import axios from "axios";
+import Event from "./Event";
 
 class Events extends Component {
     constructor(props) {

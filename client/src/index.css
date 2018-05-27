@@ -1497,27 +1497,25 @@ a:hover {
 
 /* ==================== Notifications ===================== */
 
-.notification-panel {
+.notification-panel,
+.notification-panel:active,
+.notification-panel:focus {
+    cursor: pointer;
     height: 55px;
     margin-bottom: 10px;
     padding: 10px 9px;
     background: #fff;
     border: 1px solid #578bca;
+    font-size: 0.9rem;
     text-align: center;
     display: grid;
-    grid-template: "picture description response" 1fr / 14% 58% 26%;
+    grid-template: "picture description time" 1fr / 14% 58% 26%;
     grid-gap: 1%;
 }
 
-.notification-panel {
-    font-size: 0.9rem;
+.notification-panel:hover {
+    background: #f1f1f1;
 }
-
-/*.notification-panel:hover {
-    cursor: pointer;
-    background: #578bca;
-    color: #fff;
-}*/
 
 .notification-pic img {
     grid-area: picture;
@@ -1532,20 +1530,20 @@ a:hover {
     text-align: left;
 }
 
-.notification-res {
-    grid-area: response;
+.notification-time {
+    grid-area: time;
     margin: auto 0;
     text-align: right;
 }
 
-.notification-res a {
+/*.notification-res a {
     cursor: pointer;
 }
 
 .notification-res a img {
     max-width: 1.4rem;
     height: auto;
-}
+}*/
 
 #notifications-content {
     overflow: auto;

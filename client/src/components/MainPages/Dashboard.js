@@ -28,25 +28,7 @@ class Dashboard extends Component {
             selectedSkills: [],
             connections: [],
             events: [],
-            joinDate: {},
-
-            notifications: [
-                {
-                    _id: "1",
-                    user: "James",
-                    imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126616/w3zjcaang6oherqmnygo.jpg"
-                },
-                {
-                    _id: "2",
-                    user: "Jane",
-                    imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126662/lhrajxxmtrr7fpa8uyea.jpg"
-                },
-                {
-                    _id: "3",
-                    user: "Fred",
-                    imagePath: "https://res.cloudinary.com/dfocutu6i/image/upload/v1526126735/kiuuaemkcqhld9ncrfow.jpg"
-                }
-            ]
+            joinDate: {}
         };
     }
 
@@ -134,7 +116,7 @@ class Dashboard extends Component {
                                 <Popups
                                     isMentor={this.state.isMentor}
                                     reload={this.reload} />
-                                <Notifications notifications={this.state.notifications} />
+                                <Notifications events={this.state.events} />
                                 <Contacts
                                     isMentor={this.state.isMentor}
                                     connections={this.state.connections} />

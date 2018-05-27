@@ -8,8 +8,6 @@ class Event extends Component {
         super(props);
 
         this.getDate = this.getDate.bind(this);
-        this.getStartTime = this.getStartTime.bind(this);
-        this.getEndTime = this.getEndTime.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
 

@@ -7,7 +7,8 @@ const eventSchema = mongoose.Schema({
     location: { type: String, required: true },
     description: { type: String },
     user1: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
-    user2: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true }
+    user2: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
+    createdDate: { type: Date, required: true }
 });
 
 export default mongoose.model("event", eventSchema);
