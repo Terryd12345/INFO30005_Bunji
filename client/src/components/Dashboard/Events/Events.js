@@ -16,7 +16,7 @@ class Events extends Component {
 
         this.state = {
             loading: true,
-            currentUserID: "",
+            currentUser: {},
 
             upcoming: true,
             thisWeek: false,
@@ -32,7 +32,7 @@ class Events extends Component {
             .then(function (res) {
                 self.setState({
                     loading: false,
-                    currentUserID: res.data._id
+                    currentUser: res.data
                 });
             })
             .catch(function (error) {
@@ -233,7 +233,7 @@ class Events extends Component {
                                                                     description={event.description}
                                                                     user1={event.user1}
                                                                     user2={event.user2}
-                                                                    currentUserID={this.state.currentUserID}
+                                                                    currentUser={this.state.currentUser}
                                                                     />
                                                             })
                                                         }
@@ -261,7 +261,8 @@ class Events extends Component {
                                                                         description={event.description}
                                                                         user1={event.user1}
                                                                         user2={event.user2}
-                                                                        currentUserID={this.state.currentUserID} />
+                                                                        currentUser={this.state.currentUser}
+                                                                        />
                                                                 })
                                                             }
                                                         </div>
@@ -288,7 +289,8 @@ class Events extends Component {
                                                                             description={event.description}
                                                                             user1={event.user1}
                                                                             user2={event.user2}
-                                                                            currentUserID={this.state.currentUserID} />
+                                                                            currentUser={this.state.currentUser}
+                                                                            />
                                                                     })
                                                                 }
                                                             </div>
@@ -315,7 +317,8 @@ class Events extends Component {
                                                                                 description={event.description}
                                                                                 user1={event.user1}
                                                                                 user2={event.user2}
-                                                                                currentUserID={this.state.currentUserID} />
+                                                                                currentUser={this.state.currentUser}
+                                                                                />
                                                                         })
                                                                     }
                                                                 </div>

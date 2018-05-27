@@ -9,7 +9,7 @@ class Notifications extends Component {
         
         this.state = {
             loading: true,
-            currentUserID: ""
+            currentUser: {}
         };
     }
     
@@ -20,7 +20,7 @@ class Notifications extends Component {
             .then(function (res) {
                 self.setState({
                     loading: false,
-                    currentUserID: res.data._id
+                    currentUser: res.data
                 });
             })
             .catch(function (error) {
@@ -56,10 +56,16 @@ class Notifications extends Component {
                                                 .map(event => {
                                                 return <Notification
                                                     key={event._id}
+                                                    title={event.title}
+                                                    startDate={event.startDate}
+                                                    endDate={event.endDate}
+                                                    location={event.location}
+                                                    description={event.description}
                                                     user1={event.user1}
                                                     user2={event.user2}
+                                                    currentUser={this.state.currentUser}
                                                     createdDate={event.createdDate}
-                                                    currentUserID={this.state.currentUserID}/>;
+                                                    />;
                                             })
                                         }
                                     </div>

@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import { BeatLoader } from "react-spinners";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
+import EventPopup from "./EventPopup";
 
 class Event extends Component {
     constructor(props) {
         super(props);
-
+    
+        this.getDay = this.getDay.bind(this);
         this.getDate = this.getDate.bind(this);
+        this.getStartTime = this.getStartTime.bind(this);
+        this.getEndTime = this.getEndTime.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
 
@@ -27,7 +31,7 @@ class Event extends Component {
         const self = this;
 
         axios.post("/api/getUserById", {
-            id: (this.props.currentUserID.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
+            id: (this.props.currentUser._id.localeCompare(self.props.user1) === 0) ? self.props.user2 : self.props.user1
         })
             .then(function (res) {
                 self.setState({
@@ -41,7 +45,7 @@ class Event extends Component {
                 console.log(error);
             });
 
-        axios.get(`api/weather/${this.props.location}`)
+        axios.get(`api/weather/${this.props.currentUser.city}`)
             .then((res) => {
                 // Display weather picture
                 const celsius = `${Math.round(res.data.main.temp - 273).toString()}`;
@@ -67,6 +71,11 @@ class Event extends Component {
                     weatherIcon: ""
                 });
             });
+    }
+    
+    getDay() {
+        let datetime = new Date(this.props.startDate);
+        return datetime.toLocaleString("en-US", { weekday: "long" });
     }
 
     getDate() {
@@ -97,6 +106,7 @@ class Event extends Component {
     }
 
     render() {
+        const day = this.getDay();
         const date = this.getDate();
         const startTime = this.getStartTime();
         const endTime = this.getEndTime();
@@ -139,25 +149,22 @@ class Event extends Component {
                 </div>
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
-                    <Modal.Header id="popups-header">
-                        <Modal.Title className="modal-title-popups">
-                            {this.props.title}
-                        </Modal.Title>
-                    </Modal.Header>
-
-                    <Modal.Body>
-                        <img src={this.state.imagePath} alt="Icon" />
-                        <br />
-                        Meeting with: {this.state.firstName} {this.state.lastName}
-                        <br />
-                        Location: {this.props.location}
-                        <br />
-                        Expected Weather: {this.state.weatherCondition} / {this.state.temperature} &deg;C
-                        <br />
-                        {this.state.weatherIcon}
-                        <br />
-                        {this.props.description}
-                    </Modal.Body>
+                    <EventPopup
+                        title={this.props.title}
+                        currentUser={this.props.currentUser}
+                        imagePath={this.state.imagePath}
+                        firstName={this.state.firstName}
+                        lastName={this.state.lastName}
+                        day={day}
+                        date={date}
+                        startTime={startTime}
+                        endTime={endTime}
+                        location={this.props.location}
+                        weatherIcon={this.state.weatherIcon}
+                        weatherCondition={this.state.weatherCondition}
+                        temperature={this.state.temperature}
+                        description={this.props.description}
+                    />
                 </Modal>
             </div>
         )

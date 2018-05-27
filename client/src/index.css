@@ -2527,6 +2527,75 @@ a:hover {
     background: #578bca;
 }
 
+#popups-event {
+    display: grid;
+    grid-template: "picture" "details" "description";
+}
+
+#popups-event h5 {
+    font-family: "Source Sans Pro", serif;
+    font-weight: 600;
+}
+
+#popups-event h6 {
+    font-family: "Source Sans Pro", serif;
+    font-size: 1.05rem;
+}
+
+#popups-event-pic {
+    grid-area: picture;
+    padding: 0 0 20px 0;
+    text-align: center;
+    display: grid;
+    grid-template: "picture-1 picture-2" 1fr / 1fr 1fr;
+}
+
+#popups-event-pic-1 {
+    grid-area: picture-1;
+}
+
+#popups-event-pic-2 {
+    grid-area: picture-2;
+}
+
+#popups-event-pic-1 img,
+#popups-event-pic-2 img {
+    padding: 0 0 5px 0;
+    max-width: 80%;
+    height: auto;
+}
+
+#popups-event-details {
+    grid-area: details;
+    display: grid;
+    grid-template: "details-1 details-2" 1fr / 60% 40%;
+}
+
+#popups-event-details-1 {
+    grid-area: details-1;
+    padding: 15px;
+    background: #a1dbf3;
+}
+
+#popups-event-details-2 {
+    grid-area: details-2;
+    padding: 15px;
+    background: #effaff;
+    text-align: center;
+}
+
+#popups-event-details-2 img {
+    width: 3rem;
+    height: auto;
+    padding: 5px 0 0 0;
+}
+
+#popups-event-desc {
+    grid-area: description;
+    padding: 15px;
+    background: #c0e3ea;
+}
+
 /* =================== ManageSkills.js ==================== */
 
 .modal-title-skills {
