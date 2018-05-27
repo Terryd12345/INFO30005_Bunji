@@ -1499,7 +1499,8 @@ a:hover {
 
 .notification-panel,
 .notification-panel:active,
-.notification-panel:focus {
+.notification-panel:focus,
+.notification-panel:hover {
     cursor: pointer;
     height: 55px;
     margin-bottom: 10px;
@@ -1600,7 +1601,8 @@ a:hover {
 
 .event-panel,
 .event-panel:active,
-.event-panel:focus {
+.event-panel:focus,
+.event-panel:hover {
     cursor: pointer;
     margin-bottom: 25px;
     padding: 10px 10px 15px 10px;
@@ -1885,7 +1887,10 @@ a:hover {
 }
 
 @media (max-width: 875px) {
-    .event-panel {
+    .event-panel,
+    .event-panel:active,
+    .event-panel:focus,
+    .event-panel:hover {
         padding: 5px 5px 10px 5px;
         grid-template-columns: 25% 75%;
         grid-gap: 8px;
@@ -2004,7 +2009,10 @@ a:hover {
     .section {
         grid-auto-rows: 85px minmax(0, auto);
     }
-    .notification-panel {
+    .notification-panel,
+    .notification-panel:active,
+    .notification-panel:focus,
+    .notification-panel:hover {
         height: 75px;
     }
     .contact-panel {
@@ -2018,7 +2026,10 @@ a:hover {
     .contact-desc {
         line-height: 125%;
     }
-    .event-panel {
+    .event-panel,
+    .event-panel:active,
+    .event-panel:focus,
+    .event-panel:hover {
         padding: 20px 10px 25px 10px;
         grid-template-columns: 35% 65%;
         grid-gap: 0;
