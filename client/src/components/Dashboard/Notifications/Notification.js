@@ -46,7 +46,7 @@ class Notification extends Component {
                 console.log(error);
             });
         
-        axios.get(`api/weather/${this.props.currentUser.city}`)
+        axios.get(`api/weather/${this.props.location}`)
             .then((res) => {
                 // Display weather picture
                 const celsius = `${Math.round(res.data.main.temp - 273).toString()}`;
@@ -66,10 +66,11 @@ class Notification extends Component {
             })
             .catch((error) => {
                 console.log(error);
+                let icon = <img src={require("../../../images/icons/error.png")} alt="Icon" />;
                 self.setState({
                     temperature: "",
                     weatherCondition: "",
-                    weatherIcon: ""
+                    weatherIcon: icon
                 });
             });
     }

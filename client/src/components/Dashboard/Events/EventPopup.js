@@ -35,7 +35,13 @@ class EventPopup extends Component {
                         <div id="popups-event-details-2">
                             <h5>Weather:</h5>
                             {this.props.weatherIcon}
-                            <h6>{this.props.weatherCondition} / {this.props.temperature} &deg;C</h6>
+                            {
+                                (this.props.weatherCondition && this.props.temperature) ? (
+                                    <h6>{this.props.weatherCondition} / {this.props.temperature}&deg;C</h6>
+                                ) : (
+                                    <h6>Not Available</h6>
+                                )
+                            }
                         </div>
                     </div>
         

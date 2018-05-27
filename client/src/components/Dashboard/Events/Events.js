@@ -153,10 +153,10 @@ class Events extends Component {
         return filteredEvents.sort(function (a, b) {
             if (type === 4) {
                 // newest to oldest
-                return (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0) * -1;
+                return (a.startDate > b.startDate) ? 1 : ((b.startDate > a.startDate) ? -1 : 0) * -1;
             } else {
                 // oldest to newest
-                return (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0);
+                return (a.startDate > b.startDate) ? 1 : ((b.startDate > a.startDate) ? -1 : 0);
             }
         });
     }

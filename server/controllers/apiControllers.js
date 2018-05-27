@@ -414,7 +414,6 @@ export default {
                 res.send(response.data);
             })
             .catch(function (error) {
-                console.log(`${req.params.location} not found`);
                 res.sendStatus(error.response.status);
             })
     }
